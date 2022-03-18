@@ -130,3 +130,4 @@ dmypy.json
 
 inrai/settings_local.py
 .idea/*
+staticfiles/*
