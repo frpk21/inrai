@@ -1,0 +1,15 @@
+{% extends "base/base.html" %}
+{% block contenido %}
+
+<div class="alert alert-warning" role="alert">
+    <h4 class="alert-heading ">Sin previlegios necesarios!</h4>
+    <p>El usuario no tiene sufucientes privilegios</mark> para cargar opción solicitada.</p>
+    <hr>
+    <p class="mb-0"><small>Para poder acceder, debes ingresar con un usuario con privilegios suficientes.</small></p>
+    <hr>
+    <a href="{{request.META.HTTP_REFERER}}" class="btn btn-info">
+    <span class="fas fa-thumbs-up"></span>Ok, Continuar</a>
+    <a href="{% url 'generales:logout' %}" class="btn btn-warning">
+    <span class="fas fa-user-secret"></span>Ingresar con otro usuario.</a>
+</div>
+{% endblock contenido %}
