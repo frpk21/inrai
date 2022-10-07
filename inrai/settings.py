@@ -29,7 +29,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -76,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'inrai.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -88,10 +86,9 @@ DATABASES = {
         'PASSWORD': '0268',
         'HOST': 'localhost',
         'PORT': '5432',
-       },
-    
-}
+    },
 
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -111,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -125,15 +121,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "medios@sistemainrai.net"
 EMAIL_HOST_PASSWORD = "j786796679"
-
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
@@ -145,7 +138,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-
 # cuando el usuario se logee, el programa lo manda al home:
 LOGIN_REDIRECT_URL = '/'
 
@@ -155,6 +147,6 @@ LOGOUT_REDIRECT_URL = '/login/'
 ALLOWED_HOSTS = ['*']
 
 try:
-   exec(open(os.path.join(BASE_DIR, 'pos/settings_local.py')).read())
+    exec(open(os.path.join(BASE_DIR, 'inrai/settings_local.py')).read())
 except IOError:
-   raise Exception('error reading local settings')
+    raise Exception('error reading local settings')

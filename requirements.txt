@@ -1,0 +1,6 @@
+pip==22.0.4
+Django==2.2.1
+django-tempus-dominus==5.1.2.16
+django-ckeditor==6.2.0
+psycopg2-binary==2.8.6
+gunicorn==20.1.0
