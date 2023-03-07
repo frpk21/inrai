@@ -1,7 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.urls import reverse
-from multiselectfield import MultiSelectField
 from django.template.defaultfilters import slugify
 from datetime import datetime
 
