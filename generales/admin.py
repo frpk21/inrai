@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Campanas,Categoria,Contacto
+
+admin.site.register(Categoria)
+admin.site.register(Campanas)
+admin.site.register(Contacto)

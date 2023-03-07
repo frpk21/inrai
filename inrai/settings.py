@@ -81,11 +81,12 @@ WSGI_APPLICATION = 'inrai.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'inrai',
-        'USER': 'postgres',
-        'PASSWORD': '0268',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': 'inrai_corpo',
+        'USER': 'doadmin',
+        'PASSWORD': 'c56n9esmnqxbquvo',
+        'HOST': 'magazin-do-user-1934793-0.db.ondigitalocean.com',
+        'PORT': '25060',
+        'CONN_MAX_AGE': None
     },
 
 }

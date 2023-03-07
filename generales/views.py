@@ -16,7 +16,9 @@ from django.conf import settings
 
 from django.contrib.auth.models import User
 
-from generales.models import Profile
+from .models import Contacto, Campanas
+
+from .forms import ContactoForm
 
 from datetime import date
 
@@ -35,15 +37,19 @@ class HomePage(generic.View):
         
         return HttpResponse('Pagina de Inicio')
 
-class Home(generic.TemplateView):
+class Home(generic.CreateView):
+    model=Contacto
     template_name='generales/home.html'
-    login_url='generales:home'
+    context_object_name='obj1'
+    form_class=ContactoForm
+    success_url=reverse_lazy("generales:home")
     
     def get(self, request, *args, **kwargs):
-
+        self.object = None
         return self.render_to_response(
             self.get_context_data(
                 cliente=None,
+                proyectos = Campanas.objects.all().order_by('-modificado')[:10],
                 hoy = date.today()
             )
         )
