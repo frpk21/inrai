@@ -6,6 +6,8 @@ from django.urls import reverse_lazy
 
 from django.views import generic
 
+from django.views.generic.base import TemplateView, View
+
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 from django.urls import reverse, reverse_lazy
@@ -16,7 +18,7 @@ from django.conf import settings
 
 from django.contrib.auth.models import User
 
-from .models import Contacto, Campanas
+from .models import Contacto, Campanas, Nosotros
 
 from .forms import ContactoForm
 
@@ -48,11 +50,25 @@ class Home(generic.CreateView):
         self.object = None
         return self.render_to_response(
             self.get_context_data(
-                cliente=None,
                 proyectos = Campanas.objects.all().order_by('-modificado')[:10],
+                nosotros = Nosotros.objects.all()[:1],
                 hoy = date.today()
             )
         )
 
 class HomeSinPrivilegios(generic.TemplateView):
     template_name="generales/msg_sin_privilegios.html"
+
+
+class NosotrosView(TemplateView):
+    login_url = 'generales:login'
+    model = Nosotros
+    template_name = "generales/nosotros.html"
+    context_object_name="nosotros"
+
+    def get_context_data(self, **kwargs):
+        hoy = date.today()
+        context = super().get_context_data(**kwargs)
+        nosotros = Nosotros.objects.all().last()
+        context['nosotros'] = nosotros
+        return context

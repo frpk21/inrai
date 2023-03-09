@@ -1,5 +1,7 @@
 from django.urls import include, path
 
+from generales import views
+
 from generales.views import Home, HomeSinPrivilegios
 
 from django.contrib.auth import views as auth_views
@@ -16,6 +18,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='generales/login.html'), name='logout'),
     path('loginunlock/', auth_views.LoginView.as_view(template_name='generales/lock.html'), name='loginunlock'),
     path('sin_privilegios/', HomeSinPrivilegios.as_view(), name='sin_privilegios'),
+    path('nosotros/', views.NosotrosView.as_view(), name='nosotros'),
     #url((r'^politica/$'), PoliticaView, name="politica"),
 
 ]

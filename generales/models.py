@@ -71,3 +71,17 @@ class Campanas(ClaseModelo):
 
     class Meta:
         verbose_name_plural = "Campañas"
+
+
+class Nosotros(ClaseModelo):
+    nosotros = RichTextField(max_length=10000, blank=True, null=True)
+   
+    def __str__(self):
+        return '{}'.format(self.nosotros)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.titulo)
+        super(Nosotros,self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = "Nosotros"

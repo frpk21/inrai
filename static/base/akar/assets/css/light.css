@@ -1246,7 +1246,7 @@ a.phone {
     width: 100%;
     right: 0;
     position: absolute;
-    background: url('../img/work-detail/1.jpg') no-repeat center center;
+    background: url('/static/base/images/ocupacional.jpg') no-repeat center center;
     background-size: cover;
 }
 
