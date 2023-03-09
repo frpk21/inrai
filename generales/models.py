@@ -80,7 +80,6 @@ class Nosotros(ClaseModelo):
         return '{}'.format(self.nosotros)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.titulo)
         super(Nosotros,self).save(*args, **kwargs)
 
     class Meta:
