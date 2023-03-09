@@ -37,7 +37,7 @@
         <header>
             <nav>
                 <div class="logo">
-                    <a href="index.html"><img src="/static/base/images/logo_horizontal.png" width="200px" alt="logo"></a>
+                    <a href="{% url 'generales:home' %}"><img src="/static/base/images/logo_horizontal.png" width="200px" alt="logo"></a>
                 </div>
                 <div class="toggle-btn">
                     <div class="burger-menu">
@@ -58,10 +58,11 @@
                                         <div class="links text-center text-lg-left">
                                             <ul>
                                                 <li><a class="menu-link active" href="#" data-scroll-nav="0">Inicio</a></li>
-                                                <li><a class="menu-link" href="#" data-scroll-nav="1">Nosotros</a></li>
+                                                <li><a class="menu-link" href="{% url 'generales:nosotros' %}" >Nosotros</a></li>
                                                 <li><a class="menu-link" href="#" data-scroll-nav="2">Servicios</a></li>
                                                 <li><a class="menu-link" href="#" data-scroll-nav="3">Portafolio</a></li>
-                                                <li><a class="menu-link" href="#" data-scroll-nav="4">Nuestras emisoras</a></li>
+                                                <li><a class="menu-link" href="#" data-scroll-nav="4">Nuestras equipo</a></li>
+                                                <li><a class="menu-link" href="#" data-scroll-nav="5">Nuestras emisoras</a></li>
                                                 <li><a class="menu-link" href="#" data-scroll-nav="7">Contacto</a></li>
                                             </ul>
                                         </div>
