@@ -45,7 +45,8 @@ class Home(generic.CreateView):
     context_object_name='obj1'
     form_class=ContactoForm
     success_url=reverse_lazy("generales:home")
-    
+    print("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
+    print(Campanas.objects.all())
     def get(self, request, *args, **kwargs):
         self.object = None
         return self.render_to_response(

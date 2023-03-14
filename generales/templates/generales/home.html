@@ -246,14 +246,16 @@
             </div>
             <div class="row mt-40">
                 {% for item in proyectos %}
-                    {% cycle 'odd' 'even' %}
+                    <div style="display: none;">
+                        {% cycle 'odd' 'even' %}
+                    </div>   
                     {% if cycle == 'odd' %}
                         <!-- Project 07 -->
                         <div class="col-md-12 col-lg-6">
                             <a href="project-detail-light.html">
                                 <div class="project-content">
-                                    <div class="img-project">
-                                        <img src="{{item.archivo_foto.url}}" alt="">
+                                    <div class="img-project">{{item.archivo_foto}}
+                                        <img src="/media/fotos/{{item.archivo_foto}}" alt="">
                                     </div>
                                     <div class="detail-project">
                                         <p><span class="number">{{forloop.counter}}</span> <span class="strip"></span> {{item.categoria.nombre}}</p>
@@ -268,11 +270,11 @@
                             <a href="project-detail-light.html">
                                 <div class="project-content mt-60-lg ">
                                     <div class="img-project">
-                                        <img src="{{item.archivo_foto.url}}" alt="">
+                                        <img src="/media/{{item.archivo_foto}}" alt="">
                                     </div>
                                     <div class="detail-project">
                                         <p><span class="number">{{forloop.counter}}</span> <span class="strip"></span>{{item.categoria.nombre}}</p>
-                                        <h3 class="reveal-text">titulo</h3>
+                                        <h3 class="reveal-text">{{item.titulo}}</h3>
                                     </div>
                                 </div>
                             </a>
