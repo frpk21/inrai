@@ -58,9 +58,9 @@ class Home(generic.CreateView):
         form_class = self.get_form_class()
         form = self.get_form(form_class)
         self.object = form.save(commit=False)
-        send_mail(request, self.object.correo, self.object.nombre,self.object.tel,self.object.ciudad,self.object.pais,self.object.msg)
+        send_mail(request, self.object.email, self.object.nombre,self.object.telefono,self.object.ciudad,self.object.pais,self.object.textoMensage)
         self.object = form.save()
-        
+
 class HomeSinPrivilegios(generic.TemplateView):
     template_name="generales/msg_sin_privilegios.html"
 
