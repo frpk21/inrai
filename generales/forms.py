@@ -33,7 +33,7 @@ class ContactoForm(forms.ModelForm):
             raise forms.ValidationError("Email Requerido")
         return email
 
-    def clean_mensage(self):
+    def clean_textoMensage(self):
         textoMensage = self.cleaned_data["textoMensage"]
         if not textoMensage:
             raise forms.ValidationError("Mensage Requerido")
