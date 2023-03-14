@@ -1040,7 +1040,7 @@ p.author-text {
     width: calc(100% - 30px);
     transform: translateX(-50%);
     left: 50%;
-    background: #eee;
+    background: #2bc305;
     bottom: -30px;
     z-index: -1;
     box-shadow: -9px 9px 31px -6px rgba(0, 0, 0, .2);
@@ -1056,8 +1056,8 @@ p.author-text {
 }
 
 .team-text h3 {
-    color: #000;
-    font-family: 'Playfair Display', serif;
+    color: #090909;
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
     font-size: 20px;
     letter-spacing: 1px;
     font-weight: 900;
