@@ -45,8 +45,6 @@ class Home(generic.CreateView):
     context_object_name='obj1'
     form_class=ContactoForm
     success_url=reverse_lazy("generales:home")
-    print("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
-    print(Campanas.objects.all())
     def get(self, request, *args, **kwargs):
         self.object = None
         return self.render_to_response(
@@ -56,6 +54,8 @@ class Home(generic.CreateView):
                 hoy = date.today()
             )
         )
+    def post(self, request, *args, **kwargs):
+        send_mail(request, self.object.correo, self.object.nombre,self.object.tel,self.object.ciudad,self.object.pais,self.object.msg)
 
 class HomeSinPrivilegios(generic.TemplateView):
     template_name="generales/msg_sin_privilegios.html"
@@ -73,3 +73,40 @@ class NosotrosView(TemplateView):
         nosotros = Nosotros.objects.all().last()
         context['nosotros'] = nosotros
         return context
+    
+
+
+def send_mail(request, correo, nombre,tel,ciudad,pais,msg):
+    from django.conf import settings
+    from django.core.mail import EmailMessage
+    subject = "USUARIO/CLIENTE INRAI.NET "
+    message = msg.strip()+". Nombre:  "+nombre.strip()+", correo: "+correo.strip()+", telefono: "+tel.strip()+", ciudad: "+ciudad.strip()+", pais: "+pais.strip()
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = ['alejandra.cabrera@sistemainrai.net','medios.bogota@sistemainrai.net','administrador@sistemainrai.net']
+    msg = EmailMessage(subject, message, email_from, recipient_list)
+    try:
+        result = msg.send(fail_silently=False)
+    except Exception as e:
+        return JsonResponse(
+            {
+                'content': {
+                    'message': '*** ERROR ***'+str(e),
+                }
+            }
+        )
+    if result == 1:
+        return JsonResponse(
+            {
+                'content': {
+                    'message': 'Mensage enviado exitosamente.',
+                }
+            }
+        )
+    else:
+        return JsonResponse(
+            {
+                'content': {
+                    'message': 'El mensage NO pudo ser enviado. Por favor revise los datos.',
+                }
+            }
+        )
