@@ -60,6 +60,7 @@ class Home(generic.CreateView):
         self.object = form.save(commit=False)
         send_mail(request, self.object.email, self.object.nombre,self.object.telefono,self.object.ciudad,self.object.pais,self.object.textoMensage)
         self.object = form.save()
+        return HttpResponseRedirect(self.success_url)
 
 class HomeSinPrivilegios(generic.TemplateView):
     template_name="generales/msg_sin_privilegios.html"
