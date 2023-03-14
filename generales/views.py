@@ -90,27 +90,7 @@ def send_mail(request, correo, nombre,tel,ciudad,pais,msg):
     msg = EmailMessage(subject, message, email_from, recipient_list)
     try:
         result = msg.send(fail_silently=False)
+        return
     except Exception as e:
-        return JsonResponse(
-            {
-                'content': {
-                    'message': '*** ERROR ***'+str(e),
-                }
-            }
-        )
-    if result == 1:
-        return JsonResponse(
-            {
-                'content': {
-                    'message': 'Mensage enviado exitosamente.',
-                }
-            }
-        )
-    else:
-        return JsonResponse(
-            {
-                'content': {
-                    'message': 'El mensage NO pudo ser enviado. Por favor revise los datos.',
-                }
-            }
-        )
+        return(str(e))
+ 
