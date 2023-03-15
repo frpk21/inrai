@@ -54,6 +54,7 @@ class Home(generic.CreateView):
                 hoy = date.today()
             )
         )
+    """
     def post(self, request, *args, **kwargs):
         form_class = self.get_form_class()
         form = self.get_form(form_class)
@@ -61,7 +62,7 @@ class Home(generic.CreateView):
         send_mail(request, self.object.email, self.object.nombre,self.object.telefono,self.object.ciudad,self.object.pais,self.object.textoMensage)
         self.object = form.save()
         return HttpResponseRedirect(self.success_url)
-
+    """
 class HomeSinPrivilegios(generic.TemplateView):
     template_name="generales/msg_sin_privilegios.html"
 
