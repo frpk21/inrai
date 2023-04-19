@@ -1,0 +1,983 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 10 ]>
+<html lang="en-US" prefix="og: http://ogp.me/ns#" class="old-ie no-js">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US" prefix="og: http://ogp.me/ns#" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="UTF-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+    <link rel="pingback" href="http://candys.creativira.com/xmlrpc.php" />
+    <title>Candy Fernaux Music &#8211; Candy&#039;s Tunes</title>
+    <meta name='robots' content='noindex,follow' />
+    <script type="text/javascript">
+        function createCookie(a,d,b){if(b){var c=new Date;c.setTime(c.getTime()+864E5*b);b="; expires="+c.toGMTString()}else b="";document.cookie=a+"="+d+b+"; path=/"}function readCookie(a){a+="=";for(var d=document.cookie.split(";"),b=0;b<d.length;b++){for(var c=d[b];" "==c.charAt(0);)c=c.substring(1,c.length);if(0==c.indexOf(a))return c.substring(a.length,c.length)}return null}function eraseCookie(a){createCookie(a,"",-1)}
+        function areCookiesEnabled(){var a=!1;createCookie("testing","Hello",1);null!=readCookie("testing")&&(a=!0,eraseCookie("testing"));return a}(function(a){var d=readCookie("devicePixelRatio"),b=void 0===a.devicePixelRatio?1:a.devicePixelRatio;areCookiesEnabled()&&null==d&&(createCookie("devicePixelRatio",b,7),1!=b&&a.location.reload(!0))})(window);
+    </script><meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Candy Fernaux Music" />
+    <meta property="og:url" content="http://candys.creativira.com/music/" />
+    <meta property="og:site_name" content="Candy&#039;s Tunes" />
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link rel='dns-prefetch' href='//s.w.org' />
+    <link rel="alternate" type="application/rss+xml" title="Candy&#039;s Tunes &raquo; Feed" href="http://candys.creativira.com/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="Candy&#039;s Tunes &raquo; Comments Feed" href="http://candys.creativira.com/comments/feed/" />
+    <script type="text/javascript">
+        window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/candys.creativira.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.4"}};
+        !function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='rs-plugin-settings-css'  href='http://candys.creativira.com/wp-content/plugins/revslider/public/assets/css/settings.css?ver=5.4.3' type='text/css' media='all' />
+    <style id='rs-plugin-settings-inline-css' type='text/css'>
+        #rs-demo-id {}
+    </style>
+    <link rel='stylesheet' id='easy-social-share-buttons-animations-css'  href='http://candys.creativira.com/wp-content/plugins/easy-social-share-buttons3/assets/css/essb-animations.min.css?ver=4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='easy-social-share-buttons-css'  href='http://candys.creativira.com/wp-content/plugins/easy-social-share-buttons3/assets/css/easy-social-share-buttons.min.css?ver=4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='js_composer_front-css'  href='http://candys.creativira.com/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=5.1.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='dt-web-fonts-css'  href='//fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CStint+Ultra+Condensed%7COpen+Sans%3A400%2C600&#038;ver=4.7.4' type='text/css' media='all' />
+    <link rel='stylesheet' id='dt-main-css'  href='http://candys.creativira.com/wp-content/themes/dt-the7/css/main.min.css?ver=5.1.1' type='text/css' media='all' />
+    <!--[if lt IE 10]>
+    <link rel='stylesheet' id='dt-old-ie-css'  href='http://candys.creativira.com/wp-content/themes/dt-the7/css/old-ie.css?ver=5.1.1' type='text/css' media='all' />
+    <![endif]-->
+    <link rel='stylesheet' id='dt-awsome-fonts-css'  href='http://candys.creativira.com/wp-content/themes/dt-the7/fonts/FontAwesome/css/font-awesome.min.css?ver=5.1.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='dt-fontello-css'  href='http://candys.creativira.com/wp-content/themes/dt-the7/fonts/fontello/css/fontello.min.css?ver=5.1.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='dt-arrow-icons-css'  href='http://candys.creativira.com/wp-content/themes/dt-the7/fonts/icomoon-arrows-the7/style.css?ver=5.1.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='the7pt-static-css'  href='http://candys.creativira.com/wp-content/themes/dt-the7/css/post-type.css?ver=5.1.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='external-plugin-css'  href='http://candys.creativira.com/wp-content/plugins/yith-woocommerce-quick-view-premium/assets/css/style-external.css?ver=1.2.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='yith-quick-view-css'  href='http://candys.creativira.com/wp-content/plugins/yith-woocommerce-quick-view-premium/assets/css/yith-quick-view.css?ver=1.2.2' type='text/css' media='all' />
+    <style id='yith-quick-view-inline-css' type='text/css'>
+        .yith-quick-view.yith-modal .yith-wcqv-main{background:#ffffff;}
+        .yith-wcqv-button.inside-thumb span, .yith-wcqv-button.button{color:#ffffff !important;background:#444444 !important;}
+        .yith-wcqv-button.inside-thumb:hover span, .yith-wcqv-button.button:hover{color:#444444 !important;background:#ffffff !important;}
+        .yith-quick-view-content.woocommerce div.summary h1,.yith-quick-view-content.woocommerce div.summary div[itemprop="description"],.yith-quick-view-content.woocommerce div.summary .product_meta,.yith-quick-view-content.woocommerce div.summary .price,.yith-quick-view-content.woocommerce div.summary .price ins {color: #222222;}
+        .yith-quick-view-content.woocommerce div.summary .woocommerce-product-rating .star-rating,.yith-quick-view-content.woocommerce div.summary .woocommerce-product-rating .star-rating:before {color: #f7c104;}
+        .yith-quick-view-content.woocommerce div.summary button.button.alt{background: #27bdc5;color: #ffffff;}
+        .yith-quick-view-content.woocommerce div.summary button.button.alt:hover{background: #009abc;color: #ffffff;}
+        .yith-quick-view-content.woocommerce div.summary .yith-wcqv-view-details{background: #ebe9eb;color: #515151;}
+        .yith-quick-view-content.woocommerce div.summary .yith-wcqv-view-details:hover{background: #dad8da;color: #515151;}
+        .yith-quick-view.yith-modal .yith-quick-view-content div.images{width:50%;}
+        .yith-quick-view.yith-modal .yith-quick-view-content div.summary{width:50%;}
+    </style>
+    <!--[if lt IE 10]>
+    <link rel='stylesheet' id='dt-custom-old-ie.less-css'  href='http://candys.creativira.com/wp-content/uploads/wp-less/dt-the7/css/custom-old-ie-ea445453f1.css?ver=5.1.1' type='text/css' media='all' />
+    <![endif]-->
+    <link rel='stylesheet' id='dt-custom.less-css'  href='http://candys.creativira.com/wp-content/uploads/wp-less/dt-the7/css/custom-a0f7114a92.css?ver=5.1.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='wc-dt-custom.less-css'  href='http://candys.creativira.com/wp-content/uploads/wp-less/dt-the7/css/compatibility/wc-dt-custom-0ee7f132e5.css?ver=5.1.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='dt-media.less-css'  href='http://candys.creativira.com/wp-content/uploads/wp-less/dt-the7/css/media-668e12889b.css?ver=5.1.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='the7pt.less-css'  href='http://candys.creativira.com/wp-content/uploads/wp-less/dt-the7/css/post-type-dynamic-eaafa59fcf.css?ver=5.1.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='style-css'  href='http://candys.creativira.com/wp-content/themes/candy/style.css?ver=5.1.1' type='text/css' media='all' />
+    <style id='style-inline-css' type='text/css'>
+        .yith-quick-view-content div.images .yith-quick-view-thumbs {
+            left: 50px;
+        }
+        .yith-quick-view-content.woocommerce div.summary-content {
+            padding-top: 50px;
+        }
+
+
+        .woocommerce-main-image {
+            padding-top: 10%;
+        }
+
+        .switcher-wrap>* {
+            margin-top: 20px;
+        }
+
+        .mCS-dark-thick.mCSB_scrollTools .mCSB_draggerRail {
+            background-color: #14cefd!important;
+        }
+    </style>
+    <link rel='stylesheet' id='bsf-Defaults-css'  href='http://candys.creativira.com/wp-content/uploads/smile_fonts/Defaults/Defaults.css?ver=4.7.4' type='text/css' media='all' />
+    <link rel='stylesheet' id='ultimate-google-fonts-css'  href='https://fonts.googleapis.com/css?family=Stint+Ultra+Expanded|Stint+Ultra+Condensed' type='text/css' media='all' />
+    <link rel='stylesheet' id='ultimate-style-css'  href='http://candys.creativira.com/wp-content/plugins/Ultimate_VC_Addons/assets/min-css/style.min.css?ver=3.16.10' type='text/css' media='all' />
+    <link rel='stylesheet' id='ultimate-headings-style-css'  href='http://candys.creativira.com/wp-content/plugins/Ultimate_VC_Addons/assets/min-css/headings.min.css?ver=3.16.10' type='text/css' media='all' />
+    <link rel='stylesheet' id='style_ultimate_expsection-css'  href='http://candys.creativira.com/wp-content/plugins/Ultimate_VC_Addons/assets/min-css/expandable-section.min.css?ver=3.16.10' type='text/css' media='all' />
+    <script type='text/javascript' src='http://candys.creativira.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript' src='http://candys.creativira.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='http://candys.creativira.com/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?ver=5.4.3'></script>
+    <script type='text/javascript' src='http://candys.creativira.com/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js?ver=5.4.3'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/music\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"http:\/\/candys.creativira.com\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='//candys.creativira.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=3.0.4'></script>
+    <script type='text/javascript' src='http://candys.creativira.com/wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart.js?ver=5.1.1'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var dtLocal = {"themeUrl":"http:\/\/candys.creativira.com\/wp-content\/themes\/dt-the7","passText":"To view this protected post, enter the password below:","moreButtonText":{"loading":"Loading...","loadMore":"Load more"},"postID":"1403","ajaxurl":"http:\/\/candys.creativira.com\/wp-admin\/admin-ajax.php","contactNonce":"27cc19fb9d","ajaxNonce":"1d263de1f4","pageData":{"type":"page","template":"page","layout":null},"themeSettings":{"smoothScroll":"off","lazyLoading":false,"accentColor":{"mode":"solid","color":"#ff2192"},"floatingHeader":{"showAfter":94,"showMenu":true,"height":56,"logo":{"showLogo":true,"html":"<img class=\" preload-me\" src=\"http:\/\/candys.creativira.com\/wp-content\/uploads\/2017\/03\/candy-fernaux_logotype200.png\" srcset=\"http:\/\/candys.creativira.com\/wp-content\/uploads\/2017\/03\/candy-fernaux_logotype200.png 200w, http:\/\/candys.creativira.com\/wp-content\/uploads\/2017\/03\/candy-fernaux_logotype200@2x.png 400w\" width=\"200\" height=\"33\"   sizes=\"200px\" alt=\"Candy&#039;s Tunes\" \/>","url":"http:\/\/candys.creativira.com\/"}},"mobileHeader":{"firstSwitchPoint":990,"secondSwitchPoint":500},"content":{"textColor":"#787d85","headerColor":"#3b3f4a"},"stripes":{"stripe1":{"textColor":"#787d85","headerColor":"#3b3f4a"},"stripe2":{"textColor":"#8b9199","headerColor":"#ffffff"},"stripe3":{"textColor":"#ffffff","headerColor":"#ffffff"}}},"VCMobileScreenWidth":"768"};
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='http://candys.creativira.com/wp-content/themes/dt-the7/js/above-the-fold.min.js?ver=5.1.1'></script>
+    <script type='text/javascript' src='http://candys.creativira.com/wp-content/plugins/Ultimate_VC_Addons/assets/min-js/ultimate-params.min.js?ver=3.16.10'></script>
+    <script type='text/javascript' src='http://candys.creativira.com/wp-content/plugins/Ultimate_VC_Addons/modules/../assets/min-js/headings.min.js?ver=3.16.10'></script>
+    <script type='text/javascript' src='http://candys.creativira.com/wp-content/plugins/Ultimate_VC_Addons/modules/../assets/min-js/jquery-ui.min.js?ver=3.16.10'></script>
+    <script type='text/javascript' src='http://candys.creativira.com/wp-content/plugins/Ultimate_VC_Addons/modules/../assets/min-js/expandable-section.min.js?ver=3.16.10'></script>
+    <link rel='https://api.w.org/' href='http://candys.creativira.com/wp-json/' />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://candys.creativira.com/xmlrpc.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://candys.creativira.com/wp-includes/wlwmanifest.xml" />
+    <meta name="generator" content="WordPress 4.7.4" />
+    <meta name="generator" content="WooCommerce 3.0.4" />
+    <link rel="canonical" href="http://candys.creativira.com/music/" />
+    <link rel='shortlink' href='http://candys.creativira.com/?p=1403' />
+    <link rel="alternate" type="application/json+oembed" href="http://candys.creativira.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fcandys.creativira.com%2Fmusic%2F" />
+    <link rel="alternate" type="text/xml+oembed" href="http://candys.creativira.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fcandys.creativira.com%2Fmusic%2F&#038;format=xml" />
+    <script>window.dzsap_swfpath="http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/apfull.swf";window.ajaxurl="http://candys.creativira.com/wp-admin/admin-ajax.php";</script><style class="dzsap-extrastyling">body .dzsap-sticktobottom.dzsap-sticktobottom-for-skin-wave{
+    bottom: -160px;
+}</style><meta property="og:site_name" content="Candy&#039;s Tunes" />
+    <meta property="og:title" content="Candy Fernaux Music" />
+    <meta property="og:description" content="Total: 2 Share0 Tweet2 Love0 Email0" />
+    <meta property="og:url" content="http://candys.creativira.com/music/" />
+    <meta property="og:type" content="article" />
+
+    <script type="text/javascript">var essb_settings = {"ajax_url":"http:\/\/candys.creativira.com\/wp-admin\/admin-ajax.php","essb3_nonce":"0460d70e08","essb3_plugin_url":"http:\/\/candys.creativira.com\/wp-content\/plugins\/easy-social-share-buttons3","essb3_facebook_total":true,"essb3_admin_ajax":false,"essb3_internal_counter":false,"essb3_stats":false,"essb3_ga":false,"essb3_ga_mode":"simple","essb3_counter_button_min":0,"essb3_counter_total_min":0,"blog_url":"http:\/\/candys.creativira.com\/","ajax_type":"wp","essb3_postfloat_stay":false,"essb3_no_counter_mailprint":false,"essb3_single_ajax":false,"twitter_counter":"self","post_id":1403};</script><meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://candys.creativira.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 5.4.3 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+    <script type="text/javascript">function setREVStartSize(e){
+        try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+            if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})
+        }catch(d){console.log("Failure at Presize of Slider:"+d)}
+    };</script>
+    <style type="text/css" id="wp-custom-css">
+        /*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+        .product:hover .yith-wcqv-button.inside-thumb,
+        .product.hover_mobile .yith-wcqv-button.inside-thumb {
+            opacity: 1;
+            transform: scale(1);
+            -webkit-transform: scale(1);
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+        }		</style>
+    <noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
+<body class="page-template-default page page-id-1403 transparent slideshow-on disabled-hover-icons overlay-cursor-on srcset-enabled btn-material custom-btn-color custom-btn-hover-color accent-bullets bold-icons phantom-sticky phantom-disable-decoration phantom-custom-logo-on floating-mobile-menu-icon top-header first-switch-logo-left first-switch-menu-right second-switch-logo-left second-switch-menu-right right-mobile-menu layzr-loading-on wpb-js-composer js-comp-ver-5.1.1 vc_responsive album-minuatures-style-2">
+
+<div id="page">
+    <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+    <div class="masthead inline-header center widgets dt-parent-menu-clickable" style="background-color: rgba(255,255,255,0);" role="banner">
+
+
+        <header class="header-bar">
+
+            <div class="branding">
+                <div id="site-title" class="assistive-text">Candy&#039;s Tunes</div>
+                <div id="site-description" class="assistive-text"></div>
+                <a href="http://candys.creativira.com/"><img class=" preload-me" src="http://candys.creativira.com/wp-content/uploads/2017/03/candy-fernaux_logotype300.png" srcset="http://candys.creativira.com/wp-content/uploads/2017/03/candy-fernaux_logotype300.png 300w, http://candys.creativira.com/wp-content/uploads/2017/03/candy-fernaux_logotype300@2x.png 600w" width="300" height="50"   sizes="300px" alt="Candy&#039;s Tunes" /></a>
+
+
+
+
+            </div>
+            <ul id="primary-menu" class="main-nav outside-item-remove-margin" role="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1423 first"><a href='http://candys.creativira.com/' data-level='1'><span class="menu-item-text"><span class="menu-text">Home</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1403 current_page_item menu-item-1516 act"><a href='http://candys.creativira.com/music/' data-level='1'><span class="menu-item-text"><span class="menu-text">Music</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1258 has-children"><a href='http://candys.creativira.com/shop/' data-level='1'><span class="menu-item-text"><span class="menu-text">Candy Shop</span></span></a><ul class="sub-nav hover-style-bg level-arrows-on"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1329 first"><a href='http://candys.creativira.com/cart/' data-level='2'><span class="menu-item-text"><span class="menu-text">Cart</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1331"><a href='http://candys.creativira.com/checkout/' data-level='2'><span class="menu-item-text"><span class="menu-text">Checkout</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1330"><a href='http://candys.creativira.com/my-account/' data-level='2'><span class="menu-item-text"><span class="menu-text">My Account</span></span></a></li> </ul></li> </ul>
+            <div class="mini-widgets">
+                <div class="shopping-cart round-counter-style show-sub-cart show-on-desktop in-menu-first-switch in-menu-second-switch">
+
+                    <a class="wc-ico-cart round-counter-style show-sub-cart" href="http://candys.creativira.com/cart/"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>0.00</span><span class="counter custom-bg">0</span></a>
+
+                    <div class="shopping-cart-wrap">
+                        <div class="shopping-cart-inner">
+
+
+                            <ul class="cart_list product_list_widget empty">
+
+
+                                <li>No products in the cart.</li>
+
+
+                            </ul><!-- end product list -->
+
+                            <div style="display: none;">
+
+                                <p class="total"><strong>Subtotal:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>0.00</span></p>
+
+                                <p class="buttons">
+                                    <a href="http://candys.creativira.com/cart/" class="button view-cart">View Cart</a>
+                                    <a href="http://candys.creativira.com/checkout/" class="button checkout">Checkout</a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div><div class="soc-ico show-on-desktop in-menu-first-switch in-menu-second-switch custom-bg hover-custom-bg"><a title="Facebook" href="https://www.facebook.com/CandysTunes/" target="_blank" class="facebook"><span class="screen-reader-text">Facebook</span></a><a title="Instagram" href="https://www.instagram.com/candystunes/" target="_blank" class="instagram"><span class="screen-reader-text">Instagram</span></a><a title="Twitter" href="https://twitter.com/candystunes/" target="_blank" class="twitter"><span class="screen-reader-text">Twitter</span></a></div></div>
+        </header>
+
+    </div><div class='dt-close-mobile-menu-icon'><span></span></div>
+    <div class='dt-mobile-header'>
+        <ul id="mobile-menu" class="mobile-main-nav" role="menu">
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1391 first"><a href='http://candys.creativira.com/' data-level='1'><span class="menu-item-text"><span class="menu-text">Home</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1392 has-children"><a href='http://candys.creativira.com/shop/' data-level='1'><span class="menu-item-text"><span class="menu-text">Candy Fernaux Shop</span></span></a><ul class="sub-nav hover-style-bg level-arrows-on"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1395 first"><a href='http://candys.creativira.com/cart/' data-level='2'><span class="menu-item-text"><span class="menu-text">Cart</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1394"><a href='http://candys.creativira.com/checkout/' data-level='2'><span class="menu-item-text"><span class="menu-text">Checkout</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1393"><a href='http://candys.creativira.com/my-account/' data-level='2'><span class="menu-item-text"><span class="menu-text">My Account</span></span></a></li> </ul></li> 	</ul>
+        <div class='mobile-mini-widgets-in-menu'></div>
+    </div>
+    <div id="main-slideshow"><link href="http://fonts.googleapis.com/css?family=Poppins:700" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+        <div id="rev_slider_6_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-source="gallery" style="background:rgba(255,255,255,0);padding:0px;">
+            <!-- START REVOLUTION SLIDER 5.4.3 fullscreen mode -->
+            <div id="rev_slider_6_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.3">
+                <ul>	<!-- SLIDE  -->
+                    <li data-index="rs-11" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-rotate="0"  data-saveperformance="off"  data-title="Homepage" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                        <!-- MAIN IMAGE -->
+                        <img src="http://candys.creativira.com/wp-content/uploads/2016/11/candy-fernaux-1.jpg"  alt="" title="candy-fernaux-1"  width="2000" height="1333" data-bgposition="center center" data-kenburns="on" data-duration="5000" data-ease="Power4.easeOut" data-scalestart="150" data-scaleend="100" data-rotatestart="0" data-rotateend="0" data-blurstart="20" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                        <!-- LAYERS -->
+
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption   tp-resizeme  blurslider-gradient rs-parallaxlevel-14"
+                             id="slide-11-layer-2"
+                             data-x="['center','center','center','center']" data-hoffset="['-294','-190','-104','-58']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['33','-4','-99','-79']"
+                             data-fontsize="['150','150','100','80']"
+                             data-lineheight="['120','120','85','60']"
+                             data-letterspacing="['-10','-10','-10','-5']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+
+                             data-type="text"
+                             data-responsive_offset="on"
+
+                             data-frames='[{"delay":50,"speed":3000,"frame":"0","from":"y:50px;sX:0.3;sY:0.3;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                             data-textAlign="['center','center','center','center']"
+                             data-paddingtop="[20,20,20,20]"
+                             data-paddingright="[10,10,10,10]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[10,10,10,10]"
+
+                             style="z-index: 5; white-space: nowrap; font-size: 150px; line-height: 120px; font-weight: 700; color: #ffffff; letter-spacing: -10px;font-family:Poppins;">CANDY<br/>TUNES. </div>
+
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"
+                             id="slide-11-layer-10"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','-80','-100']"
+                             data-width="full"
+                             data-height="200"
+                             data-whitespace="nowrap"
+
+                             data-type="shape"
+                             data-basealign="slide"
+                             data-responsive_offset="on"
+
+                             data-frames='[{"delay":50,"speed":1000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                             data-textAlign="['inherit','inherit','inherit','inherit']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]"
+
+                             style="z-index: 6;background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);"> </div>
+
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-11-layer-4"
+                             data-x="['left','left','left','left']" data-hoffset="['100','100','100','100']"
+                             data-y="['bottom','bottom','bottom','bottom']" data-voffset="['-60','-130','-130','-140']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+
+                             data-type="image"
+                             data-basealign="slide"
+                             data-responsive_offset="on"
+
+                             data-frames='[{"delay":300,"speed":2000,"frame":"0","from":"y:100px;sX:1.1;sY:1.1;opacity:0;fb:10px;","to":"o:1;rY:180;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                             data-textAlign="['inherit','inherit','inherit','inherit']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]"
+
+                             style="z-index: 7;">
+                            <div class="rs-looped rs-slideloop"  data-easing="Linear.easeNone" data-speed="40" data-xs="0" data-xe="500" data-ys="0" data-ye="0"><img src="http://candys.creativira.com/wp-content/uploads/revslider/mountainparallaxheader/cloud1.png" alt="" data-ww="['500px','500px','500px','500px']" data-hh="['273px','273px','273px','273px']" width="500" height="273" data-no-retina> </div></div>
+
+                        <!-- LAYER NR. 4 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-11-layer-5"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['bottom','bottom','bottom','bottom']" data-voffset="['-100','-170','-70','-170']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+
+                             data-type="image"
+                             data-basealign="slide"
+                             data-responsive_offset="on"
+
+                             data-frames='[{"delay":300,"speed":2000,"frame":"0","from":"sX:1.1;sY:1.1;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                             data-textAlign="['inherit','inherit','inherit','inherit']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]"
+
+                             style="z-index: 8;">
+                            <div class="rs-looped rs-slideloop"  data-easing="Linear.easeNone" data-speed="100" data-xs="0" data-xe="500" data-ys="0" data-ye="0"><img src="http://candys.creativira.com/wp-content/uploads/revslider/mountainparallaxheader/cloud2.png" alt="" data-ww="['500px','500px','500px','500px']" data-hh="['273px','273px','273px','273px']" width="600" height="278" data-no-retina> </div></div>
+
+                        <!-- LAYER NR. 5 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-11-layer-6"
+                             data-x="['right','right','right','right']" data-hoffset="['150','150','150','150']"
+                             data-y="['bottom','bottom','bottom','bottom']" data-voffset="['-70','-150','-60','-80']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+
+                             data-type="image"
+                             data-basealign="slide"
+                             data-responsive_offset="on"
+
+                             data-frames='[{"delay":300,"speed":2000,"frame":"0","from":"sX:1.1;sY:1.1;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                             data-textAlign="['inherit','inherit','inherit','inherit']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]"
+
+                             style="z-index: 9;">
+                            <div class="rs-looped rs-slideloop"  data-easing="Linear.easeNone" data-speed="120" data-xs="0" data-xe="500" data-ys="0" data-ye="0"><img src="http://candys.creativira.com/wp-content/uploads/revslider/mountainparallaxheader/cloud3.png" alt="" data-ww="['500px','500px','500px','500px']" data-hh="['273px','273px','273px','273px']" width="738" height="445" data-no-retina> </div></div>
+
+                        <!-- LAYER NR. 6 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-11-layer-11"
+                             data-x="['left','left','left','left']" data-hoffset="['-200','-200','-200','-200']"
+                             data-y="['bottom','bottom','bottom','bottom']" data-voffset="['-40','-40','-60','-60']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+
+                             data-type="image"
+                             data-basealign="slide"
+                             data-responsive_offset="on"
+
+                             data-frames='[{"delay":300,"speed":2000,"frame":"0","from":"sX:1.1;sY:1.1;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                             data-textAlign="['inherit','inherit','inherit','inherit']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]"
+
+                             style="z-index: 10;">
+                            <div class="rs-looped rs-slideloop"  data-easing="Linear.easeNone" data-speed="80" data-xs="0" data-xe="500" data-ys="0" data-ye="0"><img src="http://candys.creativira.com/wp-content/uploads/revslider/mountainparallaxheader/cloud3.png" alt="" data-ww="['500px','500px','500px','500px']" data-hh="['273px','273px','273px','273px']" width="738" height="445" data-no-retina> </div></div>
+
+                        <!-- LAYER NR. 7 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-11-layer-12"
+                             data-x="['right','right','right','right']" data-hoffset="['-200','-200','-200','-200']"
+                             data-y="['bottom','bottom','bottom','bottom']" data-voffset="['-80','-120','-110','-160']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+
+                             data-type="image"
+                             data-basealign="slide"
+                             data-responsive_offset="on"
+
+                             data-frames='[{"delay":300,"speed":2000,"frame":"0","from":"y:100px;sX:1.1;sY:1.1;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                             data-textAlign="['inherit','inherit','inherit','inherit']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]"
+
+                             style="z-index: 11;">
+                            <div class="rs-looped rs-slideloop"  data-easing="Linear.easeNone" data-speed="200" data-xs="0" data-xe="500" data-ys="0" data-ye="0"><img src="http://candys.creativira.com/wp-content/uploads/revslider/mountainparallaxheader/cloud1.png" alt="" data-ww="['500px','500px','500px','500px']" data-hh="['273px','273px','273px','273px']" width="500" height="273" data-no-retina> </div></div>
+                    </li>
+                </ul>
+                <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>	</div>
+            <script>var htmlDiv = document.getElementById("rs-plugin-settings-inline-css"); var htmlDivCss="";
+            if(htmlDiv) {
+                htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+            }else{
+                var htmlDiv = document.createElement("div");
+                htmlDiv.innerHTML = "<style>" + htmlDivCss + "</style>";
+                document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
+            }
+            </script>
+            <script type="text/javascript">
+                setREVStartSize({c: jQuery('#rev_slider_6_1'), responsiveLevels: [1240,1024,778,480], gridwidth: [1240,1024,778,480], gridheight: [868,768,960,720], sliderLayout: 'fullscreen', fullScreenAutoWidth:'off', fullScreenAlignForce:'off', fullScreenOffsetContainer:'', fullScreenOffset:'60px'});
+
+                var revapi6,
+                    tpj=jQuery;
+
+                tpj(document).ready(function() {
+                    if(tpj("#rev_slider_6_1").revolution == undefined){
+                        revslider_showDoubleJqueryError("#rev_slider_6_1");
+                    }else{
+                        revapi6 = tpj("#rev_slider_6_1").show().revolution({
+                            sliderType:"hero",
+                            jsFileLocation:"//candys.creativira.com/wp-content/plugins/revslider/public/assets/js/",
+                            sliderLayout:"fullscreen",
+                            dottedOverlay:"none",
+                            delay:9000,
+                            responsiveLevels:[1240,1024,778,480],
+                            visibilityLevels:[1240,1024,778,480],
+                            gridwidth:[1240,1024,778,480],
+                            gridheight:[868,768,960,720],
+                            lazyType:"none",
+                            parallax: {
+                                type:"scroll",
+                                origo:"slidercenter",
+                                speed:400,
+                                levels:[1,2,3,4,5,6,7,8,9,10,15,48,49,50,51,55],
+                            },
+                            shadow:0,
+                            spinner:"spinner2",
+                            autoHeight:"off",
+                            fullScreenAutoWidth:"off",
+                            fullScreenAlignForce:"off",
+                            fullScreenOffsetContainer: "",
+                            fullScreenOffset: "60px",
+                            disableProgressBar:"on",
+                            hideThumbsOnMobile:"off",
+                            hideSliderAtLimit:0,
+                            hideCaptionAtLimit:0,
+                            hideAllCaptionAtLilmit:0,
+                            debugMode:false,
+                            fallbacks: {
+                                simplifyAll:"off",
+                                disableFocusListener:false,
+                            }
+                        });
+                    }
+
+                });	/*ready*/
+            </script>
+            <script>
+                var htmlDivCss = ' #rev_slider_6_1_wrapper .tp-loader.spinner2{ background-color: #ff3a2d !important; } ';
+                var htmlDiv = document.getElementById('rs-plugin-settings-inline-css');
+                if(htmlDiv) {
+                    htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+                }
+                else{
+                    var htmlDiv = document.createElement('div');
+                    htmlDiv.innerHTML = '<style>' + htmlDivCss + '</style>';
+                    document.getElementsByTagName('head')[0].appendChild(htmlDiv.childNodes[0]);
+                }
+            </script>
+            <script>
+                var htmlDivCss = unescape(".blurslider-gradient%20%7B%20%20%0Abackground%3A%20-webkit-linear-gradient%28left%2C%20%20%2300CBFD%200%25%2C%2371DEFF%20100%25%29%3B%0A-webkit-background-clip%3A%20text%3B%0A-webkit-text-fill-color%3A%20transparent%3B%0A%7D%0A.tp-opacity%20%7B%20opacity%3A0.85%3B%20%7D");
+                var htmlDiv = document.getElementById('rs-plugin-settings-inline-css');
+                if(htmlDiv) {
+                    htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+                }
+                else{
+                    var htmlDiv = document.createElement('div');
+                    htmlDiv.innerHTML = '<style>' + htmlDivCss + '</style>';
+                    document.getElementsByTagName('head')[0].appendChild(htmlDiv.childNodes[0]);
+                }
+            </script></div><!-- END REVOLUTION SLIDER --></div>
+
+    <div id="main" class="sidebar-none sidebar-divider-vertical"  >
+
+
+        <div class="main-gradient"></div>
+        <div class="wf-wrap">
+            <div class="wf-container-main">
+
+
+
+
+                <div id="content" class="content" role="main">
+
+
+
+                    <div class="vc_row wpb_row vc_row-fluid dt-default" style="margin-top: 0px;margin-bottom: 0px"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="vc_empty_space"   style="height: 50px" ><span class="vc_empty_space_inner"></span></div>
+                        <div id="ultimate-heading-223590225a848c59" class="uvc-heading ult-adjust-bottom-margin ultimate-heading-223590225a848c59 uvc-2710 " data-hspacer="no_spacer"  data-halign="left" style="text-align:left"><div class="uvc-heading-spacer no_spacer" style="top"></div><div class="uvc-main-heading ult-responsive"  data-ultimate-target='.uvc-heading.ultimate-heading-223590225a848c59 h2'  data-responsive-json-new='{"font-size":"","line-height":""}' ><h2 style="font-family:'Stint Ultra Expanded';font-weight:normal;color:#17cffd;margin-bottom:32px;">GONE FISHIN'</h2></div><div class="uvc-sub-heading ult-responsive"  data-ultimate-target='.uvc-heading.ultimate-heading-223590225a848c59 .uvc-sub-heading '  data-responsive-json-new='{"font-size":"","line-height":""}'  style="font-weight:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet odio eget facilisis semper. Nam tincidunt odio quis justo ullamcorper semper. Nam at ullamcorper dolor, sit amet condimentum odio. Quisque in vehicula odio, eu volutpat nulla. Vestibulum pulvinar nibh massa, ut egestas turpis pretium non. Aliquam faucibus orci sapien, at ultrices elit efficitur in. Morbi eget fringilla ex. In non justo et magna rutrum suscipit. Cras iaculis laoreet quam, non posuere risus dapibus ut. Ut elementum sapien nec venenatis fringilla. Nullam hendrerit blandit est id rhoncus. Curabitur id pulvinar nibh, a eleifend ex. Praesent viverra metus eu hendrerit pulvinar. Maecenas eleifend metus non lorem sagittis cursus. Quisque dictum diam dui, ut convallis diam blandit et. Nunc egestas porttitor lectus id mollis.</div></div><div class="vc_empty_space"   style="height: 50px" ><span class="vc_empty_space_inner"></span></div>
+                    </div></div></div></div><div class="vc_row wpb_row vc_row-fluid dt-default" style="margin-top: 0px;margin-bottom: 0px"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="vc_tta-container" data-vc-action="collapse"><div class="vc_general vc_tta vc_tta-accordion vc_tta-color-white vc_tta-style-modern vc_tta-shape-rounded vc_tta-o-shape-group vc_tta-controls-align-left wpb_animate_when_almost_visible wpb_bounceIn bounceIn"><div class="vc_tta-panels-container"><div class="vc_tta-panels"><div class="vc_tta-panel vc_active" id="1493233289785-ed44e479-12a4" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title vc_tta-controls-icon-position-left"><a href="#1493233289785-ed44e479-12a4" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">GONE FISHIN'</span><i class="vc_tta-controls-icon vc_tta-controls-icon-chevron"></i></a></h4></div><div class="vc_tta-panel-body"><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><style class="player-custom-style"> </style><div class="audioplayer-tobe ap_idx_1403_1 is-single-player apconfig-skinwavewithcomments button-aspect-noir skin-wave alternate-layout ap955" style="" id="ap955" data-playerid="955" data-thumb="http://candys.creativira.com/wp-content/uploads/2017/03/candy-fernaux-gone-fishin.png" data-pcm='[0,0,0.001,-0.001,0.07,-0.041,0.052,-0.076,0.124,-0.194,0.163,-0.184,0.228,-0.37,0.331,-0.188,0.275,-0.354,0.33,-0.333,0.305,-0.182,0.527,-0.481,0.624,-0.605,0.681,-0.439,0.374,-0.525,0.296,-0.264,0.621,-0.693,0.663,-0.45,0.358,-0.456,0.574,-0.55,0.315,-0.476,0.767,-0.383,0.59,-0.469,0.505,-0.541,0.426,-0.756,0.9,-0.342,0.487,-0.511,0.654,-0.639,0.651,-0.507,0.636,-0.431,0.33,-0.376,0.717,-0.264,0.404,-0.609,0.437,-0.524,0.553,-0.605,0.282,-0.517,0.701,-0.457,0.944,-0.665,0.7,-0.492,0.4,-0.279,0.454,-0.32,0.596,-0.496,0.554,-0.695,0.37,-0.437,0.387,-0.36,0.226,-0.319,0.329,-0.706,0.4,-0.725,0.683,-0.619,0.585,-0.462,0.379,-0.297,0.565,-0.593,0.425,-0.617,0.217,-0.368,0.776,-0.49,0.643,-0.463,0.445,-0.531,0.527,-0.657,0.64,-0.414,0.541,-0.397,0.661,-0.341,0.573,-0.431,0.791,-0.53,0.529,-0.594,0.582,-0.837,0.661,-0.515,0.665,-0.69,0.689,-0.184,0.489,-0.629,0.538,-0.571,0.568,-0.682,0.285,-0.374,0.537,-0.806,0.411,-0.905,0.396,-0.431,0.878,-0.483,0.499,-0.435,0.764,-0.367,0.466,-0.429,0.128,-0.11,0.495,-0.496,0.639,-0.876,0.682,-0.472,0.395,-0.788,0.822,-0.733,0.539,-0.671,0.582,-0.712,0.683,-0.539,0.353,-0.572,0.61,-0.564,0.339,-0.351,0.87,-0.401,0.591,-0.944,0.534,-0.606,0.868,-0.463,0.779,-0.559,0.566,-0.499,0.82,-0.463,0.37,-0.606,0.631,-0.393,0.34,-0.807,0.507,-0.564,0.516,-0.77,0.841,-0.417,0.208,-0.49,0.793,-0.491,0.735,-0.444,0.724,-0.643,0.821,-0.54,0.357,-0.374,0.634,-0.606,0.584,-0.429,0.37,-0.972,0.516,-0.794,0.592,-0.299,0.436,-0.573,0.634,-0.608,0.69,-0.312,0.463,-0.675,0.522,-0.678,0.3,-0.716,0.801,-0.435,0.997,-0.367,0.422,-0.548,0.395,-0.599,0.326,-0.553,0.464,-0.744,0.395,-0.507,0.82,-0.572,0.61,-0.53,0.696,-0.709,0.488,-0.866,0.883,-0.399,0.861,-0.828,0.884,-0.767,0.498,-0.414,0.822,-0.637,0.332,-0.656,0.896,-0.349,0.543,-0.574,0.929,-0.544,0.295,-0.49,0.65,-0.669,0.279,-0.637,0.276,-0.607,0.664,-0.474,0.649,-0.602,0.555,-0.564,0.647,-0.58,0.539,-0.774,0.636,-0.625,0.336,-0.574,0.609,-0.687,0.36,-0.516,0.546,-0.748,0.366,-0.557,0.596,-0.557,0.705,-0.331,0.492,-0.724,0.612,-0.724,0.547,-0.574,0.667,-0.083,0.217,-0.565,0.567,-0.409,0.209,-0.658,0.652,-0.48,0.611,-0.338,0.765,-0.707,0.577,-0.296,0.543,-0.273,0.211,-0.632,0.863,-0.227,0.236,-0.635,0.698,-0.705,0.472,-0.516,0.489,-0.612,0.569,-0.367,0.347,-0.322,0.867,-0.723,0.407,-0.659,0.56,-0.606,0.463,-0.757,0.439,-0.907,0.838,-0.617,0.78,-0.784,0.28,-0.676,0.592,-0.37,0.438,-0.471,0.622,-0.666,0.4,-0.901,0.309,-0.48,0.774,-0.353,0.404,-0.351,0.462,-0.46,0.774,-0.684,0.401,-0.362,0.549,-0.45,0.792,-0.2,0.584,-0.758,0.317,-0.726,0.644,-0.686,0.68,-0.294,0.587,-0.413,0.261,-0.705,0.706,-0.491,0.197,-0.458,0.506,-0.811,0.76,-0.409,0.648,-0.612,0.525,-0.747,0.374,-0.685,0.388,-0.389,0.501,-0.442,0.392,-0.639,0.409,-0.468,0.539,-0.628,0.851,-0.712,0.62,-0.809,0.602,-0.521,0.593,-0.434,0.594,-0.489,0.565,-0.414,0.909,-0.578,0.545,-0.481,0.321,-0.353,0.66,-0.761,0.796,-0.591,0.5,-0.753,0.762,-0.654,0.616,-0.677,0.889,-0.312,0.534,-0.536,0.507,-0.459,0.702,-0.498,0.803,-0.544,0.567,-0.784,0.288,-0.704,0.69,-0.449,0.857,-0.482,0.606,-0.252,0.438,-0.272,0.443,-0.628,0.514,-0.575,0.524,-0.489,0.381,-0.304,0.608,-0.424,0.246,-0.356,0.411,-0.597,0.323,-0.305,0.238,-0.136,0.267,-0.261,0.291,-0.181,0.167,-0.189,0.14,-0.168,0.08,-0.07,0.008,-0.027]' data-type="audio" data-source="http://candys.creativira.com/wp-content/uploads/2016/05/Gone-Fishin-clip.mp3" data-playfrom="off" style=" width: 100%; height: 300px;"><div class="meta-artist"><span class="the-artist">Candy Fernaux</span>&nbsp;<span class="the-name">Gone Fishin' copy</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(http://candys.creativira.com/wp-content/uploads/2017/03/candy-fernaux-gone-fishin.png)"></div></div><span class="the-artist">Candy Fernaux</span><span class="the-name">Gone Fishin' copy</span></div><div class="extra-html-in-controls-right"><a   onclick='window.dzs_open_social_link("http://www.facebook.com/sharer.php?u={{replaceurl}}&caption=Candy+Fernaux&description=Gone+Fishin%27+copy&picture=http%3A%2F%2Fcandys.creativira.com%2Fwp-content%2Fuploads%2F2017%2F03%2Fcandy-fernaux-gone-fishin.png",this); return false;' class="player-but sharer-dzsap-but"><div class="the-icon-bg"></div>{{svg_share_icon}}</a></div><div class="extra-html"><div class="extra-html--left "></div></div></div><script>
+                    //console.warn("WILL INIT");
+                    jQuery(document).ready(function ($){
+                        var settings_ap = {
+                            design_skin: "skin-wave"
+                            ,autoplay: "off"
+                            ,disable_volume:"default"
+                            ,loop:"off"
+                            ,cue: "on"
+                            ,embedded: "off"
+                            ,preload_method:"metadata"
+                            ,design_animateplaypause:"default"
+                            ,skinwave_dynamicwaves:"on"
+                            ,skinwave_enableSpectrum:"off"
+                            ,settings_backup_type:"full"
+                            ,skinwave_enableReflect:"on",playfrom:"off",disable_scrub:"off",soundcloud_apikey:"3XGXIaivIR8xvvwQNFyrKAhW5myYz4um"
+                            ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"alternate",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "on",pcm_notice: "off",design_color_bg: "999999",design_color_highlight: "f8afaf",skinwave_wave_mode_canvas_waves_number: "300",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",skinwave_comments_playerid:"955",php_retriever:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" ,swf_location:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/ap.swf"
+                            ,swffull_location:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/apfull.swf"
+                        };
+
+                        dzsap_init(".ap_idx_1403_1",settings_ap);
+                    });
+                </script>
+                    <div class="wpb_text_column wpb_content_element " >
+                        <div class="wpb_wrapper">
+                            <p style="text-align: left;"><strong>Gone Fishin&#8217;</strong> is such a fun song and so relatable to anyone who is single and looking for love! For years I was against the online dating world. It seemed so cold and nontraditional. I was not interested at all in playing that game, but all my friends were doing it. I eventually caved to peer pressure and set up a profile on Plenty of Fish.com. Embarrassed I was even on the site, when my friend called one night I told her I was on that damn fishin website.  She asked me what kind of bait I had on the hook, and I proceeded to tell her what pictures I had posted, what my profile said, etc. Soon our conversations were all about fishing nibbles on the line, catch of the day It was hilarious!!  Even though I hated the thought of online dating, I would have never gotten the inspiration to write this song without that experience!</p>
+
+                        </div>
+                    </div>
+                    <div class="ult_exp_section_layer ult-adjust-bottom-margin  " >
+                        <div id="uvc-exp-wrap-5410"   data-ultimate-target='#uvc-exp-wrap-5410'  data-responsive-json-new='{"font-size":"desktop:25px;","line-height":"desktop:32px;"}'  class="ult_exp_section  ult-responsive " style="color:#14cefd;background-color:#ffffff;font-family:Stint Ultra Condensed; font-weight:normal;  text-align:left;" data-textcolor="#14cefd"data-texthover="#4dadc5"data-icncolor="#14cefd"data-ihover="#4dadc5"data-height="-30"data-cntbg="#ffffff"data-cnthvrbg="#ffffff"data-headerbg="#ffffff"data-headerhover="#ffffff"data-title="LYRICS"data-newtitle="GONE FISHIN'"data-icon="Defaults-search-plus"data-newicon="Defaults-search-minus"data-activeicon="#14cefd"data-effect="slideToggle"data-override="0"data-activetitle="#14cefd"data-activebg="#ffffff"data-img=""data-newimg=""><div class="ult_exp_section-main ult_expleft_icon">	<div class="ult-just-icon-wrapper ult_exp_icon">
+                            <div class="align-icon ">
+
+<span class="aio-icon  none  ult_expsection_icon "  style="color:#14cefd;font-size:20px;">
+	<i class="Defaults-search-plus ult_ex_icon"  ></i>
+</span>
+                            </div>
+                        </div>
+                            <div class="ult_expheader" >LYRICS
+                            </div>
+                        </div>
+                        </div><div class="ult_exp_content " style="background-color:#ffffff;  "><div class="ult_ecpsub_cont" style=" " ><div id="ultimate-heading-3445590225a84bbcf" class="uvc-heading ult-adjust-bottom-margin ultimate-heading-3445590225a84bbcf uvc-5619 " data-hspacer="no_spacer"  data-halign="left" style="text-align:left"><div class="uvc-heading-spacer no_spacer" style="top"></div><div class="uvc-sub-heading ult-responsive"  data-ultimate-target='.uvc-heading.ultimate-heading-3445590225a84bbcf .uvc-sub-heading '  data-responsive-json-new='{"font-size":"","line-height":""}'  style="font-weight:normal;"><div id="hs-1" class="hs" style="overflow:hidden;height:300px"><br />
+                        We all have a story about the one that got away<br />
+                        There’s more fish in the sea is all I hear ‘em say<br />
+                        Time to put myself back out there today<br />
+                        As I dip my toes in the dating pool<br />
+                        It’s a brave new world with online tools<br />
+                        Everybody’s doin’ it so it must be cool<br />
+                        GONE FISHIN’<br />
+                        Throw my line and start wishing<br />
+                        I’ll catch what I’ve been missing<br />
+                        I got a nibble a wink, will we swim or sink, I’m Gone fishin’<br />
+                        No worms or flies gonna hook my mate<br />
+                        I’ll post a few pictures cause that’s my bait<br />
+                        Cast my line then sit back and wait<br />
+                        Beware of bottom feeders huntin’ sugar mamas<br />
+                        Cradle robbers and prima donna’s<br />
+                        Playboys hauling all sorts of drama<br />
+                        GONE FISHIN’<br />
+                        Throw my line and start wishing<br />
+                        I’ll catch what I’ve been missing<br />
+                        I got a nibble a wink, will we swim or sink, I’m Gone fishin’<br />
+                        I’m just a country girl that likes to rock<br />
+                        I’ve got a few more tricks in my tackle box<br />
+                        I’ll be reeling in the catch of the day<br />
+                        He’ll measure up or be on his way<br />
+                        Size does matter what else can I say<br />
+                        GONE FISHIN&#8217;<br />
+                        Throw my line and start wishing<br />
+                        I’ll catch what I’ve been missing<br />
+                        I got a nibble a wink, will we swim or sink, I’m Gone fishin’<br />
+                        Fishin’&#8230; fishin’&#8230; fishin’&#8230; Gone fishin’&#8230; yeah&#8230;<br />
+                        Gone fishin’&#8230; fishin’.. Gone fishin’&#8230; Gone fishin’&#8230;<br />
+                    </div><script>jQuery(document).ready(function($) {$("#hs-1").mCustomScrollbar({"theme": "dark-thick","autoHideScrollbar":true,"scrollInertia":1500,"autoExpandScrollbar": true,"scrollButtons": {enable:false}});});</script></div></div></div></div>
+
+                    </div></div></div></div></div></div></div><div class="vc_tta-panel" id="1493233382833-6b2087e0-83a4" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title vc_tta-controls-icon-position-left"><a href="#1493233382833-6b2087e0-83a4" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">SWEET INNOCENCE</span><i class="vc_tta-controls-icon vc_tta-controls-icon-chevron"></i></a></h4></div><div class="vc_tta-panel-body"><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><style class="player-custom-style"> </style><div class="audioplayer-tobe ap_idx_1403_2 is-single-player apconfig-skinwavewithcomments button-aspect-noir skin-wave alternate-layout ap956" style="" id="ap956" data-playerid="956" data-thumb="http://candys.creativira.com/wp-content/uploads/2017/03/sweet-innocense-album-cover.png" data-pcm='[0.011,-0.013,0.042,-0.036,0.055,-0.1,0.163,-0.074,0.103,-0.132,0.133,-0.168,0.223,-0.21,0.271,-0.131,0.108,-0.228,0.33,-0.314,0.385,-0.44,0.479,-0.412,0.336,-0.514,0.588,-0.473,0.427,-0.49,0.305,-0.351,0.521,-0.224,0.377,-0.464,0.573,-0.358,0.654,-0.258,0.599,-0.605,0.441,-0.354,0.549,-0.464,0.394,-0.58,0.316,-0.276,0.286,-0.521,0.249,-0.388,0.238,-0.346,0.426,-0.342,0.484,-0.223,0.317,-0.23,0.485,-0.454,0.482,-0.404,0.442,-0.335,0.414,-0.549,0.413,-0.715,0.311,-0.539,0.494,-0.638,0.263,-0.591,0.861,-0.691,0.384,-0.503,0.316,-0.308,0.319,-0.462,0.494,-0.806,0.419,-0.699,0.603,-0.442,0.319,-0.424,0.572,-0.336,0.751,-0.328,0.712,-0.395,0.419,-0.353,0.534,-0.283,0.367,-0.32,0.353,-0.34,0.397,-0.337,0.686,-0.397,0.652,-0.249,0.278,-0.552,0.25,-0.464,0.419,-0.465,0.485,-0.252,0.492,-0.596,0.356,-0.404,0.403,-0.471,0.275,-0.523,0.597,-0.42,0.516,-0.323,0.442,-0.381,0.405,-0.82,0.478,-0.325,0.357,-0.581,0.342,-0.533,0.595,-0.378,0.343,-0.671,0.669,-0.573,0.478,-0.4,0.439,-0.796,0.401,-0.445,0.399,-0.551,0.552,-0.475,0.501,-0.402,0.495,-0.395,0.362,-0.493,0.482,-0.392,0.365,-0.785,0.704,-0.664,0.272,-0.588,0.442,-0.819,0.652,-0.516,0.662,-0.837,0.662,-0.577,0.689,-0.318,0.545,-0.21,0.038,-0.611,0.608,-0.401,0.661,-0.618,0.532,-0.447,0.537,-0.258,0.278,-0.728,0.217,-0.508,0.31,-0.401,0.294,-0.648,0.46,-0.461,0.532,-0.4,0.614,-0.453,0.522,-0.582,0.602,-0.691,0.817,-0.428,0.465,-0.491,0.598,-0.744,0.447,-0.51,0.629,-0.607,0.372,-0.381,0.644,-0.698,0.599,-0.836,0.571,-0.56,0.482,-0.321,0.475,-0.145,0.921,-0.665,0.396,-0.352,0.439,-0.519,0.754,-0.804,0.32,-0.486,0.608,-0.51,0.56,-0.513,0.499,-0.594,0.929,-0.883,0.348,-0.842,0.373,-0.698,0,-0.763,0.602,-0.368,0.524,-0.566,0.391,-0.351,0.499,-0.522,0.332,-0.698,0.595,-0.277,0.476,-0.64,0.58,-0.417,0.316,-0.418,0.584,-0.44,0.523,-0.843,0.693,-0.372,0.632,-0.626,0.505,-0.493,0.445,-0.423,0.726,-0.899,0.698,-0.594,0.501,-0.678,0.636,-0.818,0.778,-0.65,0.545,-0.61,0.577,-0.519,0.398,-0.668,0.381,-0.437,0.395,-0.297,0.174,-0.332,0.387,-0.203,0.21,-0.123,0.213,-0.202,0.761,-0.49,0.292,-0.444,0.334,-0.31,0.394,-0.526,0.494,-0.411,0.258,-0.146,0.124,-0.255,0.279,-0.229,0.454,-0.736,0.59,-0.814,0.697,-0.685,0.551,-0.495,0.403,-0.262,0.429,-0.464,0.499,-0.378,0.303,-0.5,0.604,-0.629,0.882,-0.846,0.917,-0.833,0.628,-0.71,0.702,-0.634,0.563,-0.809,0.232,-0.502,0.492,-0.412,0.379,-0.525,0.413,-0.644,0.733,-0.677,0.6,-0.543,0.608,-0.858,0.912,-0.523,0.57,-0.749,0.643,-0.451,0.55,-0.523,0.511,-0.548,0.61,-0.631,0.576,-0.528,0.749,-0.679,0.649,-0.826,0.872,-0.891,0.55,-0.752,0.608,-0.613,0.483,-0.587,0.6,-0.467,0.36,-0.423,0.462,-0.697,0.734,-0.433,0.465,-0.774,0.334,-0.74,0.525,-0.612,0.617,-0.51,0.591,-0.603,0.703,-0.866,0.806,-0.732,0.513,-0.617,0.538,-0.386,0.592,-0.306,0.59,-0.5,0.615,-0.544,0.676,-0.68,0.673,-0.404,0.448,-0.757,0.307,-0.545,0.659,-0.38,0.823,-0.616,0.417,-0.532,0.487,-0.754,0.264,-0.764,0.625,-0.451,0.43,-0.734,0.518,-0.37,0.519,-0.521,0.53,-0.559,0.852,-0.623,0.558,-0.466,0.646,-0.469,0.516,-0.673,0.559,-0.735,0.622,-0.414,0.458,-0.695,0.463,-0.338,0.604,-0.735,0.408,-0.645,0.387,-0.767,0.566,-0.471,0.717,-0.623,0.641,-0.947,0.761,-0.526,0.681,-0.722,0.455,-0.635,0.606,-0.567,0.402,-0.384,0.241,-0.575,0.294,-0.392,0.221,-0.265,0.214,-0.097,0.123,-0.098,0.031,-0.087]' data-type="audio" data-source="http://candys.creativira.com/wp-content/uploads/2016/05/Sweet-Innocence-snippet.mp3" data-playfrom="off" style=" width: 100%; height: 300px;"><div class="meta-artist"><span class="the-artist">Candy Fernaux</span>&nbsp;<span class="the-name">Sweet Innocence</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(http://candys.creativira.com/wp-content/uploads/2017/03/sweet-innocense-album-cover.png)"></div></div><span class="the-artist">Candy Fernaux</span><span class="the-name">Sweet Innocence</span></div><div class="extra-html-in-controls-right"><a   onclick='window.dzs_open_social_link("http://www.facebook.com/sharer.php?u={{replaceurl}}&caption=Candy+Fernaux&description=Sweet+Innocence&picture=http%3A%2F%2Fcandys.creativira.com%2Fwp-content%2Fuploads%2F2017%2F03%2Fsweet-innocense-album-cover.png",this); return false;' class="player-but sharer-dzsap-but"><div class="the-icon-bg"></div>{{svg_share_icon}}</a></div><div class="extra-html"><div class="extra-html--left "></div></div></div><script>
+                    //console.warn("WILL INIT");
+                    jQuery(document).ready(function ($){
+                        var settings_ap = {
+                            design_skin: "skin-wave"
+                            ,autoplay: "off"
+                            ,disable_volume:"default"
+                            ,loop:"off"
+                            ,cue: "on"
+                            ,embedded: "off"
+                            ,preload_method:"metadata"
+                            ,design_animateplaypause:"default"
+                            ,skinwave_dynamicwaves:"on"
+                            ,skinwave_enableSpectrum:"off"
+                            ,settings_backup_type:"full"
+                            ,skinwave_enableReflect:"on",playfrom:"off",disable_scrub:"off",soundcloud_apikey:"3XGXIaivIR8xvvwQNFyrKAhW5myYz4um"
+                            ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"alternate",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "on",pcm_notice: "off",design_color_bg: "999999",design_color_highlight: "f8afaf",skinwave_wave_mode_canvas_waves_number: "300",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",skinwave_comments_playerid:"956",php_retriever:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" ,swf_location:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/ap.swf"
+                            ,swffull_location:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/apfull.swf"
+                        };
+
+                        dzsap_init(".ap_idx_1403_2",settings_ap);
+                    });
+                </script>
+                    <div class="wpb_text_column wpb_content_element " >
+                        <div class="wpb_wrapper">
+                            <p><strong>Sweet Innocence</strong> was my very first co-write and is such a special song in many ways. My niece was 3 when we wrote this song, and her sweet innocence inspired this song. We were visiting about how she hasn’t a care in the world, is just so sweet and happy!  Then that boy comes along and the whole story changes… ha ha ha. This song take you through the innocence of first love, first heartbreak and feeling of being so lost, but then she find the unconditional love of “the Son” in the end.</p>
+
+                        </div>
+                    </div>
+                    <div class="ult_exp_section_layer ult-adjust-bottom-margin  " >
+                        <div id="uvc-exp-wrap-7117"   data-ultimate-target='#uvc-exp-wrap-7117'  data-responsive-json-new='{"font-size":"desktop:25px;","line-height":"desktop:32px;"}'  class="ult_exp_section  ult-responsive " style="color:#14cefd;background-color:#ffffff;font-family:Stint Ultra Condensed; font-weight:normal;  text-align:left;" data-textcolor="#14cefd"data-texthover="#4dadc5"data-icncolor="#14cefd"data-ihover="#4dadc5"data-height="-30"data-cntbg="#ffffff"data-cnthvrbg="#ffffff"data-headerbg="#ffffff"data-headerhover="#ffffff"data-title="LYRICS"data-newtitle="SWEET INNOCENCE"data-icon="Defaults-search-plus"data-newicon="Defaults-search-minus"data-activeicon="#14cefd"data-effect="slideToggle"data-override="0"data-activetitle="#14cefd"data-activebg="#ffffff"data-img=""data-newimg=""><div class="ult_exp_section-main ult_expleft_icon">	<div class="ult-just-icon-wrapper ult_exp_icon">
+                            <div class="align-icon ">
+
+<span class="aio-icon  none  ult_expsection_icon "  style="color:#14cefd;font-size:20px;">
+	<i class="Defaults-search-plus ult_ex_icon"  ></i>
+</span>
+                            </div>
+                        </div>
+                            <div class="ult_expheader" >LYRICS
+                            </div>
+                        </div>
+                        </div><div class="ult_exp_content " style="background-color:#ffffff;  "><div class="ult_ecpsub_cont" style=" " ><div id="ultimate-heading-5037590225a84cbce" class="uvc-heading ult-adjust-bottom-margin ultimate-heading-5037590225a84cbce uvc-1053 " data-hspacer="no_spacer"  data-halign="left" style="text-align:left"><div class="uvc-heading-spacer no_spacer" style="top"></div><div class="uvc-sub-heading ult-responsive"  data-ultimate-target='.uvc-heading.ultimate-heading-5037590225a84cbce .uvc-sub-heading '  data-responsive-json-new='{"font-size":"","line-height":""}'  style="font-weight:normal;"><div id="hs-2" class="hs" style="overflow:hidden;height:300px">In the beginning, there’s a girl<br />
+                        Innocent and young and she rules her world<br />
+                        She’s sugar, and she’s spice<br />
+                        She’s precious and everything nice<br />
+                        She has sweet innocence<br />
+                        She don’t have a care<br />
+                        Sweet innocence<br />
+                        She don’t know it’s there<br />
+                        Then one day there comes a boy<br />
+                        Who breaks her heart and steals her joy<br />
+                        She hurts and she cries<br />
+                        She swears she’s going to die<br />
+                        He takes her sweet innocence<br />
+                        He no longer cares<br />
+                        Sweet innocence<br />
+                        She’s alone and scared<br />
+                        Gone are the days where she feels free<br />
+                        So full of doubt and agony<br />
+                        She’s like a ship lost out at sea<br />
+                        Living day to day aimlessly<br />
+                        She wants her sweet innocence<br />
+                        It always seems to flee<br />
+                        She cries for sweet innocence<br />
+                        She wants to be free<br />
+                        But the world, it doesn’t end<br />
+                        The Son comes out she finds a friend<br />
+                        Shining bright all around<br />
+                        He’ll never ever let her down<br />
+                        He brings her sweet Innocence<br />
+                        She no longer cares<br />
+                        Sweet Innocence<br />
+                        She don’t know it’s there<br />
+                        Sweet Innocence<br />
+                        Sweet Innocence<br />
+                        Sweet Innocence</div><script>jQuery(document).ready(function($) {$("#hs-2").mCustomScrollbar({"theme": "dark-thick","autoHideScrollbar":true,"scrollInertia":1500,"autoExpandScrollbar": true,"scrollButtons": {enable:false}});});</script></div></div></div></div>
+
+                    </div></div></div></div></div></div></div><div class="vc_tta-panel" id="1493233289736-3d41d4d8-ecbb" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title vc_tta-controls-icon-position-left"><a href="#1493233289736-3d41d4d8-ecbb" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">BEAUTY DON'T COME CHEAP</span><i class="vc_tta-controls-icon vc_tta-controls-icon-chevron"></i></a></h4></div><div class="vc_tta-panel-body"><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><style class="player-custom-style"> </style><div class="audioplayer-tobe ap_idx_1403_3 is-single-player apconfig-skinwavewithcomments button-aspect-noir skin-wave alternate-layout ap954" style="" id="ap954" data-playerid="954" data-thumb="http://candys.creativira.com/wp-content/uploads/2016/05/Candy-Fernaux-Beauty-Dont-Come-Cheap-300x300.jpg" data-pcm='[0,-0.695,0,-0.452,0.177,-0.327,0.471,-0.319,0.81,-0.565,0.448,-0.318,0.546,-0.196,0.52,-0.806,0.47,-0.492,0.51,-0.704,0.683,-0.414,0.575,-0.523,0.512,-0.731,0.519,-0.495,0.393,-0.999,0.453,-0.365,0.171,-0.49,0.358,-0.744,0.435,-0.224,0.534,-0.444,0.356,-0.34,0.38,-0.383,0.508,-0.417,0.667,-0.182,0.265,-0.475,0.541,-0.465,0.221,-0.562,0.831,-0.418,0.713,-0.249,0.334,-0.305,0.433,-0.508,0.475,-0.329,0.349,-0.537,0.64,-0.726,0.457,-0.364,0.511,-0.536,0.22,-0.309,0.513,-0.584,0.359,-0.242,0.261,-0.345,0.671,-0.372,0.607,-0.328,0.608,-0.652,0.364,-0.385,0.295,-0.606,0.437,-0.333,0.556,-0.378,0.469,-0.721,0.262,-0.56,0.758,-0.522,0.717,-0.164,0.228,-0.586,0.505,-0.523,0.516,-0.411,0.558,-0.082,0.478,-0.467,0.515,-0.217,0.669,-0.306,0.538,-0.293,0.42,-0.331,0.485,-0.409,0.324,-0.603,0.537,-0.786,0.387,-0.445,0.663,-0.225,0.374,-0.421,0.273,-0.568,0.318,-0.31,0.279,-0.25,0.455,-0.698,0.773,-0.382,0.342,-0.241,0.861,-0.222,0.611,-0.402,0.342,-0.175,0.215,-0.69,0.476,-0.496,0.322,-0.312,0.159,-0.729,0.512,-0.548,0.727,-0.617,0.564,-0.437,0.171,-0.633,0.592,-0.286,0.154,-0.468,0.226,-0.66,0.419,-0.336,0.707,-0.232,0.545,-0.312,0.38,-0.478,0.344,-0.457,0.278,-0.714,0.254,-0.403,0.435,-0.3,0.519,-0.326,0.597,-0.386,0.328,-0.361,0.867,-0.577,0.674,-0.253,0.647,-0.429,0.288,-0.563,0.35,-0.481,0.381,-0.288,0.477,-0.419,0.306,-0.304,0.558,-0.185,0.44,-0.628,0.502,-0.497,0.402,-0.338,0.979,-0.648,0.752,-0.343,0.769,-0.462,0.673,-0.711,0.57,-0.431,0.382,-0.613,0.445,-0.732,0.331,-0.785,0.449,-0.545,0.768,-0.898,0.491,-0.807,0.449,-0.419,0.416,-0.633,0.481,-0.485,0.583,-0.683,0.731,-0.392,0.598,-0.289,0.596,-0.669,0.615,-0.191,0.626,-0.495,0.304,-0.32,0.45,-0.473,0.312,-0.528,0.605,-0.442,0.335,-0.286,0.624,-0.526,0.741,-0.424,0.533,-0.526,0.42,-0.253,0.622,-0.528,0.486,-0.505,0.346,-0.598,0.561,-0.369,0.801,-0.67,0.537,-0.376,0.459,-0.584,0.417,-0.338,0.633,-0.55,0.441,-0.367,0.668,-0.554,0.554,-0.584,0.508,-0.542,0.685,-0.644,0.428,-0.539,0.441,-0.452,0.829,-0.37,0.773,-0.77,0.629,-0.759,0.489,-0.613,0.614,-0.946,0.691,-0.489,0.83,-0.791,0.634,-0.499,0.69,-0.379,0.56,-0.747,0.632,-0.528,0.798,-0.596,0.82,-0.452,0.747,-0.375,0.715,-0.447,0.883,-0.768,0.812,-0.71,0.724,-0.637,0.363,-0.407,0.781,-0.893,0.7,-0.523,0.915,-0.313,0.926,-0.682,0.609,-0.557,0.416,-0.744,0.768,-0.789,0.63,-0.458,0.911,-0.398,0.41,-0.552,0.707,-0.582,0.845,-0.898,0.838,-0.626,0.727,-0.567,0.781,-0.611,0.793,-0.95,0.691,-0.59,0.62,-0.558,0.664,-0.703,0.767,-0.723,0.393,-0.73,0.53,-0.8,0.932,-0.74,0.625,-0.528,0.566,-0.635,0.63,-0.937,0.829,-0.915,0.604,-0.504,0.48,-0.887,0.454,-0.774,0.649,-0.434,0.389,-0.478,0.805,-0.37,0.916,-0.917,0.825,-0.808,0.369,-0.576,0.955,-0.582,0.678,-0.393,0.456,-0.353,0.525,-0.511,0.653,-0.496,0.38,-0.245,0.769,-0.54,0.592,-0.727,0.961,-0.491,0.588,-0.631,0.51,-0.612,0.599,-0.64,0.697,-0.547,0.938,-0.826,0.805,-0.656,0.557,-0.61,0.553,-0.954,0.799,-0.733,0.732,-0.459,0.772,-0.866,0.526,-0.94,0.463,-0.76,0.831,-0.723,0.554,-0.629,0.678,-0.768,0.825,-0.638,0.776,-0.914,0.694,-0.337,0.735,-0.653,0.542,-0.49,0.821,-0.531,0.411,-0.737,0.669,-1.021,0.349,-0.819,0.325,-0.454,0.184,-0.33,0.158,-0.237,0.134,-0.197,0.133,-0.112,0.117,-0.064,0.052,-0.046,0.019,-0.041,0.023,-0.029,0.013,-0.021,0.005,-0.015,0.003,-0.003,0.002,-0.001]' data-type="audio" data-source="http://candys.creativira.com/wp-content/uploads/2016/05/Beauty-Dont-Come-Cheap-snippet.mp3" data-playfrom="off" style=" width: 100%; height: 300px;"><div class="meta-artist"><span class="the-artist">Candy Fernaux</span>&nbsp;<span class="the-name">Beauty Don't Come Cheap</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(http://candys.creativira.com/wp-content/uploads/2016/05/Candy-Fernaux-Beauty-Dont-Come-Cheap-300x300.jpg)"></div></div><span class="the-artist">Candy Fernaux</span><span class="the-name">Beauty Don't Come Cheap</span></div><div class="extra-html-in-controls-right"><a   onclick='window.dzs_open_social_link("http://www.facebook.com/sharer.php?u={{replaceurl}}&caption=Candy+Fernaux&description=Beauty+Don%27t+Come+Cheap&picture=http%3A%2F%2Fcandys.creativira.com%2Fwp-content%2Fuploads%2F2016%2F05%2FCandy-Fernaux-Beauty-Dont-Come-Cheap-300x300.jpg",this); return false;' class="player-but sharer-dzsap-but"><div class="the-icon-bg"></div>{{svg_share_icon}}</a></div><div class="extra-html"><div class="extra-html--left "></div></div></div><script>
+                    //console.warn("WILL INIT");
+                    jQuery(document).ready(function ($){
+                        var settings_ap = {
+                            design_skin: "skin-wave"
+                            ,autoplay: "off"
+                            ,disable_volume:"default"
+                            ,loop:"off"
+                            ,cue: "on"
+                            ,embedded: "off"
+                            ,preload_method:"metadata"
+                            ,design_animateplaypause:"default"
+                            ,skinwave_dynamicwaves:"on"
+                            ,skinwave_enableSpectrum:"off"
+                            ,settings_backup_type:"full"
+                            ,skinwave_enableReflect:"on",playfrom:"off",disable_scrub:"off",soundcloud_apikey:"3XGXIaivIR8xvvwQNFyrKAhW5myYz4um"
+                            ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"alternate",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "on",pcm_notice: "off",design_color_bg: "999999",design_color_highlight: "f8afaf",skinwave_wave_mode_canvas_waves_number: "300",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",skinwave_comments_playerid:"954",php_retriever:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" ,swf_location:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/ap.swf"
+                            ,swffull_location:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/apfull.swf"
+                        };
+
+                        dzsap_init(".ap_idx_1403_3",settings_ap);
+                    });
+                </script>
+                    <div class="wpb_text_column wpb_content_element " >
+                        <div class="wpb_wrapper">
+                            <p><strong>Beauty Don’t Come Cheap</strong> was inspired by a conversation with a man in Dallas who tried to tell me how expensive dating can be. He was successful, so it wasn’t like he didn’t have the money to spend, and he liked beautiful women mind you.  I sat there thinking…. he has absolutely NO CLUE! If he thinks dating a beautiful woman is expensive…just wait until he marries her!   So- this song goes out to all the men that don’t realize all the time and effort women put into looking amazing.</p>
+
+                        </div>
+                    </div>
+                    <div class="ult_exp_section_layer ult-adjust-bottom-margin  " >
+                        <div id="uvc-exp-wrap-5237"   data-ultimate-target='#uvc-exp-wrap-5237'  data-responsive-json-new='{"font-size":"desktop:25px;","line-height":"desktop:32px;"}'  class="ult_exp_section  ult-responsive " style="color:#14cefd;background-color:#ffffff;font-family:Stint Ultra Condensed; font-weight:normal;  text-align:left;" data-textcolor="#14cefd"data-texthover="#4dadc5"data-icncolor="#14cefd"data-ihover="#4dadc5"data-height="-30"data-cntbg="#ffffff"data-cnthvrbg="#ffffff"data-headerbg="#ffffff"data-headerhover="#ffffff"data-title="LYRICS"data-newtitle="BEAUTY DON'T COME CHEAP"data-icon="Defaults-search-plus"data-newicon="Defaults-search-minus"data-activeicon="#14cefd"data-effect="slideToggle"data-override="0"data-activetitle="#14cefd"data-activebg="#ffffff"data-img=""data-newimg=""><div class="ult_exp_section-main ult_expleft_icon">	<div class="ult-just-icon-wrapper ult_exp_icon">
+                            <div class="align-icon ">
+
+<span class="aio-icon  none  ult_expsection_icon "  style="color:#14cefd;font-size:20px;">
+	<i class="Defaults-search-plus ult_ex_icon"  ></i>
+</span>
+                            </div>
+                        </div>
+                            <div class="ult_expheader" >LYRICS
+                            </div>
+                        </div>
+                        </div><div class="ult_exp_content " style="background-color:#ffffff;  "><div class="ult_ecpsub_cont" style=" " ><div id="ultimate-heading-1461590225a84db90" class="uvc-heading ult-adjust-bottom-margin ultimate-heading-1461590225a84db90 uvc-9599 " data-hspacer="no_spacer"  data-halign="left" style="text-align:left"><div class="uvc-heading-spacer no_spacer" style="top"></div><div class="uvc-sub-heading ult-responsive"  data-ultimate-target='.uvc-heading.ultimate-heading-1461590225a84db90 .uvc-sub-heading '  data-responsive-json-new='{"font-size":"","line-height":""}'  style="font-weight:normal;"><div id="hs-3" class="hs" style="overflow:hidden;height:300px"><br />
+                        He complains about women being gold diggers<br />
+                        They want dinner, drinks, and flowers go figure<br />
+                        He brags about the dates he’s had this week<br />
+                        And bitches about the money he’s blown on each<br />
+                        Obviously he hasn’t a clue<br />
+                        About all the things we women do<br />
+                        I told him before he rambled on anymore<br />
+                        What a woman spends before she walks out her door<br />
+                        From the top of her head to the soles of her feet<br />
+                        I explained the cost to look so sweet<br />
+                        I said honey, Beauty Don’t Come Cheap<br />
+                        I’m slavin’ on my figure nearly every day<br />
+                        ‘Cause I’m not naturally built this way<br />
+                        And this pretty face takes a lot of product<br />
+                        With facials and peels and did I mention make up<br />
+                        Victoria’s Secret gives me more than I’ve got<br />
+                        And I know you men love that a lot<br />
+                        I told him before he rambled on anymore<br />
+                        What a woman spends before she walks out her door<br />
+                        From the top of her head to the soles of her feet<br />
+                        I explained the cost to look so sweet<br />
+                        I said honey, Beauty Don’t Come Cheap<br />
+                        Joe makes Jeans that fit my tush just right<br />
+                        Jimmy Choo gives me just enough heighth<br />
+                        A mani, a pedi, bikini wax<br />
+                        Then I’m off to the spa for an herbal wrap<br />
+                        And all this is only what you can see<br />
+                        You can’t put a price on what’s beneath<br />
+                        I told him before he rambled on anymore<br />
+                        What a woman spends before she walks out her door<br />
+                        From the top of her head to the soles of her feet<br />
+                        I explained the cost to look so sweet<br />
+                        I said honey, Beauty Don’t Come Cheap<br />
+                        Honey, Beauty Don’t Come Cheap<br />
+                        Cheap Cheap don’t be so cheap<br />
+                        ‘Cause nobody likes a cheap man…..<br />
+                    </div><script>jQuery(document).ready(function($) {$("#hs-3").mCustomScrollbar({"theme": "dark-thick","autoHideScrollbar":true,"scrollInertia":1500,"autoExpandScrollbar": true,"scrollButtons": {enable:false}});});</script></div></div></div></div>
+
+                    </div></div></div></div></div></div></div><div class="vc_tta-panel" id="1493234313677-621a82e6-37ae" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title vc_tta-controls-icon-position-left"><a href="#1493234313677-621a82e6-37ae" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">DRINKIN' YOU OUT OF MY MIND</span><i class="vc_tta-controls-icon vc_tta-controls-icon-chevron"></i></a></h4></div><div class="vc_tta-panel-body"><style class="player-custom-style"> </style><div class="audioplayer-tobe ap_idx_1403_4 is-single-player apconfig-skinwavewithcomments button-aspect-noir skin-wave alternate-layout ap1045" style="" id="ap1045" data-playerid="1045" data-thumb="http://candys.creativira.com/wp-content/uploads/2017/03/kiss-album-cover.png" data-pcm='[0.031,-0.012,0.033,-0.037,0.067,-0.06,0.111,-0.102,0.06,-0.073,0.109,-0.139,0.124,-0.136,0.139,-0.126,0.144,-0.228,0.283,-0.209,0.239,-0.158,0.176,-0.267,0.291,-0.418,0.331,-0.316,0.31,-0.373,0.281,-0.125,0.224,-0.17,0.087,-0.386,0.352,-0.209,0.373,-0.234,0.43,-0.19,0.373,-0.25,0.218,-0.154,0.173,-0.401,0.162,-0.32,0.485,-0.36,0.374,-0.123,0.26,-0.487,0.38,-0.26,0.405,-0.319,0.264,-0.36,0.279,-0.44,0.352,-0.339,0.404,-0.3,0.198,-0.44,0.331,-0.409,0.348,-0.423,0.444,-0.449,0.472,-0.264,0.216,-0.305,0.417,-0.594,0.409,-0.263,0.275,-0.589,0.321,-0.294,0.369,-0.257,0.242,-0.42,0.327,-0.447,0.289,-0.36,0.54,-0.495,0.257,-0.161,0.347,-0.183,0.272,-0.275,0.269,-0.589,0.526,-0.341,0.232,-0.456,0.35,-0.263,0.385,-0.533,0.36,-0.548,0.34,-0.219,0.234,-0.302,0.446,-0.407,0.447,-0.288,0.213,-0.284,0.274,-0.287,0.284,-0.425,0.204,-0.324,0.325,-0.365,0.459,-0.346,0.297,-0.39,0.479,-0.411,0.242,-0.092,0.301,-0.668,0.159,-0.269,0.291,-0.241,0.439,-0.193,0.23,-0.406,0.401,-0.637,0.191,-0.469,0.271,-0.633,0.512,-0.489,0.266,-0.213,0.419,-0.373,0.342,-0.161,0.703,-0.407,0.308,-0.229,0.247,-0.392,0.242,-0.225,0.402,-0.323,0.499,-0.362,0.384,-0.46,0.43,-0.29,0.45,-0.456,0.663,-0.622,0.272,-0.383,0.235,-0.539,0.415,-0.402,0.22,-0.309,0.356,-0.444,0.521,-0.314,0.438,-0.487,0.365,-0.541,0.328,-0.316,0.421,-0.216,0.35,-0.279,0.278,-0.589,0.665,-0.354,0.298,-0.565,0.337,-0.547,0.476,-0.096,0.241,-0.533,0.363,-0.65,0.443,-0.316,0.384,-0.4,0.49,-0.354,0.218,-0.309,0.219,-0.396,0.218,-0.559,0.253,-0.352,0.605,-0.433,0.247,-0.297,0.375,-0.444,0.376,-0.306,0.197,-0.28,0.234,-0.404,0.48,-0.326,0.354,-0.461,0.399,-0.457,0.56,-0.341,0.495,-0.415,0.352,-0.342,0.436,-0.422,0.344,-0.401,0.242,-0.506,0.285,-0.48,0.661,-0.462,0.467,-0.519,0.488,-0.078,0.435,-0.38,0.376,-0.458,0.531,-0.367,0.595,-0.475,0.547,-0.623,0.234,-0.509,0.706,-0.361,0.47,-0.28,0.412,-0.25,0.414,-0.595,0.667,-0.291,0.398,-0.5,0.542,-0.653,0.305,-0.225,0.423,-0.251,0.386,-0.584,0.295,-0.38,0.512,-0.403,0.48,-0.425,0.349,-0.233,0.239,-0.35,0.278,-0.519,0.424,-0.541,0.467,-0.658,0.36,-0.342,0.601,-0.681,0.297,-0.391,0.3,-0.287,0.25,-0.228,0.168,-0.472,0.201,-0.288,0.298,-0.55,0.518,-0.467,0.272,-0.385,0.574,-0.189,0.384,-0.227,0.521,-0.476,0.592,-0.458,0.492,-0.468,0.604,-0.651,0.331,-0.351,0.324,-0.355,0.422,-0.237,0.273,-0.648,0.385,-0.39,0.308,-0.402,0.304,-0.394,0.322,-0.18,0.52,-0.45,0.306,-0.434,0.614,-0.572,0.214,-0.53,0.604,-0.21,0.552,-0.464,0.552,-0.553,0.375,-0.515,0.549,-0.496,0.47,-0.353,0.562,-0.474,0.416,-0.192,0.282,-0.268,0.27,-0.433,0.45,-0.351,0.137,-0.492,0.471,-0.504,0.473,-0.544,0.334,-0.322,0.315,-0.378,0.353,-0.286,0.411,-0.493,0.588,-0.671,0.448,-0.195,0.282,-0.334,0.432,-0.288,0.387,-0.639,0.12,-0.341,0.486,-0.519,0.225,-0.54,0.478,-0.288,0.265,-0.406,0.367,-0.55,0.244,-0.53,0.33,-0.373,0.489,-0.306,0.306,-0.433,0.652,-0.532,0.471,-0.527,0.174,-0.418,0.505,-0.262,0.649,-0.508,0.342,-0.462,0.348,-0.481,0.453,-0.496,0.464,-0.709,0.563,-0.301,0.598,-0.278,0.42,-0.292,0.302,-0.377,0.29,-0.252,0.497,-0.209,0.285,-0.284,0.373,-0.188,0.218,-0.218,0.342,-0.339,0.254,-0.373,0.174,-0.322,0.251,-0.24,0.34,-0.375,0.163,-0.194,0.184,-0.327,0.206,-0.113,0.268,-0.135,0.163,-0.25,0.216,-0.223,0.171,-0.051,0.124,-0.131,0.101,-0.064,0.041,-0.058,0.013,-0.02]' data-type="audio" data-source="http://candys.creativira.com/wp-content/uploads/2017/04/Drinkin-You-Out-of-My-Mind-demo.mp3" data-playfrom="off" style=" width: 100%; height: 300px;"><div class="meta-artist"><span class="the-artist">Candy Fernaux</span>&nbsp;<span class="the-name">Drinkin' You out of My Mind</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(http://candys.creativira.com/wp-content/uploads/2017/03/kiss-album-cover.png)"></div></div><span class="the-artist">Candy Fernaux</span><span class="the-name">Drinkin' You out of My Mind</span></div><div class="extra-html-in-controls-right"><a   onclick='window.dzs_open_social_link("http://www.facebook.com/sharer.php?u={{replaceurl}}&caption=Candy+Fernaux&description=Drinkin%27+You+out+of+My+Mind&picture=http%3A%2F%2Fcandys.creativira.com%2Fwp-content%2Fuploads%2F2017%2F03%2Fkiss-album-cover.png",this); return false;' class="player-but sharer-dzsap-but"><div class="the-icon-bg"></div>{{svg_share_icon}}</a></div><div class="extra-html"><div class="extra-html--left "></div></div></div><script>
+                    //console.warn("WILL INIT");
+                    jQuery(document).ready(function ($){
+                        var settings_ap = {
+                            design_skin: "skin-wave"
+                            ,autoplay: "off"
+                            ,disable_volume:"default"
+                            ,loop:"off"
+                            ,cue: "on"
+                            ,embedded: "off"
+                            ,preload_method:"metadata"
+                            ,design_animateplaypause:"default"
+                            ,skinwave_dynamicwaves:"on"
+                            ,skinwave_enableSpectrum:"off"
+                            ,settings_backup_type:"full"
+                            ,skinwave_enableReflect:"on",playfrom:"off",disable_scrub:"off",soundcloud_apikey:"3XGXIaivIR8xvvwQNFyrKAhW5myYz4um"
+                            ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"alternate",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "on",pcm_notice: "off",design_color_bg: "999999",design_color_highlight: "f8afaf",skinwave_wave_mode_canvas_waves_number: "300",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",skinwave_comments_playerid:"1045",php_retriever:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" ,swf_location:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/ap.swf"
+                            ,swffull_location:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/apfull.swf"
+                        };
+
+                        dzsap_init(".ap_idx_1403_4",settings_ap);
+                    });
+                </script>
+                    <div class="wpb_text_column wpb_content_element " >
+                        <div class="wpb_wrapper">
+                            <p><strong>Drinkin’ You out of My Mind</strong> came to life after two of my close girlfriends went through rough breakups with men they felt they were destined to marry. The end of relationships always comes with many emotions as we say goodbye. We get sad, we get mad, we sing the blues, then we have to pull ourselves up by the boot straps and move on. Just like getting thrown from a horse when the wind gets knocked out of you, you get up and climb back in the saddle. So raise a glass sisters- here’s to finding another horse and riding again!</p>
+
+                        </div>
+                    </div>
+                    <div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="ult_exp_section_layer ult-adjust-bottom-margin  " >
+                        <div id="uvc-exp-wrap-8146"   data-ultimate-target='#uvc-exp-wrap-8146'  data-responsive-json-new='{"font-size":"desktop:25px;","line-height":"desktop:32px;"}'  class="ult_exp_section  ult-responsive " style="color:#14cefd;background-color:#ffffff;font-family:Stint Ultra Condensed; font-weight:normal;  text-align:left;" data-textcolor="#14cefd"data-texthover="#4dadc5"data-icncolor="#14cefd"data-ihover="#4dadc5"data-height="-30"data-cntbg="#ffffff"data-cnthvrbg="#ffffff"data-headerbg="#ffffff"data-headerhover="#ffffff"data-title="LYRICS"data-newtitle="DRINKIN' YOU OUT OF MY MIND"data-icon="Defaults-search-plus"data-newicon="Defaults-search-minus"data-activeicon="#14cefd"data-effect="slideToggle"data-override="0"data-activetitle="#14cefd"data-activebg="#ffffff"data-img=""data-newimg=""><div class="ult_exp_section-main ult_expleft_icon">	<div class="ult-just-icon-wrapper ult_exp_icon">
+                            <div class="align-icon ">
+
+<span class="aio-icon  none  ult_expsection_icon "  style="color:#14cefd;font-size:20px;">
+	<i class="Defaults-search-plus ult_ex_icon"  ></i>
+</span>
+                            </div>
+                        </div>
+                            <div class="ult_expheader" >LYRICS
+                            </div>
+                        </div>
+                        </div><div class="ult_exp_content " style="background-color:#ffffff;  "><div class="ult_ecpsub_cont" style=" " ><div id="ultimate-heading-907590225a84eb2b" class="uvc-heading ult-adjust-bottom-margin ultimate-heading-907590225a84eb2b uvc-1923 " data-hspacer="no_spacer"  data-halign="left" style="text-align:left"><div class="uvc-heading-spacer no_spacer" style="top"></div><div class="uvc-sub-heading ult-responsive"  data-ultimate-target='.uvc-heading.ultimate-heading-907590225a84eb2b .uvc-sub-heading '  data-responsive-json-new='{"font-size":"","line-height":""}'  style="font-weight:normal;"><div id="hs-4" class="hs" style="overflow:hidden;height:300px"><br />
+                        I’m gonna get dressed up to paint this town<br />
+                        Stay out all night and burn it down<br />
+                        No more sitting around singing the blues&#8230;.<br />
+                        It’s time to face the cold hard truth<br />
+                        And get started getting over you<br />
+                        There’s a brand new fairytale about to begin&#8230;.<br />
+                        Tonight I’m drinkin&#8217; you out of my mind<br />
+                        Working on leaving your memory behind<br />
+                        I’ll raise a glass and you can kiss my ass<br />
+                        For treating me so unkind<br />
+                        Tonight I’m drinkin’ you out of my mind<br />
+                        Prince charming sits on every stool<br />
+                        Buying me drinks and playing it cool<br />
+                        I wonder which one will be the first out of the chute&#8230;.<br />
+                        When you get bucked off and hit the ground<br />
+                        You’ve got to saddle up for another round<br />
+                        What better way to leave you behind&#8230;.<br />
+                        Tonight I’m drinkin&#8217; you out of my mind<br />
+                        Working on leaving your memory behind<br />
+                        I’ll raise a glass and you can kiss my ass<br />
+                        For treating me so unkind<br />
+                        Tonight I’m drinkin’ you out of my mind<br />
+                        Tomorrow I’ll wake and swear I’m done with men<br />
+                        Kick him out of the bed and vow to never drink again<br />
+                        And this is where the vicious cycle begins<br />
+                        Tonight I’m drinkin&#8217; you out of my mind<br />
+                        Working on leaving your memory behind<br />
+                        I’ll raise a glass and you can kiss my ass<br />
+                        For treating me so unkind<br />
+                        Tonight I’m drinkin’ you out of my mind<br />
+                        Tonight I’m drinkin’ you out of my mind<br />
+                        Tonight I’m drinkin’ you out of my mind<br />
+                    </div><script>jQuery(document).ready(function($) {$("#hs-4").mCustomScrollbar({"theme": "dark-thick","autoHideScrollbar":true,"scrollInertia":1500,"autoExpandScrollbar": true,"scrollButtons": {enable:false}});});</script></div></div></div></div>
+
+                    </div></div></div></div></div></div></div><div class="vc_tta-panel" id="1493234828105-f2193387-9dfa" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title vc_tta-controls-icon-position-left"><a href="#1493234828105-f2193387-9dfa" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">WEST WITH THE NIGHT</span><i class="vc_tta-controls-icon vc_tta-controls-icon-chevron"></i></a></h4></div><div class="vc_tta-panel-body"><style class="player-custom-style"> </style><div class="audioplayer-tobe ap_idx_1403_5 is-single-player apconfig-skinwavewithcomments button-aspect-noir skin-wave alternate-layout ap957" style="" id="ap957" data-playerid="957" data-thumb="http://candys.creativira.com/wp-content/uploads/2017/03/WWTN-Logo-Text.png" data-pcm='[0.018,-0.032,0.052,-0.05,0.115,-0.122,0.232,-0.408,0.487,-0.469,0.471,-0.369,0.509,-0.344,0.728,-0.351,0.598,-0.496,0.754,-0.588,0.639,-0.529,0.484,-0.596,0.576,-0.467,0.695,-0.529,0.824,-0.468,0.593,-0.804,0.353,-0.461,0.381,-0.667,0.494,-0.524,0.507,-0.238,0.915,-0.547,0.762,-0.617,0.895,-0.714,0.508,-0.539,0.442,-0.745,0.56,-0.605,0.592,-0.582,0.647,-0.403,0.296,-0.496,0.451,-0.495,0.505,-0.422,0.21,-0.518,0.783,-0.624,0.781,-0.922,0.543,-0.341,0.617,-0.416,0.734,-0.494,0.693,-0.514,0.593,-0.322,0.827,-0.848,0.641,-0.736,0.711,-0.626,0.736,-0.544,0.722,-0.596,0.807,-0.841,0.569,-0.694,0.265,-0.461,0.593,-0.631,0.695,-0.44,0.443,-0.413,0.532,-0.38,0.487,-0.557,0.595,-0.592,0.478,-0.439,0.548,-0.632,0.606,-0.499,0.336,-0.235,0.88,-0.575,0.503,-0.828,0.792,-0.842,0.827,-0.734,0.627,-0.694,0.487,-0.57,0.642,-0.85,0.751,-0.75,0.551,-0.816,0.523,-0.703,0.457,-0.75,0.559,-0.578,0.662,-0.639,0.483,-0.784,0.521,-0.606,0.696,-0.482,0.881,-0.741,0.858,-0.909,0.401,-0.927,0.761,-0.706,0.703,-0.585,0.773,-0.575,0.641,-0.513,0.626,-0.479,0.385,-0.73,0.882,-0.637,0.442,-0.605,0.419,-0.693,0.471,-0.449,0.839,-0.576,0.707,-0.689,0.603,-0.515,0.417,-0.639,0.725,-0.491,0.792,-0.512,0.784,-0.506,0.526,-0.561,0.707,-0.676,0.322,-0.742,0.455,-0.332,0.583,-0.421,0.796,-0.61,0.593,-0.414,0.349,-0.709,0.197,-0.842,0.567,-0.475,0.583,-0.741,0.718,-0.765,0.668,-0.657,0.635,-0.605,0.424,-0.633,0.858,-0.68,0.845,-0.699,0.648,-0.76,0.873,-0.607,0.804,-0.586,0.536,-0.538,0.586,-0.512,0.689,-0.558,0.673,-0.587,0.577,-0.544,0.568,-0.45,0.445,-0.448,0.762,-0.663,0.926,-0.771,0.656,-0.455,0.752,-0.435,0.735,-0.563,0.782,-0.545,0.766,-0.555,0.876,-0.831,0.588,-0.776,0.629,-0.858,0.741,-0.574,0.639,-0.905,0.661,-0.756,0.769,-0.675,0.349,-0.766,0.42,-0.387,0.742,-0.356,0.424,-0.76,0.815,-0.956,0.856,-0.781,0.631,-0.529,0.877,-0.541,0.405,-0.642,0.718,-0.465,0.559,-0.81,0.574,-0.65,0.891,-0.588,0.837,-0.198,0.924,-0.629,0.61,-0.726,0.677,-0.706,0.482,-0.575,0.516,-0.63,0.763,-0.864,0.887,-0.551,0.834,-0.374,0.51,-0.386,0.803,-0.638,0.543,-0.49,0.634,-0.814,0.705,-0.302,0.5,-0.436,0.666,-0.6,0.705,-0.258,0.896,-0.628,0.634,-0.588,0.855,-0.611,0.683,-0.835,0.55,-0.827,0.735,-0.53,0.638,-0.497,0.604,-0.386,0.857,-0.601,0.646,-0.875,0.987,-0.622,0.621,-0.621,0.622,-0.889,0.859,-0.778,0.752,-0.673,0.782,-0.826,0.916,-0.839,0.53,-0.398,0.529,-0.496,0.697,-0.361,0.857,-0.746,0.659,-0.563,0.749,-0.684,0.668,-0.551,0.565,-0.701,0.468,-0.504,0.948,-0.926,0.728,-0.486,0.844,-0.74,0.542,-0.45,0.748,-0.696,0.673,-0.461,0.452,-0.518,0.83,-0.519,0.597,-0.593,0.631,-0.526,0.623,-0.518,0.662,-0.428,0.745,-0.751,0.507,-0.552,0.277,-0.879,0.278,-0.431,0.445,-0.848,0.645,-0.448,0.395,-0.56,0.597,-0.728,0.45,-0.496,0.538,-0.827,0.391,-0.539,0.913,-0.495,0.669,-0.328,0.699,-0.658,0.468,-0.64,0.794,-0.48,0.6,-0.567,0.477,-0.436,0.672,-0.42,0.794,-0.557,0.796,-0.36,0.245,-0.544,0.596,-0.787,0.8,-0.879,0.712,-0.572,0.469,-0.59,0.422,-0.78,0.252,-0.904,0.321,-0.316,0.73,-0.571,0.588,-0.859,0.735,-0.404,0.505,-0.51,0.394,-0.286,0.325,-0.449,0.418,-0.411,0.605,-0.618,0.494,-0.706,0.75,-0.508,0.525,-0.379,0.364,-0.583,0.494,-0.565,0.486,-0.536,0.321,-0.336,0.364,-0.258,0.285,-0.25,0.308,-0.269,0.219,-0.213,0.104,-0.186,0.12,-0.215,0.084,-0.097,0.064,-0.08,0.015,-0.021,0.009,-0.007]' data-type="audio" data-source="http://candys.creativira.com/wp-content/uploads/2016/05/West-With-The-Night.mp3" data-playfrom="off" style=" width: 100%; height: 300px;"><div class="meta-artist"><span class="the-artist">Candy Fernaux</span>&nbsp;<span class="the-name">West with the Night</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(http://candys.creativira.com/wp-content/uploads/2017/03/WWTN-Logo-Text.png)"></div></div><span class="the-artist">Candy Fernaux</span><span class="the-name">West with the Night</span></div><div class="extra-html-in-controls-right"><a   onclick='window.dzs_open_social_link("http://www.facebook.com/sharer.php?u={{replaceurl}}&caption=Candy+Fernaux&description=West+with+the+Night&picture=http%3A%2F%2Fcandys.creativira.com%2Fwp-content%2Fuploads%2F2017%2F03%2FWWTN-Logo-Text.png",this); return false;' class="player-but sharer-dzsap-but"><div class="the-icon-bg"></div>{{svg_share_icon}}</a></div><div class="extra-html"><div class="extra-html--left "></div></div></div><script>
+                    //console.warn("WILL INIT");
+                    jQuery(document).ready(function ($){
+                        var settings_ap = {
+                            design_skin: "skin-wave"
+                            ,autoplay: "off"
+                            ,disable_volume:"default"
+                            ,loop:"off"
+                            ,cue: "on"
+                            ,embedded: "off"
+                            ,preload_method:"metadata"
+                            ,design_animateplaypause:"default"
+                            ,skinwave_dynamicwaves:"on"
+                            ,skinwave_enableSpectrum:"off"
+                            ,settings_backup_type:"full"
+                            ,skinwave_enableReflect:"on",playfrom:"off",disable_scrub:"off",soundcloud_apikey:"3XGXIaivIR8xvvwQNFyrKAhW5myYz4um"
+                            ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"alternate",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "on",pcm_notice: "off",design_color_bg: "999999",design_color_highlight: "f8afaf",skinwave_wave_mode_canvas_waves_number: "300",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",skinwave_comments_playerid:"957",php_retriever:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" ,swf_location:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/ap.swf"
+                            ,swffull_location:"http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/apfull.swf"
+                        };
+
+                        dzsap_init(".ap_idx_1403_5",settings_ap);
+                    });
+                </script>
+                    <div class="wpb_text_column wpb_content_element " >
+                        <div class="wpb_wrapper">
+                            <p><strong>West with the Night</strong> is a ballad about my guitar pickin, truck drivin’ airplane flying’ hero: my Gramp. This song brings back my best memories as a child, seeing him living his life and enjoying it to the fullest. I hope West with the Night takes you to a special place where you can visualize this “cowboy gentleman” that hung the moon in our family!</p>
+
+                        </div>
+                    </div>
+                    <div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="ult_exp_section_layer ult-adjust-bottom-margin  " >
+                        <div id="uvc-exp-wrap-8469"   data-ultimate-target='#uvc-exp-wrap-8469'  data-responsive-json-new='{"font-size":"desktop:25px;","line-height":"desktop:32px;"}'  class="ult_exp_section  ult-responsive " style="color:#14cefd;background-color:#ffffff;font-family:Stint Ultra Condensed; font-weight:normal;  text-align:left;" data-textcolor="#14cefd"data-texthover="#4dadc5"data-icncolor="#14cefd"data-ihover="#4dadc5"data-height="-30"data-cntbg="#ffffff"data-cnthvrbg="#ffffff"data-headerbg="#ffffff"data-headerhover="#ffffff"data-title="LYRICS"data-newtitle="WEST WITH THE NIGHT"data-icon="Defaults-search-plus"data-newicon="Defaults-search-minus"data-activeicon="#14cefd"data-effect="slideToggle"data-override="0"data-activetitle="#14cefd"data-activebg="#ffffff"data-img=""data-newimg=""><div class="ult_exp_section-main ult_expleft_icon">	<div class="ult-just-icon-wrapper ult_exp_icon">
+                            <div class="align-icon ">
+
+<span class="aio-icon  none  ult_expsection_icon "  style="color:#14cefd;font-size:20px;">
+	<i class="Defaults-search-plus ult_ex_icon"  ></i>
+</span>
+                            </div>
+                        </div>
+                            <div class="ult_expheader" >LYRICS
+                            </div>
+                        </div>
+                        </div><div class="ult_exp_content " style="background-color:#ffffff;  "><div class="ult_ecpsub_cont" style=" " ><div id="ultimate-heading-9987590225a84fa73" class="uvc-heading ult-adjust-bottom-margin ultimate-heading-9987590225a84fa73 uvc-562 " data-hspacer="no_spacer"  data-halign="left" style="text-align:left"><div class="uvc-heading-spacer no_spacer" style="top"></div><div class="uvc-sub-heading ult-responsive"  data-ultimate-target='.uvc-heading.ultimate-heading-9987590225a84fa73 .uvc-sub-heading '  data-responsive-json-new='{"font-size":"","line-height":""}'  style="font-weight:normal;"><div id="hs-5" class="hs" style="overflow:hidden;height:300px"><br />
+                        He flew an old airplane and could land on a dime A long haul trucker most of the time<br />
+                        He wore pearl snap shirts, a white Stetson hat He was a maverick and a saint<br />
+                        He’d come flying in Sunday’s and circle the house<br />
+                        All of us kids would come scrambling out<br />
+                        We’d run to the field and watch him sailing in<br />
+                        Oh the stories ‘n the trinkets from the places he&#8217;d been<br />
+                        Then it was up to the clouds and away he would go<br />
+                        Or kicking up dust in his truck down the road<br />
+                        Coming or going he was always a sight<br />
+                        Riding into the sunset&#8230;West with the Night&#8230;.<br />
+                        A flat top Gibson never far from his side<br />
+                        A black saddle with silver whenever he&#8217;d ride<br />
+                        You could say that Gramps was one of a kind<br />
+                        The silent type ‘til he spoke his mind<br />
+                        Then it was up to the clouds and away he would go<br />
+                        Or kicking up dust in his truck down the road<br />
+                        Coming or going he was always a sight<br />
+                        Riding into the sunset&#8230;West with the Night&#8230;.<br />
+                        He stood ten feet tall in everyone’s eyes<br />
+                        A cowboy gentleman &#8211; his way of life<br />
+                        Then it was up to the clouds and away he would go<br />
+                        Or kicking up dust in his truck down the road<br />
+                        Coming or going he was always a sight<br />
+                        Riding into the sunset&#8230; West with the Night&#8230;.</p>
+                        <p>&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;West with the Night&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;.<br />
+                    </div><script>jQuery(document).ready(function($) {$("#hs-5").mCustomScrollbar({"theme": "dark-thick","autoHideScrollbar":true,"scrollInertia":1500,"autoExpandScrollbar": true,"scrollButtons": {enable:false}});});</script></div></div></div></div>
+
+                    </div></div></div></div></div></div></div></div></div></div></div><div class="vc_empty_space"   style="height: 50px" ><span class="vc_empty_space_inner"></span></div>
+                </div></div></div></div>
+                    <div class="essb_links essb_counters essb_counter_modern_right essb_displayed_bottom essb_share essb_template_dimmed-retina essb_1195773157 essb_links_center essb_icon_animation2 print-no" id="essb_displayed_bottom_1195773157" data-essb-postid="1403" data-essb-position="bottom" data-essb-button-style="button" data-essb-template="dimmed-retina" data-essb-counter-pos="right" data-essb-url="http://candys.creativira.com/music/" data-essb-twitter-url="http://candys.creativira.com/music/" data-essb-instance="1195773157"><ul class="essb_links_list"><li class="essb_item essb_totalcount_item" style="display: none !important;" data-counter-pos="right"><span class="essb_totalcount essb_t_l" title="Total: "><span class="essb_total_text">Total: </span><span class="essb_t_nb">2</span></span></li><li class="essb_item essb_link_facebook nolightbox"> <a href="https://www.facebook.com/dialog/feed?app_id=230078070808372&amp;display=popup&amp;name=Candy+Fernaux+Music&amp;link=http://candys.creativira.com/music/&amp;redirect_uri=https://www.facebook.com" title="" onclick="essb_window(&#39;https://www.facebook.com/dialog/feed?app_id=230078070808372&amp;display=popup&amp;name=Candy+Fernaux+Music&amp;link=http://candys.creativira.com/music/&amp;redirect_uri=https://www.facebook.com&#39;,&#39;facebook_advanced&#39;,&#39;1195773157&#39;); return false;" target="_blank" rel="nofollow" ><span class="essb_icon essb_icon_facebook"></span><span class="essb_network_name">Share</span></a><span class="essb_counter_right" data-cnt="" data-cnt-short="0">0</span></li><li class="essb_item essb_link_twitter nolightbox"> <a href="#" title="" onclick="essb_window(&#39;https://twitter.com/intent/tweet?text=Candy+Fernaux+Music&amp;url=http://candys.creativira.com/music/&amp;counturl=http://candys.creativira.com/music/&amp;related=candystunes&amp;via=candystunes&#39;,&#39;twitter&#39;,&#39;1195773157&#39;); return false;" target="_blank" rel="nofollow" ><span class="essb_icon essb_icon_twitter"></span><span class="essb_network_name">Tweet</span></a><span class="essb_counter_right" data-cnt="2" data-cnt-short="2">2</span></li><li class="essb_item essb_link_love nolightbox"> <a href="#" title="" onclick="essb_lovethis(&#39;1195773157&#39;); return false;" target="_blank" rel="nofollow" ><span class="essb_icon essb_icon_love"></span><span class="essb_network_name">Love</span></a><span class="essb_counter_right" data-cnt="" data-cnt-short="0">0</span></li><li class="essb_item essb_link_mail nolightbox"> <a href="#" title="" onclick="essb_open_mailform(&#39;1195773157&#39;); return false;" target="_blank" rel="nofollow" ><span class="essb_icon essb_icon_mail"></span><span class="essb_network_name">Email</span></a><span class="essb_counter_right" data-cnt="" data-cnt-short="0">0</span></li></ul></div>
+
+
+
+
+
+
+                </div><!-- #content -->
+
+
+
+
+            </div><!-- .wf-container -->
+        </div><!-- .wf-wrap -->
+    </div><!-- #main -->
+
+
+    <!-- !Footer -->
+    <footer id="footer" class="footer solid-bg">
+
+
+        <!-- !Bottom-bar -->
+        <div id="bottom-bar" class="solid-bg" role="contentinfo">
+            <div class="wf-wrap">
+                <div class="wf-container-bottom">
+                    <div class="wf-table wf-mobile-collapsed">
+
+                        <div id="branding-bottom" class="wf-td"><a href="http://candys.creativira.com/"><img class=" preload-me" src="http://candys.creativira.com/wp-content/uploads/2017/03/candy-fernaux_logotype200.png" srcset="http://candys.creativira.com/wp-content/uploads/2017/03/candy-fernaux_logotype200.png 200w, http://candys.creativira.com/wp-content/uploads/2017/03/candy-fernaux_logotype300@2x.png 600w" width="200" height="33"   sizes="200px" alt="Candy&#039;s Tunes" /></a></div>
+                        <div class="wf-td">
+                            <div class="wf-float-left">
+
+                                Copyright 2017 | All Rights Reserved by Candy's Tunes
+                            </div>
+                        </div>
+
+
+                        <div class="wf-td">
+
+
+                        </div>
+
+
+                        <div class="wf-td bottom-text-block">
+
+                            <div class="soc-ico"><a title="Facebook" href="https://www.facebook.com/CandysTunes" target="_blank" class="facebook"><span class="screen-reader-text">Facebook</span></a><a title="Instagram" href="https://www.instagram.com/candystunes" target="_blank" class="instagram"><span class="screen-reader-text">Instagram</span></a><a title="Twitter" href="https://twitter.com/candystunes" target="_blank" class="twitter"><span class="screen-reader-text">Twitter</span></a></div>
+
+                        </div>
+
+
+                    </div>
+                </div><!-- .wf-container-bottom -->
+            </div><!-- .wf-wrap -->
+        </div><!-- #bottom-bar -->
+    </footer><!-- #footer -->
+
+
+
+    <a href="#" class="scroll-top"><span class="screen-reader-text">Go to Top</span></a>
+
+</div><!-- #page -->
+<script type="text/javascript">
+    function revslider_showDoubleJqueryError(sliderID) {
+        var errorMessage = "Revolution Slider Error: You have some jquery.js library include that comes after the revolution files js include.";
+        errorMessage += "<br> This includes make eliminates the revolution slider libraries, and make it not work.";
+        errorMessage += "<br><br> To fix it you can:<br>&nbsp;&nbsp;&nbsp; 1. In the Slider Settings -> Troubleshooting set option:  <strong><b>Put JS Includes To Body</b></strong> option to true.";
+        errorMessage += "<br>&nbsp;&nbsp;&nbsp; 2. Find the double jquery.js include and remove it.";
+        errorMessage = "<span style='font-size:16px;color:#BC0C06;'>" + errorMessage + "</span>";
+        jQuery(sliderID).show().html(errorMessage);
+    }
+</script>
+<link rel='stylesheet' id='vc_tta_style-css'  href='http://candys.creativira.com/wp-content/plugins/js_composer/assets/css/js_composer_tta.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='dzs.zoomsounds-css'  href='http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/audioplayer/audioplayer.css?ver=4.7.4' type='text/css' media='all' />
+<link rel='stylesheet' id='dzs.tooltip-css'  href='http://candys.creativira.com/wp-content/plugins/dzs-zoomsounds/dzstooltip/dzstooltip.css?ver=4.7.4' type='text/css' media='all' />
+<link rel='stylesheet' id='hello_scrollbar_css-css'  href='http://candys.creativira.com/wp-content/plugins/hello-scrollbar-widget-plugin/css/jquery.mCustomScrollbar.min.css?ver=4.7.4' type='text/css' media='all' />
+<link rel='stylesheet' id='animate-css-css'  href='http://candys.creativira.com/wp-content/plugins/js_composer/assets/lib/bower/animate-css/animate.min.css?ver=5.1.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://candys.creativira.com/wp-content/themes/dt-the7/js/main.min.js?ver=5.1.1'></script>
+<script type='text/javascript' src='//candys.creativira.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70'></script>
+<script type='text/javascript' src='//candys.creativira.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/music\/?wc-ajax=%%endpoint%%"};
+    /* ]]> */
+</script>
+<script type='text/javascript' src='//candys.creativira.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=3.0.4'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/music\/?wc-ajax=%%endpoint%%","fragment_name":"wc_fragments"};
+    /* ]]> */
+</script>
+<script type='text/javascript' src='//candys.creativira.com/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=3.0.4'></script>
+<script type='text/javascript' src='http://candys.creativira.com/wp-content/themes/dt-the7/js/post-type.js?ver=5.1.1'></script>
+<script type='text/javascript' src='http://candys.creativira.com/wp-includes/js/wp-embed.min.js?ver=4.7.4'></script>
+<script type='text/javascript' src='http://candys.creativira.com/wp-content/themes/dt-the7/inc/mods/compatibility/woocommerce/assets/js/mod-wc-scripts.js?ver=5.1.1'></script>
+<script type='text/javascript' src='http://candys.creativira.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=5.1.1'></script>
+<script type='text/javascript' src='http://candys.creativira.com/wp-content/plugins/js_composer/assets/lib/vc_accordion/vc-accordion.min.js?ver=5.1.1'></script>
+<script type='text/javascript' src='http://candys.creativira.com/wp-content/plugins/js_composer/assets/lib/vc-tta-autoplay/vc-tta-autoplay.min.js?ver=5.1.1'></script>
+<script type='text/javascript' src='../audioplayer/audioplayer.js?ver=4.7.4'></script>
+<script type='text/javascript' src='http://candys.creativira.com/wp-content/plugins/hello-scrollbar-widget-plugin/js/jquery.mCustomScrollbar.concat.min.js?ver=4.7.4'></script>
+<script type='text/javascript' src='http://candys.creativira.com/wp-content/plugins/js_composer/assets/lib/waypoints/waypoints.min.js?ver=5.1.1'></script>
+<div class="essb_mailform"><div class="essb_mailform_content"><p>Send this to a friend</p><label class="essb_mailform_content_label">Your email</label><input type="text" id="essb_mailform_from" class="essb_mailform_content_input" placeholder="Your email"/><label class="essb_mailform_content_label">Recipient email</label><input type="text" id="essb_mailform_to" class="essb_mailform_content_input" placeholder="Recipient email"/><label class="essb_mailform_content_label">Your message</label><textarea id="essb_mailform_custom" class="essb_mailform_content_input" placeholder="Your message"></textarea><label class="essb_mailform_content_label">1+2</label><input type="text" id="essb_mailform_c" class="essb_mailform_content_input" placeholder="Fill captcha code"/><div class="essb_mailform_preview">Hi, this may be interesting you: Candy Fernaux Music! This is the link: <a href="http://candys.creativira.com/music/">http://candys.creativira.com/music/</a></div><div class="essb_mailform_content_buttons"><button id="essb_mailform_btn_submit" class="essb_mailform_content_button" onclick="essb_mailform_send();">Send</button><button id="essb_mailform_btn_cancel" class="essb_mailform_content_button" onclick="essb_close_mailform(); return false;">Cancel</button></div><input type="hidden" id="essb_mail_salt" value="2019823656"/><input type="hidden" id="essb_mail_instance" value=""/><input type="hidden" id="essb_mail_post" value=""/></div></div><div class="essb_mailform_shadow"></div><link rel="stylesheet" id="essb-cct-style"  href="http://candys.creativira.com/wp-content/plugins/easy-social-share-buttons3/lib/modules/click-to-tweet/assets/css/styles.css" type="text/css" media="all" /><script type="text/javascript">var essb_clicked_lovethis = false; var essb_love_you_message_thanks = "Thank you for loving this."; var essb_love_you_message_loved = "You already love this today."; var essb_lovethis = function(oInstance) { if (essb_clicked_lovethis) { alert(essb_love_you_message_loved); return; } var element = jQuery('.essb_'+oInstance); if (!element.length) { return; } var instance_post_id = jQuery(element).attr("data-essb-postid") || ""; var cookie_set = essb_get_lovecookie("essb_love_"+instance_post_id); if (cookie_set) { alert(essb_love_you_message_loved); return; } if (typeof(essb_settings) != "undefined") { jQuery.post(essb_settings.ajax_url, { 'action': 'essb_love_action', 'post_id': instance_post_id, 'service': 'love', 'nonce': essb_settings.essb3_nonce }, function (data) { if (data) { alert(essb_love_you_message_thanks); }},'json'); } essb_tracking_only('', 'love', oInstance, true); }; var essb_get_lovecookie = function(name) { var value = "; " + document.cookie; var parts = value.split("; " + name + "="); if (parts.length == 2) return parts.pop().split(";").shift(); };var essb_window = function(oUrl, oService, oInstance) { var element = jQuery('.essb_'+oInstance); var instance_post_id = jQuery(element).attr("data-essb-postid") || ""; var instance_position = jQuery(element).attr("data-essb-position") || ""; var wnd; var w = 800 ; var h = 500; if (oService == "twitter") { w = 500; h= 300; } var left = (screen.width/2)-(w/2); var top = (screen.height/2)-(h/2); if (oService == "twitter") { wnd = window.open( oUrl, "essb_share_window", "height=300,width=500,resizable=1,scrollbars=yes,top="+top+",left="+left ); } else { wnd = window.open( oUrl, "essb_share_window", "height=500,width=800,resizable=1,scrollbars=yes,top="+top+",left="+left ); } if (typeof(essb_settings) != "undefined") { if (essb_settings.essb3_stats) { if (typeof(essb_handle_stats) != "undefined") { essb_handle_stats(oService, instance_post_id, oInstance); } } if (essb_settings.essb3_ga) { essb_ga_tracking(oService, oUrl, instance_position); } } essb_self_postcount(oService, instance_post_id); if (typeof(essb_abtesting_logger) != "undefined") { essb_abtesting_logger(oService, instance_post_id, oInstance); } var pollTimer = window.setInterval(function() { if (wnd.closed !== false) { window.clearInterval(pollTimer); essb_smart_onclose_events(oService, instance_post_id); } }, 200); }; var essb_self_postcount = function(oService, oCountID) { if (typeof(essb_settings) != "undefined") { oCountID = String(oCountID); jQuery.post(essb_settings.ajax_url, { 'action': 'essb_self_postcount', 'post_id': oCountID, 'service': oService, 'nonce': essb_settings.essb3_nonce }, function (data) { if (data) { }},'json'); } }; var essb_smart_onclose_events = function(oService, oPostID) { if (oService == "subscribe" || oService == "comments") return; if (typeof (essbasc_popup_show) == 'function') { essbasc_popup_show(); } if (typeof essb_acs_code == 'function') { essb_acs_code(oService, oPostID); } if (typeof(after_share_easyoptin) != "undefined") { essb_toggle_subscribe(after_share_easyoptin); } }; var essb_tracking_only = function(oUrl, oService, oInstance, oAfterShare) { var element = jQuery('.essb_'+oInstance); if (oUrl == "") { oUrl = document.URL; } var instance_post_id = jQuery(element).attr("data-essb-postid") || ""; var instance_position = jQuery(element).attr("data-essb-position") || ""; if (typeof(essb_settings) != "undefined") { if (essb_settings.essb3_stats) { if (typeof(essb_handle_stats) != "undefined") { essb_handle_stats(oService, instance_post_id, oInstance); } } if (essb_settings.essb3_ga) { essb_ga_tracking(oService, oUrl, instance_position); } } essb_self_postcount(oService, instance_post_id); if (oAfterShare) { essb_smart_onclose_events(oService, instance_post_id); } }; var essb_pinterest_picker = function(oInstance) { essb_tracking_only('', 'pinterest', oInstance); var e=document.createElement('script'); e.setAttribute('type','text/javascript'); e.setAttribute('charset','UTF-8'); e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e); };var essb_mailform_opened = false; function essb_open_mailform(unique_id) { jQuery.fn.extend({ center: function () { return this.each(function() { var top = (jQuery(window).height() - jQuery(this).outerHeight()) / 2; var left = (jQuery(window).width() - jQuery(this).outerWidth()) / 2; jQuery(this).css({position:'fixed', margin:0, top: (top > 0 ? top : 0)+'px', left: (left > 0 ? left : 0)+'px'}); }); } }); if (essb_mailform_opened) { essb_close_mailform(unique_id); return; } var sender_element = jQuery(".essb_"+unique_id); if (!sender_element.length) return; var sender_post_id = jQuery(sender_element).attr("data-essb-postid") || ""; jQuery("#essb_mail_instance").val(unique_id); jQuery("#essb_mail_post").val(sender_post_id); var win_width = jQuery( window ).width(); var win_height = jQuery(window).height(); var doc_height = jQuery('document').height(); var base_width = 300; if (win_width < base_width) { base_width = win_width - 30; } var height_correction = 20; var element_class = ".essb_mailform"; var element_class_shadow = ".essb_mailform_shadow"; jQuery(element_class).css( { width: base_width+'px'}); var popup_height = jQuery(element_class).outerHeight(); if (popup_height > (win_height - 30)) { jQuery(element_class).css( { height: (win_height - height_correction)+'px'}); } jQuery("#essb_mailform_from").val(""); jQuery("#essb_mailform_to").val(""); if (jQuery("#essb_mailform_c").length) jQuery("#essb_mailform_c").val(""); jQuery(element_class_shadow).css( { height: (win_height)+'px'}); jQuery(element_class).center(); jQuery(element_class).slideDown(200); jQuery(element_class_shadow).fadeIn(200); essb_mailform_opened = true; essb_tracking_only("", "mail", unique_id); }; function essb_close_mailform() { var element_class = ".essb_mailform"; var element_class_shadow = ".essb_mailform_shadow"; jQuery(element_class).fadeOut(200); jQuery(element_class_shadow).fadeOut(200); essb_mailform_opened = false; }; function essb_mailform_send() { var sender_email = jQuery("#essb_mailform_from").val(); var recepient_email = jQuery("#essb_mailform_to").val(); var captcha_validate = jQuery("#essb_mailform_c").length ? true : false; var captcha = captcha_validate ? jQuery("#essb_mailform_c").val() : ""; var custom_message = jQuery("#essb_mailform_custom").length ? jQuery("#essb_mailform_custom").val() : ""; if (sender_email == "" || recepient_email == "" || (captcha == "" && captcha_validate)) { alert("Please fill all fields in form!"); return; } var mail_salt = jQuery("#essb_mail_salt").val(); var instance_post_id = jQuery("#essb_mail_post").val(); console.log("mail salt = " + mail_salt); if (typeof(essb_settings) != "undefined") { jQuery.post(essb_settings.ajax_url, { "action": "essb_mail_action", "post_id": instance_post_id, "from": sender_email, "to": recepient_email, "c": captcha, "cu": custom_message, "salt": mail_salt, "nonce": essb_settings.essb3_nonce }, function (data) { if (data) { console.log(data); alert(data["message"]); if (data["code"] == "1") essb_close_mailform(); }},'json'); } };</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"166154fef4","applicationID":"2175657","transactionName":"YFQGMRNTWBZTUxZYDlkeJQYVW1kLHUADVgQ=","queueTime":0,"applicationTime":997,"atts":"TBMFR1tJSxg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

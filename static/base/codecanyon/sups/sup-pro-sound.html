@@ -1,0 +1,765 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Эффект электрического тока. Электричество, искры, разряды, ток. Слушать звук онлайн и скачать звук бесплатно.</title>
+    <meta name="description" content="Эффект электрического тока. Электричество, искры, разряды, ток. Звуковые эффекты скачать. Звук онлайн бесплатно.">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="google-site-verification" content="Drfah44HONpJ06Ex4HT2craoiniT850V1U86xxLkQCA" />
+    <link rel="shortcut icon" href="https://pro-sound.org/favicon.ico">
+    <link href="https://pro-sound.org/themes/sound/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">baseUrl = "https://pro-sound.org"; token_id = "d6d62977460061b4fc8716c6f4cafef3"; nowPlaying = viewed_id = 0; player_volume = 0.80; search_filter = "https://pro-sound.org/search/filter/tracks/"; explore_filter = "https://pro-sound.org/explore/filter/"; lng_just_now = "прямо сейчас"; lng_ta_second = "секунда"; lng_ta_seconds = "секунд"; lng_ta_minute = "минута"; lng_ta_minutes = "%d минут"; lng_ta_hour = "час"; lng_ta_hours = "%d часов"; lng_ta_day = "день"; lng_ta_days = "%d дней"; lng_ta_week = "неделя"; lng_ta_weeks = "%d недель"; lng_ta_month = "месяц"; lng_ta_months = "%d месяцев"; lng_ta_year = "год"; lng_ta_years = "%d лет"; lng_ago = "назад";</script>
+    <script type="text/javascript" src="https://pro-sound.org/themes/sound/js/jquery.js"></script>
+    <script type="text/javascript" src="https://pro-sound.org/themes/sound/js/jquery.timeago.js"></script>
+    <script type="text/javascript" src="https://pro-sound.org/themes/sound/js/functions.js"></script>
+    <script type="text/javascript" src="https://pro-sound.org/themes/sound/js/jquery.jplayer.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#sound-player").jPlayer({
+                cssSelectorAncestor: '#sound-container',
+                play: function() {
+                    // Verify if a view has been added already for this track
+                    if(viewed_id == nowPlaying) {
+                        return false;
+                    } else {
+                        updateTrackInfo(nowPlaying);
+                        prevnext(3);
+                    }
+                    // Add the play count
+                    viewed_id = nowPlaying;
+                    $.ajax({
+                        type: "POST",
+                        url: "https://pro-sound.org/requests/add_view.php",
+                        data: "id="+nowPlaying+"&token_id="+token_id,
+                        cache: false
+                    });
+                },
+                ended: function () {
+                    // If repeat is not turned on, move to the next song
+                    if($('#repeat-song').html() == 0) {
+                        $('.current-seek').html($('#sound_ghost_player').html());
+                        $('.current-play').show();
+                        viewed_id = 0;
+                        nextSong(nowPlaying);
+                    }
+                },
+                swfPath: "https://pro-sound.org/themes/sound/js",
+                supplied: "mp3,m4a",
+                wmode: "window",
+                volume: player_volume,
+                smoothPlayBar: true,
+                keyEnabled: true
+            });
+        });
+        function updateTrackInfo(id) {
+            // If there's a track id
+            if(id > 0) {
+                // Add the current song class
+                $('#track'+id).addClass('current-song');
+
+                // Add current play class to the Play button and hide it
+                $('#play'+id).addClass('current-play');
+                $('.current-play').hide();
+
+                $('.jp-audio .jp-time-holder').show();
+
+                // Add the active player to the current song
+                $("#song-controls"+id).html($("#seek-bar-song").html());
+
+                // Add the active player class to the current song
+                $("#song-controls"+id).addClass('current-seek');
+
+                // Set the play/pause button position (this is needed for mobile view in order for the play/pause button to be at the same height with the initial play button)
+                $('#track'+id+' .jp-play , #track'+id+' .jp-pause').css({ 'margin-top' : '-' + $('.song-top', '#track'+id).outerHeight() + 'px' });
+
+                prevnext();
+
+                // Bind functionality to the new song selector
+                $("#sound-player").jPlayer("option", "cssSelectorAncestor", '#sound-container');
+            }
+        }
+        function playSong(song, id, format) {
+            // If the user is on a mobile device, open the track in a new tab rather than playing it on the page
+            /*if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                window.location = 'https://pro-sound.org/uploads/tracks/'+song;
+                return false;
+            }*/
+
+            // Remove the current-song class (if any)
+            $('.current-song').removeClass('current-song');
+            // Show the previously hidden Play button (if any)
+            $('.current-play').show();
+            $('.current-play').removeClass('current-play');
+
+            // Remove the active player if exists and set the ghost player
+            $('.current-seek').html($('#sound_ghost_player').html());
+
+            // Remove the active player class
+            $('.current-seek').removeClass('current-seek');
+
+            // Define the current playing track
+            nowPlaying = id;
+
+            // Update the track listing
+            updateTrackInfo(nowPlaying);
+            prevnext(3);
+
+            // Get the current song name, url and author
+            var trackUrl = $('#song-url'+id).attr('href');
+            var artwork = $('#song-art'+id).attr('src');
+            var songName, shortSongName = songName = $('#song-name'+id).html();
+            var songAuthor = $('#song-author'+id).text();
+            var songAuthorUrl = $('#song-author'+id).attr('href');
+
+            if(songName.length > 30) {
+                var shortSongName = $('#song-name'+id).html();
+            }
+
+            $('#sw-song-name').html($('<a>', {html: shortSongName, href: trackUrl, title: songName, rel: 'loadpage'}));
+            $('#sw-author-name').html($('<a>', {html: songAuthor, href: songAuthorUrl, title: songAuthor, rel: 'loadpage'}));
+
+            $('#topbar-artwork').html($('<a>', {href: trackUrl, rel: 'loadpage', id: 'artwork-container'}));
+            $('#artwork-container').html('<img src="'+artwork+'">');
+
+            // if the format is mp4, switch it to m4a since mp4 can be audio only
+            if(format == 'mp4') {
+                format = 'm4a';
+            }
+
+            if(format == 'mp3') {
+                $("#sound-player").jPlayer("setMedia",{mp3:song}).jPlayer("play");
+            } else if(format == 'm4a') {
+                $("#sound-player").jPlayer("setMedia",{m4a:song}).jPlayer("play");
+            }
+        }
+    </script>
+    <meta property="og:image" content="" />
+</head>
+<body>
+<div id="loading-bar"><dd></dd><dt></dt></div>
+<div class="topbar">
+    <div class="header">
+        <a href="https://pro-sound.org" rel="loadpage"><div class="logo"></div></a>
+
+        <a href="https://pro-sound.org/profile/zeffect/playlists" class="menu-button" id="sounds-effects-button" rel="loadpage">Звуковые эффекты</a>
+        <a href="https://pro-sound.org/search/filter/tracks/wav" class="menu-button"  id="sounds-wav-button" rel="loadpage">Звуки wav</a>
+        <a href="https://pro-sound.org/search/filter/tracks/mp3" class="menu-button"  id="sounds-mp3-button" rel="loadpage">Звуки mp3</a>
+        <a href="https://pro-sound.org/playlist/194/zvuki-dlya-video" class="menu-button" id="sounds-video-button" rel="loadpage">Звуки для видео</a>
+        <div class="search-input"><input type="text" id="search" placeholder="Поиск ..." autocomplete="off"></div>
+
+    </div>
+    <div class="search-container"></div>
+    <div class="notification-container">
+        <div class="notification-content">
+            <div class="notification-inner">
+                <span id="global_page_url"><a href="https://pro-sound.org/notifications" rel="loadpage">Просмотреть больше уведомлений</a></span>
+                <span id="chat_page_url"><a href="https://pro-sound.org/notifications/filter/chats" rel="loadpage">Просмотреть больше сообщений</a></span>
+                <a onclick="showNotification('close')" title="Закрыть оповещения"><div class="close_btn"></div></a>
+            </div>
+            <div id="notifications-content"></div>
+            <div class="notification-row"><div class="notification-padding"><a href="https://pro-sound.org/settings/notifications" rel="loadpage">Настройки уведомлений</a></div></div>
+        </div>
+    </div>
+</div>
+<div class="topbar_margin"></div>
+<div id="content">
+    <div class="row-body content-track">
+        <div class="body-content">
+
+            <div class="nine columns" id="main-content">
+
+
+                <div id="profile-card"></div>
+                <div class="track-container" style="position: relative;    padding: 30px 15px;    width: 100%;    float: left;    border-bottom: 1px solid #EEE;    border-right: 1px solid #EEE;"><div  id="track19274" class="audioplayer-tobe is-single-player applayer alternate-layout button-aspect-noir" style="" data-thumb="https://pro-sound.org/thumb.php?src=default.png&t=m&w=130&h=130"  data-type="audio" data-source="https://pro-sound.org/uploads/tracks/elektrichestvo/Sound_20930.mp3" data-fakeplayer="#ap1"  >
+                    <!--  data-sourceogg="sounds/adg3.ogg"  -->
+                    <div class="the-comments">
+                    </div>
+                    <div class="meta-artist"><a rel="loadpage" href="https://pro-sound.org/profile/zeffect" class="the-artist" rel="loadpage">Звуковые Эффекты</a>
+
+                        <span class="the-name"><a href="https://pro-sound.org/track/19274/effekt-elektricheskogo-toka--mp3-audio-fayl-skachat.html" id="song-url19274" rel="loadpage"><h2>Эффект электрического тока - mp3 аудио файл скачать</h2></a></span>
+
+
+                    </div>
+                    <div class="song-top">
+                        <div class="song-timeago">
+									<span id="time19274">
+										<div class="timeago" title="2018-02-25T11:59:33+03:00">
+											2018-02-25T11:59:33+03:00
+										</div>
+									</span>
+                        </div>
+                        <div class="feed-dzsap">
+                            <div class="song-title">
+                                <a href="" rel="loadpage">
+                                    <div id="song-name19274">Эффект электрического тока</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                    <div class="track-actions-container">
+                        <div class="track-actions"><div class="track-actions-content" id="track-action19274"><div class="track-buttons-container"><div class="like-button" onclick="connect_modal()" id="doLike19274" title="Нравится"><span class="action-text">Нравится</span></div><div class="playlist-button" onclick="connect_modal()" title="Добавить"><span class="action-text">Добавить</span></div><div class="share-button" onclick="share(19274, 1)" title="Поделиться"><span class="action-text">Поделиться</span></div><a href="https://pro-sound.org/dl/tr/19274/tid/d6d62977460061b4fc8716c6f4cafef3.mp3"  rel="nofollow"><div class="download-button" title="Скачать звук Эффект электрического тока - файл mp3"><strong>Скачать</strong> <font style="font-size: xx-small;">(61.1 КБ)</font></div></a></div> <div class="track-stats"><a href="https://pro-sound.org/track/19274/эффект-электрического-тока" rel="loadpage"><div class="counter views_counter" title="Прослушали 5 раз">5</div></a><a href="https://pro-sound.org/track/19274/эффект-электрического-тока" rel="loadpage"><div class="counter downloads_counter" title="Скачали 17 раз">17</div></a></div></div></div>
+                    </div>
+                </div>
+
+                <div class="comments-container" id="comments-list19274">
+
+                </div>
+            </div>
+            <div class="three columns">
+
+
+
+                <div class="sidebar-container widget-statistics"><div class="sidebar-content"><div class="sidebar-header">Статистика</div><div class="sidebar-stats-container">
+                    <div class="sidebar-stats-box">Слушали сегодня</div><div class="sidebar-stats-box sidebar-text-right sidebar-stats-today">0</div>
+                    <div class="sidebar-stats-box">Слушали вчера</div><div class="sidebar-stats-box sidebar-text-right">0</div>
+                    <div class="sidebar-stats-box">Прослушалии всего</div><div class="sidebar-stats-box sidebar-text-right">1</div></div></div></div>
+                <div class="sidebar-container widget-description"><div class="sidebar-content"><div class="sidebar-header">Описание</div><div class="sidebar-description">Электричество, искры, разряды, ток</div></div></div>
+
+
+                <div class="sidebar-container sidebar-report"><div class="sidebar-description"><a href="javascript:;" onclick="connect_modal()">Сообщить о нарушении авторских прав</a></div></div>
+            </div>
+        </div>
+    </div>
+    <div id="share" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-title" id="share-title">
+                <div class="modal-menu-container">
+                    <div class="modal-menu-item modal-menu-item-active" id="tab-share">Поделиться</div>
+                    <div class="modal-menu-item" id="tab-embed">Вставить</div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="tab-share">
+                <div class="modal-inner">
+                    <div class="modal-desc">Поделиться в социальных сетях</div>
+                    <div class="share-icon-container"><div class="social-icon-padding"><a id="fb-share" title="Поделиться на Facebook"><div class="share-social-icon facebook-icon"></div></a></div></div>
+                    <div class="share-icon-container"><div class="social-icon-padding"><a id="tw-share" title="Поделиться в Twitter"><div class="share-social-icon twitter-icon"></div></a></div></div>
+                    <div class="share-icon-container"><div class="social-icon-padding"><a id="gp-share" title="Поделиться в Google+"><div class="share-social-icon gplus-icon"></div></a></div></div>
+                    <div class="share-icon-container"><div class="social-icon-padding"><a id="pn-share" title="Поделиться на Pinterest"><div class="share-social-icon pinterest-icon"></div></a></div></div>
+                    <div class="share-icon-container"><div class="social-icon-padding"><a id="em-share" title="Поделиться через электронную почту"><div class="share-social-icon email-icon"></div></a></div></div>
+                </div>
+                <div class="modal-inner">
+                    <div class="modal-desc">Поделиться URL</div>
+                    <div class="modal-input"><input id="share-url" value="" readonly="readonly"></div>
+                </div>
+            </div>
+            <div class="tab-embed">
+                <div class="modal-inner">
+                    <div class="dummy-player">
+                        <div class="dummy-artwork"></div>
+                        <div class="dummy-play-btn"></div>
+                        <div class="dummy-author"></div>
+                        <div class="dummy-title"></div>
+                        <div class="dummy-seek"></div>
+                        <div class="dummy-avatars"></div>
+                        <div class="dummy-avatars"></div>
+                        <div class="dummy-avatars"></div>
+                        <div class="dummy-avatars"></div>
+                        <div class="dummy-avatars"></div>
+                    </div>
+                    <div class="modal-desc">Вставить код</div>
+                    <div class="modal-input"><input id="embed-url" value="" readonly="readonly"></div>
+                    <div class="modal-checkbox"><input type="checkbox" name="autoplay" id="autoplay"><label for="autoplay">Автовоспроизведение</label></div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="modal-menu">
+                <div class="modal-btn"><a onclick="share(0, 0)">Закрыть</a></div>
+            </div>
+        </div>
+    </div>
+    <div id="playlist" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-title" id="share-title">
+                <div class="modal-menu-container">
+                    <div class="modal-menu-item modal-menu-item-active" id="tab-playlist">Плейлист</div>
+                    <div class="modal-loading"></div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="tab-playlist">
+                <div class="modal-inner">
+                    <input type="text" id="playlist-name" class="playlist-input" placeholder="Создать новый плейлист"><div onclick="playlist(0, 2)" class="button-normal playlist-save" id="playlist-save">Сохранить</div>
+                </div>
+                <div class="modal-inner" id="playlists">
+
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="modal-menu">
+                <div class="modal-btn"><a onclick="playlist(0, 0)">Закрыть</a></div>
+            </div>
+        </div>
+    </div>
+    <div id="delete" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-title" id="share-title">
+                <div class="modal-menu-container">
+                    <div class="modal-menu-item modal-menu-item-active" id="tab-delete">Удалить</div>
+                    <div class="modal-loading"></div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="tab-delete">
+                <div class="modal-inner" id="delete-track" style="display: none;">
+                    Вы действительно хотите удалить этот трек?
+                </div>
+                <div class="modal-inner" id="delete-playlist" style="display: none;">
+                    Вы действительно хотите удалить этот плейлист?
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="modal-menu">
+                <div class="modal-btn modal-btn-active"><a id="delete-button">Удалить</a></div><div class="modal-btn"><a onclick="delete_modal(0, 'cancel')">Отмена</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="connect" style="display: none;">
+    <div class="modal-container">
+        <div class="modal-title" id="share-title">
+            <div class="modal-menu-container">
+                <div class="modal-menu-item modal-menu-item-active" id="tab-login">Вход</div>
+                <div class="modal-menu-item" id="tab-register">Регистрация</div>
+                <div class="modal-loading"></div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="tab-login">
+            <div id="login-message"></div>
+            <div class="modal-inner">
+                <form id="login-form" method="post">
+                    <div class="modal-input modal-connect">
+                        <input type="text" name="username" placeholder="Имя пользователя или адрес электронной почты">
+                        <input type="password" name="password" placeholder="Пароль">
+                    </div>
+                    <div class="modal-checkbox"><input type="checkbox" name="remember" value="1" id="remember-me"><label for="remember-me">Запомнить меня</label></div>
+                    <input type="submit" style="display: none;"><!-- submit button used to enable the enter key -->
+                </form>
+                <div class="forgot-password"><a href="https://pro-sound.org/recover" rel="loadpage">Забыли пароль?</a></div>
+            </div>
+            <div class="divider"></div>
+            <div class="modal-menu">
+                <div class="modal-btn modal-btn-active"><a id="login-button" onclick="connect(1)">Вход</a></div>
+            </div>
+        </div>
+        <div class="tab-register">
+            <div id="register-message"></div>
+            <div class="modal-inner">
+                <div class="modal-input modal-connect">
+                    <form id="register-form" method="post">
+                        <input type="text" name="username" placeholder="Имя пользователя">
+                        <input type="password" name="password" placeholder="Пароль">
+                        <input type="text" name="email" placeholder="Email">
+                        <div class="modal-captcha"><input type="text" name="captcha" placeholder="Captcha"></div>
+                        <span class="register-captcha" id="captcha-register"><img src="https://pro-sound.org/includes/captcha.php" /></span>
+                        <input type="submit" style="display: none;"><!-- submit button used to enable the enter key -->
+                    </form>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="modal-menu">
+                <div class="modal-btn modal-btn-active"><a id="register-button" onclick="connect(0)">Регистрация</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-background"></div>
+
+<div class="botbar">
+    <div class="row-body">
+        <div class="footer">
+            <div class="footer-container">
+                <div class="footer-links">
+                    <span><a href="https://pro-sound.org/page/developers" rel="loadpage">Разработчикам</a></span> <a onclick="connect_modal()" class="menu-btn" title="Вход/Регистрация">Вход/Регистрация</a>
+                </div>
+                <div class="footer-languages">
+                    Язык: <span><a href="https://pro-sound.org/index.php?lang=english">English</a></span><span><a href="https://pro-sound.org/index.php?lang=russian">Russian</a></span>
+                </div>
+                <div class="footer-languages">
+                    Copyright &copy; 2018  pro-sound.org. Все права защищены.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="bottombar">
+    <div class="bottombar-container">
+        <div id="sound-player" class="jp-jplayer"></div>
+        <div id="sound-container" class="jp-audio top-player">
+            <div class="player-nine">
+                <div class="jp-type-single">
+                    <div class="jp-gui jp-interface">
+                        <div class="player-container-left">
+                            <a onclick="prevnext(1)" id="prev-button" class="prev-button" title="Предыдущий трек"></a>
+                            <a class="jp-play" tabindex="1" title="Воспроизвести"></a>
+                            <a class="jp-pause" tabindex="1" title="Пауза"></a>
+                            <a onclick="prevnext(2)" id="next-button" class="next-button" title="Следующий трек"></a>
+
+                            <a class="jp-repeat" tabindex="1" title="Повторить" onclick="repeatSong(1)"></a>
+                            <a class="jp-repeat-off" tabindex="1" title="Выключить повторение" onclick="repeatSong(0)"></a>
+                            <div style="display: none;" id="repeat-song">0</div>
+                            <div class="jp-current-time" id="current-time"></div>
+                        </div>
+                        <div class="player-container-middle">
+
+                            <div class="jp-progress">
+                                <div class="jp-seek-bar">
+                                    <div class="jp-play-bar"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="player-container-right">
+                            <div class="jp-duration" id="duration-time"></div>
+                            <a class="jp-mute" tabindex="1" title="Отключить звук"></a>
+                            <a class="jp-unmute" tabindex="1" title="Включить звук"></a>
+
+                            <div class="jp-volume-bar" onclick="playerVolume()" title="Звук">
+                                <div class="jp-volume-bar-value"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="jp-no-solution"></div>
+                </div>
+            </div>
+            <div class="player-three">
+                <div id="topbar-track-info">
+                    <div id="topbar-artwork"></div>
+                    <div id="topbar-track-details">
+                        <div class="topbar-song-name" id="sw-song-name"></div>
+                        <div class="topbar-author-name" id="sw-author-name"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="seek-bar-song" style="display: none;">
+    <div id="sound-container" class="jp-audio">
+        <div class="jp-type-single">
+            <div class="jp-gui jp-interface">
+                <a class="jp-play">&nbsp;</a><a class="jp-pause">&nbsp;</a>
+                <div class="jp-progress">
+                    <div class="jp-seek-bar">
+                        <div class="jp-play-bar"></div>
+                    </div>
+                </div>
+                <div class="jp-time-holder">
+                    <div class="jp-current-time"></div>
+                    <div class="jp-duration"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="sound_ghost_player" style="display: none;"><div class="jp-audio"><div class="jp-type-single"><div class="jp-gui jp-interface"><div class="jp-progress"><div class="jp-seek-bar"><div class="jp-play-bar"></div></div></div></div></div></div></div>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119485156-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-119485156-1');
+</script>
+
+<script src="https://pro-sound.org/dzsap.js"></script>
+<div class="dzsap-sticktobottom-placeholder"></div>
+<section class="dzsap-sticktobottom ">
+    <div class="dzs-container" style="max-width: 1070px;">
+        <div id="ap1" class=" apapfooter" style="width:100%; " data-thumb="https://pro-sound.org/themes/sound/images/message.png"  data-bgimage="img/bg.jpg" data-scrubbg="waves/scrubbg.png" data-scrubprog="waves/scrubprog.png" data-type="fake" data-source="fake" >
+            <!--  data-sourceogg="sounds/adg3.ogg"  -->
+            <div class="the-comments">
+            </div>
+            <div class="meta-artist"><span class="the-artist"></span><span class="the-name"><a href="" target="_blank"></a></span>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</section>
+
+
+<script>
+
+
+
+
+    (function($) {
+
+
+        $.fn.jPlayer = function(o) {
+
+        }
+    })(jQuery);
+
+    jQuery(document).ready(function ($) {
+
+
+        var final_class_wrapper = 'footerplayerwrapperskinclassbegin skin-silver footerplayerwrapperskinclassend';
+
+
+        if(get_query_arg(window.location.href, 'footer_player')){
+
+            final_class_wrapper = 'dzsap-sticktobottom-for-'+get_query_arg(window.location.href, 'footer_player');
+
+
+            if(get_query_arg(window.location.href, 'footer_player')=='skin-wave'){
+
+                final_class_wrapper = 'skin-wave-small';
+            }
+        }
+
+
+        $('.dzsap-sticktobottom').addClass(final_class_wrapper);
+
+
+
+
+
+        var final_class = 'footerplayerskinclassbegin skin-silver footerplayerskinclassend';
+
+
+        if(get_query_arg(window.location.href, 'footer_player')){
+
+            final_class = ''+get_query_arg(window.location.href, 'footer_player');
+
+
+            if(get_query_arg(window.location.href, 'footer_player')=='skin-wave'){
+
+                final_class = 'skin-wave skin-wave-mode-small button-aspect-noir button-aspect-noir--filled';
+            }
+        }
+
+        $('.apapfooter').addClass(final_class);
+
+        var settings_ap = {
+            disable_volume: 'off'
+            ,autoplay: 'off'
+            ,cue: 'off'
+            ,disable_scrub: 'default'
+            ,player_navigation: 'on'
+
+            ,skinwave_dynamicwaves:'off'
+            ,skinwave_enableSpectrum: "off"
+            ,settings_backup_type:'full'
+            ,settings_useflashplayer:'auto'
+            ,skinwave_spectrummultiplier: '4'
+            ,skinwave_wave_mode_canvas_waves_number:"3"
+            ,skinwave_comments_enable:'off'
+//			,scrubbar_tweak_overflow_hidden : "on"
+            ,skinwave_wave_mode: "canvas"
+            ,pcm_data_try_to_generate: "off"
+            ,settings_php_handler: "index.php"
+            ,skinwave_place_metaartist_after_volume:"on"
+            ,skinwave_place_thumb_after_volume:"off"
+            ,default_volume:"{$volume}"
+            , design_color_bg: "000000"
+            , design_color_highlight: "ab171c"
+            , pcm_notice: "off"
+        };
+        dzsap_init('#ap1',settings_ap);
+    });
+</script>
+
+
+<style>
+    .audioplayer.skin-wave-mode-small .audioplayer-inner{
+
+        height: 45px;
+
+    }
+    body .audioplayer .song-timeago, body .audioplayer .embed-powered-by {
+        float: right;
+        display: block;
+        margin-bottom: 7px;
+        margin-left: 5px;
+        position: relative;
+        top: 3px;
+        overflow:hidden;
+    }
+    .audioplayer.skin-wave-mode-small .ap-controls .ap-controls-right > .meta-artist-con + .the-thumb-con{
+        width: 45px;
+        height: 45px;
+    }
+    body .dzsap-sticktobottom.dzsap-sticktobottom-for-skin-wave{
+        height: 71px;
+    }
+
+    body .audioplayer.skin-silver, body .audioplayer.skin-pro{
+        margin-top: 25px;
+    }
+    body .audioplayer.skin-silver .song-top,body .audioplayer.skin-pro .song-top{
+        top: -15px;
+    }
+
+
+
+
+    body .audioplayer.skin-silver ~  .track-actions-container,body .audioplayer.skin-aria ~  .track-actions-container,body .audioplayer.skin-default ~  .track-actions-container,body .audioplayer.skin-pro ~  .track-actions-container{
+        padding-left: 15px;
+    }
+
+
+
+    body .audioplayer.skin-default a{
+        color: #ddd;
+    }
+    body .audioplayer.skin-default .audioplayer-inner .the-thumb{
+        background-size: cover;
+        height: 0;
+        padding-top: 67%;
+    }
+    body .audioplayer.skin-default .song-tag a{
+        background-color: #222222;
+        color: #fff9f9;
+    }
+
+    body .audioplayer.skin-default .timeago, body .audioplayer.skin-default .timeago-standard{
+        color: #fff9f9;
+
+        text-shadow:  1px 1px 1px rgba(0,0,0,0.5);
+
+        margin-right: 15px;
+    }
+
+    @media all and (min-width: 800px){
+
+        .trackcontainer-for-skin-default{
+            width: 49%;
+            display: inline-block;;
+        }
+    }
+    .content-track .trackcontainer-for-skin-default{
+        width: 100%;
+        display: block;;
+    }
+
+
+
+    body .audioplayer.skin-pro .ap-controls .scrubbar .scrub-bg{
+        background-color: #eeeeee;
+    }
+    body .audioplayer.skin-pro .meta-artist-con{
+        pointer-events: auto;
+    }
+    .bottombar{
+        display: none;
+    }
+    .audioplayer,.track-container{
+        box-sizing: border-box;
+    }
+
+    .track-actions-container {
+        padding: 10px 15px 0 132px;
+    }
+</style>
+
+
+
+<link rel='stylesheet' type="text/css" href="https://pro-sound.org/themes/sound_zoomsounds/audioplayer/audioplayer.css"/>
+
+
+<script src="../audioplayer/audioplayer.js" type="text/javascript"></script>
+<script type="text/javascript">
+    window.dzsap_settings = {
+        'user_id':""
+    }
+    window.dzsap_settings_php_handler = 'https://pro-sound.org/index.php';
+</script>
+<style>
+
+    body .track-actions-container {
+        padding: 10px 0 0 160px; }
+
+    @media all and (max-device-width: 640px) {
+        body .track-actions-container {
+            padding: 10px 0 0 10px; } }
+
+
+    body .audioplayer.skin-wave-mode-small .ap-controls .ap-controls-right > .meta-artist-con + .the-thumb-con {
+        margin-left: 20px;
+        margin-right: 0px; }
+
+    /* we need this because player padding */
+
+
+    .audioplayer.skinvariation-wave-phpsound:not(.a) .meta-artist:not(.b) {
+        overflow: visible; }
+    .audioplayer.skinvariation-wave-phpsound:not(.a) .meta-artist .the-artist {
+        color: #999;
+        font-size: 13px; }
+    .audioplayer.skinvariation-wave-phpsound:not(.a) .meta-artist .the-name {
+        font-size: 15px; }
+    .audioplayer.skinvariation-wave-phpsound:not(.a) .con-playpause:not(.a) {
+        width: 35px;
+        height: 35px; }
+    .audioplayer.skinvariation-wave-phpsound:not(.a) .audioplayer-inner .the-thumb-con {
+        width: 112px;
+        height: 112px; }
+
+
+    .audioplayer.skinvariation-wave-phpsound:not(.a) + .track-actions-container {
+        padding-left: 144px; }
+
+    .audioplayer {
+        box-sizing: border-box; }
+
+    .track-actions-container {
+        padding-right: 15px !important;
+        padding-top: 0px !important; }
+
+    .audioplayer .song-top {
+        position: absolute;
+        top: 0px;
+        right: 5px;
+        z-index: 0;
+        text-align: right;
+    }
+
+    .audioplayer .song-top > * {
+        pointer-events: auto;
+    }
+
+    .audioplayer .song-timeago, .audioplayer .embed-powered-by {
+        float: none;
+        display: block;
+        margin-bottom: 7px; }
+
+    body .comments-container, body .message-comment-box-container, body section.dzsap-sticktobottom.dzsap-sticktobottom-for-skin-wave.audioplayer-loaded {
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box; }
+
+    body section.dzsap-sticktobottom.dzsap-sticktobottom-for-skin-wave {
+        bottom: -118px; }
+
+    body section.dzsap-sticktobottom.dzsap-sticktobottom-for-skin-wave.audioplayer-loaded {
+        /*bottom: -20px;*/ }
+
+
+    @media all and (max-width: 600px) {
+        body .audioplayer.skinvariation-wave-phpsound:not(.a).has-thumb .audioplayer-inner .ap-controls:not(.b){
+        }
+
+        .audioplayer.skinvariation-wave-phpsound:not(.a) .audioplayer-inner .the-thumb-con{
+            width: 50px;
+            height: 50px;
+        }
+    }
+</style>
+
+
+</body></html>

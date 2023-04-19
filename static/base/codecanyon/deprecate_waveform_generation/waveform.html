@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>Video / Youtube Player / AS3</title><link rel="stylesheet" type="text/css" href="style/style.css">
+
+<body>
+
+<div id="flashcon1" style="position: relative; width:100%; height:100%; top:0; left:0;">
+    <object type="application/x-shockwave-flash" data="wavegenerator.swf" width="1024" height="512" id="flashcontent" style="visibility: visible; ">
+        <param name="movie" value="wavegenerator.swf"><param name="menu" value="false"><param name="allowScriptAccess" value="always">
+        <param name="scale" value="noscale"><param name="allowFullScreen" value="true"><param name="wmode" value="opaque">
+        <!-- song.mp3 -->
+
+        <!-- https://api.soundcloud.com/tracks/86418203/stream?consumer_key=be48604d903aebd628b5bac968ffd14d&origin=localhos t-->
+        <param name="flashvars" value="media=soundcloudretriever.php?scurl=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F86418203%2Fstream%3Fconsumer_key%3Dbe48604d903aebd628b5bac968ffd14d%26origin%3Dlocalhos%20t&settings_multiplier=2&savetophp_loc=savepng.php&color_wavesbg=ffffff&settings_enablejscallback=on&settings_autogenerate_prog=on&settings_autogenerate_bg=off">
+    </object>
+</div>
+<br>
+<div id="flashcon2" style="position: relative; width:100%; height:100%; top:0; left:0;">
+
+
+
+
+
+
+
+    <!--<object type="application/x-shockwave-flash" data="wavegenerator.swf" width="1024" height="512" id="flashcontent2" style="visibility: visible; ">-->
+        <!--<param name="movie" value="wavegenerator.swf"><param name="menu" value="false"><param name="allowScriptAccess" value="always">-->
+        <!--<param name="scale" value="noscale"><param name="allowFullScreen" value="true"><param name="wmode" value="opaque">-->
+        <!--<param name="flashvars" value="media=itsabeautifulday.mp3&settings_multiplier=2&savetophp_loc=savepng.php&color_wavesbg=ffffff&settings_enablejscallback=on&settings_autogenerate_prog=on&settings_autogenerate_bg=on&savetophp_pngloc=wavesbg_itsabeautifulday.png&savetophp_pngprogloc=wavesprog_itsabeautifulday.png">-->
+    <!--</object>-->
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<script>
+    window.api_wavesentfromflash = function(arg){
+        if(window.console) { console.info( arg); };
+    }
+</script>
+</body></html>

@@ -1,0 +1,78 @@
+
+@mixin apply_transition($transition-property, $transition-duration, $transition-timing) {
+  transition-property: $transition-property;transition-duration: $transition-duration;transition-timing-function: $transition-timing;-moz-transition-property:$transition-property;-moz-transition-duration: $transition-duration;-moz-transition-timing-function:$transition-timing;-webkit-transition-property:$transition-property;-webkit-transition-duration: $transition-duration;-webkit-transition-timing-function:$transition-timing;-o-transition-property:$transition-property;-o-transition-duration: $transition-duration;-o-transition-timing-function:$transition-timing;-ms-transition-property:$transition-property;
+  -ms-transition-duration: $transition-duration;-ms-transition-timing-function:$transition-timing;
+}
+@mixin boxsizing() {
+  -moz-box-sizing:    border-box;   -webkit-box-sizing: border-box;    box-sizing:        border-box;
+}
+
+
+.dzsap-menu-builder-con{
+  color: #111;
+  @include boxsizing();
+  *{
+
+    @include boxsizing();
+  }
+  .the-editor-con{
+    overflow: hidden;
+    border: 1px dashed rgba(0,0,0,0.3);
+    padding: 10px;
+  }
+
+  .the-editor-tools{
+    float:right;
+    width: 200px;
+    margin-left:  10px;
+  }
+
+  .the-editor-general-settings, .the-editor-item-settings{
+    width: 48%;
+    float:left;
+  }
+
+  .the-editor-general-settings{
+    margin-right: 4%;
+  }
+
+  $transition-property: all;
+  $transition-duration: 0.3s;
+  $transition-timing: ease-out;
+  input[type=text]{
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: 0 0 3px 0 rgba(0,100, 255, 0);
+    @include apply_transition($transition-property, $transition-duration, $transition-timing);
+  }
+  input[type=text]:focus{
+    box-shadow: 0 0 5px 0 rgba(0,100, 255, 0.2);
+  }
+  h4{
+    margin-bottom: 10px;
+  }
+  h6.textinput-label{
+    margin-bottom: 5px;
+    text-transform: none;
+    color: #111;
+    font-family: "Open Sans", Helvetica, Arial , sans-serif;
+    font-weight: 200;
+  }
+
+  div .small-input{
+    width: 200px;
+  }
+}
+.clear{
+  clear:both;
+}

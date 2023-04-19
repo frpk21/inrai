@@ -104,8 +104,8 @@ a:hover {
 }
 
 .line-between {
-    height: 100px;
-    width: 1px;
+    height: 1px;
+    width: 100px;
     position: absolute;
     display: block;
     margin-top: -50px;
@@ -1281,3 +1281,18 @@ a.phone {
     background: url('../img/work-detail/3.jpg') center center no-repeat;
     z-index: -4;
 }
+
+.main__container{
+    margin: 30px auto 30px auto;
+    width: 1000px;
+    height: 250px;
+    border: solid 1px black;
+}
+
+.main__container img {
+
+    position: absolute;
+    width: 1000px;
+    height: 250px;
+}
+

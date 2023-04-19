@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<!--[if IE 7]><html class="ie ie7 ltie8 ltie9" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 ltie9" lang="en-US"><![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0" />
+
+    <link rel="pingback" href="http://www.denovaire.at/wp-wla/xmlrpc.php" />
+    <title>ZoomSounds Player &#8211; welove.audio</title>
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+    <link rel='dns-prefetch' href='//s.w.org' />
+    <link rel="alternate" type="application/rss+xml" title="welove.audio &raquo; Feed" href="http://www.denovaire.at/wp-wla/?feed=rss2" />
+    <link rel="alternate" type="application/rss+xml" title="welove.audio &raquo; Comments Feed" href="http://www.denovaire.at/wp-wla/?feed=comments-rss2" />
+    <script type="text/javascript">
+        window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/www.denovaire.at\/wp-wla\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.3"}};
+        !function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='dzsulb-css'  href='http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/libs/ultibox/ultibox.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='dashicons-css'  href='http://www.denovaire.at/wp-wla/wp-includes/css/dashicons.min.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='admin-bar-css'  href='http://www.denovaire.at/wp-wla/wp-includes/css/admin-bar.min.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='contact-form-7-css'  href='http://www.denovaire.at/wp-wla/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.7' type='text/css' media='all' />
+    <link rel='stylesheet' id='duplicate-post-css'  href='http://www.denovaire.at/wp-wla/wp-content/plugins/duplicate-post/duplicate-post.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='woocommerce-layout-css'  href='//www.denovaire.at/wp-wla/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=2.6.14' type='text/css' media='all' />
+    <link rel='stylesheet' id='woocommerce-smallscreen-css'  href='//www.denovaire.at/wp-wla/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=2.6.14' type='text/css' media='only screen and (max-width: 768px)' />
+    <link rel='stylesheet' id='woocommerce-general-css'  href='//www.denovaire.at/wp-wla/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=2.6.14' type='text/css' media='all' />
+    <link rel='stylesheet' id='nm_mailchimp-styles-css'  href='http://www.denovaire.at/wp-wla/wp-content/plugins/nmedia-mailchimp-widget//plugin.styles.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='style-css'  href='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/style.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='Squada-One-google-font-css'  href='http://fonts.googleapis.com/css?family=Squada+One%3Aregular&#038;subset=latin&#038;ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='Droid-Sans-google-font-css'  href='http://fonts.googleapis.com/css?family=Droid+Sans%3Aregular%2C700&#038;subset=latin&#038;ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='Droid-Serif-google-font-css'  href='http://fonts.googleapis.com/css?family=Droid+Serif%3Aregular%2Citalic%2C700%2C700italic&#038;subset=latin&#038;ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='ABeeZee-google-font-css'  href='http://fonts.googleapis.com/css?family=ABeeZee%3Aregular%2Citalic&#038;subset=latin&#038;ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='superfish-css'  href='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/superfish/css/superfish.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='dlmenu-css'  href='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/dl-menu/component.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='font-awesome-css'  href='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/font-awesome-new/css/font-awesome.min.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='jquery-fancybox-css'  href='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/fancybox/jquery.fancybox.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='flexslider-css'  href='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/flexslider/flexslider.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='style-responsive-css'  href='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/stylesheet/style-responsive.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='style-custom-css'  href='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/stylesheet/style-custom.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='gdlr-woo-style-css'  href='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/stylesheet/gdlr-woocommerce.css?ver=4.7.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='ms-main-css'  href='http://www.denovaire.at/wp-wla/wp-content/plugins/masterslider/public/assets/css/masterslider.main.css?ver=3.1.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='ms-custom-css'  href='http://www.denovaire.at/wp-wla/wp-content/uploads/masterslider/custom.css?ver=28.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='bfa-font-awesome-css'  href='//cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
+
+    <!-- This site uses the Google Analytics by MonsterInsights plugin v 6.1.6 - https://www.monsterinsights.com/ -->
+    <!-- Normally you will find the Google Analytics tracking code here, but the webmaster disabled your user group. -->
+    <!-- / Google Analytics by MonsterInsights -->
+
+    <script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var nm_mailchimp_vars = {"ajaxurl":"http:\/\/www.denovaire.at\/wp-wla\/wp-admin\/admin-ajax.php","plugin_url":"http:\/\/www.denovaire.at\/wp-wla\/wp-content\/plugins\/nmedia-mailchimp-widget\/","plugin_doing":"http:\/\/www.denovaire.at\/wp-wla\/wp-content\/plugins\/nmedia-mailchimp-widget\/images\/loading.gif","settings":"","messages":{"error_subscription":"Please try with different email"}};
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-content/plugins/nmedia-mailchimp-widget//js/script.js?ver=4.7.3'></script>
+    <link rel='https://api.w.org/' href='http://www.denovaire.at/wp-wla/?rest_route=/' />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.denovaire.at/wp-wla/xmlrpc.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.denovaire.at/wp-wla/wp-includes/wlwmanifest.xml" />
+    <meta name="generator" content="WordPress 4.7.3" />
+    <meta name="generator" content="WooCommerce 2.6.14" />
+    <link rel="canonical" href="http://www.denovaire.at/wp-wla/?page_id=3796" />
+    <link rel='shortlink' href='http://www.denovaire.at/wp-wla/?p=3796' />
+    <link rel="alternate" type="application/json+oembed" href="http://www.denovaire.at/wp-wla/?rest_route=%2Foembed%2F1.0%2Fembed&#038;url=http%3A%2F%2Fwww.denovaire.at%2Fwp-wla%2F%3Fpage_id%3D3796" />
+    <link rel="alternate" type="text/xml+oembed" href="http://www.denovaire.at/wp-wla/?rest_route=%2Foembed%2F1.0%2Fembed&#038;url=http%3A%2F%2Fwww.denovaire.at%2Fwp-wla%2F%3Fpage_id%3D3796&#038;format=xml" />
+    <script>window.dzsap_swfpath="http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/apfull.swf";window.ajaxurl="http://www.denovaire.at/wp-wla/wp-admin/admin-ajax.php";</script><script>var ms_grabbing_curosr='http://www.denovaire.at/wp-wla/wp-content/plugins/masterslider/public/assets/css/common/grabbing.cur',ms_grab_curosr='http://www.denovaire.at/wp-wla/wp-content/plugins/masterslider/public/assets/css/common/grab.cur';</script>
+    <meta name="generator" content="MasterSlider 3.1.2 - Responsive Touch Image Slider" />
+    <!-- load the script for older ie version -->
+    <!--[if lt IE 9]>
+    <script src="http://www.denovaire.at/wp-wla/wp-content/themes/recibo/javascript/html5.js" type="text/javascript"></script>
+    <script src="http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/easy-pie-chart/excanvas.js" type="text/javascript"></script>
+    <![endif]-->
+    <style type="text/css" media="print">#wpadminbar { display:none; }</style>
+    <style type="text/css" media="screen">
+        html { margin-top: 32px !important; }
+        * html body { margin-top: 32px !important; }
+        @media screen and ( max-width: 782px ) {
+            html { margin-top: 46px !important; }
+            * html body { margin-top: 46px !important; }
+        }
+    </style>
+</head>
+
+<body class="page-template-default page page-id-3796 logged-in admin-bar no-customize-support _masterslider _msp_version_3.1.2">
+<div class="body-wrapper  float-menu header-style-1" data-home="http://www.denovaire.at/wp-wla" >
+    <header class="gdlr-header-wrapper" id="gdlr-header-wrapper">
+        <div class="gdlr-header-substitute" id="gdlr-header-substitute"></div>
+        <div class="gdlr-header-inner">
+            <div class="gdlr-header-container container">
+                <div class="gdlr-header-container-overlay"></div>
+                <div class="gdlr-header-container-inner">
+
+                    <!-- logo -->
+                    <div class="gdlr-logo">
+                        <a href="http://www.denovaire.at/wp-wla" >
+                            <img src="http://www.denovaire.at/wp-wla/wp-content/uploads/2017/03/wla_logotrans.png" alt="welove.audio game music logo" width="527" height="228" />						</a>
+                        <div class="gdlr-responsive-navigation dl-menuwrapper" id="gdlr-responsive-navigation" ><button class="dl-trigger">Open Menu</button><ul id="menu-damage" class="dl-menu gdlr-main-mobile-menu"><li id="menu-item-3219" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3219"><a href="http://www.denovaire.at/wp-wla/">Home</a></li>
+                            <li id="menu-item-3451" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3451"><a href="#product">products</a></li>
+                            <li id="menu-item-3248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3248"><a href="http://www.denovaire.at/wp-wla/?page_id=2446">whois</a></li>
+                            <li id="menu-item-3787" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3787"><a href="http://www.denovaire.at/wp-wla/?page_id=3771">coming up</a></li>
+                            <li id="menu-item-3243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3243"><a href="http://www.denovaire.at/wp-wla/?page_id=3241">Our Shop</a></li>
+                        </ul></div>					</div>
+
+                    <!-- navigation -->
+                    <div class="gdlr-navigation-wrapper"><nav class="gdlr-navigation" id="gdlr-main-navigation" role="navigation"><ul id="menu-damage-1" class="sf-menu gdlr-main-menu"><li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3219menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3219 gdlr-normal-menu"><a href="http://www.denovaire.at/wp-wla/">Home</a></li>
+                        <li  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3451menu-item menu-item-type-custom menu-item-object-custom menu-item-3451 gdlr-normal-menu"><a href="#product">products</a></li>
+                        <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3248menu-item menu-item-type-post_type menu-item-object-page menu-item-3248 gdlr-normal-menu"><a href="http://www.denovaire.at/wp-wla/?page_id=2446">whois</a></li>
+                        <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3787menu-item menu-item-type-post_type menu-item-object-page menu-item-3787 gdlr-normal-menu"><a href="http://www.denovaire.at/wp-wla/?page_id=3771">coming up</a></li>
+                        <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3243menu-item menu-item-type-post_type menu-item-object-page menu-item-3243 gdlr-normal-menu"><a href="http://www.denovaire.at/wp-wla/?page_id=3241">Our Shop</a></li>
+                    </ul><img id="gdlr-menu-search-button" src="http://www.denovaire.at/wp-wla/wp-content/themes/recibo/images/magnifier-light.png" alt="" width="58" height="59" />
+                        <div class="gdlr-menu-search" id="gdlr-menu-search">
+                            <form method="get" id="searchform" action="http://www.denovaire.at/wp-wla/">
+                                <div class="search-text">
+                                    <input type="text" value="Type Keywords" name="s" autocomplete="off" data-default="Type Keywords" />
+                                </div>
+                                <input type="submit" value="" />
+                                <div class="clear"></div>
+                            </form>
+                        </div>
+
+                        <div class="gdlr-top-woocommerce-wrapper">
+                            <div class="gdlr-top-woocommerce-button">
+                                <span class="gdlr-cart-item-count">0</span>		<img src="http://www.denovaire.at/wp-wla/wp-content/themes/recibo/images/cart-light.png" alt="" width="83" height="71" />
+                            </div>
+                            <div class="gdlr-top-woocommerce">
+                                <div class="gdlr-top-woocommerce-inner">
+                                    <div class="gdlr-cart-count" ><span class="head">Items :  </span><span class="gdlr-cart-item-count">0</span></div><div class="gdlr-cart-amount" ><span class="head">Subtotal : </span><span class="gdlr-cart-sum-amount"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&euro;</span>0</span></span></div>		<a class="gdlr-cart-button" href="http://www.denovaire.at/wp-wla/?page_id=1232" >
+                                    View Cart		</a>
+                                    <a class="gdlr-checkout-button" href="http://www.denovaire.at/wp-wla/?page_id=1233" >
+                                        Check Out		</a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav><div class="gdlr-navigation-gimmick" id="gdlr-navigation-gimmick"></div><div class="clear"></div></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="gdlr-page-title-wrapper"  >
+        <div class="gdlr-page-title-overlay"></div>
+        <div class="gdlr-page-title-container container" >
+            <h1 class="gdlr-page-title">ZoomSounds Player</h1>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <div class="gdlr-content">
+
+            <!-- Above Sidebar Section-->
+
+            <!-- Sidebar With Content Section-->
+            <div class="main-content-container container gdlr-item-start-content">
+                <div class="gdlr-item gdlr-main-content">
+                    <style class="player-custom-style">.audioplayer.skin-wave#ap3709 .ap-controls .con-playpause .playbtn , .audioplayer.skin-wave#ap3709 .ap-controls .con-playpause .pausebtn { background-color: #111111;}  </style><div class="audioplayer-tobe ap_idx_3796_1 is-single-player apconfig-skinwavewithcomments skin-wave ap3709" style="" id="ap3709" data-playerid="3709" data-pcm='[0.018,-0.01,0.034,-0.006,0.009,-0.009,0.023,-0.022,0.017,-0.035,0.043,-0.031,0.051,-0.064,0.021,-0.085,0.044,-0.016,0.01,-0.014,0.004,-0.005,0.022,-0.004,0.006,-0.033,0.01,-0.007,0.01,-0.011,0.036,-0.035,0.092,-0.092,0.136,-0.145,0.121,-0.109,0.117,-0.121,0.141,-0.116,0.112,-0.138,0.113,-0.19,0.121,-0.149,0.213,-0.143,0.126,-0.147,0.113,-0.172,0.149,-0.181,0.164,-0.154,0.209,-0.074,0.253,-0.224,0.231,-0.149,0.179,-0.166,0.135,-0.139,0.107,-0.11,0.098,-0.079,0.173,-0.125,0.141,-0.143,0.174,-0.193,0.139,-0.121,0.085,-0.115,0.087,-0.128,0.101,-0.135,0.079,-0.104,0.163,-0.139,0.126,-0.151,0.142,-0.105,0.149,-0.101,0.157,-0.187,0.232,-0.155,0.236,-0.134,0.243,-0.114,0.189,-0.164,0.121,-0.082,0.165,-0.08,0.065,-0.104,0.121,-0.084,0.055,-0.077,0.042,-0.053,0.022,-0.015,0.012,-0.011,0.025,-0.019,0.009,-0.005,0.003,-0.004,0.01,-0.003,0.005,-0.004,0.095,-0.092,0.112,-0.155,0.126,-0.157,0.207,-0.158,0.08,-0.124,0.115,-0.102,0.127,-0.141,0.134,-0.105,0.108,-0.171,0.223,-0.168,0.163,-0.154,0.13,-0.203,0.122,-0.207,0.151,-0.189,0.142,-0.139,0.201,-0.183,0.22,-0.148,0.271,-0.139,0.133,-0.161,0.16,-0.137,0.154,-0.087,0.142,-0.094,0.117,-0.135,0.22,-0.156,0.149,-0.154,0.144,-0.196,0.12,-0.194,0.143,-0.112,0.082,-0.107,0.067,-0.102,0.037,-0.031,0.048,-0.033,0.029,-0.031,0.048,-0.036,0.081,-0.025,0.035,-0.025,0.03,-0.024,0.043,-0.04,0.069,-0.057,0.056,-0.027,0.058,-0.051,0.058,-0.051,0.04,-0.043,0.039,-0.054,0.017,-0.009,0.018,-0.017,0.005,-0.007,0.016,-0.007,0.005,-0.013,0.005,-0.007,0.007,-0.011,0.017,-0.007,0.012,-0.002,0.005,-0.003,0.008,-0.013,0.019,-0.032,0.01,-0.01,0.014,-0.012,0.016,-0.024,0.022,-0.038,0.059,-0.078,0.08,-0.046,0.025,-0.038,0.054,-0.038,0.053,-0.068,0.087,-0.159,0.197,-0.232,0.121,-0.173,0.187,-0.123,0.203,-0.254,0.167,-0.142,0.148,-0.154,0.127,-0.192,0.189,-0.22,0.189,-0.167,0.089,-0.082,0.058,-0.068,0.075,-0.047,0.032,-0.072,0.059,-0.027,0.045,-0.038,0.04,-0.03,0.033,-0.06,0.042,-0.061,0.06,-0.021,0.017,-0.016,0.018,-0.006,0.002,-0.004,0.003,-0.014,0.01,-0.004,0.003,-0.008,0.004,-0.003,0.004,-0.005,0.005,-0.008,0.005,-0.004,0.002,-0.001,0.002,-0.001,0.002,-0.002,0.006,-0.005,0.003,-0.004,0.003,-0.001,0.003,-0.001,0.004,-0.008,0.002,-0.003,0.001,-0.003,0.007,-0.003,0.003,-0.003,0.005,-0.005,0.004,-0.002,0.002,-0.003,0.003,-0.004,0.005,-0.009,0.003,-0.042,0.03,-0.004,0.005,-0.036,0.017,-0.017,0.016,-0.042,0.028,-0.087,0.036,-0.09,0.072,-0.094,0.14,-0.101,0.179,-0.155,0.18,-0.159,0.073,-0.16,0.134,-0.155,0.14,-0.08,0.158,-0.079,0.197,-0.119,0.166,-0.189,0.126,-0.13,0.188,-0.113,0.139,-0.13,0.167,-0.101,0.13,-0.139,0.171,-0.144,0.286,-0.149,0.199,-0.147,0.159,-0.173,0.168,-0.111,0.162,-0.109,0.131,-0.129,0.123,-0.141,0.119,-0.164,0.19,-0.111,0.091,-0.107,0.058,-0.058,0.053,-0.033,0.037,-0.028,0.019,-0.032,0.033,-0.059,0.119,-0.032,0.106,-0.074,0.029,-0.031,0.041,-0.061,0.057,-0.071,0.105,-0.22,0.167,-0.227,0.241,-0.276,0.249,-0.175,0.201,-0.236,0.138,-0.174,0.104,-0.064,0.147,-0.135,0.139,-0.125,0.168,-0.275,0.225,-0.269,0.145,-0.186,0.184,-0.2,0.146,-0.187,0.165,-0.141,0.134,-0.129,0.141,-0.092,0.079,-0.179,0.095,-0.187,0.142,-0.171,0.091,-0.143,0.051,-0.046,0.058,-0.033,0.04,-0.025,0.021,-0.017,0.064,-0.047,0.02,-0.019,0.048,-0.024,0.034,-0.046,0.01,-0.008,0.006,-0.006,0.004,-0.025,0.001,-0.002,0.005,-0.006,0.004,-0.003]' data-type="detect" data-source="http://www.denovaire.at/wp-wla/wp-content/uploads/2017/03/0918_7th_decompression_chamber.mp3" data-playfrom="off" style=" width: 100%; height: 300px;" data-fakeplayer="#dzsap_footer"><div class="meta-artist"><span class="the-artist">denovaire</span></div><div class="menu-description"><span class="the-artist">denovaire</span><span class="the-name"></span></div><div class="the-comments"></div></div><script>
+                    //console.warn("WILL INIT");
+                    jQuery(document).ready(function ($){
+                        var settings_ap = {
+                            design_skin: "skin-wave"
+                            ,autoplay: "off"
+                            ,disable_volume:"off"
+                            ,loop:"off"
+                            ,cue: "on"
+                            ,embedded: "off"
+                            ,preload_method:"metadata"
+                            ,design_animateplaypause:"default"
+                            ,skinwave_dynamicwaves:"off"
+                            ,skinwave_enableSpectrum:"off"
+                            ,settings_backup_type:"full"
+                            ,skinwave_enableReflect:"on",playfrom:"off",disable_scrub:"off",soundcloud_apikey:""
+                            ,skinwave_comments_enable:"on",settings_php_handler:window.ajaxurl,skinwave_comments_account:"xternal",skinwave_comments_avatar:"http://2.gravatar.com/avatar/b4a6b98b32dc4af63e3f0ab826147f1c?s=20&#038;d=mm&#038;r=g",skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "on",pcm_notice: "off",design_color_bg: "808080",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",skinwave_comments_playerid:"3709",construct_player_list_for_sync:"on",php_retriever:"http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" ,swf_location:"http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/ap.swf"
+                            ,swffull_location:"http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/apfull.swf"
+                        };
+
+                        dzsap_init(".ap_idx_3796_1",settings_ap);
+                    });
+                </script>
+                    <p>&nbsp;</p>
+                    <style class="player-custom-style">.audioplayer.skin-wave#ap3707 .ap-controls .con-playpause .playbtn , .audioplayer.skin-wave#ap3707 .ap-controls .con-playpause .pausebtn { background-color: #111111;}  </style><div class="audioplayer-tobe ap_idx_3796_2 is-single-player apconfig-skinwavewithcomments skin-wave ap3707" style="" id="ap3707" data-playerid="3707" data-pcm='[0.121,-0.136,0.075,-0.142,0.067,-0.068,0.058,-0.083,0.069,-0.037,0.086,-0.086,0.141,-0.209,0.1,-0.113,0.078,-0.114,0.116,-0.071,0.146,-0.18,0.151,-0.116,0.233,-0.208,0.076,-0.135,0.068,-0.076,0.089,-0.112,0.112,-0.084,0.178,-0.089,0.075,-0.054,0.121,-0.048,0.047,-0.051,0.165,-0.088,0.114,-0.281,0.14,-0.099,0.127,-0.066,0.115,-0.088,0.167,-0.061,0.126,-0.11,0.207,-0.101,0.156,-0.179,0.127,-0.077,0.093,-0.083,0.091,-0.099,0.209,-0.179,0.271,-0.135,0.111,-0.151,0.088,-0.175,0.037,-0.081,0.161,-0.13,0.29,-0.244,0.139,-0.114,0.08,-0.083,0.028,-0.019,0.025,-0.026,0.06,-0.163,0.228,-0.043,0.094,-0.063,0.147,-0.132,0.072,-0.069,0.066,-0.117,0.213,-0.093,0.099,-0.13,0.13,-0.082,0.136,-0.081,0.063,-0.045,0.118,-0.037,0.131,-0.153,0.129,-0.11,0.144,-0.08,0.209,-0.153,0.097,-0.088,0.112,-0.051,0.15,-0.125,0.127,-0.164,0.128,-0.151,0.122,-0.117,0.201,-0.18,0.115,-0.088,0.185,-0.106,0.154,-0.075,0.099,-0.149,0.118,-0.072,0.11,-0.176,0.195,-0.154,0.071,-0.203,0.111,-0.119,0.093,-0.174,0.182,-0.135,0.172,-0.246,0.223,-0.15,0.156,-0.218,0.143,-0.351,0.144,-0.216,0.201,-0.249,0.159,-0.105,0.126,-0.202,0.028,-0.301,0.149,-0.144,0.246,-0.291,0.126,-0.198,0.164,-0.339,0.24,-0.119,0.312,-0.269,0.092,-0.136,0.142,-0.143,0.13,-0.141,0.193,-0.152,0.203,-0.103,0.091,-0.146,0.114,-0.069,0.077,-0.115,0.1,-0.052,0.144,-0.171,0.087,-0.016,0.099,-0.075,0.104,-0.043,0.016,-0.067,0.157,-0.148,0.077,-0.087,0.108,-0.043,0.138,-0.183,0.103,-0.025,0.082,-0.05,0.105,-0.086,0.067,-0.042,0.059,-0.057,0.182,-0.1,0.123,-0.114,0.084,-0.102,0.078,-0.048,0.082,-0.096,0.077,-0.1,0.068,-0.105,0.142,-0.113,0.063,-0.08,0.084,-0.09,0.079,-0.062,0.085,-0.147,0.075,-0.098,0.052,-0.061,0.091,-0.038,0.057,-0.02,0.042,-0.056,0.083,-0.031,0.031,-0.045,0.024,-0.071,0.083,-0.027,0.031,-0.042,0.041,-0.085,0.057,-0.091,0.045,-0.035,0.122,-0.139,0.114,-0.099,0.078,-0.132,0.051,-0.063,0.039,-0.092,0.054,-0.073,0.036,-0.041,0.081,-0.053,0.064,-0.053,0.077,-0.036,0.046,-0.062,0.13,-0.153,0.109,-0.111,0.11,-0.075,0.092,-0.128,0.123,-0.115,0.039,-0.047,0.056,-0.06,0.053,-0.048,0.058,-0.027,0.037,-0.068,0.071,-0.035,0.037,-0.03,0.045,-0.042,0.057,-0.094,0.028,-0.025,0.044,-0.033,0.06,-0.119,0.055,-0.053,0.044,-0.039,0.03,-0.037,0.068,-0.08,0.065,-0.055,0.119,-0.176,0.051,-0.074,0.039,-0.059,0.052,-0.052,0.06,-0.056,0.04,-0.054,0.044,-0.064,0.037,-0.079,0.058,-0.088,0.018,-0.04,0.023,-0.021,0.034,-0.045,0.085,-0.042,0.05,-0.032,0.035,-0.069,0.053,-0.081,0.103,-0.063,0.059,-0.065,0.063,-0.108,0.066,-0.067,0.052,-0.041,0.032,-0.076,0.045,-0.035,0.086,-0.061,0.056,-0.118,0.072,-0.069,0.064,-0.048,0.065,-0.053,0.033,-0.047,0.024,-0.033,0.055,-0.028,0.037,-0.069,0.052,-0.01,0.048,-0.039,0.084,-0.048,0.045,-0.052,0.03,-0.065,0.118,-0.154,0.122,-0.125,0.053,-0.177,0.15,-0.127,0.119,-0.079,0.071,-0.106,0.092,-0.182,0.109,-0.036,0.208,-0.077,0.081,-0.243,0.138,-0.168,0.229,-0.104,0.135,-0.184,0.23,-0.204,0.181,-0.107,0.087,-0.095,0.134,-0.127,0.063,-0.13,0.171,-0.08,0.194,-0.155,0.137,-0.076,0.098,-0.118,0.095,-0.119,0.15,-0.133,0.315,-0.233,0.182,-0.289,0.153,-0.263,0.144,-0.141,0.246,-0.127,0.211,-0.363,0.517,-0.157,0.283,-0.146,0.232,-0.159,0.119,-0.128,0.137,-0.119,0.163,-0.287,0.152,-0.15,0.145,-0.096,0.128,-0.31,0.201,-0.19,0.134,-0.307,0.076,-0.218,0.091,-0.186,0.018,-0.079,0,0]' data-type="detect" data-source="http://www.denovaire.at/wp-wla/wp-content/uploads/2017/03/0505_dttc_cello_rmx.mp3" data-playfrom="off" style=" width: 100%; height: 300px;" data-fakeplayer="#dzsap_footer"><div class="meta-artist"><span class="the-artist">denovaire</span></div><div class="menu-description"><span class="the-artist">denovaire</span><span class="the-name"></span></div><div class="the-comments"></div></div><script>
+                    //console.warn("WILL INIT");
+                    jQuery(document).ready(function ($){
+                        var settings_ap = {
+                            design_skin: "skin-wave"
+                            ,autoplay: "off"
+                            ,disable_volume:"off"
+                            ,loop:"off"
+                            ,cue: "on"
+                            ,embedded: "off"
+                            ,preload_method:"metadata"
+                            ,design_animateplaypause:"default"
+                            ,skinwave_dynamicwaves:"off"
+                            ,skinwave_enableSpectrum:"off"
+                            ,settings_backup_type:"full"
+                            ,skinwave_enableReflect:"on",playfrom:"off",disable_scrub:"off",soundcloud_apikey:""
+                            ,skinwave_comments_enable:"on",settings_php_handler:window.ajaxurl,skinwave_comments_account:"xternal",skinwave_comments_avatar:"http://2.gravatar.com/avatar/b4a6b98b32dc4af63e3f0ab826147f1c?s=20&#038;d=mm&#038;r=g",skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "on",pcm_notice: "off",design_color_bg: "808080",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",skinwave_comments_playerid:"3707",construct_player_list_for_sync:"on",php_retriever:"http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" ,swf_location:"http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/ap.swf"
+                            ,swffull_location:"http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/apfull.swf"
+                        };
+
+                        dzsap_init(".ap_idx_3796_2",settings_ap);
+                    });
+                </script>
+                    <p>&nbsp;</p>
+                    <style class="player-custom-style">.audioplayer.skin-wave#ap3707 .ap-controls .con-playpause .playbtn , .audioplayer.skin-wave#ap3707 .ap-controls .con-playpause .pausebtn { background-color: #111111;}  </style><div class="audioplayer-tobe ap_idx_3796_3 is-single-player apconfig-skinwavewithcomments skin-wave ap3707" style="" id="ap3707" data-playerid="3707" data-pcm='[0.121,-0.136,0.075,-0.142,0.067,-0.068,0.058,-0.083,0.069,-0.037,0.086,-0.086,0.141,-0.209,0.1,-0.113,0.078,-0.114,0.116,-0.071,0.146,-0.18,0.151,-0.116,0.233,-0.208,0.076,-0.135,0.068,-0.076,0.089,-0.112,0.112,-0.084,0.178,-0.089,0.075,-0.054,0.121,-0.048,0.047,-0.051,0.165,-0.088,0.114,-0.281,0.14,-0.099,0.127,-0.066,0.115,-0.088,0.167,-0.061,0.126,-0.11,0.207,-0.101,0.156,-0.179,0.127,-0.077,0.093,-0.083,0.091,-0.099,0.209,-0.179,0.271,-0.135,0.111,-0.151,0.088,-0.175,0.037,-0.081,0.161,-0.13,0.29,-0.244,0.139,-0.114,0.08,-0.083,0.028,-0.019,0.025,-0.026,0.06,-0.163,0.228,-0.043,0.094,-0.063,0.147,-0.132,0.072,-0.069,0.066,-0.117,0.213,-0.093,0.099,-0.13,0.13,-0.082,0.136,-0.081,0.063,-0.045,0.118,-0.037,0.131,-0.153,0.129,-0.11,0.144,-0.08,0.209,-0.153,0.097,-0.088,0.112,-0.051,0.15,-0.125,0.127,-0.164,0.128,-0.151,0.122,-0.117,0.201,-0.18,0.115,-0.088,0.185,-0.106,0.154,-0.075,0.099,-0.149,0.118,-0.072,0.11,-0.176,0.195,-0.154,0.071,-0.203,0.111,-0.119,0.093,-0.174,0.182,-0.135,0.172,-0.246,0.223,-0.15,0.156,-0.218,0.143,-0.351,0.144,-0.216,0.201,-0.249,0.159,-0.105,0.126,-0.202,0.028,-0.301,0.149,-0.144,0.246,-0.291,0.126,-0.198,0.164,-0.339,0.24,-0.119,0.312,-0.269,0.092,-0.136,0.142,-0.143,0.13,-0.141,0.193,-0.152,0.203,-0.103,0.091,-0.146,0.114,-0.069,0.077,-0.115,0.1,-0.052,0.144,-0.171,0.087,-0.016,0.099,-0.075,0.104,-0.043,0.016,-0.067,0.157,-0.148,0.077,-0.087,0.108,-0.043,0.138,-0.183,0.103,-0.025,0.082,-0.05,0.105,-0.086,0.067,-0.042,0.059,-0.057,0.182,-0.1,0.123,-0.114,0.084,-0.102,0.078,-0.048,0.082,-0.096,0.077,-0.1,0.068,-0.105,0.142,-0.113,0.063,-0.08,0.084,-0.09,0.079,-0.062,0.085,-0.147,0.075,-0.098,0.052,-0.061,0.091,-0.038,0.057,-0.02,0.042,-0.056,0.083,-0.031,0.031,-0.045,0.024,-0.071,0.083,-0.027,0.031,-0.042,0.041,-0.085,0.057,-0.091,0.045,-0.035,0.122,-0.139,0.114,-0.099,0.078,-0.132,0.051,-0.063,0.039,-0.092,0.054,-0.073,0.036,-0.041,0.081,-0.053,0.064,-0.053,0.077,-0.036,0.046,-0.062,0.13,-0.153,0.109,-0.111,0.11,-0.075,0.092,-0.128,0.123,-0.115,0.039,-0.047,0.056,-0.06,0.053,-0.048,0.058,-0.027,0.037,-0.068,0.071,-0.035,0.037,-0.03,0.045,-0.042,0.057,-0.094,0.028,-0.025,0.044,-0.033,0.06,-0.119,0.055,-0.053,0.044,-0.039,0.03,-0.037,0.068,-0.08,0.065,-0.055,0.119,-0.176,0.051,-0.074,0.039,-0.059,0.052,-0.052,0.06,-0.056,0.04,-0.054,0.044,-0.064,0.037,-0.079,0.058,-0.088,0.018,-0.04,0.023,-0.021,0.034,-0.045,0.085,-0.042,0.05,-0.032,0.035,-0.069,0.053,-0.081,0.103,-0.063,0.059,-0.065,0.063,-0.108,0.066,-0.067,0.052,-0.041,0.032,-0.076,0.045,-0.035,0.086,-0.061,0.056,-0.118,0.072,-0.069,0.064,-0.048,0.065,-0.053,0.033,-0.047,0.024,-0.033,0.055,-0.028,0.037,-0.069,0.052,-0.01,0.048,-0.039,0.084,-0.048,0.045,-0.052,0.03,-0.065,0.118,-0.154,0.122,-0.125,0.053,-0.177,0.15,-0.127,0.119,-0.079,0.071,-0.106,0.092,-0.182,0.109,-0.036,0.208,-0.077,0.081,-0.243,0.138,-0.168,0.229,-0.104,0.135,-0.184,0.23,-0.204,0.181,-0.107,0.087,-0.095,0.134,-0.127,0.063,-0.13,0.171,-0.08,0.194,-0.155,0.137,-0.076,0.098,-0.118,0.095,-0.119,0.15,-0.133,0.315,-0.233,0.182,-0.289,0.153,-0.263,0.144,-0.141,0.246,-0.127,0.211,-0.363,0.517,-0.157,0.283,-0.146,0.232,-0.159,0.119,-0.128,0.137,-0.119,0.163,-0.287,0.152,-0.15,0.145,-0.096,0.128,-0.31,0.201,-0.19,0.134,-0.307,0.076,-0.218,0.091,-0.186,0.018,-0.079,0,0]' data-type="detect" data-source="http://www.denovaire.at/wp-wla/wp-content/uploads/2017/03/0505_dttc_cello_rmx.mp3" data-playfrom="off" style=" width: 100%; height: 300px;" data-fakeplayer="#dzsap_footer"><div class="meta-artist"><span class="the-artist">denovaire</span></div><div class="menu-description"><span class="the-artist">denovaire</span><span class="the-name"></span></div><div class="the-comments"></div></div><script>
+                    //console.warn("WILL INIT");
+                    jQuery(document).ready(function ($){
+                        var settings_ap = {
+                            design_skin: "skin-wave"
+                            ,autoplay: "off"
+                            ,disable_volume:"off"
+                            ,loop:"off"
+                            ,cue: "on"
+                            ,embedded: "off"
+                            ,preload_method:"metadata"
+                            ,design_animateplaypause:"default"
+                            ,skinwave_dynamicwaves:"off"
+                            ,skinwave_enableSpectrum:"off"
+                            ,settings_backup_type:"full"
+                            ,skinwave_enableReflect:"on",playfrom:"off",disable_scrub:"off",soundcloud_apikey:""
+                            ,skinwave_comments_enable:"on",settings_php_handler:window.ajaxurl,skinwave_comments_account:"xternal",skinwave_comments_avatar:"http://2.gravatar.com/avatar/b4a6b98b32dc4af63e3f0ab826147f1c?s=20&#038;d=mm&#038;r=g",skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "on",pcm_notice: "off",design_color_bg: "808080",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",skinwave_comments_playerid:"3707",construct_player_list_for_sync:"on",php_retriever:"http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" ,swf_location:"http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/ap.swf"
+                            ,swffull_location:"http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/apfull.swf"
+                        };
+
+                        dzsap_init(".ap_idx_3796_3",settings_ap);
+                    });
+                </script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+
+            <!-- Below Sidebar Section-->
+
+
+
+        </div><!-- gdlr-content -->
+        <div class="clear" ></div>
+    </div><!-- content wrapper -->
+
+
+    <footer class="footer-wrapper" >
+        <div class="footer-container container">
+            <div class="footer-column four columns" id="footer-widget-1" >
+                <div id="text-8" class="widget widget_text gdlr-item gdlr-widget"><h3 class="gdlr-widget-title">Careful And Dedicated Audio Work</h3><div class="clear"></div>			<div class="textwidget">welove.audio offers production music in a wide spectrum of musical styles and purposes ranging from composing score for orchestra to bouncing beats. our team hosts audio-visual artists, professional composers and contract live musicians – to produce the best sounds for your brands and products.</div>
+                </div><div id="text-13" class="widget widget_text gdlr-item gdlr-widget">			<div class="textwidget"><i class="fa fa-check-square-o fa- " ></i>
+                <a href="http://www.denovaire.at/wp-wla/tos/">Terms of Service &amp; Privacy Statement</a>
+            </div>
+            </div>				</div>
+            <div class="footer-column four columns" id="footer-widget-2" >
+                <div id="text-12" class="widget widget_text gdlr-item gdlr-widget"><h3 class="gdlr-widget-title">Keep in touch!</h3><div class="clear"></div>			<div class="textwidget">Subscribe to our Newsletter and receive seasonal goodies, production tips and news on our latest sounds!
+                    <p>
+                        <label>Email address: </label><br>
+                        <input type="email" name="EMAIL" placeholder="Your email address" required />
+                    </p>
+
+                    <p>
+                        <input type="submit" value="Sign up" />
+                    </p>
+                    <br>
+                    <a href="https://www.facebook.com/weloveaudio" target="_blank"><i class="fa fa-facebook fa-2x " ></i></a>
+
+                    <a href="https://www.youtube.com/channel/UCtQ5ue7ywYHtEVP5r4-mZ6A" target="_blank"><i class="fa fa-youtube fa-2x " ></i></a>
+
+                    <a href="https://soundcloud.com/user-675352725" target="_blank"><i class="fa fa-soundcloud fa-2x " ></i></a>
+                    <br>
+                    <a href="http://www.denovaire.at/wp-wla"><img src="http://www.denovaire.at/wp-wla/wp-content/uploads/2017/03/wla_logotrans-300x130.png" alt="welove.audio game music logo" width="100" height="130" /></a></div>
+                </div>				</div>
+            <div class="footer-column four columns" id="footer-widget-3" >
+                <div id="text-4" class="widget widget_text gdlr-item gdlr-widget"><h3 class="gdlr-widget-title">Contact</h3><div class="clear"></div>			<div class="textwidget"><div role="form" class="wpcf7" id="wpcf7-f2014-o1" lang="en-US" dir="ltr">
+                    <div class="screen-reader-response"></div>
+                    <form action="/wp-wla/?page_id=3796#wpcf7-f2014-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+                        <div style="display: none;">
+                            <input type="hidden" name="_wpcf7" value="2014" />
+                            <input type="hidden" name="_wpcf7_version" value="4.7" />
+                            <input type="hidden" name="_wpcf7_locale" value="en_US" />
+                            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f2014-o1" />
+                            <input type="hidden" name="_wpnonce" value="75213ed295" />
+                        </div>
+                        <p>Your Name (required)<br />
+                            <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+                        <p>Your Email (required)<br />
+                            <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" /></span> </p>
+                        <p>Your Message<br />
+                            <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span> </p>
+                        <p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit" /></p>
+                        <div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div>
+                </div>				</div>
+            <div class="clear"></div>
+        </div>
+
+    </footer>
+</div> <!-- body-wrapper -->
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+    /* Add your CSS code here.
+
+    For example:
+    .example {
+        color: red;
+    }
+
+    For brushing up on your CSS knowledge, check out http://www.w3schools.com/css/css_syntax.asp
+
+    End of comment */
+
+    .floatingplayer {
+        position: fixed;
+    }</style>
+<!-- end Simple Custom CSS and JS -->
+<div class="dzsap-sticktobottom-placeholder dzsap-sticktobottom-placeholder-for-skin-wave"></div>
+<section class="dzsap-sticktobottom  dzsap-sticktobottom-for-skin-wave"><div class="dzs-container"><style class="player-custom-style">.audioplayer.skin-wave#dzsap_footer .ap-controls .con-playpause .playbtn , .audioplayer.skin-wave#dzsap_footer .ap-controls .con-playpause .pausebtn { background-color: #111111;}  </style><div class="audioplayer-tobe ap_idx_3796_4 is-single-player apconfig-footer-wave skin-wave dzsap_footer" style="" id="dzsap_footer" data-playerid="dzs_footer" data-type="fake" data-source="fake" data-playfrom="off" style=" width: 100%; height: 300px;"><div class="meta-artist"><span class="the-artist"> </span>&nbsp;<span class="the-name"> </span></div><div class="menu-description"><span class="the-artist"> </span><span class="the-name"> </span></div><div class="extra-html-in-controls-right"><a   onclick='window.dzs_open_social_link("http://www.facebook.com/sharer.php?u={{replaceurl}}&caption=+&description=+&picture=",this); return false;' class="player-but sharer-dzsap-but"><div class="the-icon-bg"></div>{{svg_share_icon}}</a></div><div class="extra-html"><div class="extra-html--left "></div></div></div><script>
+    //console.warn("WILL INIT");
+    jQuery(document).ready(function ($){
+        var settings_ap = {
+            design_skin: "skin-wave"
+            ,autoplay: "off"
+            ,disable_volume:"off"
+            ,loop:"off"
+            ,cue: "off"
+            ,embedded: "off"
+            ,preload_method:"auto"
+            ,design_animateplaypause:"default"
+            ,skinwave_dynamicwaves:"on"
+            ,skinwave_enableSpectrum:"off"
+            ,settings_backup_type:"full"
+            ,skinwave_enableReflect:"on",playfrom:"off",disable_scrub:"off",soundcloud_apikey:""
+            ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"small",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "on",pcm_notice: "off",design_color_bg: "808080",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"reflecto",preview_on_hover:"off",player_navigation:"on",skinwave_comments_playerid:"",construct_player_list_for_sync:"on",php_retriever:"http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" ,swf_location:"http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/ap.swf"
+            ,swffull_location:"http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/apfull.swf"
+        };
+
+        dzsap_init(".ap_idx_3796_4",settings_ap);
+    });
+</script></div></section><script type="text/javascript"></script><link rel='stylesheet' id='dzs.zoomsounds-css'  href='http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/audioplayer/audioplayer.css?ver=4.7.3' type='text/css' media='all' />
+<link rel='stylesheet' id='dzs.tooltip-css'  href='http://www.denovaire.at/wp-wla/wp-content/plugins/dzs-zoomsounds/dzstooltip/dzstooltip.css?ver=4.7.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-includes/js/admin-bar.min.js?ver=4.7.3'></script>
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var _wpcf7 = {"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}}};
+    /* ]]> */
+</script>
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.7'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var wc_add_to_cart_params = {"ajax_url":"\/wp-wla\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/wp-wla\/?page_id=3796&wc-ajax=%%endpoint%%","i18n_view_cart":"View Cart","cart_url":"http:\/\/www.denovaire.at\/wp-wla\/?page_id=1232","is_cart":"","cart_redirect_after_add":"no"};
+    /* ]]> */
+</script>
+<script type='text/javascript' src='//www.denovaire.at/wp-wla/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=2.6.14'></script>
+<script type='text/javascript' src='//www.denovaire.at/wp-wla/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var woocommerce_params = {"ajax_url":"\/wp-wla\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/wp-wla\/?page_id=3796&wc-ajax=%%endpoint%%"};
+    /* ]]> */
+</script>
+<script type='text/javascript' src='//www.denovaire.at/wp-wla/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=2.6.14'></script>
+<script type='text/javascript' src='//www.denovaire.at/wp-wla/wp-content/plugins/woocommerce/assets/js/jquery-cookie/jquery.cookie.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var wc_cart_fragments_params = {"ajax_url":"\/wp-wla\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/wp-wla\/?page_id=3796&wc-ajax=%%endpoint%%","fragment_name":"wc_fragments"};
+    /* ]]> */
+</script>
+<script type='text/javascript' src='//www.denovaire.at/wp-wla/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=2.6.14'></script>
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/superfish/js/superfish.js?ver=1.0'></script>
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-includes/js/hoverIntent.min.js?ver=1.8.1'></script>
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/dl-menu/modernizr.custom.js?ver=1.0'></script>
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/dl-menu/jquery.dlmenu.js?ver=1.0'></script>
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/jquery.easing.js?ver=1.0'></script>
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/fancybox/jquery.fancybox.pack.js?ver=1.0'></script>
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/fancybox/helpers/jquery.fancybox-media.js?ver=1.0'></script>
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/fancybox/helpers/jquery.fancybox-thumbs.js?ver=1.0'></script>
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/plugins/flexslider/jquery.flexslider.js?ver=1.0'></script>
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-content/themes/recibo/javascript/gdlr-script.js?ver=1.0'></script>
+<script type='text/javascript' src='http://www.denovaire.at/wp-wla/wp-includes/js/wp-embed.min.js?ver=4.7.3'></script>
+<script type='text/javascript' src='../audioplayer/audioplayer.js?ver=4.7.3'></script>
+<!--[if lte IE 8]>
+<script type="text/javascript">
+    document.body.className = document.body.className.replace( /(^|\s)(no-)?customize-support(?=\s|$)/, '' ) + ' no-customize-support';
+</script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">
+    (function() {
+        var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
+
+        request = true;
+
+        b[c] = b[c].replace( rcs, ' ' );
+        // The customizer requires postMessage and CORS (if the site is cross domain)
+        b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
+    }());
+</script>
+<!--<![endif]-->
+<div id="wpadminbar" class="nojq nojs">
+    <a class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a>
+    <div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar" tabindex="0">
+        <ul id="wp-admin-bar-root-default" class="ab-top-menu">
+            <li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" aria-haspopup="true" href="http://www.denovaire.at/wp-wla/wp-admin/about.php"><span class="ab-icon"></span><span class="screen-reader-text">About WordPress</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
+                <li id="wp-admin-bar-about"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/about.php">About WordPress</a>		</li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+                <li id="wp-admin-bar-wporg"><a class="ab-item" href="https://wordpress.org/">WordPress.org</a>		</li>
+                <li id="wp-admin-bar-documentation"><a class="ab-item" href="https://codex.wordpress.org/">Documentation</a>		</li>
+                <li id="wp-admin-bar-support-forums"><a class="ab-item" href="https://wordpress.org/support/">Support Forums</a>		</li>
+                <li id="wp-admin-bar-feedback"><a class="ab-item" href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a>		</li></ul></div>		</li>
+            <li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item" aria-haspopup="true" href="http://www.denovaire.at/wp-wla/wp-admin/">welove.audio</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+                <li id="wp-admin-bar-dashboard"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/">Dashboard</a>		</li></ul><ul id="wp-admin-bar-appearance" class="ab-submenu">
+                <li id="wp-admin-bar-themes"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/themes.php">Themes</a>		</li>
+                <li id="wp-admin-bar-widgets"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/widgets.php">Widgets</a>		</li>
+                <li id="wp-admin-bar-menus"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/nav-menus.php">Menus</a>		</li></ul></div>		</li>
+            <li id="wp-admin-bar-customize" class="hide-if-no-customize"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/customize.php?url=http%3A%2F%2Fwww.denovaire.at%2Fwp-wla%2F%3Fpage_id%3D3796">Customize</a>		</li>
+            <li id="wp-admin-bar-updates"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/update-core.php" title="2 Plugin Updates"><span class="ab-icon"></span><span class="ab-label">2</span><span class="screen-reader-text">2 Plugin Updates</span></a>		</li>
+            <li id="wp-admin-bar-comments"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/edit-comments.php"><span class="ab-icon"></span><span class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text">0 comments awaiting moderation</span></a>		</li>
+            <li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item" aria-haspopup="true" href="http://www.denovaire.at/wp-wla/wp-admin/post-new.php"><span class="ab-icon"></span><span class="ab-label">New</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu">
+                <li id="wp-admin-bar-new-post"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/post-new.php">Post</a>		</li>
+                <li id="wp-admin-bar-new-media"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/media-new.php">Media</a>		</li>
+                <li id="wp-admin-bar-new-page"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/post-new.php?post_type=page">Page</a>		</li>
+                <li id="wp-admin-bar-new-product"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/post-new.php?post_type=product">Product</a>		</li>
+                <li id="wp-admin-bar-new-shop_order"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/post-new.php?post_type=shop_order">Order</a>		</li>
+                <li id="wp-admin-bar-new-shop_coupon"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/post-new.php?post_type=shop_coupon">Coupon</a>		</li>
+                <li id="wp-admin-bar-new-custom-css-js"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/post-new.php?post_type=custom-css-js">Custom Code</a>		</li>
+                <li id="wp-admin-bar-new-dzsap_items"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/post-new.php?post_type=dzsap_items">Audio Item</a>		</li>
+                <li id="wp-admin-bar-new-user"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/user-new.php">User</a>		</li></ul></div>		</li>
+            <li id="wp-admin-bar-edit"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/post.php?post=3796&#038;action=edit">Edit Page</a>		</li>
+            <li id="wp-admin-bar-new_draft"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/admin.php?action=duplicate_post_save_as_new_post_draft&#038;post=3796">Copy to a new draft</a>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+        <li id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1"><form action="http://www.denovaire.at/wp-wla/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150" /><label for="adminbar-search" class="screen-reader-text">Search</label><input type="submit" class="adminbar-button" value="Search"/></form></div>		</li>
+        <li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item" aria-haspopup="true" href="http://www.denovaire.at/wp-wla/wp-admin/profile.php">Howdy, xternal<img alt='' src='http://2.gravatar.com/avatar/b4a6b98b32dc4af63e3f0ab826147f1c?s=26&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/b4a6b98b32dc4af63e3f0ab826147f1c?s=52&amp;d=mm&amp;r=g 2x' class='avatar avatar-26 photo' height='26' width='26' /></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu">
+            <li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="http://www.denovaire.at/wp-wla/wp-admin/profile.php"><img alt='' src='http://2.gravatar.com/avatar/b4a6b98b32dc4af63e3f0ab826147f1c?s=64&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/b4a6b98b32dc4af63e3f0ab826147f1c?s=128&amp;d=mm&amp;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' /><span class='display-name'>xternal</span></a>		</li>
+            <li id="wp-admin-bar-edit-profile"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-admin/profile.php">Edit My Profile</a>		</li>
+            <li id="wp-admin-bar-logout"><a class="ab-item" href="http://www.denovaire.at/wp-wla/wp-login.php?action=logout&#038;_wpnonce=eec0ea1b3a">Log Out</a>		</li></ul></div>		</li></ul>			</div>
+    <a class="screen-reader-shortcut" href="http://www.denovaire.at/wp-wla/wp-login.php?action=logout&#038;_wpnonce=eec0ea1b3a">Log Out</a>
+</div>
+
+</body>
+</html>

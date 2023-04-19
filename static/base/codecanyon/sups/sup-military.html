@@ -1,0 +1,2045 @@
+<!doctype html>
+<html class="no-js" lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1099.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MilitaryHomeLife &#8211; Amplifying the Voices of Military Families</title>
+  <link rel='dns-prefetch' href='//www.universe.com' />
+  <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+  <link rel='dns-prefetch' href='//s.w.org' />
+  <link rel="alternate" type="application/rss+xml" title="MilitaryHomeLife &raquo; Feed" href="https://militaryhomelife.com/feed/" />
+  <link rel="alternate" type="application/rss+xml" title="MilitaryHomeLife &raquo; Comments Feed" href="https://militaryhomelife.com/comments/feed/" />
+  <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/militaryhomelife.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0.2"}};
+    !function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+  </script>
+  <style type="text/css">
+    img.wp-smiley,
+    img.emoji {
+      display: inline !important;
+      border: none !important;
+      box-shadow: none !important;
+      height: 1em !important;
+      width: 1em !important;
+      margin: 0 .07em !important;
+      vertical-align: -0.1em !important;
+      background: none !important;
+      padding: 0 !important;
+    }
+  </style>
+  <link rel='stylesheet' id='dashicons-css'  href='https://militaryhomelife.com/wp-includes/css/dashicons.min.css?ver=5.0.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='admin-bar-css'  href='https://militaryhomelife.com/wp-includes/css/admin-bar.min.css?ver=5.0.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='wp-block-library-css'  href='https://militaryhomelife.com/wp-includes/css/dist/block-library/style.min.css?ver=5.0.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='wp-components-css'  href='https://militaryhomelife.com/wp-includes/css/dist/components/style.min.css?ver=5.0.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='wp-editor-font-css'  href='https://fonts.googleapis.com/css?family=Noto+Serif%3A400%2C400i%2C700%2C700i&#038;ver=5.0.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='wp-nux-css'  href='https://militaryhomelife.com/wp-includes/css/dist/nux/style.min.css?ver=5.0.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='wp-editor-css'  href='https://militaryhomelife.com/wp-includes/css/dist/editor/style.min.css?ver=5.0.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='wp-block-library-theme-css'  href='https://militaryhomelife.com/wp-includes/css/dist/block-library/theme.min.css?ver=5.0.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='wp-edit-blocks-css'  href='https://militaryhomelife.com/wp-includes/css/dist/block-library/editor.min.css?ver=5.0.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='contact-widgets-contact-block-css'  href='https://militaryhomelife.com/wp-content/plugins/contact-widgets/includes/blocks/contact/css/contact-block.min.css?ver=1.0.1' type='text/css' media='all' />
+  <link rel='stylesheet' id='font-awesome-css'  href='https://militaryhomelife.com/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min.css?ver=5.6' type='text/css' media='all' />
+  <link rel='stylesheet' id='contact-widgets-social-block-css'  href='https://militaryhomelife.com/wp-content/plugins/contact-widgets/includes/blocks/social/css/social-block.min.css?ver=1.0.1' type='text/css' media='all' />
+  <link rel='stylesheet' id='QtswipeStyle-css'  href='https://militaryhomelife.com/wp-content/plugins/qt-swipebox/swipebox/css/swipebox.min.css?ver=5.0.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='vdl_css-css'  href='https://militaryhomelife.com/wp-content/plugins/qt-videogalleries/assets/style.css?ver=5.0.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='searchandfilter-css'  href='https://militaryhomelife.com/wp-content/plugins/search-filter/style.css?ver=1' type='text/css' media='all' />
+  <link rel='stylesheet' id='woocommerce-layout-css'  href='https://militaryhomelife.com/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=3.5.3' type='text/css' media='all' />
+  <link rel='stylesheet' id='woocommerce-smallscreen-css'  href='https://militaryhomelife.com/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=3.5.3' type='text/css' media='only screen and (max-width: 768px)' />
+  <link rel='stylesheet' id='woocommerce-general-css'  href='https://militaryhomelife.com/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=3.5.3' type='text/css' media='all' />
+  <style id='woocommerce-inline-inline-css' type='text/css'>
+    .woocommerce form .form-row .required { visibility: visible; }
+  </style>
+  <link rel='stylesheet' id='mediaelement-css'  href='https://militaryhomelife.com/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.6-78496d1' type='text/css' media='all' />
+  <link rel='stylesheet' id='wp-mediaelement-css'  href='https://militaryhomelife.com/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=5.0.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='dripicons-css'  href='https://militaryhomelife.com/wp-content/themes/onair2/fonts/dripicons/webfont.css?ver=3.2.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='qantumthemes_qticons-css'  href='https://militaryhomelife.com/wp-content/themes/onair2/fonts/qticons/qticons.css?ver=3.2.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='slick-css'  href='https://militaryhomelife.com/wp-content/themes/onair2/components/slick/slick.css?ver=3.2.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='swipebox-css'  href='https://militaryhomelife.com/wp-content/themes/onair2/components/swipebox/src/css/swipebox.min.css?ver=3.2.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='classycountdown-css'  href='https://militaryhomelife.com/wp-content/themes/onair2/components/countdown/css/jquery.classycountdown.css?ver=3.2.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='flashblock-css'  href='https://militaryhomelife.com/wp-content/themes/onair2/components/soundmanager/templates/qtradio-player/css/flashblock.css?ver=3.2.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='qantumthemes_volume-css'  href='https://militaryhomelife.com/wp-content/themes/onair2/components/soundmanager/templates/qtradio-player/css/qt-360player-volume.css?ver=3.2.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='qantumthemes_main-css'  href='https://militaryhomelife.com/wp-content/themes/onair2/css/qt-main.css?ver=3.2.2' type='text/css' media='all' />
+  <link rel='stylesheet' id='vc_tta_style-css'  href='https://militaryhomelife.com/wp-content/plugins/js_composer/assets/css/js_composer_tta.min.css?ver=5.6' type='text/css' media='all' />
+  <link rel='stylesheet' id='js_composer_front-css'  href='https://militaryhomelife.com/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=5.6' type='text/css' media='all' />
+  <link rel='stylesheet' id='gem-base-css'  href='https://militaryhomelife.com/wp-content/plugins/godaddy-email-marketing-sign-up-forms/css/gem.min.css?ver=1.4.0' type='text/css' media='all' />
+  <link rel='stylesheet' id='kirki_google_fonts-css'  href='https://fonts.googleapis.com/css?family=Open+Sans%3Aregular%2C700%7CKhand%3A500&#038;subset=latin-ext%2Clatin-ext%2Clatin-ext%2Clatin-ext%2Clatin-ext%2Clatin-ext%2Clatin-ext%2Clatin-ext' type='text/css' media='all' />
+  <link rel='stylesheet' id='kirki-styles-qt_config-css'  href='https://militaryhomelife.com/wp-content/plugins/ttg-core/inc/backend/kirki/assets/css/kirki-styles.css' type='text/css' media='all' />
+  <style id='kirki-styles-qt_config-inline-css' type='text/css'>
+    body, html{font-family:"Open Sans", Helvetica, Arial, sans-serif;font-weight:400;font-style:normal;}strong{font-family:"Open Sans", Helvetica, Arial, sans-serif;font-weight:700;font-style:normal;}h1, h2, h3, h4, h5, h6, .qt-btn, .qt-capfont, caption, .qt-title {font-family:Khand, Helvetica, Arial, sans-serif;font-weight:500;font-style:normal;letter-spacing:0.05em;text-transform:uppercase;}.qt-menubar-top, .qt-menubar, .qt-side-nav, .qt-menu-footer{font-family:Khand, Helvetica, Arial, sans-serif;font-weight:400;font-style:normal;letter-spacing:0.05em;text-transform:uppercase;}
+  </style>
+  <script type="text/javascript">
+    function w3tc_popupadmin_bar(url) {
+      return window.open(url, '', 'width=800,height=600,status=no,toolbar=no,menubar=no,scrollbars=yes');
+    }
+  </script>
+  <script type='text/javascript' src='https://militaryhomelife.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+  <script type='text/javascript' src='https://militaryhomelife.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+  <script type='text/javascript' src='https://www.universe.com/embed.js?ver=1.0.2'></script>
+  <script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70'></script>
+  <script type='text/javascript'>
+    /* <![CDATA[ */
+    var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https:\/\/militaryhomelife.com","is_cart":"","cart_redirect_after_add":"no"};
+    /* ]]> */
+  </script>
+  <script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=3.5.3'></script>
+  <script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart.js?ver=5.6'></script>
+  <script type='text/javascript'>
+    var mejsL10n = {"language":"en","strings":{"mejs.install-flash":"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/","mejs.fullscreen-off":"Turn off Fullscreen","mejs.fullscreen-on":"Go Fullscreen","mejs.download-video":"Download Video","mejs.fullscreen":"Fullscreen","mejs.time-jump-forward":["Jump forward 1 second","Jump forward %1 seconds"],"mejs.loop":"Toggle Loop","mejs.play":"Play","mejs.pause":"Pause","mejs.close":"Close","mejs.time-slider":"Time Slider","mejs.time-help-text":"Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.","mejs.time-skip-back":["Skip back 1 second","Skip back %1 seconds"],"mejs.captions-subtitles":"Captions\/Subtitles","mejs.captions-chapters":"Chapters","mejs.none":"None","mejs.mute-toggle":"Mute Toggle","mejs.volume-help-text":"Use Up\/Down Arrow keys to increase or decrease volume.","mejs.unmute":"Unmute","mejs.mute":"Mute","mejs.volume-slider":"Volume Slider","mejs.video-player":"Video Player","mejs.audio-player":"Audio Player","mejs.ad-skip":"Skip ad","mejs.ad-skip-info":["Skip in 1 second","Skip in %1 seconds"],"mejs.source-chooser":"Source Chooser","mejs.stop":"Stop","mejs.speed-rate":"Speed Rate","mejs.live-broadcast":"Live Broadcast","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanian","mejs.arabic":"Arabic","mejs.belarusian":"Belarusian","mejs.bulgarian":"Bulgarian","mejs.catalan":"Catalan","mejs.chinese":"Chinese","mejs.chinese-simplified":"Chinese (Simplified)","mejs.chinese-traditional":"Chinese (Traditional)","mejs.croatian":"Croatian","mejs.czech":"Czech","mejs.danish":"Danish","mejs.dutch":"Dutch","mejs.english":"English","mejs.estonian":"Estonian","mejs.filipino":"Filipino","mejs.finnish":"Finnish","mejs.french":"French","mejs.galician":"Galician","mejs.german":"German","mejs.greek":"Greek","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Hebrew","mejs.hindi":"Hindi","mejs.hungarian":"Hungarian","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesian","mejs.irish":"Irish","mejs.italian":"Italian","mejs.japanese":"Japanese","mejs.korean":"Korean","mejs.latvian":"Latvian","mejs.lithuanian":"Lithuanian","mejs.macedonian":"Macedonian","mejs.malay":"Malay","mejs.maltese":"Maltese","mejs.norwegian":"Norwegian","mejs.persian":"Persian","mejs.polish":"Polish","mejs.portuguese":"Portuguese","mejs.romanian":"Romanian","mejs.russian":"Russian","mejs.serbian":"Serbian","mejs.slovak":"Slovak","mejs.slovenian":"Slovenian","mejs.spanish":"Spanish","mejs.swahili":"Swahili","mejs.swedish":"Swedish","mejs.tagalog":"Tagalog","mejs.thai":"Thai","mejs.turkish":"Turkish","mejs.ukrainian":"Ukrainian","mejs.vietnamese":"Vietnamese","mejs.welsh":"Welsh","mejs.yiddish":"Yiddish"}};
+  </script>
+  <script type='text/javascript' src='https://militaryhomelife.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.6-78496d1'></script>
+  <script type='text/javascript' src='https://militaryhomelife.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=5.0.2'></script>
+  <script type='text/javascript'>
+    /* <![CDATA[ */
+    var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/","classPrefix":"mejs-","stretching":"responsive"};
+    /* ]]> */
+  </script>
+  <link rel='https://api.w.org/' href='https://militaryhomelife.com/wp-json/' />
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://militaryhomelife.com/xmlrpc.php?rsd" />
+  <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://militaryhomelife.com/wp-includes/wlwmanifest.xml" />
+  <meta name="generator" content="WordPress 5.0.2" />
+  <meta name="generator" content="WooCommerce 3.5.3" />
+  <link rel="canonical" href="https://militaryhomelife.com/" />
+  <link rel='shortlink' href='https://militaryhomelife.com/' />
+  <link rel="alternate" type="application/json+oembed" href="https://militaryhomelife.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmilitaryhomelife.com%2F" />
+  <link rel="alternate" type="text/xml+oembed" href="https://militaryhomelife.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmilitaryhomelife.com%2F&#038;format=xml" />
+  <noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+  <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
+  <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="https://militaryhomelife.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><script>window.ajaxurl="https://militaryhomelife.com/wp-admin/admin-ajax.php";window.dzsap_curr_user="1";window.dzsap_settings= { dzsap_site_url: "https://militaryhomelife.com/",wpurl: "https://militaryhomelife.com/",version: "4.64",ajax_url: "https://militaryhomelife.com/wp-admin/admin-ajax.php", debug_mode:"off" }; </script><style class="dzsap-extrastyling">.feed-dzsap{ display:none; }.audioplayer.skin-wave .audioplayer-inner .the-thumb {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               border-radius: 0px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             }
+
+.audioplayer-inner .the-thumb {
+  background-size: cover !important;
+}
+
+.audioplayer .meta-artist-con {
+  left: 1rem !important;
+  bottom: 1rem  !important;
+  max-width: 100%;
+  font-size: 20px  !important;
+  font-family: Khand, Helvetica, Arial, sans-serif !important;
+}
+
+.audioplayer.skin-justthumbandbutton .audioplayer-inner {
+  width: 300px;
+  height: 300px;
+  padding-top: 0;
+}
+
+.audioplayer.skin-steel .ap-controls .ap-controls-right .curr-time {
+  display: none !important;
+}
+
+.audioplayer.skin-steel .ap-controls .ap-controls-right .total-time {
+  display: none !important;
+}
+
+.audioplayer.skin-steel .ap-controls .ap-controls-right .separator-slash  {
+  display: none !important;
+}
+
+.audioplayer.skin-steel .ap-controls .ap-controls-right {
+  margin-left: 0px;
+}
+
+.audioplayer.skin-steel .ap-controls .ap-controls-right .meta-artist-con {
+  width: 100%  !important;
+}
+
+.audioplayer.skin-steel .ap-controls {
+  text-align: center !important;
+  width: auto  !important;
+  height: 100%  !important;
+  background-color: gray  !important;
+}
+
+.audioplayer.skin-steel .ap-controls .ap-controls-right .meta-artist-con .the-name {
+  font-size: 18px  !important;
+  color: #fff  !important;
+  display: block  !important;
+  margin-bottom: 0  !important;
+  font-weight: normal  !important;
+  overflow: hidden  !important;
+  text-overflow: ellipsis  !important;
+}
+
+.audioplayer.skin-steel .ap-controls .ap-controls-right {
+  width: 300px;
+}
+
+.audioplayer.structure-setuped .meta-artist-con {
+  display: table !important;
+}
+
+.audioplayer .meta-artist {
+  display: table !important;
+}
+
+.dzsap-sticktobottom {
+
+  background: #fff6 !important;
+  width: 500px !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+</style><style type="text/css" media="print">#wpadminbar { display:none; }</style>
+  <style type="text/css" media="screen">
+    html { margin-top: 32px !important; }
+    * html body { margin-top: 32px !important; }
+    @media screen and ( max-width: 782px ) {
+      html { margin-top: 46px !important; }
+      * html body { margin-top: 46px !important; }
+    }
+  </style>
+  <link rel="icon" href="https://militaryhomelife.com/wp-content/uploads/2018/12/cropped-MHL_logo_logo-32x32.png" sizes="32x32" />
+  <link rel="icon" href="https://militaryhomelife.com/wp-content/uploads/2018/12/cropped-MHL_logo_logo-192x192.png" sizes="192x192" />
+  <link rel="apple-touch-icon-precomposed" href="https://militaryhomelife.com/wp-content/uploads/2018/12/cropped-MHL_logo_logo-180x180.png" />
+  <meta name="msapplication-TileImage" content="https://militaryhomelife.com/wp-content/uploads/2018/12/cropped-MHL_logo_logo-270x270.png" />
+  <style type="text/css" id="wp-custom-css">
+    /* player shadow */
+    .audioplayer.skin-justthumbandbutton .the-thumb-con {
+      box-shadow: 0px 3px 10px 0px DarkSlateGray;
+    }
+
+    .qt-sharepage.qt-sharepage-vertical {
+      background-color: transparent !important;
+    }
+
+    a.qt-sharelink {
+      color: #000 !important;
+    }
+
+    /* change h3 font size*/
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    /* reduce padding of podcast text */
+    .qt-part-archive-item .qt-item-content-s {
+      padding: 19px;
+    }
+
+    /* add some space for photos on main page*/
+    .qt-the-content ul + h2 {
+      margin-top: 6em;
+    }
+
+    /*remove useless margin in title */
+    .qt-part-archive-item .qt-item-header .qt-header-mid .qt-title a {
+      margin: 0 0 0 0px !important;
+      filter: drop-shadow(0 1mm 1mm black) !important;
+    }
+
+    .qt-text-shadow {
+      text-shadow: 0 2px 3px rgba(0,0,0,0.6);
+    }
+
+    /* hide tags */
+    .qt-tags {
+      display: none !important;
+    }
+
+    /* hide tags again */
+    .qt-part-archive-item.qt-part-item-post-hero .qt-item-header .qt-header-mid .qt-tags {
+      display: none;
+    }
+
+    /* changed menubar child menu */
+    .qt-menubar ul.qt-desktopmenu li ul li a {
+      opacity: 0.85;
+      min-width: 200px;
+      padding: 0.3rem;
+      padding-left: 1.2rem;
+    }
+
+    /* hide menubar useless icons */
+    .qt-menubar ul.qt-desktopmenu li a::after {
+      opacity: 0.0 !important;
+    }
+
+    .qt-menubar ul.qt-desktopmenu li::after {
+      opacity: 0.0 !important;
+    }
+
+    .qt-menubar ul.qt-desktopmenu li a::before {
+      opacity: 0.0 !important;
+    }
+
+    .qt-menubar ul.qt-desktopmenu li::before {
+      opacity: 0.0 !important;
+    }
+
+    /* play button opacity */
+    .qt-part-archive-item.qt-item-podcast .dripicons-media-play {
+      opacity: 0.0 !important;
+    }
+
+    .qt-part-archive-item.qt-item-podcast .dripicons-media-play:hover {
+      opacity: 0.9 !important;
+    }
+
+    /* blur the header in articles */
+    .qt-pageheader {
+      display: none !important;
+    }
+
+    /*disable thumb roundness */
+    .audioplayer.skin-wave .audioplayer-inner .the-thumb {
+      border-radius: 0px !important;
+    }
+
+    /* disable comment indicator */
+    .qt-part-archive-item .qt-item-header .qt-header-top .qt-feedback {
+      display: none !important;
+    }
+
+    /* remove author in article header */
+    .qt-part-archive-item .qt-item-header .qt-header-bottom .qt-item-metas .qt-texts {
+      display: none !important;
+    }
+
+    .qt-subtitle {
+      display: none !important;
+    }
+
+    /* footer logo is not needed */
+    .qt-footer-widgets .qt-footer-logo {
+      display: none !important;
+    }
+
+    .qt-vi {
+      vertical-align: bottom !important;
+    }
+
+    .qt-part-archive-item .qt-item-header .qt-header-mid {
+      padding: 200px 0;
+    }
+
+    /* post button transparent */
+    .qt-part-archive-item .qt-item-header .qt-header-bottom .qt-readmore {
+      opacity: 0.7 !important;
+    }
+
+    .qt-btn.qt-btn-l {
+      opacity: 0.7 !important;
+    }
+
+    /* transparent sliders on main page carousels */
+    .slick-slider .slick-arrow::after {
+      opacity: 0.5 !important;
+    }
+
+    .slick-slider .slick-arrow::after {
+      background-color: black !important;
+    }
+
+    .qt-slickslider-container .slick-arrow::after {
+      color: white;
+    }
+
+    /* change main page podcasts size to fit faces */
+    .slick-slider .qt-item .qt-part-archive-item.qt-item-podcast .qt-item-header .qt-header-mid {
+      min-height: 360px;
+      border-style: inset;
+      border-width: 1px;
+      border: gray;
+    }
+
+    /* podcast thumbs filters */
+    .qt-part-archive-item .qt-item-header .qt-header-bg {
+      opacity: 0.85 !important;
+    }
+
+    /* reduce separator thickness */
+    .qt-caption-small {
+      border-bottom: 0px solid #000;
+      opacity: 0.7;
+    }
+
+    /* dont display a buttons on big posts */
+    .qt-btn.qt-btn-l {
+      display: none !important;
+    }
+
+    /* caption editings */
+    .qt-the-content .qt-capfont {
+      opacity: 0.7;
+    }
+
+    .qt-the-content .qt-capfont {
+      background-color: transparent;
+    }
+
+    .qt-the-content .qt-post-author {
+      display: none !important;
+    }
+
+    /* radio player styles */
+    .audioplayer .meta-artist-con {
+      position: absolute;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      max-width: 100% !important;
+    }
+
+  </style>
+
+
+
+  <!-- THEME STYLES DYNAMIC CUSTOMIZATIONS ========================= -->
+
+
+  <style type="text/css" id="qantumthemes-theme-customizations">
+
+
+    body, html, .qt-content-main, .qt-negative .qt-caption-small span, .qt-paper, .qt-negative .qt-caption-med, .qt-card, .qt-paper, .qt-card, .qt-card-s, .qt-negative .qt-caption-med span, input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea ,
+    .qt-negative .qt-card h1, .qt-negative .qt-card h2, .qt-negative .qt-card h3, .qt-negative .qt-card h4, .qt-negative .qt-card h5, .qt-negative .qt-card h6, .qt-negative .qt-card h1 a, .qt-negative .qt-card h2 a, .qt-negative .qt-card h3 a, .qt-negative .qt-card h4 a, .qt-negative .qt-card h5 a, .qt-negative .qt-card h6 a {
+      color: rgba(0,0,0,0.87) }
+
+    *::placeholder {
+      color: rgba(0,0,0,0.87) }
+
+    .qt-text-secondary {
+      color: rgba(0,0,0,0.65) }
+
+    h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+      color: rgba(0,0,0,0.75) }
+
+    .qt-negative h1, .qt-negative h2, .qt-negative h3, .qt-negative h4, .qt-negative h5, .qt-negative h6, .qt-negative h1 a, .qt-negative h2 a, .qt-negative h3 a, .qt-negative h4 a, .qt-negative h5 a, .qt-negative h6 a {
+      color: #ffffff }
+
+    a, .qt-content-main a, a.qt-logo-text span, .tabs .tab a, .qt-pageheader h1 a, .qt-pageheader h2 a, .qt-pageheader h3 a, .qt-pageheader h4 a, .qt-pageheader h5 a, .qt-pageheader h6 a {
+      color: #be2121 }
+
+    .qt-content-aside, .qt-footer, .qt-tags {
+      color: rgba(0,0,0,0.65) }
+
+    .qt-content-aside a, .qt-footer a, .qt-tags a, .qt_color_secondary, .woocommerce div.product p.price, .woocommerce div.product span.price, .woocommerce ul.products li.product .price {
+      color: #b28a14 }
+
+
+    .qt-negative, .qt-content-primary-dark,.qt-content-primary,.qt-content-primary-light,.qt-btn-primary, .btn-primary,.qt-secondary, .qt-btn-secondary, .btn-secondary, nav.qt-menubar ul.qt-desktopmenu a:hover, .qt-side-nav a , .qt-sharepage a, .qt-caption-med span , .qt-caption-small span, a.rsswidget, .qt-text-neg, .qt-logo-text, .qt-negative .qt-btn-ghost, .qt-text-neg .qt-btn-ghost {
+      color: #ffffff }
+
+    .qt-mobile-menu, .qt-menu-social a {
+      color: rgba(255,255,255,0.65) }
+
+
+
+
+    body, html, .qt-body {
+      background-color:#f7f7f9 }
+
+    #qtplayercontainer {
+      background-color:#000000 }
+
+    .qt-body.woocommerce li.product, .give-form-wrap, .qt-paper, .qt-card, .qt-card-s, .qt-negative .qt-caption-med span, a.rsswidget, input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea, table.striped>tbody>tr:nth-child(odd), table.bordered>thead>tr, table.bordered>tbody>tr, .qt-negative .qt-caption-small span {
+      background-color: #ffffff }
+
+    .qt-content-primary, .qt-menubar-top {
+      background-color: #060808 }
+
+    .qt-content-primary-dark, .qt-menubar , .qt-mobile-menu, .qt-desktopmenu a{
+      background-color: #000000 }
+
+    .qt-content-primary-light {
+      background-color: #5a82d2 }
+
+    .qt-body.woocommerce div.product .woocommerce-tabs ul.tabs li.active,
+    .qt-accent, .qt-btn-primary, .btn-primary, nav.qt-menubar ul.qt-desktopmenu a:hover, .qt-btn-primary, .tabs .indicator, .pagination li.active, .give-btn,
+    .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
+      background-color: #be2121!important }
+
+    a.qt-link-layer {
+      background-color: #1d68bd!important }
+
+    .qt-secondary, .qt-btn-secondary, .btn-secondary, .qt-side-nav li li a, .slick-slider .slick-arrow::after, .slick-slider .slick-dots li.slick-active button,
+    .woocommerce span.onsale, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
+      background-color: #b28a14!important }
+
+    .qt-caption-med span, .qt-caption-small span, a.rsswidget  {
+      background-color: #000000 }
+
+
+
+    .qt-tags a {
+      border-color: rgba(0,0,0,0.65) }
+
+
+    .qt-menubar ul.qt-desktopmenu > li::after, .qt-menubar ul.qt-desktopmenu > li > a::after, .qt-menubar ul.qt-desktopmenu > li > a::before , .qt-menubar ul.qt-desktopmenu > li.current_page_item:hover::after, .qt-menubar ul.qt-desktopmenu > li.current_page_item:hover > a::after, .qt-menubar ul.qt-desktopmenu > li.current_page_item:hover > a::before, .qt-negative .qt-btn-ghost, .qt-negative .qt-widgets .qt-caption-small, .qt-caption-small {
+      border-color: #ffffff }
+
+    .qt-menubar ul.qt-desktopmenu > li.current_page_item:hover::after, .qt-menubar ul.qt-desktopmenu > li.current_page_item:hover > a::after, .qt-menubar ul.qt-desktopmenu > li.current_page_item:hover > a::before {
+      border-color: inherit !important; }
+
+    .qt-menubar ul.qt-desktopmenu > li.current_page_item::after, .qt-menubar ul.qt-desktopmenu > li.current_page_item > a::after, .qt-menubar ul.qt-desktopmenu > li.current_page_item > a::before, .qt-pageheader .qt-caption {
+      border-color: #be2121 !important; }
+
+    .qt-caption-small, .qt-negative .qt-caption-small {
+      border-color: #000000 }
+
+    .qt-negative .qt-caption-small {
+      border-color: #ffffff
+    }
+
+
+
+    /* Hover states ============ */
+    a:hover, .tabs .tab a:hover, .qt-pageheader h1 a:hover, .qt-pageheader h2 a:hover, .qt-pageheader h3 a:hover, .qt-pageheader h4 a:hover, .qt-pageheader h5 a:hover, .qt-pageheader h6 a:hover {
+      color: #1d68bd }
+    .qt-menubar-top a:hover, .qt-pageheader .qt-tags a:hover, .qt-content-aside a:hover, .qt-footer a:hover, .qt-tags a:hover, .qt_color_secondary:hover {
+      color: #5391d9!important }
+
+
+    .qt-btn-primary:hover, .btn-primary:hover, .qt-sharepage a:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover {
+      background-color: #1d68bd!important }
+    .qt-btn-secondary:hover, .btn-secondary:hover, .qt-secondary:hover, .qt-btn-secondary:hover, .btn-secondary:hover, .qt-side-nav li li a:hover, .slick-slider .slick-arrow:hover::after, .slick-slider .slick-dots li.slick-active button:hover {
+      background-color: #5391d9!important }
+    .qt-tags a:hover {
+      border-color: #5391d9!important }
+
+
+
+
+  </style>
+
+
+  <!-- QT STYLES DYNAMIC CUSTOMIZATIONS END ========= -->
+
+  <style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1545025000468{background-color: #7a876e !important;background-position: 0 0 !important;background-repeat: repeat !important;}.vc_custom_1545026509596{padding-bottom: 40px !important;background-color: #7a876e !important;}.vc_custom_1545026452899{background-color: #ffffff !important;}.vc_custom_1546516535228{padding-top: 20px !important;padding-right: 20px !important;padding-bottom: 20px !important;padding-left: 20px !important;}.vc_custom_1545539520828{padding-top: 20px !important;padding-right: 20px !important;padding-bottom: 20px !important;padding-left: 20px !important;}.vc_custom_1545539539767{padding-top: 20px !important;padding-right: 20px !important;padding-bottom: 20px !important;padding-left: 20px !important;}.vc_custom_1545539547702{padding-top: 20px !important;padding-right: 20px !important;padding-bottom: 20px !important;padding-left: 20px !important;}.vc_custom_1545539553869{padding-top: 20px !important;padding-right: 20px !important;padding-bottom: 20px !important;padding-left: 20px !important;}.vc_custom_1545539561188{padding-top: 20px !important;padding-right: 20px !important;padding-bottom: 20px !important;padding-left: 20px !important;}.vc_custom_1545539568178{padding-top: 20px !important;padding-right: 20px !important;padding-bottom: 20px !important;padding-left: 20px !important;}.vc_custom_1545539575858{padding-top: 20px !important;padding-right: 20px !important;padding-bottom: 20px !important;padding-left: 20px !important;}.vc_custom_1545539583603{padding-top: 20px !important;padding-right: 20px !important;padding-bottom: 20px !important;padding-left: 20px !important;}.vc_custom_1545539590361{padding-top: 20px !important;padding-right: 20px !important;padding-bottom: 20px !important;padding-left: 20px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>
+  <!-- CSS styles added by QT Subpages Plugin -->
+  <style type="text/css">
+    .vdl-subpages-item  a .detail {background: rgba(0,0,0,.8) !important;}
+    .vdl-subpages-item  a .detail .title {font-size:px;  color:#000000 !important;}
+    .vdl-subpages-item  a .detail p.trmlist span.trm {border-color:#000000 !important;color:#000000!important;}
+    .vdl-subpages-item  a .detail {padding-top:px !important;}
+    .vdl-subpages-container ul.vdl-subpages-tagcloud li a {
+
+      color:#000000;
+      background-color:#000000;
+      border-color:#000000;
+
+    }
+    .vdl-subpages-container ul.vdl-subpages-tagcloud li a:hover {background-color:#000000;}
+
+
+
+
+    @media (max-width: 768px){
+      .vdl-elementcontents a.vdl-link .detail .title {}
+    }
+
+  </style>
+</head>
+<body class="home page-template page-template-page-visualcomposer page-template-page-visualcomposer-php page page-id-2897 logged-in admin-bar no-customize-support woocommerce-no-js is_gecko is_osx qt-parentcontainer template-page-visualcomposer.php qt-notsticky-menu  qt-body wpb-js-composer js-comp-ver-5.6 vc_responsive" data-start>
+<!-- QT HEADER END ================================ -->
+
+
+<div class="qt-main-menubar" data-0="@class:qt-main-menubar">
+
+
+
+
+
+
+  <!-- QT MENUBAR  ================================ -->
+  <nav id="qtmainmenucontainer" class="qt-menubar nav-wrapper qt-content-primary">
+    <!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
+    <ul class="qt-desktopmenu hide-on-xl-and-down">
+      <li class="qt-logo-link">
+        <a href="https://militaryhomelife.com" class="brand-logo qt-logo-text">
+          <img src="https://militaryhomelife.com/wp-content/uploads/2018/11/MHL_logo_web.png" alt="Home">				</a>
+      </li>
+
+      <li id="menu-item-5799" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5799"><a href="https://militaryhomelife.com/radio-channels/">Radio channels</a>
+        <ul class="sub-menu">
+          <li id="menu-item-5790" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5790"><a href="https://militaryhomelife.com/radiochannel/modern-rock/">Modern Rock</a></li>
+          <li id="menu-item-5789" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5789"><a href="https://militaryhomelife.com/radiochannel/urban-hip-hop/">Hip Hop</a></li>
+          <li id="menu-item-5791" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5791"><a href="https://militaryhomelife.com/radiochannel/pop/">Pop music</a></li>
+          <li id="menu-item-5792" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5792"><a href="https://militaryhomelife.com/radiochannel/latin-pop/">Latin pop</a></li>
+          <li id="menu-item-5793" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5793"><a href="https://militaryhomelife.com/radiochannel/vitl/">VITL channel</a></li>
+          <li id="menu-item-5795" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5795"><a href="https://militaryhomelife.com/radiochannel/news/">News station</a></li>
+          <li id="menu-item-5794" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5794"><a href="https://militaryhomelife.com/radiochannel/talk-radio/">Talk Radio</a></li>
+        </ul>
+      </li>
+      <li id="menu-item-5755" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5755"><a href="https://militaryhomelife.com/mhl-podcast-catalog-2018/">PODCASTS</a>
+        <ul class="sub-menu">
+          <li id="menu-item-5925" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5925"><a href="https://militaryhomelife.com/mhl-podcast-catalog-2018/">Catalog 2018</a></li>
+          <li id="menu-item-5974" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5974"><a href="https://militaryhomelife.com/talk-radio-request/">Talk Radio request</a></li>
+          <li id="menu-item-5272" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5272"><a href="https://militaryhomelife.com/military-influencer-conference-2018/">Military Influencer Conference 2018</a></li>
+          <li id="menu-item-5270" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5270"><a href="https://militaryhomelife.com/msoy-winners/">MSOY Winners</a></li>
+          <li id="menu-item-5229" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5229"><a href="https://militaryhomelife.com/national-hispanic-heritage-month/">National Hispanic Heritage Month</a></li>
+        </ul>
+      </li>
+      <li id="menu-item-6053" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6053"><a href="https://militaryhomelife.com/uso-tour/">USO Tour</a>
+        <ul class="sub-menu">
+          <li id="menu-item-6491" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6491"><a href="https://militaryhomelife.com/down-range-for-the-holidays/">Down Range for the Holidays</a></li>
+        </ul>
+      </li>
+      <li id="menu-item-5857" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5857"><a href="https://militaryhomelife.com/videos-archive/">Video</a></li>
+      <li id="menu-item-4733" class="menu-item menu-item-type-post_type menu-item-object-shows menu-item-4733"><a href="https://militaryhomelife.com/shows/mhl-talk-radio-sonya-dunn/">Events</a></li>
+      <li id="menu-item-4702" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4702"><a href="https://militaryhomelife.com/mhl-blog/">Articles</a></li>
+      <li id="menu-item-4062" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4062"><a href="https://militaryhomelife.com/about_us/">About</a></li>
+      <li id="menu-item-4817" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4817"><a href="https://militaryhomelife.com/contacts/">Contact</a></li>
+
+
+
+
+
+
+
+
+    </ul>
+
+    <!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
+    <ul class="qt-desktopmenu qt-mobilemenubar hide-on-xl-only ">
+      <li>
+        <a href="#" data-activates="qt-mobile-menu" class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m">
+          <i class="dripicons-menu"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://militaryhomelife.com" class="brand-logo qt-logo-text">
+          <img src="https://militaryhomelife.com/wp-content/uploads/2018/11/MHL_logo_web.png" alt="Home">				</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- mobile menu -->
+<div id="qt-mobile-menu" class="side-nav qt-content-primary">
+  <ul class=" qt-side-nav">
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5799"><a href="https://militaryhomelife.com/radio-channels/">Radio channels</a>
+      <ul class="sub-menu">
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5790"><a href="https://militaryhomelife.com/radiochannel/modern-rock/">Modern Rock</a></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5789"><a href="https://militaryhomelife.com/radiochannel/urban-hip-hop/">Hip Hop</a></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5791"><a href="https://militaryhomelife.com/radiochannel/pop/">Pop music</a></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5792"><a href="https://militaryhomelife.com/radiochannel/latin-pop/">Latin pop</a></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5793"><a href="https://militaryhomelife.com/radiochannel/vitl/">VITL channel</a></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5795"><a href="https://militaryhomelife.com/radiochannel/news/">News station</a></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5794"><a href="https://militaryhomelife.com/radiochannel/talk-radio/">Talk Radio</a></li>
+      </ul>
+    </li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5755"><a href="https://militaryhomelife.com/mhl-podcast-catalog-2018/">PODCASTS</a>
+      <ul class="sub-menu">
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5925"><a href="https://militaryhomelife.com/mhl-podcast-catalog-2018/">Catalog 2018</a></li>
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5974"><a href="https://militaryhomelife.com/talk-radio-request/">Talk Radio request</a></li>
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5272"><a href="https://militaryhomelife.com/military-influencer-conference-2018/">Military Influencer Conference 2018</a></li>
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5270"><a href="https://militaryhomelife.com/msoy-winners/">MSOY Winners</a></li>
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5229"><a href="https://militaryhomelife.com/national-hispanic-heritage-month/">National Hispanic Heritage Month</a></li>
+      </ul>
+    </li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6053"><a href="https://militaryhomelife.com/uso-tour/">USO Tour</a>
+      <ul class="sub-menu">
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6491"><a href="https://militaryhomelife.com/down-range-for-the-holidays/">Down Range for the Holidays</a></li>
+      </ul>
+    </li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5857"><a href="https://militaryhomelife.com/videos-archive/">Video</a></li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-shows menu-item-4733"><a href="https://militaryhomelife.com/shows/mhl-talk-radio-sonya-dunn/">Events</a></li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4702"><a href="https://militaryhomelife.com/mhl-blog/">Articles</a></li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4062"><a href="https://militaryhomelife.com/about_us/">About</a></li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4817"><a href="https://militaryhomelife.com/contacts/">Contact</a></li>
+  </ul>
+</div>
+
+<!-- mobile toolbar -->
+<ul class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-xl-only">
+
+
+
+
+
+</ul><!-- SEARCH FORM ========================= -->
+<div id="qtsearchbar"  class="qt-searchbar qt-content-primary qt-expandable ">
+  <div class="qt-expandable-inner">
+    <form method="get" class="qt-inline-form" action="https://militaryhomelife.com/" role="search">
+      <div class="row qt-nopadding">
+        <div class="col s12 m8 l9">
+          <input placeholder="Type and press enter &hellip;" value="" name="s" type="text" class="validate qt-input-l">
+        </div>
+        <div class="col s12 m3 l2">
+          <input type="submit" value="Search" class="qt-btn qt-btn-primary qt-btn-l qt-fullwidth">
+        </div>
+        <div class="col s12 m1 l1">
+          <a href="#!" class="qt-btn qt-btn-l qt-btn-secondary qt-fullwidth aligncenter" data-expandable="#qtsearchbar"><i class="dripicons-cross"></i></a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- SEARCH FORM END ========================= -->
+<div id="maincontent" class="qt-main">
+  <div id="post-2897" class="post-2897 page type-page status-publish has-post-thumbnail hentry">
+    <div class="qt-container-composer">
+      <div class="qt-the-content">
+        <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_custom_1545025000468 vc_row-has-fill vc_row-no-padding vc_row-o-content-top vc_row-flex qt-custom-composer"><div class="qt-container"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space"   style="height: 40px" ><span class="vc_empty_space_inner"></span></div>
+
+          <div class="wpb_text_column wpb_content_element " >
+            <div class="wpb_wrapper">
+              <h3 class="qt-caption-med qt-capfont "><span>Updated radio channels</span></h3>
+
+
+            </div>
+          </div>
+          <div class="vc_empty_space"   style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+          <div class="vc_empty_space"   style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+        </div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_custom_1545026509596 vc_row-has-fill vc_column-gap-10 vc_row-o-equal-height vc_row-o-content-middle vc_row-flex qt-custom-composer"><div class="wpb_column vc_column_container vc_col-sm-1/5"><div class="vc_column-inner"><div class="wpb_wrapper">
+        <div class="wpb_text_column wpb_content_element  vc_custom_1546516535228" >
+          <div class="wpb_wrapper">
+            <div class="audioplayer-tobe playerid-55912523 ap_idx_2897_1 is-single-player apconfig-radioplayer .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } skin-justthumbandbutton .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } 55912523"  id="ap55912523" data-playerid="55912523" data-thumb="https://militaryhomelife.com/wp-content/uploads/2018/07/141111-D-DB155-023-e1533547124442-1024x783.jpg" data-type="audio" data-source="https://songs.militaryhomelife.com/radio/8300/poproxx.mp3?1546434203" data-playfrom="off" style=" width: 100%;" data-fakeplayer=".dzsap_footer"><div class="feed-dzsap feed-song-name">COUNTRY POPROXX</div><div class="meta-artist track-meta-for-dzsap"><span class="the-artist first-line"></span><span class="the-name the-songname second-line">COUNTRY POPROXX</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(https://militaryhomelife.com/wp-content/uploads/2018/07/141111-D-DB155-023-e1533547124442-1024x783.jpg)"></div></div><span class="the-artist"></span><span class="the-name">COUNTRY POPROXX</span></div></div><script> jQuery(document).ready(function ($){var settings_ap55912523 = {  design_skin: "skin-justthumbandbutton"  ,autoplay: "off",disable_volume:"default"  ,loop:"off"  ,cue: "off"  ,embedded: "off"  ,preload_method:"none" ,design_animateplaypause:"default" ,skinwave_dynamicwaves:"off"  ,skinwave_enableSpectrum:"off"  ,skinwave_enableReflect:"on",playfrom:"off",default_volume:"default",disable_scrub:"on",soundcloud_apikey:""  ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "off","pcm_notice": "off","notice_no_media": "off",design_color_bg: "111111",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",player_navigation:"off",skinwave_comments_playerid:"55912523",restyle_player_under_400: ".audioplayer.skin-justthumbandbutton .audioplayer-inner {     position: relative;     top: 0;     left: 0;     width: 250px;     height: 150px;     margin: 10px; }",construct_player_list_for_sync:"on",php_retriever:"https://militaryhomelife.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" }; try{ dzsap_init(".ap_idx_2897_1",settings_ap55912523); }catch(err){ console.warn("cannot init player", err); } }); </script>
+
+          </div>
+        </div>
+
+        <div class="wpb_text_column wpb_content_element  vc_custom_1545539520828" >
+          <div class="wpb_wrapper">
+            <div class="audioplayer-tobe playerid-14037514 ap_idx_2897_2 is-single-player apconfig-radioplayer .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } skin-justthumbandbutton .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } 14037514"  id="ap14037514" data-playerid="14037514" data-thumb="https://militaryhomelife.com/wp-content/uploads/2018/12/Untitled-1.png" data-type="audio" data-source="https://songs.militaryhomelife.com/radio/8010/vitl.mp3" data-playfrom="off" style=" width: 100%;" data-fakeplayer=".dzsap_footer"><div class="feed-dzsap feed-song-name">VITL CHANNEL</div><div class="meta-artist track-meta-for-dzsap"><span class="the-artist first-line"></span><span class="the-name the-songname second-line">VITL CHANNEL</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(https://militaryhomelife.com/wp-content/uploads/2018/12/Untitled-1.png)"></div></div><span class="the-artist"></span><span class="the-name">VITL CHANNEL</span></div></div><script> jQuery(document).ready(function ($){var settings_ap14037514 = {  design_skin: "skin-justthumbandbutton"  ,autoplay: "off",disable_volume:"default"  ,loop:"off"  ,cue: "off"  ,embedded: "off"  ,preload_method:"none" ,design_animateplaypause:"default" ,skinwave_dynamicwaves:"off"  ,skinwave_enableSpectrum:"off"  ,skinwave_enableReflect:"on",playfrom:"off",default_volume:"default",disable_scrub:"on",soundcloud_apikey:""  ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "off","pcm_notice": "off","notice_no_media": "off",design_color_bg: "111111",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",player_navigation:"off",skinwave_comments_playerid:"14037514",restyle_player_under_400: ".audioplayer.skin-justthumbandbutton .audioplayer-inner {     position: relative;     top: 0;     left: 0;     width: 250px;     height: 150px;     margin: 10px; }",construct_player_list_for_sync:"on",php_retriever:"https://militaryhomelife.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" }; try{ dzsap_init(".ap_idx_2897_2",settings_ap14037514); }catch(err){ console.warn("cannot init player", err); } }); </script>
+
+          </div>
+        </div>
+      </div></div></div><div class="wpb_column vc_column_container vc_col-sm-1/5"><div class="vc_column-inner"><div class="wpb_wrapper">
+        <div class="wpb_text_column wpb_content_element  vc_custom_1545539539767" >
+          <div class="wpb_wrapper">
+            <div class="audioplayer-tobe playerid-31066827 ap_idx_2897_3 is-single-player apconfig-radioplayer .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } skin-justthumbandbutton .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } 31066827"  id="ap31066827" data-playerid="31066827" data-thumb="https://militaryhomelife.com/wp-content/uploads/2018/12/9.png" data-type="audio" data-source="https://songs.militaryhomelife.com/radio/8150/radio.mp3" data-playfrom="off" style=" width: 100%;" data-fakeplayer=".dzsap_footer"><div class="feed-dzsap feed-song-name">NEWS CHANNEL</div><div class="meta-artist track-meta-for-dzsap"><span class="the-artist first-line"></span><span class="the-name the-songname second-line">NEWS CHANNEL</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(https://militaryhomelife.com/wp-content/uploads/2018/12/9.png)"></div></div><span class="the-artist"></span><span class="the-name">NEWS CHANNEL</span></div></div><script> jQuery(document).ready(function ($){var settings_ap31066827 = {  design_skin: "skin-justthumbandbutton"  ,autoplay: "off",disable_volume:"default"  ,loop:"off"  ,cue: "off"  ,embedded: "off"  ,preload_method:"none" ,design_animateplaypause:"default" ,skinwave_dynamicwaves:"off"  ,skinwave_enableSpectrum:"off"  ,skinwave_enableReflect:"on",playfrom:"off",default_volume:"default",disable_scrub:"on",soundcloud_apikey:""  ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "off","pcm_notice": "off","notice_no_media": "off",design_color_bg: "111111",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",player_navigation:"off",skinwave_comments_playerid:"31066827",restyle_player_under_400: ".audioplayer.skin-justthumbandbutton .audioplayer-inner {     position: relative;     top: 0;     left: 0;     width: 250px;     height: 150px;     margin: 10px; }",construct_player_list_for_sync:"on",php_retriever:"https://militaryhomelife.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" }; try{ dzsap_init(".ap_idx_2897_3",settings_ap31066827); }catch(err){ console.warn("cannot init player", err); } }); </script>
+
+          </div>
+        </div>
+
+        <div class="wpb_text_column wpb_content_element  vc_custom_1545539547702" >
+          <div class="wpb_wrapper">
+            <div class="audioplayer-tobe playerid-40266524 ap_idx_2897_4 is-single-player apconfig-radioplayer .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } skin-justthumbandbutton .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } 40266524"  id="ap40266524" data-playerid="40266524" data-thumb="https://militaryhomelife.com/wp-content/uploads/2018/12/2.png" data-type="audio" data-source="https://songs.militaryhomelife.com/radio/8070/dance.mp3" data-playfrom="off" style=" width: 100%;" data-fakeplayer=".dzsap_footer"><div class="feed-dzsap feed-song-name">DANCE CLUB</div><div class="meta-artist track-meta-for-dzsap"><span class="the-artist first-line"></span><span class="the-name the-songname second-line">DANCE CLUB</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(https://militaryhomelife.com/wp-content/uploads/2018/12/2.png)"></div></div><span class="the-artist"></span><span class="the-name">DANCE CLUB</span></div></div><script> jQuery(document).ready(function ($){var settings_ap40266524 = {  design_skin: "skin-justthumbandbutton"  ,autoplay: "off",disable_volume:"default"  ,loop:"off"  ,cue: "off"  ,embedded: "off"  ,preload_method:"none" ,design_animateplaypause:"default" ,skinwave_dynamicwaves:"off"  ,skinwave_enableSpectrum:"off"  ,skinwave_enableReflect:"on",playfrom:"off",default_volume:"default",disable_scrub:"on",soundcloud_apikey:""  ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "off","pcm_notice": "off","notice_no_media": "off",design_color_bg: "111111",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",player_navigation:"off",skinwave_comments_playerid:"40266524",restyle_player_under_400: ".audioplayer.skin-justthumbandbutton .audioplayer-inner {     position: relative;     top: 0;     left: 0;     width: 250px;     height: 150px;     margin: 10px; }",construct_player_list_for_sync:"on",php_retriever:"https://militaryhomelife.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" }; try{ dzsap_init(".ap_idx_2897_4",settings_ap40266524); }catch(err){ console.warn("cannot init player", err); } }); </script>
+
+          </div>
+        </div>
+      </div></div></div><div class="wpb_column vc_column_container vc_col-sm-1/5"><div class="vc_column-inner"><div class="wpb_wrapper">
+        <div class="wpb_text_column wpb_content_element  vc_custom_1545539553869" >
+          <div class="wpb_wrapper">
+            <div class="audioplayer-tobe playerid-33056012 ap_idx_2897_5 is-single-player apconfig-radioplayer .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } skin-justthumbandbutton .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } 33056012"  id="ap33056012" data-playerid="33056012" data-thumb="https://militaryhomelife.com/wp-content/uploads/2018/12/8.png" data-type="audio" data-source="https://songs.militaryhomelife.com/radio/8090/talk.mp3" data-playfrom="off" style=" width: 100%;" data-fakeplayer=".dzsap_footer"><div class="feed-dzsap feed-song-name">TALK RADIO</div><div class="meta-artist track-meta-for-dzsap"><span class="the-artist first-line"></span><span class="the-name the-songname second-line">TALK RADIO</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(https://militaryhomelife.com/wp-content/uploads/2018/12/8.png)"></div></div><span class="the-artist"></span><span class="the-name">TALK RADIO</span></div></div><script> jQuery(document).ready(function ($){var settings_ap33056012 = {  design_skin: "skin-justthumbandbutton"  ,autoplay: "off",disable_volume:"default"  ,loop:"off"  ,cue: "off"  ,embedded: "off"  ,preload_method:"none" ,design_animateplaypause:"default" ,skinwave_dynamicwaves:"off"  ,skinwave_enableSpectrum:"off"  ,skinwave_enableReflect:"on",playfrom:"off",default_volume:"default",disable_scrub:"on",soundcloud_apikey:""  ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "off","pcm_notice": "off","notice_no_media": "off",design_color_bg: "111111",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",player_navigation:"off",skinwave_comments_playerid:"33056012",restyle_player_under_400: ".audioplayer.skin-justthumbandbutton .audioplayer-inner {     position: relative;     top: 0;     left: 0;     width: 250px;     height: 150px;     margin: 10px; }",construct_player_list_for_sync:"on",php_retriever:"https://militaryhomelife.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" }; try{ dzsap_init(".ap_idx_2897_5",settings_ap33056012); }catch(err){ console.warn("cannot init player", err); } }); </script>
+
+          </div>
+        </div>
+
+        <div class="wpb_text_column wpb_content_element  vc_custom_1545539561188" >
+          <div class="wpb_wrapper">
+            <div class="audioplayer-tobe playerid-30142758 ap_idx_2897_6 is-single-player apconfig-radioplayer .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } skin-justthumbandbutton .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } 30142758"  id="ap30142758" data-playerid="30142758" data-thumb="https://militaryhomelife.com/wp-content/uploads/2018/12/6.png" data-type="audio" data-source="https://songs.militaryhomelife.com/radio/8200/pop.mp3" data-playfrom="off" style=" width: 100%;" data-fakeplayer=".dzsap_footer"><div class="feed-dzsap feed-song-name">POP STATION</div><div class="meta-artist track-meta-for-dzsap"><span class="the-artist first-line"></span><span class="the-name the-songname second-line">POP STATION</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(https://militaryhomelife.com/wp-content/uploads/2018/12/6.png)"></div></div><span class="the-artist"></span><span class="the-name">POP STATION</span></div></div><script> jQuery(document).ready(function ($){var settings_ap30142758 = {  design_skin: "skin-justthumbandbutton"  ,autoplay: "off",disable_volume:"default"  ,loop:"off"  ,cue: "off"  ,embedded: "off"  ,preload_method:"none" ,design_animateplaypause:"default" ,skinwave_dynamicwaves:"off"  ,skinwave_enableSpectrum:"off"  ,skinwave_enableReflect:"on",playfrom:"off",default_volume:"default",disable_scrub:"on",soundcloud_apikey:""  ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "off","pcm_notice": "off","notice_no_media": "off",design_color_bg: "111111",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",player_navigation:"off",skinwave_comments_playerid:"30142758",restyle_player_under_400: ".audioplayer.skin-justthumbandbutton .audioplayer-inner {     position: relative;     top: 0;     left: 0;     width: 250px;     height: 150px;     margin: 10px; }",construct_player_list_for_sync:"on",php_retriever:"https://militaryhomelife.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" }; try{ dzsap_init(".ap_idx_2897_6",settings_ap30142758); }catch(err){ console.warn("cannot init player", err); } }); </script>
+
+          </div>
+        </div>
+      </div></div></div><div class="wpb_column vc_column_container vc_col-sm-1/5"><div class="vc_column-inner"><div class="wpb_wrapper">
+        <div class="wpb_text_column wpb_content_element  vc_custom_1545539568178" >
+          <div class="wpb_wrapper">
+            <div class="audioplayer-tobe playerid-20868348 ap_idx_2897_7 is-single-player apconfig-radioplayer .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } skin-justthumbandbutton .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } 20868348"  id="ap20868348" data-playerid="20868348" data-thumb="https://militaryhomelife.com/wp-content/uploads/2018/12/7.png" data-type="audio" data-source="https://songs.militaryhomelife.com/radio/8080/country.mp3" data-playfrom="off" style=" width: 100%;" data-fakeplayer=".dzsap_footer"><div class="feed-dzsap feed-song-name">COUNTRY</div><div class="meta-artist track-meta-for-dzsap"><span class="the-artist first-line"></span><span class="the-name the-songname second-line">COUNTRY</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(https://militaryhomelife.com/wp-content/uploads/2018/12/7.png)"></div></div><span class="the-artist"></span><span class="the-name">COUNTRY</span></div></div><script> jQuery(document).ready(function ($){var settings_ap20868348 = {  design_skin: "skin-justthumbandbutton"  ,autoplay: "off",disable_volume:"default"  ,loop:"off"  ,cue: "off"  ,embedded: "off"  ,preload_method:"none" ,design_animateplaypause:"default" ,skinwave_dynamicwaves:"off"  ,skinwave_enableSpectrum:"off"  ,skinwave_enableReflect:"on",playfrom:"off",default_volume:"default",disable_scrub:"on",soundcloud_apikey:""  ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "off","pcm_notice": "off","notice_no_media": "off",design_color_bg: "111111",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",player_navigation:"off",skinwave_comments_playerid:"20868348",restyle_player_under_400: ".audioplayer.skin-justthumbandbutton .audioplayer-inner {     position: relative;     top: 0;     left: 0;     width: 250px;     height: 150px;     margin: 10px; }",construct_player_list_for_sync:"on",php_retriever:"https://militaryhomelife.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" }; try{ dzsap_init(".ap_idx_2897_7",settings_ap20868348); }catch(err){ console.warn("cannot init player", err); } }); </script>
+
+          </div>
+        </div>
+
+        <div class="wpb_text_column wpb_content_element  vc_custom_1545539575858" >
+          <div class="wpb_wrapper">
+            <div class="audioplayer-tobe playerid-21701635 ap_idx_2897_8 is-single-player apconfig-radioplayer .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } skin-justthumbandbutton .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } 21701635"  id="ap21701635" data-playerid="21701635" data-thumb="https://militaryhomelife.com/wp-content/uploads/2018/12/3.png" data-type="audio" data-source="https://songs.militaryhomelife.com/radio/8050/modernrock.mp3" data-playfrom="off" style=" width: 100%;" data-fakeplayer=".dzsap_footer"><div class="feed-dzsap feed-song-name">MODERN ROCK</div><div class="meta-artist track-meta-for-dzsap"><span class="the-artist first-line"></span><span class="the-name the-songname second-line">MODERN ROCK</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(https://militaryhomelife.com/wp-content/uploads/2018/12/3.png)"></div></div><span class="the-artist"></span><span class="the-name">MODERN ROCK</span></div></div><script> jQuery(document).ready(function ($){var settings_ap21701635 = {  design_skin: "skin-justthumbandbutton"  ,autoplay: "off",disable_volume:"default"  ,loop:"off"  ,cue: "off"  ,embedded: "off"  ,preload_method:"none" ,design_animateplaypause:"default" ,skinwave_dynamicwaves:"off"  ,skinwave_enableSpectrum:"off"  ,skinwave_enableReflect:"on",playfrom:"off",default_volume:"default",disable_scrub:"on",soundcloud_apikey:""  ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "off","pcm_notice": "off","notice_no_media": "off",design_color_bg: "111111",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",player_navigation:"off",skinwave_comments_playerid:"21701635",restyle_player_under_400: ".audioplayer.skin-justthumbandbutton .audioplayer-inner {     position: relative;     top: 0;     left: 0;     width: 250px;     height: 150px;     margin: 10px; }",construct_player_list_for_sync:"on",php_retriever:"https://militaryhomelife.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" }; try{ dzsap_init(".ap_idx_2897_8",settings_ap21701635); }catch(err){ console.warn("cannot init player", err); } }); </script>
+
+          </div>
+        </div>
+      </div></div></div><div class="wpb_column vc_column_container vc_col-sm-1/5"><div class="vc_column-inner"><div class="wpb_wrapper">
+        <div class="wpb_text_column wpb_content_element  vc_custom_1545539583603" >
+          <div class="wpb_wrapper">
+            <div class="audioplayer-tobe playerid-76494044 ap_idx_2897_9 is-single-player apconfig-radioplayer .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } skin-justthumbandbutton .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } 76494044"  id="ap76494044" data-playerid="76494044" data-thumb="https://militaryhomelife.com/wp-content/uploads/2018/12/4.png" data-type="audio" data-source="https://songs.militaryhomelife.com/radio/8060/latin.mp3" data-playfrom="off" style=" width: 100%;" data-fakeplayer=".dzsap_footer"><div class="feed-dzsap feed-song-name">LATIN CHANNEL</div><div class="meta-artist track-meta-for-dzsap"><span class="the-artist first-line"></span><span class="the-name the-songname second-line">LATIN CHANNEL</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(https://militaryhomelife.com/wp-content/uploads/2018/12/4.png)"></div></div><span class="the-artist"></span><span class="the-name">LATIN CHANNEL</span></div></div><script> jQuery(document).ready(function ($){var settings_ap76494044 = {  design_skin: "skin-justthumbandbutton"  ,autoplay: "off",disable_volume:"default"  ,loop:"off"  ,cue: "off"  ,embedded: "off"  ,preload_method:"none" ,design_animateplaypause:"default" ,skinwave_dynamicwaves:"off"  ,skinwave_enableSpectrum:"off"  ,skinwave_enableReflect:"on",playfrom:"off",default_volume:"default",disable_scrub:"on",soundcloud_apikey:""  ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "off","pcm_notice": "off","notice_no_media": "off",design_color_bg: "111111",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",player_navigation:"off",skinwave_comments_playerid:"76494044",restyle_player_under_400: ".audioplayer.skin-justthumbandbutton .audioplayer-inner {     position: relative;     top: 0;     left: 0;     width: 250px;     height: 150px;     margin: 10px; }",construct_player_list_for_sync:"on",php_retriever:"https://militaryhomelife.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" }; try{ dzsap_init(".ap_idx_2897_9",settings_ap76494044); }catch(err){ console.warn("cannot init player", err); } }); </script>
+
+          </div>
+        </div>
+
+        <div class="wpb_text_column wpb_content_element  vc_custom_1545539590361" >
+          <div class="wpb_wrapper">
+            <div class="audioplayer-tobe playerid-36142260 ap_idx_2897_10 is-single-player apconfig-radioplayer .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } skin-justthumbandbutton .audioplayer .meta-artist-con {   position: absolute; 	left: 15px;   right: 15px; 	bottom: 15px; 	max-width: 100% !important; } 36142260"  id="ap36142260" data-playerid="36142260" data-thumb="https://militaryhomelife.com/wp-content/uploads/2018/12/5.png" data-type="audio" data-source="https://songs.militaryhomelife.com/radio/8020/HipHop.mp3" data-playfrom="off" style=" width: 100%;" data-fakeplayer=".dzsap_footer"><div class="feed-dzsap feed-song-name">URBAN HIPHOP</div><div class="meta-artist track-meta-for-dzsap"><span class="the-artist first-line"></span><span class="the-name the-songname second-line">URBAN HIPHOP</span></div><div class="menu-description"><div class="menu-item-thumb-con"><div class="menu-item-thumb" style="background-image: url(https://militaryhomelife.com/wp-content/uploads/2018/12/5.png)"></div></div><span class="the-artist"></span><span class="the-name">URBAN HIPHOP</span></div></div><script> jQuery(document).ready(function ($){var settings_ap36142260 = {  design_skin: "skin-justthumbandbutton"  ,autoplay: "off",disable_volume:"default"  ,loop:"off"  ,cue: "off"  ,embedded: "off"  ,preload_method:"none" ,design_animateplaypause:"default" ,skinwave_dynamicwaves:"off"  ,skinwave_enableSpectrum:"off"  ,skinwave_enableReflect:"on",playfrom:"off",default_volume:"default",disable_scrub:"on",soundcloud_apikey:""  ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "off","pcm_notice": "off","notice_no_media": "off",design_color_bg: "111111",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",preview_on_hover:"off",player_navigation:"off",skinwave_comments_playerid:"36142260",restyle_player_under_400: ".audioplayer.skin-justthumbandbutton .audioplayer-inner {     position: relative;     top: 0;     left: 0;     width: 250px;     height: 150px;     margin: 10px; }",construct_player_list_for_sync:"on",php_retriever:"https://militaryhomelife.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" }; try{ dzsap_init(".ap_idx_2897_10",settings_ap36142260); }catch(err){ console.warn("cannot init player", err); } }); </script>
+
+          </div>
+        </div>
+      </div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_custom_1545026452899 vc_row-has-fill vc_row-no-padding vc_row-o-content-top vc_row-flex qt-custom-composer"><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"></div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space"   style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+        <section class="vc_cta3-container" >
+          <div class="vc_general vc_cta3 vc_cta3-style-flat vc_cta3-shape-square vc_cta3-align-center vc_cta3-color-white vc_cta3-icon-size-md vc_cta3-actions-bottom">
+            <div class="vc_cta3_content-container">
+              <div class="vc_cta3-content">
+                <header class="vc_cta3-content-header">
+                  <h2>FREE SUBSCRIPTION</h2>									</header>
+                <h5></h5>
+                <h5 style="text-align: center;">Gain access to all MHL digital radio channels, shows, podcast and special offers.</h5>
+                <h5 style="text-align: center;">Join for free. Become a subscriber today.</h5>
+              </div>
+              <div class="vc_cta3-actions"><div class="vc_btn3-container vc_btn3-center" >
+                <a class="vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-square vc_btn3-style-flat vc_btn3-color-green" href="https://militaryhomelife.com/mhl-membership-form/" title="">JOIN TODAY</a></div>
+              </div>					</div>
+          </div>
+        </section>
+
+      </div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_row-no-padding vc_row-o-content-top vc_row-flex qt-custom-composer"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space"   style="height: 40px" ><span class="vc_empty_space_inner"></span></div>
+      </div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_row-no-padding vc_row-o-content-top vc_row-flex qt-custom-composer"><div class="qt-container"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+        <div class="wpb_text_column wpb_content_element " >
+          <div class="wpb_wrapper">
+            <h3 class="qt-caption-med qt-capfont "><span>New Releases</span></h3>
+
+
+          </div>
+        </div>
+
+        <div class="wpb_text_column wpb_content_element " >
+          <div class="wpb_wrapper">
+            <h5 style="text-align: center;"><a href="https://militaryhomelife.com/mhl-podcast-catalog-2018/">Browse Catalog &gt;&gt;</a></h5>
+
+          </div>
+        </div>
+      </div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_row-no-padding vc_row-o-content-top vc_row-flex qt-custom-composer"><div class="qt-container"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space"   style="height: 40px" ><span class="vc_empty_space_inner"></span></div>
+
+        <div class="wpb_text_column wpb_content_element " >
+          <div class="wpb_wrapper">
+            <!-- SLIDESHOW POST ================================================== -->
+            <div class="qt-slickslider-container qt-slickslider-externalarrows">
+              <div class="row">
+                <div class="qt-slickslider qt-invisible qt-animated qt-slickslider-multiple"
+                     data-slidestoshow="3"
+                     data-variablewidth="false"
+                     data-arrows="true"
+                     data-dots="false"
+                     data-infinite="true"
+                     data-centermode="false"
+                     data-pauseonhover="true"
+                     data-autoplay="false"
+                     data-arrowsmobile="false"
+                     data-centermodemobile="true"
+                     data-dotsmobile="false"
+                     data-slidestoshowmobile="1"
+                     data-variablewidthmobile="true"
+                     data-infinitemobile="false">
+                  <div class="qt-item">
+                    <!-- PODCAST ========================= -->
+                    <div class="qt-part-archive-item qt-item-podcast">
+                      <div class="qt-item-header">
+                        <div class="qt-header-top">
+                          <ul class="qt-tags">
+                            <li>
+                              <a href="https://militaryhomelife.com/podcastfilter/december-2018/" rel="tag">December 2018</a></li><li><a href="https://militaryhomelife.com/podcastfilter/home-owner/" rel="tag">home owner</a></li><li><a href="https://militaryhomelife.com/podcastfilter/military-family/" rel="tag">Military Family</a></li><li><a href="https://militaryhomelife.com/podcastfilter/rentals/" rel="tag">Rentals</a>				</li>
+                          </ul>
+                          <div class="qt-feedback">
+                          </div>
+                        </div>
+
+                        <div class="qt-header-mid qt-vc">
+                          <div class="qt-vi">
+                            <a href="https://militaryhomelife.com/podcast/kellie-artis-millie/" class="qt-text-shadow">
+                              <i class="dripicons-media-play qt-text-neg"></i>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="qt-header-bottom">
+                          <a href="https://militaryhomelife.com/podcast/kellie-artis-millie/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-music"></i></a>
+                        </div>
+                        <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/12/kellie-artis2.png">
+                          <img width="300" height="300" src="https://militaryhomelife.com/wp-content/uploads/2018/12/kellie-artis2.png" class="attachment-qantumthemes-squared size-qantumthemes-squared wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/12/kellie-artis2.png 300w, https://militaryhomelife.com/wp-content/uploads/2018/12/kellie-artis2-150x150.png 150w, https://militaryhomelife.com/wp-content/uploads/2018/12/kellie-artis2-170x170.png 170w, https://militaryhomelife.com/wp-content/uploads/2018/12/kellie-artis2-100x100.png 100w" sizes="(max-width: 300px) 100vw, 300px" />        </div>
+                      </div>
+
+                      <div class="qt-item-content-s qt-card">
+                        <h4 class="qt-ellipsis-2 qt-t">
+                          <a href="https://militaryhomelife.com/podcast/kellie-artis-millie/">Kellie Artis &#8211; Millie</a>
+                        </h4>
+                      </div>
+                    </div>
+                    <!-- PODCAST END ========================= -->
+                  </div>
+                  <div class="qt-item">
+                    <!-- PODCAST ========================= -->
+                    <div class="qt-part-archive-item qt-item-podcast">
+                      <div class="qt-item-header">
+                        <div class="qt-header-top">
+                          <ul class="qt-tags">
+                            <li>
+                              <a href="https://militaryhomelife.com/podcastfilter/december-2018/" rel="tag">December 2018</a></li><li><a href="https://militaryhomelife.com/podcastfilter/fitness/" rel="tag">fitness</a></li><li><a href="https://militaryhomelife.com/podcastfilter/mhl-sports/" rel="tag">MHL Sports</a></li><li><a href="https://militaryhomelife.com/podcastfilter/military-family/" rel="tag">Military Family</a></li><li><a href="https://militaryhomelife.com/podcastfilter/military-kid/" rel="tag">Military Kid</a></li><li><a href="https://militaryhomelife.com/podcastfilter/military-sibling/" rel="tag">military sibling</a></li><li><a href="https://militaryhomelife.com/podcastfilter/mso/" rel="tag">MSO</a></li><li><a href="https://militaryhomelife.com/podcastfilter/nfl/" rel="tag">NFL</a></li><li><a href="https://militaryhomelife.com/podcastfilter/washington-dc/" rel="tag">Washington DC</a></li><li><a href="https://militaryhomelife.com/podcastfilter/washington-redskins/" rel="tag">washington redskins</a>				</li>
+                          </ul>
+                          <div class="qt-feedback">
+                          </div>
+                        </div>
+
+                        <div class="qt-header-mid qt-vc">
+                          <div class="qt-vi">
+                            <a href="https://militaryhomelife.com/podcast/emma-dockery-yellow-ribbons-united/" class="qt-text-shadow">
+                              <i class="dripicons-media-play qt-text-neg"></i>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="qt-header-bottom">
+                          <a href="https://militaryhomelife.com/podcast/emma-dockery-yellow-ribbons-united/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-music"></i></a>
+                        </div>
+                        <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/12/emma-dockery-e1544775790350.png">
+                          <img width="356" height="317" src="https://militaryhomelife.com/wp-content/uploads/2018/12/emma-dockery-e1544775790350.png" class="attachment-qantumthemes-squared size-qantumthemes-squared wp-post-image" alt="" />        </div>
+                      </div>
+
+                      <div class="qt-item-content-s qt-card">
+                        <h4 class="qt-ellipsis-2 qt-t">
+                          <a href="https://militaryhomelife.com/podcast/emma-dockery-yellow-ribbons-united/">Emma Dockery &#8211; Yellow Ribbons United</a>
+                        </h4>
+                      </div>
+                    </div>
+                    <!-- PODCAST END ========================= -->
+                  </div>
+                  <div class="qt-item">
+                    <!-- PODCAST ========================= -->
+                    <div class="qt-part-archive-item qt-item-podcast">
+                      <div class="qt-item-header">
+                        <div class="qt-header-top">
+                          <ul class="qt-tags">
+                            <li>
+                              <a href="https://militaryhomelife.com/podcastfilter/aafes/" rel="tag">AAFES</a></li><li><a href="https://militaryhomelife.com/podcastfilter/air-force/" rel="tag">Air Force</a></li><li><a href="https://militaryhomelife.com/podcastfilter/chiefs/" rel="tag">Chiefs</a></li><li><a href="https://militaryhomelife.com/podcastfilter/december-2018/" rel="tag">December 2018</a></li><li><a href="https://militaryhomelife.com/podcastfilter/enlisted-corps/" rel="tag">Enlisted Corps</a></li><li><a href="https://militaryhomelife.com/podcastfilter/military-family/" rel="tag">Military Family</a></li><li><a href="https://militaryhomelife.com/podcastfilter/shopping/" rel="tag">shopping</a></li><li><a href="https://militaryhomelife.com/podcastfilter/veterans/" rel="tag">Veterans</a>				</li>
+                          </ul>
+                          <div class="qt-feedback">
+                          </div>
+                        </div>
+
+                        <div class="qt-header-mid qt-vc">
+                          <div class="qt-vi">
+                            <a href="https://militaryhomelife.com/podcast/chief-luis-reyes-aafes/" class="qt-text-shadow">
+                              <i class="dripicons-media-play qt-text-neg"></i>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="qt-header-bottom">
+                          <a href="https://militaryhomelife.com/podcast/chief-luis-reyes-aafes/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-music"></i></a>
+                        </div>
+                        <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/12/Luis-ReyesEPMasthead.com_-690x690.jpg">
+                          <img width="690" height="690" src="https://militaryhomelife.com/wp-content/uploads/2018/12/Luis-ReyesEPMasthead.com_-690x690.jpg" class="attachment-qantumthemes-squared size-qantumthemes-squared wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/12/Luis-ReyesEPMasthead.com_-690x690.jpg 690w, https://militaryhomelife.com/wp-content/uploads/2018/12/Luis-ReyesEPMasthead.com_-150x150.jpg 150w, https://militaryhomelife.com/wp-content/uploads/2018/12/Luis-ReyesEPMasthead.com_-170x170.jpg 170w, https://militaryhomelife.com/wp-content/uploads/2018/12/Luis-ReyesEPMasthead.com_-300x300.jpg 300w, https://militaryhomelife.com/wp-content/uploads/2018/12/Luis-ReyesEPMasthead.com_-100x100.jpg 100w" sizes="(max-width: 690px) 100vw, 690px" />        </div>
+                      </div>
+
+                      <div class="qt-item-content-s qt-card">
+                        <h4 class="qt-ellipsis-2 qt-t">
+                          <a href="https://militaryhomelife.com/podcast/chief-luis-reyes-aafes/">Chief Luis Reyes &#8211; AAFES</a>
+                        </h4>
+                      </div>
+                    </div>
+                    <!-- PODCAST END ========================= -->
+                  </div>
+                  <div class="qt-item">
+                    <!-- PODCAST ========================= -->
+                    <div class="qt-part-archive-item qt-item-podcast">
+                      <div class="qt-item-header">
+                        <div class="qt-header-top">
+                          <ul class="qt-tags">
+                            <li>
+                              <a href="https://militaryhomelife.com/podcastfilter/december-2018/" rel="tag">December 2018</a></li><li><a href="https://militaryhomelife.com/podcastfilter/dod/" rel="tag">DoD</a></li><li><a href="https://militaryhomelife.com/podcastfilter/education/" rel="tag">Education</a></li><li><a href="https://militaryhomelife.com/podcastfilter/military-family/" rel="tag">Military Family</a>				</li>
+                          </ul>
+                          <div class="qt-feedback">
+                          </div>
+                        </div>
+
+                        <div class="qt-header-mid qt-vc">
+                          <div class="qt-vi">
+                            <a href="https://militaryhomelife.com/podcast/tutor-com/" class="qt-text-shadow">
+                              <i class="dripicons-media-play qt-text-neg"></i>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="qt-header-bottom">
+                          <a href="https://militaryhomelife.com/podcast/tutor-com/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-music"></i></a>
+                        </div>
+                        <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/12/tutor.com-military-300x0.jpg">
+                          <img width="300" height="300" src="https://militaryhomelife.com/wp-content/uploads/2018/12/tutor.com-military-300x0.jpg" class="attachment-qantumthemes-squared size-qantumthemes-squared wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/12/tutor.com-military-300x0.jpg 300w, https://militaryhomelife.com/wp-content/uploads/2018/12/tutor.com-military-300x0-150x150.jpg 150w, https://militaryhomelife.com/wp-content/uploads/2018/12/tutor.com-military-300x0-170x170.jpg 170w, https://militaryhomelife.com/wp-content/uploads/2018/12/tutor.com-military-300x0-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" />        </div>
+                      </div>
+
+                      <div class="qt-item-content-s qt-card">
+                        <h4 class="qt-ellipsis-2 qt-t">
+                          <a href="https://militaryhomelife.com/podcast/tutor-com/">Tutor.com</a>
+                        </h4>
+                      </div>
+                    </div>
+                    <!-- PODCAST END ========================= -->
+                  </div>
+                  <div class="qt-item">
+                    <!-- PODCAST ========================= -->
+                    <div class="qt-part-archive-item qt-item-podcast">
+                      <div class="qt-item-header">
+                        <div class="qt-header-top">
+                          <ul class="qt-tags">
+                            <li>
+                              <a href="https://militaryhomelife.com/podcastfilter/december-2018/" rel="tag">December 2018</a></li><li><a href="https://militaryhomelife.com/podcastfilter/military-family/" rel="tag">Military Family</a></li><li><a href="https://militaryhomelife.com/podcastfilter/military-kid/" rel="tag">Military Kid</a></li><li><a href="https://militaryhomelife.com/podcastfilter/military-life-balance/" rel="tag">Military Life Balance</a></li><li><a href="https://militaryhomelife.com/podcastfilter/military-spouse/" rel="tag">Military Spouse</a></li><li><a href="https://militaryhomelife.com/podcastfilter/mso/" rel="tag">MSO</a></li><li><a href="https://militaryhomelife.com/podcastfilter/ptsd/" rel="tag">PTSD</a>				</li>
+                          </ul>
+                          <div class="qt-feedback">
+                          </div>
+                        </div>
+
+                        <div class="qt-header-mid qt-vc">
+                          <div class="qt-vi">
+                            <a href="https://militaryhomelife.com/podcast/joyce-raezer/" class="qt-text-shadow">
+                              <i class="dripicons-media-play qt-text-neg"></i>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="qt-header-bottom">
+                          <a href="https://militaryhomelife.com/podcast/joyce-raezer/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-music"></i></a>
+                        </div>
+                        <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/12/Jyce-Raezer.jpg">
+                          <img width="400" height="400" src="https://militaryhomelife.com/wp-content/uploads/2018/12/Jyce-Raezer.jpg" class="attachment-qantumthemes-squared size-qantumthemes-squared wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/12/Jyce-Raezer.jpg 400w, https://militaryhomelife.com/wp-content/uploads/2018/12/Jyce-Raezer-150x150.jpg 150w, https://militaryhomelife.com/wp-content/uploads/2018/12/Jyce-Raezer-170x170.jpg 170w, https://militaryhomelife.com/wp-content/uploads/2018/12/Jyce-Raezer-300x300.jpg 300w, https://militaryhomelife.com/wp-content/uploads/2018/12/Jyce-Raezer-100x100.jpg 100w" sizes="(max-width: 400px) 100vw, 400px" />        </div>
+                      </div>
+
+                      <div class="qt-item-content-s qt-card">
+                        <h4 class="qt-ellipsis-2 qt-t">
+                          <a href="https://militaryhomelife.com/podcast/joyce-raezer/">Joyce Raezer &#8211; National Military Family Association</a>
+                        </h4>
+                      </div>
+                    </div>
+                    <!-- PODCAST END ========================= -->
+                  </div>
+                  <div class="qt-item">
+                    <!-- PODCAST ========================= -->
+                    <div class="qt-part-archive-item qt-item-podcast">
+                      <div class="qt-item-header">
+                        <div class="qt-header-top">
+                          <ul class="qt-tags">
+                            <li>
+                              <a href="https://militaryhomelife.com/podcastfilter/cannabis/" rel="tag">cannabis</a></li><li><a href="https://militaryhomelife.com/podcastfilter/december-2018/" rel="tag">December 2018</a></li><li><a href="https://militaryhomelife.com/podcastfilter/legislation/" rel="tag">legislation</a></li><li><a href="https://militaryhomelife.com/podcastfilter/ptsd/" rel="tag">PTSD</a></li><li><a href="https://militaryhomelife.com/podcastfilter/veterans/" rel="tag">Veterans</a>				</li>
+                          </ul>
+                          <div class="qt-feedback">
+                          </div>
+                        </div>
+
+                        <div class="qt-header-mid qt-vc">
+                          <div class="qt-vi">
+                            <a href="https://militaryhomelife.com/podcast/veterans-cannabis-coalition/" class="qt-text-shadow">
+                              <i class="dripicons-media-play qt-text-neg"></i>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="qt-header-bottom">
+                          <a href="https://militaryhomelife.com/podcast/veterans-cannabis-coalition/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-music"></i></a>
+                        </div>
+                        <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/12/VCC-logo-copy-690x690.jpg">
+                          <img width="690" height="690" src="https://militaryhomelife.com/wp-content/uploads/2018/12/VCC-logo-copy-690x690.jpg" class="attachment-qantumthemes-squared size-qantumthemes-squared wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/12/VCC-logo-copy-690x690.jpg 690w, https://militaryhomelife.com/wp-content/uploads/2018/12/VCC-logo-copy-150x150.jpg 150w, https://militaryhomelife.com/wp-content/uploads/2018/12/VCC-logo-copy-170x170.jpg 170w, https://militaryhomelife.com/wp-content/uploads/2018/12/VCC-logo-copy-300x300.jpg 300w, https://militaryhomelife.com/wp-content/uploads/2018/12/VCC-logo-copy-100x100.jpg 100w" sizes="(max-width: 690px) 100vw, 690px" />        </div>
+                      </div>
+
+                      <div class="qt-item-content-s qt-card">
+                        <h4 class="qt-ellipsis-2 qt-t">
+                          <a href="https://militaryhomelife.com/podcast/veterans-cannabis-coalition/">Veterans Cannabis Coalition</a>
+                        </h4>
+                      </div>
+                    </div>
+                    <!-- PODCAST END ========================= -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- SLIDESHOW PODCAST END ================================================== -->
+
+
+          </div>
+        </div>
+        <div class="vc_empty_space"   style="height: 40px" ><span class="vc_empty_space_inner"></span></div>
+      </div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_row-no-padding vc_row-o-content-top vc_row-flex qt-custom-composer"><div class="qt-container"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+        <div class="wpb_text_column wpb_content_element " >
+          <div class="wpb_wrapper">
+            <h3 class="qt-caption-med qt-capfont "><span>Military Lifestyle</span></h3>
+
+
+          </div>
+        </div>
+
+        <div class="wpb_text_column wpb_content_element " >
+          <div class="wpb_wrapper">
+            <h5 style="text-align: center;"><a href="https://militaryhomelife.com/mhl-blog/">Latest Articles &gt;&gt;</a></h5>
+
+          </div>
+        </div>
+      </div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row wpb_row vc_row-fluid qt-custom-composer"><div class="qt-container"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space"   style="height: 40px" ><span class="vc_empty_space_inner"></span></div>
+
+        <div class="qt-slick-opacity-fx qt-item">
+          <!-- POST HERO ITEM ========================= -->
+          <div class="qt-part-archive-item qt-part-item-post-hero">
+            <div class="qt-item-header">
+              <div class="qt-header-top">
+                <div class="qt-feedback">
+                  0<i class="dripicons-message"></i> 	    	</div>
+              </div>
+              <div class="qt-header-mid qt-vc">
+                <div class="qt-vi">
+                  <ul class="qt-tags">
+                    <li>
+                      <a href="https://militaryhomelife.com/category/air-force/" rel="category tag">Air Force</a></li><li><a href="https://militaryhomelife.com/category/army/" rel="category tag">Army</a></li><li><a href="https://militaryhomelife.com/category/child-development/" rel="category tag">Child Development</a></li><li><a href="https://militaryhomelife.com/category/coast-guard/" rel="category tag">Coast Guard</a></li><li><a href="https://militaryhomelife.com/category/marines/" rel="category tag">Marines</a></li><li><a href="https://militaryhomelife.com/category/navy/" rel="category tag">Navy</a>					</li>
+                  </ul>
+                  <h2 class="qt-title">
+                    <a href="https://militaryhomelife.com/first-military-babies-for-2019/" class="qt-text-shadow qt-ellipsis-2 qt-t">
+                      First Military Babies of 2019					</a>
+                  </h2>
+                  <div class="qt-the-content qt-spacer-s small hide-on-med-and-down ">
+                    <p class="qt-spacer-s qt-text-shadow small qt-ellipsis-2">
+                    </p>
+                    <p><a href="https://militaryhomelife.com/first-military-babies-for-2019/" class="qt-btn qt-btn-l qt-btn-primary "><i class="dripicons-align-justify"></i></a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2019/01/it-s-not-just-gas-your-newborn-s-smile-might-be-real-after-all-according-to-new-research__854765_.jpg">
+                <img width="799" height="533" src="https://militaryhomelife.com/wp-content/uploads/2019/01/it-s-not-just-gas-your-newborn-s-smile-might-be-real-after-all-according-to-new-research__854765_.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2019/01/it-s-not-just-gas-your-newborn-s-smile-might-be-real-after-all-according-to-new-research__854765_.jpg 799w, https://militaryhomelife.com/wp-content/uploads/2019/01/it-s-not-just-gas-your-newborn-s-smile-might-be-real-after-all-according-to-new-research__854765_-500x334.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2019/01/it-s-not-just-gas-your-newborn-s-smile-might-be-real-after-all-according-to-new-research__854765_-768x512.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2019/01/it-s-not-just-gas-your-newborn-s-smile-might-be-real-after-all-according-to-new-research__854765_-600x400.jpg 600w" sizes="(max-width: 799px) 100vw, 799px" />	        </div>
+            </div>
+          </div>
+          <!-- POST HERO ITEM END ========================= -->
+        </div>
+
+        <hr class="qt-spacer-s">
+        <h5 class="qt-caption-small qt-capfont "><span>Articles</span></h5>
+        <hr class="qt-spacer-s">
+        <!-- SLIDESHOW POST ================================================== -->
+        <div class="qt-slickslider-container qt-slickslider-externalarrows">
+          <div class="row">
+            <div class="qt-slickslider qt-invisible qt-animated qt-slickslider-multiple"
+                 data-slidestoshow="3"
+                 data-variablewidth="false"
+                 data-arrows="true"
+                 data-dots="false"
+                 data-infinite="true"
+                 data-centermode="false"
+                 data-pauseonhover="true"
+                 data-autoplay="false"
+                 data-arrowsmobile="false"
+                 data-centermodemobile="true"
+                 data-dotsmobile="false"
+                 data-slidestoshowmobile="1"
+                 data-variablewidthmobile="true"
+                 data-infinitemobile="false">
+              <div class="qt-item">
+                <!-- POST VERTICAL ITEM ========================= -->
+                <div class="qt-part-archive-item qt-vertical">
+                  <div class="qt-item-header">
+                    <div class="qt-header-top">
+                      <ul class="qt-tags">
+                        <li>
+                          <a href="https://militaryhomelife.com/category/featured/" rel="category tag">Featured</a></li><li><a href="https://militaryhomelife.com/category/national-guard/" rel="category tag">National Guard</a></li><li><a href="https://militaryhomelife.com/category/news/" rel="category tag">News</a>				</li>
+                      </ul>
+                      <div class="qt-feedback">
+                        0<i class="dripicons-message"></i> 	    	</div>
+                    </div>
+
+                    <div class="qt-header-mid qt-vc">
+                      <div class="qt-vi">
+                        <h3 class="qt-title">
+                          <a href="https://militaryhomelife.com/michigan-national-guard-in-inauguration-day-ceremony/" class="qt-text-shadow">
+                            Michigan National Guard in Inauguration-Day Ceremony					</a>
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div class="qt-header-bottom">
+                      <div class="qt-item-metas">
+                        <div class="qt-texts">
+                          <p class="qt-author qt-ellipsis"><a href="https://militaryhomelife.com/author/sonyadunn2325/" title="Posts by MilitaryHomeLife Staff" rel="author">MilitaryHomeLife Staff</a></p>
+                          <p class="qt-date">January 3, 2019</p>
+                        </div>
+                      </div>			<a href="https://militaryhomelife.com/michigan-national-guard-in-inauguration-day-ceremony/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-align-justify"></i></a>
+                    </div>
+                    <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2019/01/5012298-759x1024.jpg">
+                      <img width="759" height="1024" src="https://militaryhomelife.com/wp-content/uploads/2019/01/5012298-759x1024.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2019/01/5012298-759x1024.jpg 759w, https://militaryhomelife.com/wp-content/uploads/2019/01/5012298-370x500.jpg 370w, https://militaryhomelife.com/wp-content/uploads/2019/01/5012298-768x1037.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2019/01/5012298-600x810.jpg 600w" sizes="(max-width: 759px) 100vw, 759px" />	        </div>
+                  </div>
+                </div>
+                <!-- POST VERTICAL ITEM END ========================= -->
+              </div>
+              <div class="qt-item">
+                <!-- POST VERTICAL ITEM ========================= -->
+                <div class="qt-part-archive-item qt-vertical">
+                  <div class="qt-item-header">
+                    <div class="qt-header-top">
+                      <ul class="qt-tags">
+                        <li>
+                          <a href="https://militaryhomelife.com/category/featured/" rel="category tag">Featured</a></li><li><a href="https://militaryhomelife.com/category/navy/" rel="category tag">Navy</a></li><li><a href="https://militaryhomelife.com/category/oath-ceremonies/" rel="category tag">Oath Ceremonies</a>				</li>
+                      </ul>
+                      <div class="qt-feedback">
+                        0<i class="dripicons-message"></i> 	    	</div>
+                    </div>
+
+                    <div class="qt-header-mid qt-vc">
+                      <div class="qt-vi">
+                        <h3 class="qt-title">
+                          <a href="https://militaryhomelife.com/first-naval-promotion-of-the-new-year/" class="qt-text-shadow">
+                            First Naval Promotion of the New Year					</a>
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div class="qt-header-bottom">
+                      <div class="qt-item-metas">
+                        <div class="qt-texts">
+                          <p class="qt-author qt-ellipsis"><a href="https://militaryhomelife.com/author/sonyadunn2325/" title="Posts by MilitaryHomeLife Staff" rel="author">MilitaryHomeLife Staff</a></p>
+                          <p class="qt-date">January 3, 2019</p>
+                        </div>
+                      </div>			<a href="https://militaryhomelife.com/first-naval-promotion-of-the-new-year/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-align-justify"></i></a>
+                    </div>
+                    <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2019/01/5013764-1024x687.jpg">
+                      <img width="1024" height="687" src="https://militaryhomelife.com/wp-content/uploads/2019/01/5013764-1024x687.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2019/01/5013764-1024x687.jpg 1024w, https://militaryhomelife.com/wp-content/uploads/2019/01/5013764-500x336.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2019/01/5013764-768x516.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2019/01/5013764-600x403.jpg 600w" sizes="(max-width: 1024px) 100vw, 1024px" />	        </div>
+                  </div>
+                </div>
+                <!-- POST VERTICAL ITEM END ========================= -->
+              </div>
+              <div class="qt-item">
+                <!-- POST VERTICAL ITEM ========================= -->
+                <div class="qt-part-archive-item qt-vertical">
+                  <div class="qt-item-header">
+                    <div class="qt-header-top">
+                      <ul class="qt-tags">
+                        <li>
+                          <a href="https://militaryhomelife.com/category/air-force/" rel="category tag">Air Force</a></li><li><a href="https://militaryhomelife.com/category/allies/" rel="category tag">Allies</a></li><li><a href="https://militaryhomelife.com/category/army/" rel="category tag">Army</a></li><li><a href="https://militaryhomelife.com/category/basketball/" rel="category tag">Basketball</a></li><li><a href="https://militaryhomelife.com/category/coast-guard/" rel="category tag">Coast Guard</a></li><li><a href="https://militaryhomelife.com/category/entertainment/" rel="category tag">Entertainment</a></li><li><a href="https://militaryhomelife.com/category/featured/" rel="category tag">Featured</a></li><li><a href="https://militaryhomelife.com/category/marines/" rel="category tag">Marines</a></li><li><a href="https://militaryhomelife.com/category/navy/" rel="category tag">Navy</a></li><li><a href="https://militaryhomelife.com/category/sports/" rel="category tag">Sports</a>				</li>
+                      </ul>
+                      <div class="qt-feedback">
+                        0<i class="dripicons-message"></i> 	    	</div>
+                    </div>
+
+                    <div class="qt-header-mid qt-vc">
+                      <div class="qt-vi">
+                        <h3 class="qt-title">
+                          <a href="https://militaryhomelife.com/kuwaiti-u-s-basketball-tournament/" class="qt-text-shadow">
+                            Kuwaiti &#8211; U.S. Basketball Tournament					</a>
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div class="qt-header-bottom">
+                      <div class="qt-item-metas">
+                        <div class="qt-texts">
+                          <p class="qt-author qt-ellipsis"><a href="https://militaryhomelife.com/author/sonyadunn2325/" title="Posts by MilitaryHomeLife Staff" rel="author">MilitaryHomeLife Staff</a></p>
+                          <p class="qt-date">December 30, 2018</p>
+                        </div>
+                      </div>			<a href="https://militaryhomelife.com/kuwaiti-u-s-basketball-tournament/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-align-justify"></i></a>
+                    </div>
+                    <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2019/01/5014276-1024x942.jpg">
+                      <img width="1024" height="942" src="https://militaryhomelife.com/wp-content/uploads/2019/01/5014276-1024x942.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2019/01/5014276-1024x942.jpg 1024w, https://militaryhomelife.com/wp-content/uploads/2019/01/5014276-500x460.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2019/01/5014276-768x706.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2019/01/5014276-600x552.jpg 600w" sizes="(max-width: 1024px) 100vw, 1024px" />	        </div>
+                  </div>
+                </div>
+                <!-- POST VERTICAL ITEM END ========================= -->
+              </div>
+              <div class="qt-item">
+                <!-- POST VERTICAL ITEM ========================= -->
+                <div class="qt-part-archive-item qt-vertical">
+                  <div class="qt-item-header">
+                    <div class="qt-header-top">
+                      <ul class="qt-tags">
+                        <li>
+                          <a href="https://militaryhomelife.com/category/featured/" rel="category tag">Featured</a></li><li><a href="https://militaryhomelife.com/category/highlights/" rel="category tag">Highlights</a></li><li><a href="https://militaryhomelife.com/category/medical/" rel="category tag">Medical</a></li><li><a href="https://militaryhomelife.com/category/military/" rel="category tag">Military</a></li><li><a href="https://militaryhomelife.com/category/military-families/" rel="category tag">Military Families</a></li><li><a href="https://militaryhomelife.com/category/navy/" rel="category tag">Navy</a></li><li><a href="https://militaryhomelife.com/category/service-organizations/" rel="category tag">Service Organizations</a>				</li>
+                      </ul>
+                      <div class="qt-feedback">
+                        0<i class="dripicons-message"></i> 	    	</div>
+                    </div>
+
+                    <div class="qt-header-mid qt-vc">
+                      <div class="qt-vi">
+                        <h3 class="qt-title">
+                          <a href="https://militaryhomelife.com/usns-comfort-heads-towards-hurricane-florence/" class="qt-text-shadow">
+                            USNS Comfort Heads Towards Hurricane Florence					</a>
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div class="qt-header-bottom">
+                      <div class="qt-item-metas">
+                        <div class="qt-texts">
+                          <p class="qt-author qt-ellipsis"><a href="https://militaryhomelife.com/author/sonyadunn2325/" title="Posts by MilitaryHomeLife Staff" rel="author">MilitaryHomeLife Staff</a></p>
+                          <p class="qt-date">September 12, 2018</p>
+                        </div>
+                      </div>			<a href="https://militaryhomelife.com/usns-comfort-heads-towards-hurricane-florence/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-align-justify"></i></a>
+                    </div>
+                    <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/09/180911-N-IK388-0004-1024x683.jpg">
+                      <img width="1024" height="683" src="https://militaryhomelife.com/wp-content/uploads/2018/09/180911-N-IK388-0004-1024x683.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/09/180911-N-IK388-0004-1024x683.jpg 1024w, https://militaryhomelife.com/wp-content/uploads/2018/09/180911-N-IK388-0004-500x333.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2018/09/180911-N-IK388-0004-768x512.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2018/09/180911-N-IK388-0004-600x400.jpg 600w" sizes="(max-width: 1024px) 100vw, 1024px" />	        </div>
+                  </div>
+                </div>
+                <!-- POST VERTICAL ITEM END ========================= -->
+              </div>
+              <div class="qt-item">
+                <!-- POST VERTICAL ITEM ========================= -->
+                <div class="qt-part-archive-item qt-vertical">
+                  <div class="qt-item-header">
+                    <div class="qt-header-top">
+                      <ul class="qt-tags">
+                        <li>
+                          <a href="https://militaryhomelife.com/category/featured/" rel="category tag">Featured</a></li><li><a href="https://militaryhomelife.com/category/military/" rel="category tag">Military</a></li><li><a href="https://militaryhomelife.com/category/military-families/" rel="category tag">Military Families</a></li><li><a href="https://militaryhomelife.com/category/military-kids/" rel="category tag">Military Kids</a></li><li><a href="https://militaryhomelife.com/category/navy/" rel="category tag">Navy</a>				</li>
+                      </ul>
+                      <div class="qt-feedback">
+                        0<i class="dripicons-message"></i> 	    	</div>
+                    </div>
+
+                    <div class="qt-header-mid qt-vc">
+                      <div class="qt-vi">
+                        <h3 class="qt-title">
+                          <a href="https://militaryhomelife.com/operation-hele-on-2018/" class="qt-text-shadow">
+                            Operation Hele On  2018					</a>
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div class="qt-header-bottom">
+                      <div class="qt-item-metas">
+                        <div class="qt-texts">
+                          <p class="qt-author qt-ellipsis"><a href="https://militaryhomelife.com/author/sonyadunn2325/" title="Posts by MilitaryHomeLife Staff" rel="author">MilitaryHomeLife Staff</a></p>
+                          <p class="qt-date">August 19, 2018</p>
+                        </div>
+                      </div>			<a href="https://militaryhomelife.com/operation-hele-on-2018/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-align-justify"></i></a>
+                    </div>
+                    <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/08/180817-N-NU281-0096-1024x731.jpg">
+                      <img width="1024" height="731" src="https://militaryhomelife.com/wp-content/uploads/2018/08/180817-N-NU281-0096-1024x731.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/08/180817-N-NU281-0096-1024x731.jpg 1024w, https://militaryhomelife.com/wp-content/uploads/2018/08/180817-N-NU281-0096-500x357.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2018/08/180817-N-NU281-0096-768x549.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2018/08/180817-N-NU281-0096-600x429.jpg 600w" sizes="(max-width: 1024px) 100vw, 1024px" />	        </div>
+                  </div>
+                </div>
+                <!-- POST VERTICAL ITEM END ========================= -->
+              </div>
+              <div class="qt-item">
+                <!-- POST VERTICAL ITEM ========================= -->
+                <div class="qt-part-archive-item qt-vertical">
+                  <div class="qt-item-header">
+                    <div class="qt-header-top">
+                      <ul class="qt-tags">
+                        <li>
+                          <a href="https://militaryhomelife.com/category/army/" rel="category tag">Army</a></li><li><a href="https://militaryhomelife.com/category/featured/" rel="category tag">Featured</a>				</li>
+                      </ul>
+                      <div class="qt-feedback">
+                        0<i class="dripicons-message"></i> 	    	</div>
+                    </div>
+
+                    <div class="qt-header-mid qt-vc">
+                      <div class="qt-vi">
+                        <h3 class="qt-title">
+                          <a href="https://militaryhomelife.com/army-physicians-solider-first-motto/" class="qt-text-shadow">
+                            Army Physician&#8217;s Solider First Motto					</a>
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div class="qt-header-bottom">
+                      <div class="qt-item-metas">
+                        <div class="qt-texts">
+                          <p class="qt-author qt-ellipsis"><a href="https://militaryhomelife.com/author/sonyadunn2325/" title="Posts by MilitaryHomeLife Staff" rel="author">MilitaryHomeLife Staff</a></p>
+                          <p class="qt-date">August 19, 2018</p>
+                        </div>
+                      </div>			<a href="https://militaryhomelife.com/army-physicians-solider-first-motto/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-align-justify"></i></a>
+                    </div>
+                    <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/08/180721-A-TI382-676-1024x726.jpg">
+                      <img width="1024" height="726" src="https://militaryhomelife.com/wp-content/uploads/2018/08/180721-A-TI382-676-1024x726.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/08/180721-A-TI382-676-1024x726.jpg 1024w, https://militaryhomelife.com/wp-content/uploads/2018/08/180721-A-TI382-676-500x354.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2018/08/180721-A-TI382-676-768x544.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2018/08/180721-A-TI382-676-600x425.jpg 600w" sizes="(max-width: 1024px) 100vw, 1024px" />	        </div>
+                  </div>
+                </div>
+                <!-- POST VERTICAL ITEM END ========================= -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SLIDESHOW PODCAST END ================================================== -->
+      </div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid qt-custom-composer"><div class="qt-container"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">			<hr class="qt-spacer-m">
+        <h3 class="qt-caption-med qt-capfont "><span>Military Experience</span></h3>
+        <hr class="qt-spacer-s">
+        <div class="row">			<div class="col s12 m6 l3">
+          <!-- POST SMALL TEXT ITEM ========================= -->
+          <div class="qt-part-archive-item qt-part-archive-item-small-text">
+            <div class="qt-item-header">
+              <div class="qt-header-top">
+                <ul class="qt-tags">
+                  <li>
+                    <a href="https://militaryhomelife.com/category/featured/" rel="category tag">Featured</a></li><li><a href="https://militaryhomelife.com/category/marines/" rel="category tag">Marines</a></li><li><a href="https://militaryhomelife.com/category/military/" rel="category tag">Military</a></li><li><a href="https://militaryhomelife.com/category/video/" rel="category tag">Video</a>				</li>
+                </ul>
+                <div class="qt-feedback">
+                  0<i class="dripicons-message"></i> 	    	</div>
+              </div>
+              <div class="qt-header-bottom">
+                <a href="https://militaryhomelife.com/look-out-below/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-align-justify"></i></a>
+              </div>
+              <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.34.41-AM-e1534682441319-500x274.jpg">
+                <img width="500" height="274" src="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.34.41-AM-e1534682441319-500x274.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.34.41-AM-e1534682441319-500x274.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.34.41-AM-e1534682441319-768x421.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.34.41-AM-e1534682441319-1024x562.jpg 1024w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.34.41-AM-e1534682441319-200x110.jpg 200w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.34.41-AM-e1534682441319-600x329.jpg 600w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.34.41-AM-e1534682441319.jpg 1260w" sizes="(max-width: 500px) 100vw, 500px" />	        </div>
+            </div>
+            <h4 class="qt-title">
+              <a href="https://militaryhomelife.com/look-out-below/" class="qt-spacer-s qt-ellipsis-2 qt-t">
+                Look Out Below		</a>
+            </h4>
+          </div>
+          <!-- POST SMALL TEXT ITEM END ========================= -->
+        </div>
+          <div class="col s12 m6 l3">
+            <!-- POST SMALL TEXT ITEM ========================= -->
+            <div class="qt-part-archive-item qt-part-archive-item-small-text">
+              <div class="qt-item-header">
+                <div class="qt-header-top">
+                  <ul class="qt-tags">
+                    <li>
+                      <a href="https://militaryhomelife.com/category/army/" rel="category tag">Army</a></li><li><a href="https://militaryhomelife.com/category/video/" rel="category tag">Video</a></li><li><a href="https://militaryhomelife.com/category/why-i-serve/" rel="category tag">Why I Serve</a>				</li>
+                  </ul>
+                  <div class="qt-feedback">
+                    0<i class="dripicons-message"></i> 	    	</div>
+                </div>
+                <div class="qt-header-bottom">
+                  <a href="https://militaryhomelife.com/why-i-serve-sgt-kee-yang/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-media-play"></i></a>
+                </div>
+                <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.13.54-AM-e1534681051441-500x294.jpg">
+                  <img width="500" height="294" src="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.13.54-AM-e1534681051441-500x294.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.13.54-AM-e1534681051441-500x294.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.13.54-AM-e1534681051441-768x452.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.13.54-AM-e1534681051441-1024x603.jpg 1024w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-19-at-8.13.54-AM-e1534681051441-600x353.jpg 600w" sizes="(max-width: 500px) 100vw, 500px" />	        </div>
+              </div>
+              <h4 class="qt-title">
+                <a href="https://militaryhomelife.com/why-i-serve-sgt-kee-yang/" class="qt-spacer-s qt-ellipsis-2 qt-t">
+                  Why I Serve: Sgt. Kee Yang		</a>
+              </h4>
+            </div>
+            <!-- POST SMALL TEXT ITEM END ========================= -->
+          </div>
+          <div class="col s12 m6 l3">
+            <!-- POST SMALL TEXT ITEM ========================= -->
+            <div class="qt-part-archive-item qt-part-archive-item-small-text">
+              <div class="qt-item-header">
+                <div class="qt-header-top">
+                  <ul class="qt-tags">
+                    <li>
+                      <a href="https://militaryhomelife.com/category/coast-guard/" rel="category tag">Coast Guard</a></li><li><a href="https://militaryhomelife.com/category/events/" rel="category tag">Events</a></li><li><a href="https://militaryhomelife.com/category/food/" rel="category tag">Food</a></li><li><a href="https://militaryhomelife.com/category/military/" rel="category tag">Military</a></li><li><a href="https://militaryhomelife.com/category/video/" rel="category tag">Video</a></li><li><a href="https://militaryhomelife.com/category/women/" rel="category tag">Women</a>				</li>
+                  </ul>
+                  <div class="qt-feedback">
+                    0<i class="dripicons-message"></i> 	    	</div>
+                </div>
+                <div class="qt-header-bottom">
+                  <a href="https://militaryhomelife.com/coast-guard-place-in-national-culinary-competition/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-media-play"></i></a>
+                </div>
+                <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-4.31.10-AM-500x281.jpg">
+                  <img width="500" height="281" src="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-4.31.10-AM-500x281.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-4.31.10-AM-500x281.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-4.31.10-AM-768x432.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-4.31.10-AM-1024x576.jpg 1024w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-4.31.10-AM-600x338.jpg 600w" sizes="(max-width: 500px) 100vw, 500px" />	        </div>
+              </div>
+              <h4 class="qt-title">
+                <a href="https://militaryhomelife.com/coast-guard-place-in-national-culinary-competition/" class="qt-spacer-s qt-ellipsis-2 qt-t">
+                  Coast Guard Place in National Culinary Competition		</a>
+              </h4>
+            </div>
+            <!-- POST SMALL TEXT ITEM END ========================= -->
+          </div>
+          <div class="col s12 m6 l3">
+            <!-- POST SMALL TEXT ITEM ========================= -->
+            <div class="qt-part-archive-item qt-part-archive-item-small-text">
+              <div class="qt-item-header">
+                <div class="qt-header-top">
+                  <ul class="qt-tags">
+                    <li>
+                      <a href="https://militaryhomelife.com/category/marines/" rel="category tag">Marines</a></li><li><a href="https://militaryhomelife.com/category/music/" rel="category tag">Music</a></li><li><a href="https://militaryhomelife.com/category/video/" rel="category tag">Video</a></li><li><a href="https://militaryhomelife.com/category/video-stories/" rel="category tag">Video stories</a></li><li><a href="https://militaryhomelife.com/category/why-i-serve/" rel="category tag">Why I Serve</a>				</li>
+                  </ul>
+                  <div class="qt-feedback">
+                    0<i class="dripicons-message"></i> 	    	</div>
+                </div>
+                <div class="qt-header-bottom">
+                  <a href="https://militaryhomelife.com/why-i-serve-sgt-justin-daniel/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-align-justify"></i></a>
+                </div>
+                <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-3.02.02-AM-e1533452797273-500x286.jpg">
+                  <img width="500" height="286" src="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-3.02.02-AM-e1533452797273-500x286.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-3.02.02-AM-e1533452797273-500x286.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-3.02.02-AM-e1533452797273-768x439.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-3.02.02-AM-e1533452797273-1024x585.jpg 1024w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-3.02.02-AM-e1533452797273-600x343.jpg 600w" sizes="(max-width: 500px) 100vw, 500px" />	        </div>
+              </div>
+              <h4 class="qt-title">
+                <a href="https://militaryhomelife.com/why-i-serve-sgt-justin-daniel/" class="qt-spacer-s qt-ellipsis-2 qt-t">
+                  Why I Serve: Sgt. Justin Daniel		</a>
+              </h4>
+            </div>
+            <!-- POST SMALL TEXT ITEM END ========================= -->
+          </div>
+          <div class="col s12 m6 l3">
+            <!-- POST SMALL TEXT ITEM ========================= -->
+            <div class="qt-part-archive-item qt-part-archive-item-small-text">
+              <div class="qt-item-header">
+                <div class="qt-header-top">
+                  <ul class="qt-tags">
+                    <li>
+                      <a href="https://militaryhomelife.com/category/air-force/" rel="category tag">Air Force</a></li><li><a href="https://militaryhomelife.com/category/food/" rel="category tag">Food</a></li><li><a href="https://militaryhomelife.com/category/military/" rel="category tag">Military</a></li><li><a href="https://militaryhomelife.com/category/military-families/" rel="category tag">Military Families</a></li><li><a href="https://militaryhomelife.com/category/video/" rel="category tag">Video</a>				</li>
+                  </ul>
+                  <div class="qt-feedback">
+                    0<i class="dripicons-message"></i> 	    	</div>
+                </div>
+                <div class="qt-header-bottom">
+                  <a href="https://militaryhomelife.com/airmen-and-families-in-south-korea-learned-how-to-cook-a-popular-south-korean-dish/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-align-justify"></i></a>
+                </div>
+                <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-04-at-4.40.10-PM-e1533415513953-500x376.jpg">
+                  <img width="500" height="376" src="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-04-at-4.40.10-PM-e1533415513953-500x376.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-04-at-4.40.10-PM-e1533415513953-500x376.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-04-at-4.40.10-PM-e1533415513953-768x578.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-04-at-4.40.10-PM-e1533415513953-1024x771.jpg 1024w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-04-at-4.40.10-PM-e1533415513953-600x452.jpg 600w" sizes="(max-width: 500px) 100vw, 500px" />	        </div>
+              </div>
+              <h4 class="qt-title">
+                <a href="https://militaryhomelife.com/airmen-and-families-in-south-korea-learned-how-to-cook-a-popular-south-korean-dish/" class="qt-spacer-s qt-ellipsis-2 qt-t">
+                  Korean Cooking Class		</a>
+              </h4>
+            </div>
+            <!-- POST SMALL TEXT ITEM END ========================= -->
+          </div>
+          <div class="col s12 m6 l3">
+            <!-- POST SMALL TEXT ITEM ========================= -->
+            <div class="qt-part-archive-item qt-part-archive-item-small-text">
+              <div class="qt-item-header">
+                <div class="qt-header-top">
+                  <ul class="qt-tags">
+                    <li>
+                      <a href="https://militaryhomelife.com/category/allies/" rel="category tag">Allies</a></li><li><a href="https://militaryhomelife.com/category/events/" rel="category tag">Events</a></li><li><a href="https://militaryhomelife.com/category/navy/" rel="category tag">Navy</a></li><li><a href="https://militaryhomelife.com/category/video/" rel="category tag">Video</a>				</li>
+                  </ul>
+                  <div class="qt-feedback">
+                    0<i class="dripicons-message"></i> 	    	</div>
+                </div>
+                <div class="qt-header-bottom">
+                  <a href="https://militaryhomelife.com/why-i-serve-singapore-sandyha-shukla/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-media-play"></i></a>
+                </div>
+                <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-2.48.56-AM-e1533451837944-500x281.jpg">
+                  <img width="500" height="281" src="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-2.48.56-AM-e1533451837944-500x281.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-2.48.56-AM-e1533451837944-500x281.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-2.48.56-AM-e1533451837944-768x432.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-2.48.56-AM-e1533451837944-1024x576.jpg 1024w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-2.48.56-AM-e1533451837944-600x337.jpg 600w" sizes="(max-width: 500px) 100vw, 500px" />	        </div>
+              </div>
+              <h4 class="qt-title">
+                <a href="https://militaryhomelife.com/why-i-serve-singapore-sandyha-shukla/" class="qt-spacer-s qt-ellipsis-2 qt-t">
+                  Why I Serve (International) &#8211; Singapore Navy		</a>
+              </h4>
+            </div>
+            <!-- POST SMALL TEXT ITEM END ========================= -->
+          </div>
+          <div class="col s12 m6 l3">
+            <!-- POST SMALL TEXT ITEM ========================= -->
+            <div class="qt-part-archive-item qt-part-archive-item-small-text">
+              <div class="qt-item-header">
+                <div class="qt-header-top">
+                  <ul class="qt-tags">
+                    <li>
+                      <a href="https://militaryhomelife.com/category/african-american/" rel="category tag">African American</a></li><li><a href="https://militaryhomelife.com/category/events/" rel="category tag">Events</a></li><li><a href="https://militaryhomelife.com/category/lest-we-forget/" rel="category tag">Lest We Forget</a></li><li><a href="https://militaryhomelife.com/category/marines/" rel="category tag">Marines</a></li><li><a href="https://militaryhomelife.com/category/military-history/" rel="category tag">Military History</a></li><li><a href="https://militaryhomelife.com/category/video/" rel="category tag">Video</a></li><li><a href="https://militaryhomelife.com/category/vietnam-war/" rel="category tag">Vietnam War</a></li><li><a href="https://militaryhomelife.com/category/why-i-serve/" rel="category tag">Why I Serve</a>				</li>
+                  </ul>
+                  <div class="qt-feedback">
+                    0<i class="dripicons-message"></i> 	    	</div>
+                </div>
+                <div class="qt-header-bottom">
+                  <a href="https://militaryhomelife.com/lwf-james-capersjr/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-media-play"></i></a>
+                </div>
+                <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-4.13.14-AM-e1533456877532-500x222.jpg">
+                  <img width="500" height="222" src="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-4.13.14-AM-e1533456877532-500x222.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-4.13.14-AM-e1533456877532-500x222.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-4.13.14-AM-e1533456877532-768x342.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-4.13.14-AM-e1533456877532-1024x456.jpg 1024w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-4.13.14-AM-e1533456877532-100x44.jpg 100w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-4.13.14-AM-e1533456877532-600x267.jpg 600w" sizes="(max-width: 500px) 100vw, 500px" />	        </div>
+              </div>
+              <h4 class="qt-title">
+                <a href="https://militaryhomelife.com/lwf-james-capersjr/" class="qt-spacer-s qt-ellipsis-2 qt-t">
+                  Lest We Forget: Major James Capers, Jr.		</a>
+              </h4>
+            </div>
+            <!-- POST SMALL TEXT ITEM END ========================= -->
+          </div>
+          <div class="col s12 m6 l3">
+            <!-- POST SMALL TEXT ITEM ========================= -->
+            <div class="qt-part-archive-item qt-part-archive-item-small-text">
+              <div class="qt-item-header">
+                <div class="qt-header-top">
+                  <ul class="qt-tags">
+                    <li>
+                      <a href="https://militaryhomelife.com/category/army/" rel="category tag">Army</a></li><li><a href="https://militaryhomelife.com/category/oath-ceremonies/" rel="category tag">Oath Ceremonies</a></li><li><a href="https://militaryhomelife.com/category/reenlistments/" rel="category tag">Reenlistments</a></li><li><a href="https://militaryhomelife.com/category/video/" rel="category tag">Video</a></li><li><a href="https://militaryhomelife.com/category/video-stories/" rel="category tag">Video stories</a></li><li><a href="https://militaryhomelife.com/category/why-i-serve/" rel="category tag">Why I Serve</a></li><li><a href="https://militaryhomelife.com/category/women/" rel="category tag">Women</a>				</li>
+                  </ul>
+                  <div class="qt-feedback">
+                    0<i class="dripicons-message"></i> 	    	</div>
+                </div>
+                <div class="qt-header-bottom">
+                  <a href="https://militaryhomelife.com/yankee-stadium-mass-reenlistment/" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-media-play"></i></a>
+                </div>
+                <div class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-3.20.11-AM-e1533453737681-500x276.jpg">
+                  <img width="500" height="276" src="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-3.20.11-AM-e1533453737681-500x276.jpg" class="img-responsive activator wp-post-image" alt="" srcset="https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-3.20.11-AM-e1533453737681-500x276.jpg 500w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-3.20.11-AM-e1533453737681-768x425.jpg 768w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-3.20.11-AM-e1533453737681-1024x566.jpg 1024w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-3.20.11-AM-e1533453737681-200x110.jpg 200w, https://militaryhomelife.com/wp-content/uploads/2018/08/Screen-Shot-2018-08-05-at-3.20.11-AM-e1533453737681-600x332.jpg 600w" sizes="(max-width: 500px) 100vw, 500px" />	        </div>
+              </div>
+              <h4 class="qt-title">
+                <a href="https://militaryhomelife.com/yankee-stadium-mass-reenlistment/" class="qt-spacer-s qt-ellipsis-2 qt-t">
+                  Yankee Stadium Mass Reenlistment		</a>
+              </h4>
+            </div>
+            <!-- POST SMALL TEXT ITEM END ========================= -->
+          </div>
+        </div>			<hr class="qt-spacer-m">
+        <hr class="qt-spacer-m">
+      </div></div></div></div></div>
+      </div>
+    </div>
+  </div>
+</div><!-- .qt-main end -->
+
+<div id="qtfooterwidgets" class="qt-footer qt-footerwidgets">
+
+  <div class="qt-section qt-footer-widgets">
+    <div class="qt-container">
+      <h2 class="qt-footer-logo">
+        <a href="https://militaryhomelife.com" class="brand-logo qt-logo-text">
+          MilitaryHomeLife                        </a>
+      </h2>
+
+
+      <div id="qtfooterwidgetscontainer" class="qt-widgets qt-widgets-footer  qt-spacer-m qt-masonry row">
+        <aside id="qtcontacts-widget-3" class="qt-widget col qt-ms-item qtcontactswidget"><h5 class="qt-caption-small"><span>Contact<span></h5>
+
+          <div class="qt-widget-contacts">
+
+            <p>
+              <i class="qticon-home"></i><a href="http://militaryhhomelife.com">http://militaryhhomelife.com</a>
+            </p>
+
+            <p>
+              <i class="qticon-phone"></i><a href="tel:(202)718-8310">(202) 718-8310</a>
+            </p>
+
+            <p>
+              <i class="qticon-at-sign"></i><a href="mailto:info@militaryhomelife.com">info@militaryhomelife.com</a>
+            </p>
+
+            <p>
+              <i class="qticon-location"></i><a href="http://maps.google.com/?q=625+Washington+Street,+Suite+425Alexandria,+Virginia+22314" target="_blank">625 Washington Street, Suite 425														<br><i class="qticon-location qt-invisible"></i>Alexandria, Virginia 22314														</a>
+            </p>
+
+
+          </div>
+
+        </aside><aside id="qtaboutwidget-widget-2" class="qt-widget col qt-ms-item qtaboutwidget"><h5 class="qt-caption-small"><span>About us<span></h5>		<div class="qt-widget-about">
+        <p>
+          Amplifying the Voices of the Military Families - Providing resources, information, media content and products to the military community (military, veterans, retirees and their families). 				<br>
+          <a href="http://www.miitaryhomelife.com">Discover more <i class="dripicons-arrow-thin-right"></i></a>			</p>
+      </div>
+      </aside>                    </div>
+
+
+
+    </div>
+
+  </div>
+
+
+  <div class="qt-footer-bottom qt-content-primary-dark">
+    <div class="qt-container">
+      <div class="row">
+        <div class="col s12 m12 l8">
+          <ul class="qt-menu-footer qt-small qt-list-chevron ">
+            <li id="menu-item-4070" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2897 current_page_item menu-item-4070"><a href="https://militaryhomelife.com/">Home</a></li>
+            <li id="menu-item-4816" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4816"><a href="https://militaryhomelife.com/radiochannel/">Radio Channels</a></li>
+            <li id="menu-item-4827" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4827"><a href="https://militaryhomelife.com/radiochannel/talk-radio/">Shows</a></li>
+            <li id="menu-item-4073" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4073"><a target="_blank" href="https://militaryhomelife.com/contacts/">Contact</a></li>
+
+          </ul>
+        </div>
+        <div class="col s12 m12 l4">
+          <ul class="qt-menu-social">
+            <li class="right"><a href="https://www.youtube.com/channel/UCRNAnzYuxrRXXlNl9w36Djw" class="qw-disableembedding qw_social" target="_blank"><i class="qticon-youtube qt-socialicon"></i></a></li><li class="right"><a href="https://twitter.com/MilHomeLife" class="qw-disableembedding qw_social" target="_blank"><i class="qticon-twitter qt-socialicon"></i></a></li><li class="right"><a href="https://www.pinterest.com/milhomelife/" class="qw-disableembedding qw_social" target="_blank"><i class="qticon-pinterest qt-socialicon"></i></a></li><li class="right"><a href="https://www.linkedin.com/company/militaryhomelife-com/" class="qw-disableembedding qw_social" target="_blank"><i class="qticon-linkedin qt-socialicon"></i></a></li><li class="right"><a href="https://www.instagram.com/militaryhomelife/" class="qw-disableembedding qw_social" target="_blank"><i class="qticon-instagram qt-socialicon"></i></a></li><li class="right"><a href="https://www.facebook.com/militaryhomelife/" class="qw-disableembedding qw_social" target="_blank"><i class="qticon-facebook qt-socialicon"></i></a></li>                    </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>		<div id="channelslist" class="side-nav qt-content-primary qt-right-sidebar" >
+  <a href="#" class="qt-btn qt-btn-secondary button-playlistswitch-close qt-close-sidebar-right" data-activates="channelslist"><i class="icon dripicons-cross"></i></a>
+  <!-- PLAYER ========================= -->
+
+
+  <div id="qtplayercontainer" data-playervolume="true" data-accentcolor="#be2121" data-accentcolordark="#1d68bd" data-textcolor="#ffffff" data-soundmanagerurl="https://militaryhomelife.com/wp-content/themes/onair2/components/soundmanager/swf/"
+       class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
+    <div class="qt-playercontainer-content qt-vertical-padding-m">
+
+
+      <div class="qt-playercontainer-musicplayer" id="qtmusicplayer">
+        <div class="qt-musicplayer">
+          <div class="ui360 ui360-vis qt-ui360">
+            <a id="playerlink" href="https://songs.militaryhomelife.com/radio/8150/radio.mp3?1544751931"></a>
+          </div>
+        </div>
+      </div>
+      <div id="qtPlayerTrackInfo" class="qt-playercontainer-data qt-container qt-text-shadow small">
+        <div class="qt-vc">
+          <div class="qt-vi">
+            <h6 class="qt-inline-textdeco">
+              <span>Current track</span>
+            </h6>
+            <div class="qt-t qt-current-track">
+              <h4 id="qtFeedPlayerTrack" class="qt-ellipsis">Title</h4>
+              <h5 id="qtFeedPlayerAuthor" class="qt-ellipsis">Artist</h5>
+            </div>
+            <hr class="qt-inline-textdeco">
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="qt-playercontainer-ads-mobile">
+      </div>
+      <div class="qt-playercontainer-ads-desktop">
+      </div>
+
+
+    </div>
+
+    <div id="playerimage" class="qt-header-bg" data-bgimage="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-NEWS-Logo-2018.jpg">
+      <img src="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-NEWS-Logo-2018-170x170.jpg" alt="Background" width="170" height="170">				</div>
+
+
+  </div>
+  <!-- this is for xml radio feed -->
+  <div id="qtShoutcastFeedData" class="hidden" data-style="" data-channel="1" data-useproxy="1"data-icecasturl=""
+       data-icecastmountpoint=""
+       data-icecastchannel=""
+       data-radiodotco="" data-airtime="" data-radionomy="" data-textfeed="" data-host="" data-port="" data-channel=""></div>
+
+
+
+  <!-- PLAYER END ========================= -->
+  <!-- CHANNELS LIST ========================= -->
+  <div id="qtchannelslistcontainer" class="qt-part-channels-list qt-content-primary">
+    <ul id="qtchannelslist" class="qt-content-aside qt-channelslist qt-negative">
+      <li class="qt-channel">
+        <a id="" href="#!" class="qt-ellipsis"
+           data-title="Country"
+           data-subtitle="Amplifying the Voices of Military Families"
+           data-background="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-COUNTRY-Logo-2018.jpg"					data-logo="4333"
+           data-playtrack="https://songs.militaryhomelife.com/radio/8080/country.mp3?1544780639"
+           data-host=""
+           data-port=""
+           data-channel=""
+           data-icecasturl=""
+           data-icecastmountpoint=""
+           data-icecastchannel=""
+           data-radiodotco=""
+           data-airtime=""
+           data-radionomy=""
+           data-textfeed=""
+           data-stats_path=""
+           data-played_path=""
+           data-channel="">
+          <img src="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-COUNTRY-Logo-2018-170x170.jpg" class="qt-radiologo dripicons-media-play" alt="logo" width="170" height="170">
+          <i class="dripicons-media-play"></i>
+          Country				</a>
+
+      </li>
+      <li class="qt-channel">
+        <a id="" href="#!" class="qt-ellipsis"
+           data-title="Hip Hop"
+           data-subtitle="Amplifying the Voices of Military Families"
+           data-background="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-URBAN-Logo-2018.jpg"					data-logo="4326"
+           data-playtrack="https://songs.militaryhomelife.com/radio/8020/HipHop.mp3?1544780758"
+           data-host=""
+           data-port=""
+           data-channel=""
+           data-icecasturl=""
+           data-icecastmountpoint=""
+           data-icecastchannel=""
+           data-radiodotco=""
+           data-airtime=""
+           data-radionomy=""
+           data-textfeed=""
+           data-stats_path=""
+           data-played_path=""
+           data-channel="">
+          <img src="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-URBAN-Logo-2018-170x170.jpg" class="qt-radiologo dripicons-media-play" alt="logo" width="170" height="170">
+          <i class="dripicons-media-play"></i>
+          Hip Hop				</a>
+
+      </li>
+      <li class="qt-channel">
+        <a id="" href="#!" class="qt-ellipsis"
+           data-title="Rock"
+           data-subtitle="Amplifying the Voices of Military Families"
+           data-background="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-ROCK-Logo-2017.jpg"					data-logo="4323"
+           data-playtrack="https://songs.militaryhomelife.com/radio/8050/modernrock.mp3?1544780877"
+           data-host=""
+           data-port=""
+           data-channel=""
+           data-icecasturl=""
+           data-icecastmountpoint=""
+           data-icecastchannel=""
+           data-radiodotco=""
+           data-airtime=""
+           data-radionomy=""
+           data-textfeed=""
+           data-stats_path=""
+           data-played_path=""
+           data-channel="">
+          <img src="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-ROCK-Logo-2017-170x170.jpg" class="qt-radiologo dripicons-media-play" alt="logo" width="170" height="170">
+          <i class="dripicons-media-play"></i>
+          Rock				</a>
+
+      </li>
+      <li class="qt-channel">
+        <a id="" href="#!" class="qt-ellipsis"
+           data-title="Pop"
+           data-subtitle="Amplifying the Voices of Military Families"
+           data-background="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-Pop-Logo-2018.jpg"					data-logo="4334"
+           data-playtrack="https://songs.militaryhomelife.com/radio/8030/pop.mp3?1544781053"
+           data-host=""
+           data-port=""
+           data-channel=""
+           data-icecasturl=""
+           data-icecastmountpoint=""
+           data-icecastchannel=""
+           data-radiodotco=""
+           data-airtime=""
+           data-radionomy=""
+           data-textfeed=""
+           data-stats_path=""
+           data-played_path=""
+           data-channel="">
+          <img src="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-Pop-Logo-2018-170x170.jpg" class="qt-radiologo dripicons-media-play" alt="logo" width="170" height="170">
+          <i class="dripicons-media-play"></i>
+          Pop				</a>
+
+      </li>
+      <li class="qt-channel">
+        <a id="" href="#!" class="qt-ellipsis"
+           data-title="Latin"
+           data-subtitle="Amplifying the Voices of Military Families"
+           data-background="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-LATIN-POP-Logo-2018.jpg"					data-logo="4321"
+           data-playtrack="https://songs.militaryhomelife.com/radio/8060/latin.mp3?1544781173"
+           data-host=""
+           data-port=""
+           data-channel=""
+           data-icecasturl=""
+           data-icecastmountpoint=""
+           data-icecastchannel=""
+           data-radiodotco=""
+           data-airtime=""
+           data-radionomy=""
+           data-textfeed=""
+           data-stats_path=""
+           data-played_path=""
+           data-channel="">
+          <img src="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-LATIN-POP-Logo-2018-170x170.jpg" class="qt-radiologo dripicons-media-play" alt="logo" width="170" height="170">
+          <i class="dripicons-media-play"></i>
+          Latin				</a>
+
+      </li>
+      <li class="qt-channel">
+        <a id="" href="#!" class="qt-ellipsis"
+           data-title="Religious"
+           data-subtitle="Amplifying the Voices of Military Families"
+           data-background="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-Country-PopRoxx-copy.jpg"					data-logo="4331"
+           data-playtrack="https://songs.militaryhomelife.com/radio/8010/vitl.mp3?1544781265"
+           data-host=""
+           data-port=""
+           data-channel="http://listen.shoutcast.com/mhlvitl"
+           data-icecasturl=""
+           data-icecastmountpoint=""
+           data-icecastchannel=""
+           data-radiodotco=""
+           data-airtime=""
+           data-radionomy=""
+           data-textfeed=""
+           data-stats_path=""
+           data-played_path=""
+           data-channel="">
+          <img src="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-Country-PopRoxx-copy-170x170.jpg" class="qt-radiologo dripicons-media-play" alt="logo" width="170" height="170">
+          <i class="dripicons-media-play"></i>
+          Religious				</a>
+
+      </li>
+      <li class="qt-channel">
+        <a id="" href="#!" class="qt-ellipsis"
+           data-title="Country"
+           data-subtitle=""
+           data-background="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-Country-PopRoxx.jpg"					data-logo="4332"
+           data-playtrack="https://s3.amazonaws.com/radio-wp/Music/Country+Poproxx/MHL+Country+PopRoxx+-+August+2+(2H)+.mp3"
+           data-host=""
+           data-port=""
+           data-channel=""
+           data-icecasturl=""
+           data-icecastmountpoint=""
+           data-icecastchannel=""
+           data-radiodotco=""
+           data-airtime=""
+           data-radionomy=""
+           data-textfeed=""
+           data-stats_path=""
+           data-played_path=""
+           data-channel="">
+          <img src="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-Country-PopRoxx-170x170.jpg" class="qt-radiologo dripicons-media-play" alt="logo" width="170" height="170">
+          <i class="dripicons-media-play"></i>
+          Country				</a>
+
+      </li>
+      <li class="qt-channel">
+        <a id="" href="#!" class="qt-ellipsis"
+           data-title="Interview"
+           data-subtitle="Amplifying the Voices of Military Families"
+           data-background="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-Talk-Radio-Logo-2018.jpg"					data-logo="4325"
+           data-playtrack="https://songs.militaryhomelife.com/radio/8090/talk.mp3?1544781368"
+           data-host=""
+           data-port=""
+           data-channel=""
+           data-icecasturl=""
+           data-icecastmountpoint=""
+           data-icecastchannel=""
+           data-radiodotco=""
+           data-airtime=""
+           data-radionomy=""
+           data-textfeed=""
+           data-stats_path=""
+           data-played_path=""
+           data-channel="">
+          <img src="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-Talk-Radio-Logo-2018-170x170.jpg" class="qt-radiologo dripicons-media-play" alt="logo" width="170" height="170">
+          <i class="dripicons-media-play"></i>
+          Interview				</a>
+
+      </li>
+      <li class="qt-channel">
+        <a id="" href="#!" class="qt-ellipsis"
+           data-title="News"
+           data-subtitle="Amplifying the Voices of Military Families"
+           data-background="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-NEWS-Logo-2018.jpg"					data-logo="4322"
+           data-playtrack="https://songs.militaryhomelife.com/radio/8150/radio.mp3?1544751931"
+           data-host=""
+           data-port=""
+           data-channel=""
+           data-icecasturl=""
+           data-icecastmountpoint=""
+           data-icecastchannel=""
+           data-radiodotco=""
+           data-airtime=""
+           data-radionomy=""
+           data-textfeed=""
+           data-stats_path=""
+           data-played_path=""
+           data-channel="">
+          <img src="https://militaryhomelife.com/wp-content/uploads/2018/08/MHL-NEWS-Logo-2018-170x170.jpg" class="qt-radiologo dripicons-media-play" alt="logo" width="170" height="170">
+          <i class="dripicons-media-play"></i>
+          News				</a>
+
+      </li>
+
+    </ul>
+  </div>
+  <!-- CHANNELS LIST END ========================= -->
+</div>
+
+
+
+
+<div id="qantumthemesproxyurl" class="qt-hidden" data-proxyurl="https://militaryhomelife.com"></div>
+<div class="dzsap-sticktobottom-placeholder dzsap-sticktobottom-placeholder-for-skin-steel"></div>
+<section class="dzsap-sticktobottom "><div class="dzs-container"><style class="player-custom-style"> </style><div class="audioplayer-tobe playerid-34528259 ap_idx_2897_11 is-single-player apconfig-footer-wave button-aspect-noir button-aspect-noir--filled  skin-steel  dzsap_footer"  id="dzsap_footer" data-playerid="dzs_footer" data-type="fake" data-source="fake" data-playfrom="off" style=" width: 100%;"><div class="meta-artist track-meta-for-dzsap"><span class="the-artist first-line"></span><span class="the-name the-songname second-line"></span></div><div class="menu-description"><span class="the-artist"> </span><span class="the-name"> </span></div><div class="extra-html-in-controls-right" style="opacity:0;"> <div class="player-but sharer-dzsap-but dzsap-multisharer-but"><div class="the-icon-bg"></div>{{svg_share_icon}}</div></div><div class="extra-html" data-playerid="34528259" style="opacity:0;"></div></div><script> jQuery(document).ready(function ($){var settings_ap34528259 = {  design_skin: "skin-steel"  ,autoplay: "off",disable_volume:"off"  ,loop:"off"  ,cue: "off"  ,embedded: "off"  ,preload_method:"auto" ,design_animateplaypause:"default" ,skinwave_dynamicwaves:"on"  ,skinwave_enableSpectrum:"off"  ,skinwave_enableReflect:"on",playfrom:"off",default_volume:"default",disable_scrub:"on",soundcloud_apikey:""  ,skinwave_comments_enable:"off",settings_php_handler:window.ajaxurl,skinwave_mode:"normal",skinwave_wave_mode:"canvas",pcm_data_try_to_generate: "off","pcm_notice": "off","notice_no_media": "off",design_color_bg: "111111",design_color_highlight: "ef6b13",skinwave_wave_mode_canvas_waves_number: "3",skinwave_wave_mode_canvas_waves_padding: "1",skinwave_wave_mode_canvas_reflection_size: "0.25",skinwave_wave_mode_canvas_mode:"normal",scrubbar_tweak_overflow_hidden:"on",preview_on_hover:"off",player_navigation:"off",skinwave_comments_playerid:"34528259",construct_player_list_for_sync:"on",php_retriever:"https://militaryhomelife.com/wp-content/plugins/dzs-zoomsounds/soundcloudretriever.php" }; try{ dzsap_init(".ap_idx_2897_11",settings_ap34528259); }catch(err){ console.warn("cannot init player", err); } }); </script></div></section><script>
+  window.dzsap_social_feed_for_social_networks = '<h6 class="social-heading">Social Networks</h6> <a class="social-icon" href="#" onclick="window.dzs_open_social_link(&quot;https://www.facebook.com/sharer.php?u={{shareurl}}&amp;title=test&quot;); return false;"><i class="fa fa-facebook-square"></i><span class="the-tooltip">SHARE ON FACEBOOK</span></a> <a class="social-icon" href="#" onclick="window.dzs_open_social_link(&quot;https://twitter.com/share?url={{shareurl}}&amp;text=Check this out!&amp;via=ZoomPortal&amp;related=yarrcat&quot;); return false;"><i class="fa fa-twitter"></i><span class="the-tooltip">SHARE ON TWITTER</span></a> <a class="social-icon" href="#" onclick="window.dzs_open_social_link(&quot;https://plus.google.com/share?url={{shareurl}}&quot;); return false; "><i class="fa fa-google-plus-square"></i><span class="the-tooltip">SHARE ON GOOGLE PLUS</span></a> <a class="social-icon" href="#" onclick="window.dzs_open_social_link(&quot;https://www.linkedin.com/shareArticle?mini=true&amp;url={{shareurl}}&amp;title=Check%20this%20out%20&amp;summary=&amp;source={{shareurl}}); return false; "><i class="fa fa-linkedin"></i><span class="the-tooltip">SHARE ON LINKEDIN</span></a> <a class="social-icon" href="#" onclick="window.dzs_open_social_link(&quot;https://pinterest.com/pin/create/button/?url={{shareurl}}&amp;text=Check this out!&amp;via=ZoomPortal&amp;related=yarrcat&quot;); return false;"><i class="fa fa-pinterest"></i><span class="the-tooltip">SHARE ON PINTEREST</span></a>';
+
+
+  window.dzsap_social_feed_for_share_link = '<h6 class="social-heading">Share Link</h6> <div class="field-for-view field-for-view-link-code">{{replacewithcurrurl}}</div>';
+
+
+  window.dzsap_social_feed_for_embed_link = ' <h6 class="social-heading">Embed Code</h6> <div class="field-for-view field-for-view-embed-code">{{replacewithembedcode}}</div>';
+</script>
+<script type="text/javascript">
+  var c = document.body.className;
+  c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+  document.body.className = c;
+</script>
+<link rel='stylesheet' id='dzsap-css'  href='../audioplayer/audioplayer.css?ver=5.0.2' type='text/css' media='all' />
+<script type='text/javascript' src='https://militaryhomelife.com/wp-includes/js/admin-bar.min.js?ver=5.0.2'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/qt-swipebox/swipebox/js/jquery.swipebox.min.js?ver=5.0.2'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/qt-videogalleries/assets/jquery.quicksand.js?ver=1.0.0'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/qt-videogalleries/assets/jquery.easing.1.3.js?ver=1.0.0'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/qt-videogalleries/assets/jquery-css-transform.js?ver=1.0.0'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/qt-videogalleries/assets/jquery-animate-css-rotate-scale.js?ver=1.0.0'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/qt-videogalleries/assets/vdl-main.js?ver=1.0.0'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4'></script>
+<script type='text/javascript'>
+  /* <![CDATA[ */
+  var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+  /* ]]> */
+</script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=3.5.3'></script>
+<script type='text/javascript'>
+  /* <![CDATA[ */
+  var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_ba4bf73252c0ce19cf77769e77722892","fragment_name":"wc_fragments_ba4bf73252c0ce19cf77769e77722892"};
+  /* ]]> */
+</script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=3.5.3'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-includes/js/imagesloaded.min.js?ver=3.2.0'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-includes/js/masonry.min.js?ver=3.3.2'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/themes/onair2/js/modernizr-2.8.3-respond-1.4.2.min.js?ver=2.8.3'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/js_composer/assets/lib/vc_accordion/vc-accordion.min.js?ver=5.6'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/js_composer/assets/lib/vc-tta-autoplay/vc-tta-autoplay.min.js?ver=5.6'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=5.6'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=5.0.2'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-includes/js/underscore.min.js?ver=1.8.3'></script>
+<script type='text/javascript'>
+  /* <![CDATA[ */
+  var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+  /* ]]> */
+</script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-includes/js/wp-util.min.js?ver=5.0.2'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-includes/js/backbone.min.js?ver=1.2.3'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-includes/js/mediaelement/wp-playlist.min.js?ver=5.0.2'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/themes/onair2/js/min/qt-main-min.js?ver=3.2.2'></script>
+<script type='text/javascript'>
+  /* <![CDATA[ */
+  var GEM = {"thankyou":"Thank you for signing up!","thankyou_suppressed":"Thank you for signing up! Please check your email to confirm your subscription.","oops":"Oops! There was a problem. Please try again.","email":"Please enter a valid email address.","required":"%s is a required field."};
+  /* ]]> */
+</script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-content/plugins/godaddy-email-marketing-sign-up-forms/js/gem.min.js?ver=1.4.0'></script>
+<script type='text/javascript' src='https://militaryhomelife.com/wp-includes/js/wp-embed.min.js?ver=5.0.2'></script>
+<script type='text/javascript' src='../audioplayer/audioplayer.js?ver=5.0.2'></script>
+<!--[if lte IE 8]>
+<script type="text/javascript">
+  document.body.className = document.body.className.replace( /(^|\s)(no-)?customize-support(?=\s|$)/, '' ) + ' no-customize-support';
+</script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">
+  (function() {
+    var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
+
+    request = true;
+
+    b[c] = b[c].replace( rcs, ' ' );
+    // The customizer requires postMessage and CORS (if the site is cross domain)
+    b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
+  }());
+</script>
+<!--<![endif]-->
+<div id="wpadminbar" class="nojq nojs">
+  <a class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a>
+  <div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar" tabindex="0">
+    <ul id="wp-admin-bar-root-default" class="ab-top-menu">
+      <li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://militaryhomelife.com/wp-admin/about.php"><span class="ab-icon"></span><span class="screen-reader-text">About WordPress</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
+        <li id="wp-admin-bar-about"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/about.php">About WordPress</a>		</li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+        <li id="wp-admin-bar-wporg"><a class="ab-item" href="https://wordpress.org/">WordPress.org</a>		</li>
+        <li id="wp-admin-bar-documentation"><a class="ab-item" href="https://codex.wordpress.org/">Documentation</a>		</li>
+        <li id="wp-admin-bar-support-forums"><a class="ab-item" href="https://wordpress.org/support/">Support Forums</a>		</li>
+        <li id="wp-admin-bar-feedback"><a class="ab-item" href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a>		</li></ul></div>		</li>
+      <li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://militaryhomelife.com/wp-admin/">MilitaryHomeLife</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+        <li id="wp-admin-bar-dashboard"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/">Dashboard</a>		</li></ul><ul id="wp-admin-bar-appearance" class="ab-submenu">
+        <li id="wp-admin-bar-themes"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/themes.php">Themes</a>		</li>
+        <li id="wp-admin-bar-widgets"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/widgets.php">Widgets</a>		</li>
+        <li id="wp-admin-bar-menus"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/nav-menus.php">Menus</a>		</li></ul></div>		</li>
+      <li id="wp-admin-bar-customize" class="hide-if-no-customize"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/customize.php?url=https%3A%2F%2Fmilitaryhomelife.com%2F%3Ffbclid%3DIwAR1wosL8X0DU7PZ0q7CwRFH0qXIXjK7PTTEsgP7e5cIAYohVyus0guLolbw">Customize</a>		</li>
+      <li id="wp-admin-bar-updates"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/update-core.php" title="1 Plugin Update"><span class="ab-icon"></span><span class="ab-label">1</span><span class="screen-reader-text">1 Plugin Update</span></a>		</li>
+      <li id="wp-admin-bar-comments"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/edit-comments.php"><span class="ab-icon"></span><span class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text">0 comments awaiting moderation</span></a>		</li>
+      <li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://militaryhomelife.com/wp-admin/post-new.php"><span class="ab-icon"></span><span class="ab-label">New</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu">
+        <li id="wp-admin-bar-new-post"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php">Post</a>		</li>
+        <li id="wp-admin-bar-new-media"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/media-new.php">Media</a>		</li>
+        <li id="wp-admin-bar-new-page"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=page">Page</a>		</li>
+        <li id="wp-admin-bar-new-product"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=product">Product</a>		</li>
+        <li id="wp-admin-bar-new-shop_order"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=shop_order">Order</a>		</li>
+        <li id="wp-admin-bar-new-shop_coupon"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=shop_coupon">Coupon</a>		</li>
+        <li id="wp-admin-bar-new-dzsap_items"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=dzsap_items">Audio Item</a>		</li>
+        <li id="wp-admin-bar-new-qtvideo"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=qtvideo">video</a>		</li>
+        <li id="wp-admin-bar-new-chart"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=chart">Chart</a>		</li>
+        <li id="wp-admin-bar-new-shows"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=shows">Shows</a>		</li>
+        <li id="wp-admin-bar-new-event"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=event">Event</a>		</li>
+        <li id="wp-admin-bar-new-members"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=members">Team</a>		</li>
+        <li id="wp-admin-bar-new-podcast"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=podcast">Podcast</a>		</li>
+        <li id="wp-admin-bar-new-radiochannel"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=radiochannel">Radio channel</a>		</li>
+        <li id="wp-admin-bar-new-schedule"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=schedule">Schedule</a>		</li>
+        <li id="wp-admin-bar-new-qtsponsor"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post-new.php?post_type=qtsponsor">Sponsors</a>		</li>
+        <li id="wp-admin-bar-new-user"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/user-new.php">User</a>		</li></ul></div>		</li>
+      <li id="wp-admin-bar-edit"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post.php?post=2897&#038;action=edit">Edit Page</a>		</li>
+      <li id="wp-admin-bar-itsec_admin_bar_menu" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://militaryhomelife.com/wp-admin/admin.php?page=itsec">Security</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-itsec_admin_bar_menu-default" class="ab-submenu">
+        <li id="wp-admin-bar-itsec_admin_bar_settings"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/admin.php?page=itsec">Settings</a>		</li>
+        <li id="wp-admin-bar-itsec_admin_bar_security_check"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/admin.php?page=itsec&#038;module=security-check">Security Check</a>		</li>
+        <li id="wp-admin-bar-itsec_admin_bar_logs"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/admin.php?page=itsec-logs">Logs</a>		</li></ul></div>		</li>
+      <li id="wp-admin-bar-w3tc" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://militaryhomelife.com/wp-admin/admin.php?page=w3tc_dashboard"><img src="https://militaryhomelife.com/wp-content/plugins/w3-total-cache/pub/img/w3tc-sprite-admin-bar.png" style="vertical-align:middle; margin-right:5px; width: 29px; height: 29px" />Performance</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-w3tc-default" class="ab-submenu">
+        <li id="wp-admin-bar-w3tc_flush_all"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/admin.php?page=w3tc_dashboard&#038;w3tc_flush_all&#038;_wpnonce=a92501c823">Purge All Caches</a>		</li>
+        <li id="wp-admin-bar-w3tc_flush_current_page"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/admin.php?page=w3tc_dashboard&#038;w3tc_flush_current_page&#038;_wpnonce=a92501c823">Purge Current Page</a>		</li>
+        <li id="wp-admin-bar-w3tc_flush" class="menupop"><div class="ab-item ab-empty-item" aria-haspopup="true">Purge Modules</div><div class="ab-sub-wrapper"><ul id="wp-admin-bar-w3tc_flush-default" class="ab-submenu">
+          <li id="wp-admin-bar-w3tc_flush_pgcache"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/admin.php?page=w3tc_dashboard&#038;w3tc_flush_pgcache&#038;_wpnonce=a92501c823">Page Cache: All</a>		</li>
+          <li id="wp-admin-bar-w3tc_pgcache_flush_post"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/admin.php?page=w3tc_dashboard&#038;w3tc_flush_post&#038;post_id=2897&#038;_wpnonce=a92501c823">Page Cache: Current Page</a>		</li>
+          <li id="wp-admin-bar-w3tc_flush_dbcache"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/admin.php?page=w3tc_dashboard&#038;w3tc_flush_dbcache&#038;_wpnonce=a92501c823">Database</a>		</li>
+          <li id="wp-admin-bar-w3tc_flush_objectcache"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/admin.php?page=w3tc_dashboard&#038;w3tc_flush_objectcache&#038;_wpnonce=a92501c823">Object Cache</a>		</li></ul></div>		</li>
+        <li id="wp-admin-bar-w3tc_settings_general"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/admin.php?page=w3tc_general&#038;_wpnonce=a92501c823">General Settings</a>		</li>
+        <li id="wp-admin-bar-w3tc_settings_extensions"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/admin.php?page=w3tc_extensions&#038;_wpnonce=a92501c823">Manage Extensions</a>		</li>
+        <li id="wp-admin-bar-w3tc_settings_faq"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/admin.php?page=w3tc_faq&#038;_wpnonce=a92501c823">FAQ</a>		</li>
+        <li id="wp-admin-bar-w3tc_support"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/admin.php?page=w3tc_support">Support</a>		</li></ul></div>		</li>
+      <li id="wp-admin-bar-vc_inline-admin-bar-link" class="vc_inline-link"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/post.php?vc_action=vc_inline&#038;post_id=2897&#038;post_type=page">Edit with WPBakery Page Builder</a>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+    <li id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1"><form action="https://militaryhomelife.com/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150" /><label for="adminbar-search" class="screen-reader-text">Search</label><input type="submit" class="adminbar-button" value="Search"/></form></div>		</li>
+    <li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item" aria-haspopup="true" href="https://militaryhomelife.com/wp-admin/profile.php">Howdy, <span class="display-name">MilitaryHomeLife Staff</span><img alt='' src='https://secure.gravatar.com/avatar/71f0283567ffde2412c9950e92aae86f?s=26&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/71f0283567ffde2412c9950e92aae86f?s=52&#038;d=mm&#038;r=g 2x' class='avatar avatar-26 photo' height='26' width='26' /></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu">
+      <li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="https://militaryhomelife.com/wp-admin/profile.php"><img alt='' src='https://secure.gravatar.com/avatar/71f0283567ffde2412c9950e92aae86f?s=64&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/71f0283567ffde2412c9950e92aae86f?s=128&#038;d=mm&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' /><span class='display-name'>MilitaryHomeLife Staff</span><span class='username'>sonyadunn2325</span></a>		</li>
+      <li id="wp-admin-bar-edit-profile"><a class="ab-item" href="https://militaryhomelife.com/wp-admin/profile.php">Edit My Profile</a>		</li>
+      <li id="wp-admin-bar-logout"><a class="ab-item" href="https://militaryhomelife.com/wp-login.php?itsec-hb-token=custom-wp-admin&#038;action=logout&#038;_wpnonce=322c29f7c6">Log Out</a>		</li></ul></div>		</li></ul>			</div>
+  <a class="screen-reader-shortcut" href="https://militaryhomelife.com/wp-login.php?itsec-hb-token=custom-wp-admin&#038;action=logout&#038;_wpnonce=322c29f7c6">Log Out</a>
+</div>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"395b9e85c7","applicationID":"97889274,97889271","transactionName":"MQFWMBcEXEIEVEVRWQhLdQcRDF1fSkdQX1NLEl0XEAReUgpaQVdFAxY=","queueTime":0,"applicationTime":679,"atts":"HUZVRl8eT0w=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 128/641 objects using memcached
+Page Caching using memcached (Requested URI contains query)
+Database Caching using memcached (Request-wide User is logged in)
+
+Served from: militaryhomelife.com @ 2019-01-04 10:01:21 by W3 Total Cache
+-->

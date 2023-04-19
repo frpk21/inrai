@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Explore - Beatorious Beatorious</title>
+    <meta name="title" content="Beatorious">
+    <meta name="description" content="Cloud music service to share and upload your music or podcasts. Connect with your audience and the Beatorious community">
+    <meta name="keywords" content="beatorious, music cloud, upload music, pro plan">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="Versio Studios">
+
+    <meta property="og:image:width" content="100"/>
+    <meta property="og:image:height" content="100"/>
+    <meta property="og:title" content="Explore - Beatorious Beatorious"/>
+
+
+    <link rel="shortcut icon" href="http://192.168.0.127/customs/beatorious2/favicon.ico" />
+    <link href="http://192.168.0.127/customs/beatorious2/themes/sound/style.css" rel="stylesheet" type="text/css" />
+    <link href="http://192.168.0.127/customs/beatorious2/themes/sound/signature-pad.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="description" content="">
+    <script type="text/javascript" src="http://192.168.0.127/customs/beatorious2/themes/sound/js/jquery.js"></script>
+    <script type="text/javascript" src="http://192.168.0.127/customs/beatorious2/themes/sound/js/jquery.timeago.js"></script>
+    <script type="text/javascript" src="http://192.168.0.127/customs/beatorious2/themes/sound/js/functions.js"></script>
+    <script type="text/javascript" src="http://192.168.0.127/customs/beatorious2/themes/sound/js/jquery.jplayer.min.js"></script>
+
+    <!--  =================== BY 203 =========================-->
+    <!--<script src="js/jquery.js"></script>-->
+    <!-- <link href="http://192.168.0.127/customs/beatorious2/player/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="http://192.168.0.127/customs/beatorious2/player/bootstrap/bootstrap-responsive.css" rel="stylesheet"> -->
+    <!-- <link rel='stylesheet' type="text/css" href="http://192.168.0.127/customs/beatorious2/player/style/style.css"/> -->
+    <link rel='stylesheet' type="text/css" href="http://192.168.0.127/customs/beatorious2/player/dzstooltip/dzstooltip.css"/>
+    <link rel='stylesheet' type="text/css" href="http://192.168.0.127/customs/beatorious2/player/audioplayer/audioplayer.css"/>
+    <script src="http://192.168.0.127/customs/beatorious2/player/audioplayer/audioplayer.js" type="text/javascript"></script>
+    <!--  ====================================================-->
+
+
+    <script type="text/javascript">
+
+        $(".playbtn").click(function(){
+            $('.footer').css('padding-bottom','50px');
+            $('.body-content').css('margin-bottom','50px');
+            $('#content').css('margin-bottom','50px');
+        });
+
+
+        $(function() {
+
+            $("body").on("click", "a[rel='loadpage']", function(e) {
+                // Get the link location that was clicked
+
+                startLoadingBar();
+                pageurl = $(this).attr('href');
+
+                // Replace the path of the url from index to the path with raw content
+                var custom = pageurl;
+                var custom = custom.replace('index', 'page');
+
+                // Request the page
+                $.ajax({url:custom,success: function(data) {
+                    // Show the content
+                    $('#content').html(data);
+                    // Stop the loading bar
+                    stopLoadingBar();
+                    // Set the new title tag
+                    document.title = $('#page-title').html();
+                    // Scroll the document at the top of the page
+                    $(document).scrollTop(0);
+                    // Reload functions
+                    reload();
+                }});
+
+                // Store the url to the last page accessed
+                if(pageurl != window.location){
+                    window.history.pushState({path:pageurl}, '', pageurl);
+                }
+                return false;
+            });
+        });
+
+        // Override the back button to get the ajax content via the back content */
+        $(window).bind('popstate', function(ev) {
+            if (navigator.userAgent.match(/(iPad|iPhone|iPod|Android)/g) && !window.history.ready && !ev.originalEvent.state) {
+                return; // Work around for WebKit devices [prevent executing a popstate upon page load (The bug was fixed in Chrome 35+, but not on the mobile browser)]
+            }
+            if (navigator.userAgent.match(/AppleWebKit/) && !navigator.userAgent.match(/Chrome/) && !window.history.ready && !ev.originalEvent.state) {
+                return; // Work around for WebKit devices [prevent executing a popstate upon page load (The bug was fixed in Chrome 35+, but not on the mobile browser)]
+            }
+
+            startLoadingBar();
+            // Replace the path of the url from index to the path with raw content
+            var custom = location.href;
+
+            // Check whether the page contains index.php or not, if it doens't then add one (prevent breaking when loading website without index.php
+            if(custom.indexOf("index.php") == -1) {
+                var custom = location.href + '/index.php';
+            }
+            var custom = custom.replace('index', 'page');
+
+            // Request the page
+            $.ajax({url:custom,success: function(data){
+                // Show the content
+                $('#content').html(data);
+                // Stop the loading bar
+                stopLoadingBar();
+                // Set the new title tag
+                document.title = $('#page-title').html();
+                // Scroll the document at the top of the page
+                $(document).scrollTop(0);
+                // Reload functions
+                reload();
+            }});
+        });
+    </script>
+    <script type="text/javascript">
+
+        function addView(id)
+        {
+            $.ajax({
+                type: "POST",
+                url: "http://192.168.0.127/customs/beatorious2/requests/add_view.php",
+                data: "id="+id,
+                cache: false,
+                success: function(html) {
+                }
+            });
+        }
+
+
+        $(document).ready(function() {
+            // Set the player volume
+            if(getCookie("volume") == "") {
+                player_volume = 1;
+                setCookie("volume", 1, "365");
+            } else {
+                player_volume = getCookie("volume");
+            }
+            $("#sound-player").jPlayer({
+                ready: function (event) {
+                    $(this).jPlayer("setMedia", {
+
+                    });
+                },
+                cssSelectorAncestor: '#sound-container',
+                swfPath: "http://192.168.0.127/customs/beatorious2/themes/sound/js",
+                supplied: "mp3",
+                wmode: "window",
+                volume: player_volume,
+                smoothPlayBar: true,
+                keyEnabled: true
+            });
+        });
+        function playSong(song, id) {
+            // If the user is on a mobile device, open the track in a new tab rather than playing it on the page
+            /*if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+             window.location = 'http://192.168.0.127/customs/beatorious2/uploads/tracks/'+song;
+             return false;
+             }*/
+
+            // Remove the current-song class (if any)
+            $('.current-song').removeClass('current-song');
+            // Show the previously hidden Play button (if any)
+            $('.current-play').show();
+            $('.current-play').removeClass('current-play');
+
+            // Remove the active player if exist and set the ghost player
+            $('.current-seek').html($('#sound_ghost_player').html());
+
+            // Remove the active player class
+            $('.current-seek').removeClass('current-seek');
+
+            // Escape the ID (contains dots) http://api.jquery.com/category/selectors/
+            var parsedId = song.replace('.', '\\.');
+
+            // Add the current song class
+            $('#track'+id).addClass('current-song');
+            // Add current play class to the Play button and hide it
+            $('#play'+id).addClass('current-play');
+            $('.current-play').hide();
+
+            // Get the current song name and url
+            var trackUrl = $('#song-url'+id).attr('href');
+            var songName, shortSongName = songName = $('#song-name'+id).html();
+
+            if (songName.length > 30) {
+                var shortSongName = $('#song-name'+id).html().substr(0, 30)+'...';
+            }
+
+            $('#sw-song-name').html($('<a>', {text: shortSongName, href: trackUrl, title: songName, rel: 'loadpage'}));
+
+            // Show the time holder when a song starts playing
+            $('.jp-audio .jp-time-holder').show();
+
+            // Destroy the player if any is active
+            $("#sound-player").jPlayer("destroy");
+
+            // Add the active player to the current song
+            $("#song-controls"+id).html($("#seek-bar-song").html());
+
+            // Add the active player class to the current song
+            $("#song-controls"+id).addClass('current-seek');
+
+            // Set the play/pause button position (this is needed for mobile view in order for the play/pause button to be at the same height with the initial play button)
+            $('#track'+id+' .jp-play , #track'+id+' .jp-pause').css({ 'margin-top' : '-' + $('.song-top', '#track'+id).outerHeight() + 'px' });
+
+            // Get the track extension
+            var ext = getExtension(song);
+
+            // Determine prev next buttons
+            prevnext();
+            $("#sound-player").jPlayer({
+                ready: function (event) {
+                    if(ext == 'mp3') {
+                        $(this).jPlayer("setMedia", {
+                            mp3: 'http://192.168.0.127/customs/beatorious2/uploads/tracks/'+song
+                        }).jPlayer("play");
+                    } else if(ext == 'm4a') {
+                        $(this).jPlayer("setMedia", {
+                            m4a: 'http://192.168.0.127/customs/beatorious2/uploads/tracks/'+song
+                        }).jPlayer("play");
+                    }
+                },
+                cssSelectorAncestor: '#sound-container',
+                ended: function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "http://192.168.0.127/customs/beatorious2/requests/add_view.php",
+                        data: "id="+id,
+                        cache: false,
+                        success: function(html) {
+
+                        }
+                    });
+
+                    // If repeat is not turned on, move to the next song
+                    if($('#repeat-song').html() == 0) {
+                        $('.current-seek').html($('#sound_ghost_player').html());
+                        $('.current-play').show();
+                        nextSong(id);
+                    }
+                },
+                /*error: function() {
+                 // If the track fails to play for whatever reasons, hide it
+                 $('#track'+id).fadeOut();
+                 nextSong(id);
+                 },*/
+                errorAlerts: true,
+                swfPath: "http://192.168.0.127/customs/beatorious2/themes/sound/js",
+                supplied: ext,
+                wmode: "window",
+                volume: getCookie("volume"),
+                smoothPlayBar: true,
+                solution: "html, flash",
+                keyEnabled: true
+            });
+        };
+    </script>
+    <!--signature pad js from here-->
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-39365077-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!--signature pad js till here-->
+
+</head>
+<body>
+<div class='body-main-content'>
+    <div id="loading-bar"><dd></dd><dt></dt></div>
+    <div class="topbar">
+        <div class="header">
+            <a href="http://192.168.0.127/customs/beatorious2/index.php?a=welcome" rel="loadpage"><div class="logo"></div></a>
+            <a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore" class="menu-button" rel="loadpage" id="explore-button">Explore</a>
+            <div class="search-input"><input type="text" id="search" placeholder="Search..." autocomplete="off"></div>
+
+
+            <a onclick="connect_modal()" class="menu-btn" title="Launch">Launch</a>
+        </div>
+        <div class="search-container"></div>
+        <div class="notification-container">
+            <div class="notification-content">
+                <div class="notification-inner">
+                    <span id="global_page_url"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=notifications" rel="loadpage">View More Notifications</a></span>
+                    <span id="chat_page_url"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=notifications&filter=chats" rel="loadpage">View More Messages</a></span>
+                    <a onclick="showNotification('close')" title="Close Notifications"><div class="close_btn"></div></a>
+                </div>
+                <div id="notifications-content"></div>
+                <div class="notification-row"><div class="notification-padding"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=settings&b=notifications" rel="loadpage">Notifications Settings</a></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="topbar_margin"></div>
+    <div id="content">
+        <div class="row-body content-explore">
+            <div class="body-content">
+
+                <div class="nine columns" id="main-content">
+
+                    <div class="page-header page-header-extra">Explore</div>
+                    <div id="profile-card"></div>
+
+                    <div id="track163" class="song-container">
+                        <div style="display:none">
+                            <img id="song-art-img-163" src="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=112&h=112" id="song-art163">
+                        </div>
+                        <div class="ap-wrapper center-ap"  style="width:100%; ">
+                            <div class="tagPostion">
+                                <div class="song-timeago">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=163&title=adg3" rel="loadpage">
+										<span id="time163">
+											<div class="timeago" title="2016-01-25T16:59:13+01:00">2016-01-25T16:59:13+01:00</div>
+										</span>
+                                    </a>
+                                </div>
+                                <div class="song-titles" style="clear: both;"></div>
+                                <div class="song-tag">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=123" rel="loadpage">123</a>
+                                </div>
+                            </div>
+                            <div id="playr163" class="audiogallery skin-wave" style="margin-top: -13px;">
+                                <div class="items">
+                                    <div id="163" class="audioplayer-tobe auto-init song-titles" style="width:100%; margin-top:10px; margin-bottom: 10px;"
+                                         data-thumb="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=200&h=200" id="song-art163"
+                                         data-scrubbg="http://192.168.0.127/customs/beatorious2/uploads/tracks/1634431903_1149531536_1528500560_scrubbg.png"
+                                         data-scrubprog="http://192.168.0.127/customs/beatorious2/uploads/tracks/1634431903_1149531536_1528500560_scrubprog.png"
+                                         data-type="audio"
+                                         data-source="http://192.168.0.127/customs/beatorious2/uploads/tracks/1634431903_1149531536_1528500560.mp3"
+                                         data-fakeplayer="#ap1"
+                                         data-options="{
+					                        disable_volume: 'off'
+					                        ,autoplay: 'on'
+					                        ,cue: 'off'
+					                        ,disable_scrub: 'default'
+					                        ,design_skin: 'skin-wave'
+					                        ,skinwave_dynamicwaves:'on'
+					                        ,skinwave_enableSpectrum: 'off'
+					                        ,settings_backup_type:'light'
+					                        ,settings_useflashplayer:'off'
+					                        ,skinwave_spectrummultiplier: '4'
+					                        ,skinwave_comments_enable:'off'
+					                        ,skinwave_mode: 'normal'
+					                        ,sample_time_total: 'on'
+					                        ,skinwave_comments_enable: 'on'
+					                        ,skinwave_comments_retrievefromajax: 'on'
+					                        ,skinwave_comments_avatar: 'http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112'
+					                        ,skinwave_comments_account: ''
+					                        ,user_session:'false'
+					                        ,action_audio_end: 'addView'
+					                        ,action_audio_end_id:'163'
+					                        ,transition:'fade'
+					                        ,disable_volume:'on'
+					                        }">
+                                        <div class="the-comments"></div>
+                                        <div class="meta-artist" >
+		            						<span class="the-artist">
+		            							<div class="song-author "><a onmouseover="profileCard(1, 163, 0, 0);" onmouseout="profileCard(0, 0, 0, 1);" onclick="profileCard(0, 0, 1, 1);" href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=deanjohn" rel="loadpage">deanjohn</a></div>
+		            								</span><br/>
+		            								<span class="the-name">
+		              								<a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=163&title=adg3" id="song-url163" rel="loadpage">
+                                                        <div id="song-name163">adg3</div></a>
+
+		            						</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track-actions-container">
+                            <div class="track-actions">
+                                <div class="track-actions-content" id="track-action163"><div class="track-buttons-container"><div class="like-button" onclick="connect_modal()" id="doLike163"><span class="action-text">Like</span></div><div class="playlist-button" onclick="connect_modal()"><span class="action-text">Add</span></div><div class="share-button" onclick="share(163, 1)"><span class="action-text">Share</span></div><span id="privacy163"></span></div> <div class="track-stats"></div></div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="left-side">
+
+                            </div>
+                            <div class="right-side">
+
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        jQuery(document).ready(function ($) {
+
+
+
+                            var playerid = "playr163";
+                            var settings_ap = {
+                                disable_volume: "off"
+                                ,autoplay: "off"
+                                ,cue: "off"
+                                ,disable_volume: "on"
+                                ,disable_scrub: "default"
+                                ,design_skin: "skin-wave"
+                                ,skinwave_dynamicwaves:"on"
+                                ,skinwave_enableSpectrum: "off"
+                                ,settings_backup_type:"full"
+                                ,skinwave_comments_enable: "on"
+                                ,action_audio_end: "addView"
+                                ,action_audio_end_id:"163"
+                                ,skinwave_comments_avatar: "http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112"
+                                ,skinwave_comments_account: ""
+                                ,skinwave_comments_retrievefromajax: "on"
+                                ,user_session:"false"
+                            };
+
+                            dzsag_init("#"+playerid,{
+                                "transition":"fade"
+                                ,"cueFirstMedia" : "on"
+                                ,"autoplay" : "off"
+                                ,"autoplayNext" : "on"
+                                ,design_menu_position:"bottom"
+                                ,"settings_ap":settings_ap
+                                ,design_menu_state:"open"
+                                ,design_menu_show_player_state_button: "off"
+                                ,embedded: "off"
+                                ,enable_easing: "on"
+                            });
+
+
+                            $(".playbtn").click(function(){
+
+                                $(".footer").css("padding-bottom","50px");
+                                $(".body-content").css("margin-bottom","50px");
+                                $("#content").css("margin-bottom","50px");
+                            });
+
+                        });
+
+
+                    </script>
+
+
+                    <div id="track162" class="song-container">
+                        <div style="display:none">
+                            <img id="song-art-img-162" src="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=112&h=112" id="song-art162">
+                        </div>
+                        <div class="ap-wrapper center-ap"  style="width:100%; ">
+                            <div class="tagPostion">
+                                <div class="song-timeago">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=162&title=adg3" rel="loadpage">
+										<span id="time162">
+											<div class="timeago" title="2016-01-25T16:47:13+01:00">2016-01-25T16:47:13+01:00</div>
+										</span>
+                                    </a>
+                                </div>
+                                <div class="song-titles" style="clear: both;"></div>
+                                <div class="song-tag">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=1234" rel="loadpage">1234</a>
+                                </div>
+                            </div>
+                            <div id="playr162" class="audiogallery skin-wave" style="margin-top: -13px;">
+                                <div class="items">
+                                    <div id="162" class="audioplayer-tobe auto-init song-titles" style="width:100%; margin-top:10px; margin-bottom: 10px;"
+                                         data-thumb="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=200&h=200" id="song-art162"
+                                         data-scrubbg="http://192.168.0.127/customs/beatorious2/player/waves/scrubbg.png"
+                                         data-scrubprog="http://192.168.0.127/customs/beatorious2/player/waves/scrubprog.png"
+                                         data-type="audio"
+                                         data-source="http://192.168.0.127/customs/beatorious2/uploads/tracks/904799601_889920884_1042846165.mp3"
+                                         data-fakeplayer="#ap1"
+                                         data-options="{
+					                        disable_volume: 'off'
+					                        ,autoplay: 'on'
+					                        ,cue: 'off'
+					                        ,disable_scrub: 'default'
+					                        ,design_skin: 'skin-wave'
+					                        ,skinwave_dynamicwaves:'on'
+					                        ,skinwave_enableSpectrum: 'off'
+					                        ,settings_backup_type:'light'
+					                        ,settings_useflashplayer:'off'
+					                        ,skinwave_spectrummultiplier: '4'
+					                        ,skinwave_comments_enable:'off'
+					                        ,skinwave_mode: 'normal'
+					                        ,sample_time_total: 'on'
+					                        ,skinwave_comments_enable: 'on'
+					                        ,skinwave_comments_retrievefromajax: 'on'
+					                        ,skinwave_comments_avatar: 'http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112'
+					                        ,skinwave_comments_account: ''
+					                        ,user_session:'false'
+					                        ,action_audio_end: 'addView'
+					                        ,action_audio_end_id:'162'
+					                        ,transition:'fade'
+					                        ,disable_volume:'on'
+					                        }">
+                                        <div class="the-comments"></div>
+                                        <div class="meta-artist" >
+		            						<span class="the-artist">
+		            							<div class="song-author "><a onmouseover="profileCard(1, 162, 0, 0);" onmouseout="profileCard(0, 0, 0, 1);" onclick="profileCard(0, 0, 1, 1);" href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=deanjohn" rel="loadpage">deanjohn</a></div>
+		            								</span><br/>
+		            								<span class="the-name">
+		              								<a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=162&title=adg3" id="song-url162" rel="loadpage">
+                                                        <div id="song-name162">adg3</div></a>
+
+		            						</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track-actions-container">
+                            <div class="track-actions">
+                                <div class="track-actions-content" id="track-action162"><div class="track-buttons-container"><div class="like-button" onclick="connect_modal()" id="doLike162"><span class="action-text">Like</span></div><div class="playlist-button" onclick="connect_modal()"><span class="action-text">Add</span></div><div class="share-button" onclick="share(162, 1)"><span class="action-text">Share</span></div><span id="privacy162"></span></div> <div class="track-stats"></div></div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="left-side">
+
+                            </div>
+                            <div class="right-side">
+
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        jQuery(document).ready(function ($) {
+
+
+
+                            var playerid = "playr162";
+                            var settings_ap = {
+                                disable_volume: "off"
+                                ,autoplay: "off"
+                                ,cue: "off"
+                                ,disable_volume: "on"
+                                ,disable_scrub: "default"
+                                ,design_skin: "skin-wave"
+                                ,skinwave_dynamicwaves:"on"
+                                ,skinwave_enableSpectrum: "off"
+                                ,settings_backup_type:"full"
+                                ,skinwave_comments_enable: "on"
+                                ,action_audio_end: "addView"
+                                ,action_audio_end_id:"162"
+                                ,skinwave_comments_avatar: "http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112"
+                                ,skinwave_comments_account: ""
+                                ,skinwave_comments_retrievefromajax: "on"
+                                ,user_session:"false"
+                            };
+
+                            dzsag_init("#"+playerid,{
+                                "transition":"fade"
+                                ,"cueFirstMedia" : "on"
+                                ,"autoplay" : "off"
+                                ,"autoplayNext" : "on"
+                                ,design_menu_position:"bottom"
+                                ,"settings_ap":settings_ap
+                                ,design_menu_state:"open"
+                                ,design_menu_show_player_state_button: "off"
+                                ,embedded: "off"
+                                ,enable_easing: "on"
+                            });
+
+
+                            $(".playbtn").click(function(){
+
+                                $(".footer").css("padding-bottom","50px");
+                                $(".body-content").css("margin-bottom","50px");
+                                $("#content").css("margin-bottom","50px");
+                            });
+
+                        });
+
+
+                    </script>
+
+
+                    <div id="track131" class="song-container">
+                        <div style="display:none">
+                            <img id="song-art-img-131" src="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=112&h=112" id="song-art131">
+                        </div>
+                        <div class="ap-wrapper center-ap"  style="width:100%; ">
+                            <div class="tagPostion">
+                                <div class="song-timeago">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=131&title=test song" rel="loadpage">
+										<span id="time131">
+											<div class="timeago" title="2015-12-17T08:31:19+01:00">2015-12-17T08:31:19+01:00</div>
+										</span>
+                                    </a>
+                                </div>
+                                <div class="song-titles" style="clear: both;"></div>
+                                <div class="song-tag">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=dsfsdf" rel="loadpage">Dsfsdf</a>
+                                </div>
+                            </div>
+                            <div id="playr131" class="audiogallery skin-wave" style="margin-top: -13px;">
+                                <div class="items">
+                                    <div id="131" class="audioplayer-tobe auto-init song-titles" style="width:100%; margin-top:10px; margin-bottom: 10px;"
+                                         data-thumb="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=200&h=200" id="song-art131"
+                                         data-scrubbg="http://192.168.0.127/customs/beatorious2/player/waves/scrubbg.png"
+                                         data-scrubprog="http://192.168.0.127/customs/beatorious2/player/waves/scrubprog.png"
+                                         data-type="audio"
+                                         data-source="http://192.168.0.127/customs/beatorious2/uploads/tracks/1093330404_47512449_396839991.mp3"
+                                         data-fakeplayer="#ap1"
+                                         data-options="{
+					                        disable_volume: 'off'
+					                        ,autoplay: 'on'
+					                        ,cue: 'off'
+					                        ,disable_scrub: 'default'
+					                        ,design_skin: 'skin-wave'
+					                        ,skinwave_dynamicwaves:'on'
+					                        ,skinwave_enableSpectrum: 'off'
+					                        ,settings_backup_type:'light'
+					                        ,settings_useflashplayer:'off'
+					                        ,skinwave_spectrummultiplier: '4'
+					                        ,skinwave_comments_enable:'off'
+					                        ,skinwave_mode: 'normal'
+					                        ,sample_time_total: 'on'
+					                        ,skinwave_comments_enable: 'on'
+					                        ,skinwave_comments_retrievefromajax: 'on'
+					                        ,skinwave_comments_avatar: 'http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112'
+					                        ,skinwave_comments_account: ''
+					                        ,user_session:'false'
+					                        ,action_audio_end: 'addView'
+					                        ,action_audio_end_id:'131'
+					                        ,transition:'fade'
+					                        ,disable_volume:'on'
+					                        }">
+                                        <div class="the-comments"></div>
+                                        <div class="meta-artist" >
+		            						<span class="the-artist">
+		            							<div class="song-author "><a onmouseover="profileCard(4, 131, 0, 0);" onmouseout="profileCard(0, 0, 0, 1);" onclick="profileCard(0, 0, 1, 1);" href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=testaccount" rel="loadpage">testaccount</a></div>
+		            								</span><br/>
+		            								<span class="the-name">
+		              								<a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=131&title=test song" id="song-url131" rel="loadpage">
+                                                        <div id="song-name131">test song</div></a>
+
+		            						</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track-actions-container">
+                            <div class="track-actions">
+                                <div class="track-actions-content" id="track-action131"><div class="track-likes" id="users_likes131" style=""><a href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=deanjohn" rel="loadpage"><img src="http://192.168.0.127/customs/beatorious2/thumb.php?src=128707594_1223720685_1147499972.jpg&w=25&h=25&t=a" title="deanjohn liked this" /></a> </div><div class="track-buttons-container"><div class="like-button" onclick="connect_modal()" id="doLike131"><span class="action-text">Like</span></div><div class="playlist-button" onclick="connect_modal()"><span class="action-text">Add</span></div><div class="share-button" onclick="share(131, 1)"><span class="action-text">Share</span></div><span id="privacy131"></span></div> <div class="track-stats"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=131" rel="loadpage"><div class="counter views_counter" title="Listened 38 times">38</div></a><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=131&type=likes" rel="loadpage"><div class="counter like_btn" id="like_btn131" title="1 Likes">1</div></a></div></div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="left-side">
+
+                            </div>
+                            <div class="right-side">
+
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        jQuery(document).ready(function ($) {
+
+
+
+                            var playerid = "playr131";
+                            var settings_ap = {
+                                disable_volume: "off"
+                                ,autoplay: "off"
+                                ,cue: "off"
+                                ,disable_volume: "on"
+                                ,disable_scrub: "default"
+                                ,design_skin: "skin-wave"
+                                ,skinwave_dynamicwaves:"on"
+                                ,skinwave_enableSpectrum: "off"
+                                ,settings_backup_type:"full"
+                                ,skinwave_comments_enable: "on"
+                                ,action_audio_end: "addView"
+                                ,action_audio_end_id:"131"
+                                ,skinwave_comments_avatar: "http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112"
+                                ,skinwave_comments_account: ""
+                                ,skinwave_comments_retrievefromajax: "on"
+                                ,user_session:"false"
+                            };
+
+                            dzsag_init("#"+playerid,{
+                                "transition":"fade"
+                                ,"cueFirstMedia" : "on"
+                                ,"autoplay" : "off"
+                                ,"autoplayNext" : "on"
+                                ,design_menu_position:"bottom"
+                                ,"settings_ap":settings_ap
+                                ,design_menu_state:"open"
+                                ,design_menu_show_player_state_button: "off"
+                                ,embedded: "off"
+                                ,enable_easing: "on"
+                            });
+
+
+                            $(".playbtn").click(function(){
+
+                                $(".footer").css("padding-bottom","50px");
+                                $(".body-content").css("margin-bottom","50px");
+                                $("#content").css("margin-bottom","50px");
+                            });
+
+                        });
+
+
+                    </script>
+
+
+                    <div id="track130" class="song-container">
+                        <div style="display:none">
+                            <img id="song-art-img-130" src="http://192.168.0.127/customs/beatorious2/thumb.php?src=849911207_2013604826_838799706.jpg&t=m&w=112&h=112" id="song-art130">
+                        </div>
+                        <div class="ap-wrapper center-ap"  style="width:100%; ">
+                            <div class="tagPostion">
+                                <div class="song-timeago">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=130&title=Audio Imperia - Dystopian Dreams Vol.1" rel="loadpage">
+										<span id="time130">
+											<div class="timeago" title="2015-12-10T17:05:16+01:00">2015-12-10T17:05:16+01:00</div>
+										</span>
+                                    </a>
+                                </div>
+                                <div class="song-titles" style="clear: both;"></div>
+                                <div class="song-tag">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=classical" rel="loadpage">Classical</a>
+                                </div>
+                            </div>
+                            <div id="playr130" class="audiogallery skin-wave" style="margin-top: -13px;">
+                                <div class="items">
+                                    <div id="130" class="audioplayer-tobe auto-init song-titles" style="width:100%; margin-top:10px; margin-bottom: 10px;"
+                                         data-thumb="http://192.168.0.127/customs/beatorious2/thumb.php?src=849911207_2013604826_838799706.jpg&t=m&w=200&h=200" id="song-art130"
+                                         data-scrubbg="http://192.168.0.127/customs/beatorious2/player/waves/scrubbg.png"
+                                         data-scrubprog="http://192.168.0.127/customs/beatorious2/player/waves/scrubprog.png"
+                                         data-type="audio"
+                                         data-source="http://192.168.0.127/customs/beatorious2/uploads/tracks/999301625_1212459841_184435640.mp3"
+                                         data-fakeplayer="#ap1"
+                                         data-options="{
+					                        disable_volume: 'off'
+					                        ,autoplay: 'on'
+					                        ,cue: 'off'
+					                        ,disable_scrub: 'default'
+					                        ,design_skin: 'skin-wave'
+					                        ,skinwave_dynamicwaves:'on'
+					                        ,skinwave_enableSpectrum: 'off'
+					                        ,settings_backup_type:'light'
+					                        ,settings_useflashplayer:'off'
+					                        ,skinwave_spectrummultiplier: '4'
+					                        ,skinwave_comments_enable:'off'
+					                        ,skinwave_mode: 'normal'
+					                        ,sample_time_total: 'on'
+					                        ,skinwave_comments_enable: 'on'
+					                        ,skinwave_comments_retrievefromajax: 'on'
+					                        ,skinwave_comments_avatar: 'http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112'
+					                        ,skinwave_comments_account: ''
+					                        ,user_session:'false'
+					                        ,action_audio_end: 'addView'
+					                        ,action_audio_end_id:'130'
+					                        ,transition:'fade'
+					                        ,disable_volume:'on'
+					                        }">
+                                        <div class="the-comments"></div>
+                                        <div class="meta-artist" >
+		            						<span class="the-artist">
+		            							<div class="song-author "><a onmouseover="profileCard(7, 130, 0, 0);" onmouseout="profileCard(0, 0, 0, 1);" onclick="profileCard(0, 0, 1, 1);" href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=modeni" rel="loadpage">modeni</a></div>
+		            								</span><br/>
+		            								<span class="the-name">
+		              								<a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=130&title=Audio Imperia - Dystopian Dreams Vol.1" id="song-url130" rel="loadpage">
+                                                        <div id="song-name130">Audio Imperia - Dystopian Dreams Vol.1</div></a>
+
+		            						</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track-actions-container">
+                            <div class="track-actions">
+                                <div class="track-actions-content" id="track-action130"><div class="track-likes" id="users_likes130" style=""><a href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=deanjohn" rel="loadpage"><img src="http://192.168.0.127/customs/beatorious2/thumb.php?src=128707594_1223720685_1147499972.jpg&w=25&h=25&t=a" title="deanjohn liked this" /></a> <a href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=modeni" rel="loadpage"><img src="http://192.168.0.127/customs/beatorious2/thumb.php?src=639373232_1509187693_1659928817.jpg&w=25&h=25&t=a" title="modeni liked this" /></a> </div><div class="track-buttons-container"><div class="like-button" onclick="connect_modal()" id="doLike130"><span class="action-text">Like</span></div><div class="playlist-button" onclick="connect_modal()"><span class="action-text">Add</span></div><div class="share-button" onclick="share(130, 1)"><span class="action-text">Share</span></div><a href="http://192.168.0.127/customs/beatorious2/download.php?file=999301625_1212459841_184435640.mp3&name=modeni-Audio Imperia - Dystopian Dreams Vol.1.mp3" target="_blank"  onclick="addDownload(130);"><div class="download-button" title="Download"></div></a><span id="privacy130"></span></div> <div class="track-stats"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=130" rel="loadpage"><div class="counter views_counter" title="Listened 3 times">3</div></a><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=130" rel="loadpage"><div class="counter comments_counter" title="3 Comments">3</div></a><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=130&type=likes" rel="loadpage"><div class="counter like_btn" id="like_btn130" title="2 Likes">2</div></a><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=130" rel="loadpage"><div class="counter downloads_counter" title="Downloaded 13 times">13</div></a></div></div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="left-side">
+
+                            </div>
+                            <div class="right-side">
+
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        jQuery(document).ready(function ($) {
+
+
+
+                            var playerid = "playr130";
+                            var settings_ap = {
+                                disable_volume: "off"
+                                ,autoplay: "off"
+                                ,cue: "off"
+                                ,disable_volume: "on"
+                                ,disable_scrub: "default"
+                                ,design_skin: "skin-wave"
+                                ,skinwave_dynamicwaves:"on"
+                                ,skinwave_enableSpectrum: "off"
+                                ,settings_backup_type:"full"
+                                ,skinwave_comments_enable: "on"
+                                ,action_audio_end: "addView"
+                                ,action_audio_end_id:"130"
+                                ,skinwave_comments_avatar: "http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112"
+                                ,skinwave_comments_account: ""
+                                ,skinwave_comments_retrievefromajax: "on"
+                                ,user_session:"false"
+                            };
+
+                            dzsag_init("#"+playerid,{
+                                "transition":"fade"
+                                ,"cueFirstMedia" : "on"
+                                ,"autoplay" : "off"
+                                ,"autoplayNext" : "on"
+                                ,design_menu_position:"bottom"
+                                ,"settings_ap":settings_ap
+                                ,design_menu_state:"open"
+                                ,design_menu_show_player_state_button: "off"
+                                ,embedded: "off"
+                                ,enable_easing: "on"
+                            });
+
+
+                            $(".playbtn").click(function(){
+
+                                $(".footer").css("padding-bottom","50px");
+                                $(".body-content").css("margin-bottom","50px");
+                                $("#content").css("margin-bottom","50px");
+                            });
+
+                        });
+
+
+                    </script>
+
+
+                    <div id="track128" class="song-container">
+                        <div style="display:none">
+                            <img id="song-art-img-128" src="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=112&h=112" id="song-art128">
+                        </div>
+                        <div class="ap-wrapper center-ap"  style="width:100%; ">
+                            <div class="tagPostion">
+                                <div class="song-timeago">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=128&title=test song" rel="loadpage">
+										<span id="time128">
+											<div class="timeago" title="2015-12-02T11:56:42+01:00">2015-12-02T11:56:42+01:00</div>
+										</span>
+                                    </a>
+                                </div>
+                                <div class="song-titles" style="clear: both;"></div>
+                                <div class="song-tag">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=Testsong" rel="loadpage">Testsong</a>
+                                </div>
+                            </div>
+                            <div id="playr128" class="audiogallery skin-wave" style="margin-top: -13px;">
+                                <div class="items">
+                                    <div id="128" class="audioplayer-tobe auto-init song-titles" style="width:100%; margin-top:10px; margin-bottom: 10px;"
+                                         data-thumb="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=200&h=200" id="song-art128"
+                                         data-scrubbg="http://192.168.0.127/customs/beatorious2/player/waves/scrubbg.png"
+                                         data-scrubprog="http://192.168.0.127/customs/beatorious2/player/waves/scrubprog.png"
+                                         data-type="audio"
+                                         data-source="http://192.168.0.127/customs/beatorious2/uploads/tracks/886620869_1118726691_319076759.mp3"
+                                         data-fakeplayer="#ap1"
+                                         data-options="{
+					                        disable_volume: 'off'
+					                        ,autoplay: 'on'
+					                        ,cue: 'off'
+					                        ,disable_scrub: 'default'
+					                        ,design_skin: 'skin-wave'
+					                        ,skinwave_dynamicwaves:'on'
+					                        ,skinwave_enableSpectrum: 'off'
+					                        ,settings_backup_type:'light'
+					                        ,settings_useflashplayer:'off'
+					                        ,skinwave_spectrummultiplier: '4'
+					                        ,skinwave_comments_enable:'off'
+					                        ,skinwave_mode: 'normal'
+					                        ,sample_time_total: 'on'
+					                        ,skinwave_comments_enable: 'on'
+					                        ,skinwave_comments_retrievefromajax: 'on'
+					                        ,skinwave_comments_avatar: 'http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112'
+					                        ,skinwave_comments_account: ''
+					                        ,user_session:'false'
+					                        ,action_audio_end: 'addView'
+					                        ,action_audio_end_id:'128'
+					                        ,transition:'fade'
+					                        ,disable_volume:'on'
+					                        }">
+                                        <div class="the-comments"></div>
+                                        <div class="meta-artist" >
+		            						<span class="the-artist">
+		            							<div class="song-author "><a onmouseover="profileCard(4, 128, 0, 0);" onmouseout="profileCard(0, 0, 0, 1);" onclick="profileCard(0, 0, 1, 1);" href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=testaccount" rel="loadpage">testaccount</a></div>
+		            								</span><br/>
+		            								<span class="the-name">
+		              								<a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=128&title=test song" id="song-url128" rel="loadpage">
+                                                        <div id="song-name128">test song</div></a>
+
+		            						</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track-actions-container">
+                            <div class="track-actions">
+                                <div class="track-actions-content" id="track-action128"><div class="track-buttons-container"><div class="like-button" onclick="connect_modal()" id="doLike128"><span class="action-text">Like</span></div><div class="playlist-button" onclick="connect_modal()"><span class="action-text">Add</span></div><div class="share-button" onclick="share(128, 1)"><span class="action-text">Share</span></div><a href="http://192.168.0.127/customs/beatorious2/download.php?file=886620869_1118726691_319076759.mp3&name=testaccount-test song.mp3" target="_blank"  onclick="addDownload(128);"><div class="download-button" title="Download"></div></a><span id="privacy128"></span></div> <div class="track-stats"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=128" rel="loadpage"><div class="counter views_counter" title="Listened 5 times">5</div></a><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=128" rel="loadpage"><div class="counter downloads_counter" title="Downloaded 9 times">9</div></a></div></div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="left-side">
+
+                            </div>
+                            <div class="right-side">
+
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        jQuery(document).ready(function ($) {
+
+
+
+                            var playerid = "playr128";
+                            var settings_ap = {
+                                disable_volume: "off"
+                                ,autoplay: "off"
+                                ,cue: "off"
+                                ,disable_volume: "on"
+                                ,disable_scrub: "default"
+                                ,design_skin: "skin-wave"
+                                ,skinwave_dynamicwaves:"on"
+                                ,skinwave_enableSpectrum: "off"
+                                ,settings_backup_type:"full"
+                                ,skinwave_comments_enable: "on"
+                                ,action_audio_end: "addView"
+                                ,action_audio_end_id:"128"
+                                ,skinwave_comments_avatar: "http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112"
+                                ,skinwave_comments_account: ""
+                                ,skinwave_comments_retrievefromajax: "on"
+                                ,user_session:"false"
+                            };
+
+                            dzsag_init("#"+playerid,{
+                                "transition":"fade"
+                                ,"cueFirstMedia" : "on"
+                                ,"autoplay" : "off"
+                                ,"autoplayNext" : "on"
+                                ,design_menu_position:"bottom"
+                                ,"settings_ap":settings_ap
+                                ,design_menu_state:"open"
+                                ,design_menu_show_player_state_button: "off"
+                                ,embedded: "off"
+                                ,enable_easing: "on"
+                            });
+
+
+                            $(".playbtn").click(function(){
+
+                                $(".footer").css("padding-bottom","50px");
+                                $(".body-content").css("margin-bottom","50px");
+                                $("#content").css("margin-bottom","50px");
+                            });
+
+                        });
+
+
+                    </script>
+
+
+                    <div id="track126" class="song-container">
+                        <div style="display:none">
+                            <img id="song-art-img-126" src="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=112&h=112" id="song-art126">
+                        </div>
+                        <div class="ap-wrapper center-ap"  style="width:100%; ">
+                            <div class="tagPostion">
+                                <div class="song-timeago">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=126&title=lifted.recordings597-new test" rel="loadpage">
+										<span id="time126">
+											<div class="timeago" title="2015-12-01T18:05:50+01:00">2015-12-01T18:05:50+01:00</div>
+										</span>
+                                    </a>
+                                </div>
+                                <div class="song-titles" style="clear: both;"></div>
+                                <div class="song-tag">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=classical" rel="loadpage">Classical</a>
+                                </div>
+                            </div>
+                            <div id="playr126" class="audiogallery skin-wave" style="margin-top: -13px;">
+                                <div class="items">
+                                    <div id="126" class="audioplayer-tobe auto-init song-titles" style="width:100%; margin-top:10px; margin-bottom: 10px;"
+                                         data-thumb="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=200&h=200" id="song-art126"
+                                         data-scrubbg="http://192.168.0.127/customs/beatorious2/player/waves/scrubbg.png"
+                                         data-scrubprog="http://192.168.0.127/customs/beatorious2/player/waves/scrubprog.png"
+                                         data-type="audio"
+                                         data-source="http://192.168.0.127/customs/beatorious2/uploads/tracks/637076852_2035116086_2125350863.mp3"
+                                         data-fakeplayer="#ap1"
+                                         data-options="{
+					                        disable_volume: 'off'
+					                        ,autoplay: 'on'
+					                        ,cue: 'off'
+					                        ,disable_scrub: 'default'
+					                        ,design_skin: 'skin-wave'
+					                        ,skinwave_dynamicwaves:'on'
+					                        ,skinwave_enableSpectrum: 'off'
+					                        ,settings_backup_type:'light'
+					                        ,settings_useflashplayer:'off'
+					                        ,skinwave_spectrummultiplier: '4'
+					                        ,skinwave_comments_enable:'off'
+					                        ,skinwave_mode: 'normal'
+					                        ,sample_time_total: 'on'
+					                        ,skinwave_comments_enable: 'on'
+					                        ,skinwave_comments_retrievefromajax: 'on'
+					                        ,skinwave_comments_avatar: 'http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112'
+					                        ,skinwave_comments_account: ''
+					                        ,user_session:'false'
+					                        ,action_audio_end: 'addView'
+					                        ,action_audio_end_id:'126'
+					                        ,transition:'fade'
+					                        ,disable_volume:'on'
+					                        }">
+                                        <div class="the-comments"></div>
+                                        <div class="meta-artist" >
+		            						<span class="the-artist">
+		            							<div class="song-author "><a onmouseover="profileCard(7, 126, 0, 0);" onmouseout="profileCard(0, 0, 0, 1);" onclick="profileCard(0, 0, 1, 1);" href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=modeni" rel="loadpage">modeni</a></div>
+		            								</span><br/>
+		            								<span class="the-name">
+		              								<a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=126&title=lifted.recordings597-new test" id="song-url126" rel="loadpage">
+                                                        <div id="song-name126">lifted.recordings597-new test</div></a>
+
+		            						</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track-actions-container">
+                            <div class="track-actions">
+                                <div class="track-actions-content" id="track-action126"><div class="track-likes" id="users_likes126" style=""><a href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=deanjohn" rel="loadpage"><img src="http://192.168.0.127/customs/beatorious2/thumb.php?src=128707594_1223720685_1147499972.jpg&w=25&h=25&t=a" title="deanjohn liked this" /></a> <a href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=modeni" rel="loadpage"><img src="http://192.168.0.127/customs/beatorious2/thumb.php?src=639373232_1509187693_1659928817.jpg&w=25&h=25&t=a" title="modeni liked this" /></a> </div><div class="track-buttons-container"><div class="like-button" onclick="connect_modal()" id="doLike126"><span class="action-text">Like</span></div><div class="playlist-button" onclick="connect_modal()"><span class="action-text">Add</span></div><div class="share-button" onclick="share(126, 1)"><span class="action-text">Share</span></div><a href="http://192.168.0.127/customs/beatorious2/download.php?file=637076852_2035116086_2125350863.mp3&name=modeni-lifted.recordings597-new test.mp3" target="_blank"  onclick="addDownload(126);"><div class="download-button" title="Download"></div></a><span id="privacy126"></span></div> <div class="track-stats"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=126" rel="loadpage"><div class="counter views_counter" title="Listened 1 times">1</div></a><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=126" rel="loadpage"><div class="counter comments_counter" title="1 Comments">1</div></a><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=126&type=likes" rel="loadpage"><div class="counter like_btn" id="like_btn126" title="2 Likes">2</div></a><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=126" rel="loadpage"><div class="counter downloads_counter" title="Downloaded 12 times">12</div></a></div></div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="left-side">
+
+                            </div>
+                            <div class="right-side">
+
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        jQuery(document).ready(function ($) {
+
+
+
+                            var playerid = "playr126";
+                            var settings_ap = {
+                                disable_volume: "off"
+                                ,autoplay: "off"
+                                ,cue: "off"
+                                ,disable_volume: "on"
+                                ,disable_scrub: "default"
+                                ,design_skin: "skin-wave"
+                                ,skinwave_dynamicwaves:"on"
+                                ,skinwave_enableSpectrum: "off"
+                                ,settings_backup_type:"full"
+                                ,skinwave_comments_enable: "on"
+                                ,action_audio_end: "addView"
+                                ,action_audio_end_id:"126"
+                                ,skinwave_comments_avatar: "http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112"
+                                ,skinwave_comments_account: ""
+                                ,skinwave_comments_retrievefromajax: "on"
+                                ,user_session:"false"
+                            };
+
+                            dzsag_init("#"+playerid,{
+                                "transition":"fade"
+                                ,"cueFirstMedia" : "on"
+                                ,"autoplay" : "off"
+                                ,"autoplayNext" : "on"
+                                ,design_menu_position:"bottom"
+                                ,"settings_ap":settings_ap
+                                ,design_menu_state:"open"
+                                ,design_menu_show_player_state_button: "off"
+                                ,embedded: "off"
+                                ,enable_easing: "on"
+                            });
+
+
+                            $(".playbtn").click(function(){
+
+                                $(".footer").css("padding-bottom","50px");
+                                $(".body-content").css("margin-bottom","50px");
+                                $("#content").css("margin-bottom","50px");
+                            });
+
+                        });
+
+
+                    </script>
+
+
+                    <div id="track125" class="song-container">
+                        <div style="display:none">
+                            <img id="song-art-img-125" src="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=112&h=112" id="song-art125">
+                        </div>
+                        <div class="ap-wrapper center-ap"  style="width:100%; ">
+                            <div class="tagPostion">
+                                <div class="song-timeago">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=125&title=test_cbr" rel="loadpage">
+										<span id="time125">
+											<div class="timeago" title="2015-12-01T18:03:55+01:00">2015-12-01T18:03:55+01:00</div>
+										</span>
+                                    </a>
+                                </div>
+                                <div class="song-titles" style="clear: both;"></div>
+                                <div class="song-tag">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=house" rel="loadpage">House</a>
+                                </div>
+                            </div>
+                            <div id="playr125" class="audiogallery skin-wave" style="margin-top: -13px;">
+                                <div class="items">
+                                    <div id="125" class="audioplayer-tobe auto-init song-titles" style="width:100%; margin-top:10px; margin-bottom: 10px;"
+                                         data-thumb="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=200&h=200" id="song-art125"
+                                         data-scrubbg="http://192.168.0.127/customs/beatorious2/player/waves/scrubbg.png"
+                                         data-scrubprog="http://192.168.0.127/customs/beatorious2/player/waves/scrubprog.png"
+                                         data-type="audio"
+                                         data-source="http://192.168.0.127/customs/beatorious2/uploads/tracks/251389308_1088155329_890967950.mp3"
+                                         data-fakeplayer="#ap1"
+                                         data-options="{
+					                        disable_volume: 'off'
+					                        ,autoplay: 'on'
+					                        ,cue: 'off'
+					                        ,disable_scrub: 'default'
+					                        ,design_skin: 'skin-wave'
+					                        ,skinwave_dynamicwaves:'on'
+					                        ,skinwave_enableSpectrum: 'off'
+					                        ,settings_backup_type:'light'
+					                        ,settings_useflashplayer:'off'
+					                        ,skinwave_spectrummultiplier: '4'
+					                        ,skinwave_comments_enable:'off'
+					                        ,skinwave_mode: 'normal'
+					                        ,sample_time_total: 'on'
+					                        ,skinwave_comments_enable: 'on'
+					                        ,skinwave_comments_retrievefromajax: 'on'
+					                        ,skinwave_comments_avatar: 'http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112'
+					                        ,skinwave_comments_account: ''
+					                        ,user_session:'false'
+					                        ,action_audio_end: 'addView'
+					                        ,action_audio_end_id:'125'
+					                        ,transition:'fade'
+					                        ,disable_volume:'on'
+					                        }">
+                                        <div class="the-comments"></div>
+                                        <div class="meta-artist" >
+		            						<span class="the-artist">
+		            							<div class="song-author "><a onmouseover="profileCard(7, 125, 0, 0);" onmouseout="profileCard(0, 0, 0, 1);" onclick="profileCard(0, 0, 1, 1);" href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=modeni" rel="loadpage">modeni</a></div>
+		            								</span><br/>
+		            								<span class="the-name">
+		              								<a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=125&title=test_cbr" id="song-url125" rel="loadpage">
+                                                        <div id="song-name125">test_cbr</div></a>
+
+		            						</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track-actions-container">
+                            <div class="track-actions">
+                                <div class="track-actions-content" id="track-action125"><div class="track-buttons-container"><div class="like-button" onclick="connect_modal()" id="doLike125"><span class="action-text">Like</span></div><div class="playlist-button" onclick="connect_modal()"><span class="action-text">Add</span></div><div class="share-button" onclick="share(125, 1)"><span class="action-text">Share</span></div><span id="privacy125"></span></div> <div class="track-stats"></div></div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="left-side">
+
+                            </div>
+                            <div class="right-side">
+
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        jQuery(document).ready(function ($) {
+
+
+
+                            var playerid = "playr125";
+                            var settings_ap = {
+                                disable_volume: "off"
+                                ,autoplay: "off"
+                                ,cue: "off"
+                                ,disable_volume: "on"
+                                ,disable_scrub: "default"
+                                ,design_skin: "skin-wave"
+                                ,skinwave_dynamicwaves:"on"
+                                ,skinwave_enableSpectrum: "off"
+                                ,settings_backup_type:"full"
+                                ,skinwave_comments_enable: "on"
+                                ,action_audio_end: "addView"
+                                ,action_audio_end_id:"125"
+                                ,skinwave_comments_avatar: "http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112"
+                                ,skinwave_comments_account: ""
+                                ,skinwave_comments_retrievefromajax: "on"
+                                ,user_session:"false"
+                            };
+
+                            dzsag_init("#"+playerid,{
+                                "transition":"fade"
+                                ,"cueFirstMedia" : "on"
+                                ,"autoplay" : "off"
+                                ,"autoplayNext" : "on"
+                                ,design_menu_position:"bottom"
+                                ,"settings_ap":settings_ap
+                                ,design_menu_state:"open"
+                                ,design_menu_show_player_state_button: "off"
+                                ,embedded: "off"
+                                ,enable_easing: "on"
+                            });
+
+
+                            $(".playbtn").click(function(){
+
+                                $(".footer").css("padding-bottom","50px");
+                                $(".body-content").css("margin-bottom","50px");
+                                $("#content").css("margin-bottom","50px");
+                            });
+
+                        });
+
+
+                    </script>
+
+
+                    <div id="track124" class="song-container">
+                        <div style="display:none">
+                            <img id="song-art-img-124" src="http://192.168.0.127/customs/beatorious2/thumb.php?src=1004458668_394129871_1061583979.png&t=m&w=112&h=112" id="song-art124">
+                        </div>
+                        <div class="ap-wrapper center-ap"  style="width:100%; ">
+                            <div class="tagPostion">
+                                <div class="song-timeago">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=124&title=new test" rel="loadpage">
+										<span id="time124">
+											<div class="timeago" title="2015-11-27T13:40:55+01:00">2015-11-27T13:40:55+01:00</div>
+										</span>
+                                    </a>
+                                </div>
+                                <div class="song-titles" style="clear: both;"></div>
+                                <div class="song-tag">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=house" rel="loadpage">House</a>
+                                </div>
+                            </div>
+                            <div id="playr124" class="audiogallery skin-wave" style="margin-top: -13px;">
+                                <div class="items">
+                                    <div id="124" class="audioplayer-tobe auto-init song-titles" style="width:100%; margin-top:10px; margin-bottom: 10px;"
+                                         data-thumb="http://192.168.0.127/customs/beatorious2/thumb.php?src=1004458668_394129871_1061583979.png&t=m&w=200&h=200" id="song-art124"
+                                         data-scrubbg="http://192.168.0.127/customs/beatorious2/player/waves/scrubbg.png"
+                                         data-scrubprog="http://192.168.0.127/customs/beatorious2/player/waves/scrubprog.png"
+                                         data-type="audio"
+                                         data-source="http://192.168.0.127/customs/beatorious2/uploads/tracks/421334286_587541142_1572975173.mp3"
+                                         data-fakeplayer="#ap1"
+                                         data-options="{
+					                        disable_volume: 'off'
+					                        ,autoplay: 'on'
+					                        ,cue: 'off'
+					                        ,disable_scrub: 'default'
+					                        ,design_skin: 'skin-wave'
+					                        ,skinwave_dynamicwaves:'on'
+					                        ,skinwave_enableSpectrum: 'off'
+					                        ,settings_backup_type:'light'
+					                        ,settings_useflashplayer:'off'
+					                        ,skinwave_spectrummultiplier: '4'
+					                        ,skinwave_comments_enable:'off'
+					                        ,skinwave_mode: 'normal'
+					                        ,sample_time_total: 'on'
+					                        ,skinwave_comments_enable: 'on'
+					                        ,skinwave_comments_retrievefromajax: 'on'
+					                        ,skinwave_comments_avatar: 'http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112'
+					                        ,skinwave_comments_account: ''
+					                        ,user_session:'false'
+					                        ,action_audio_end: 'addView'
+					                        ,action_audio_end_id:'124'
+					                        ,transition:'fade'
+					                        ,disable_volume:'on'
+					                        }">
+                                        <div class="the-comments"></div>
+                                        <div class="meta-artist" >
+		            						<span class="the-artist">
+		            							<div class="song-author featured"><a onmouseover="profileCard(35, 124, 0, 0);" onmouseout="profileCard(0, 0, 0, 1);" onclick="profileCard(0, 0, 1, 1);" href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=lifted.recordings597" rel="loadpage">Lifted Recordings</a></div>
+		            								</span><br/>
+		            								<span class="the-name">
+		              								<a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=124&title=new test" id="song-url124" rel="loadpage">
+                                                        <div id="song-name124">new test</div></a>
+
+		            						</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track-actions-container">
+                            <div class="track-actions">
+                                <div class="track-actions-content" id="track-action124"><div class="track-likes" id="users_likes124" style=""><a href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=lifted.recordings597" rel="loadpage"><img src="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&w=25&h=25&t=a" title="Lifted Recordings liked this" /></a> </div><div class="track-buttons-container"><div class="like-button" onclick="connect_modal()" id="doLike124"><span class="action-text">Like</span></div><div class="playlist-button" onclick="connect_modal()"><span class="action-text">Add</span></div><div class="share-button" onclick="share(124, 1)"><span class="action-text">Share</span></div><a href="http://192.168.0.127/customs/beatorious2/download.php?file=421334286_587541142_1572975173.mp3&name=lifted.recordings597-new test.mp3" target="_blank"  onclick="addDownload(124);"><div class="download-button" title="Download"></div></a><span id="privacy124"></span></div> <div class="track-stats"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=124" rel="loadpage"><div class="counter views_counter" title="Listened 10 times">10</div></a><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=124" rel="loadpage"><div class="counter comments_counter" title="4 Comments">4</div></a><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=124&type=likes" rel="loadpage"><div class="counter like_btn" id="like_btn124" title="1 Likes">1</div></a><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=124" rel="loadpage"><div class="counter downloads_counter" title="Downloaded 3 times">3</div></a></div></div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="left-side">
+
+                            </div>
+                            <div class="right-side">
+
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        jQuery(document).ready(function ($) {
+
+
+
+                            var playerid = "playr124";
+                            var settings_ap = {
+                                disable_volume: "off"
+                                ,autoplay: "off"
+                                ,cue: "off"
+                                ,disable_volume: "on"
+                                ,disable_scrub: "default"
+                                ,design_skin: "skin-wave"
+                                ,skinwave_dynamicwaves:"on"
+                                ,skinwave_enableSpectrum: "off"
+                                ,settings_backup_type:"full"
+                                ,skinwave_comments_enable: "on"
+                                ,action_audio_end: "addView"
+                                ,action_audio_end_id:"124"
+                                ,skinwave_comments_avatar: "http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112"
+                                ,skinwave_comments_account: ""
+                                ,skinwave_comments_retrievefromajax: "on"
+                                ,user_session:"false"
+                            };
+
+                            dzsag_init("#"+playerid,{
+                                "transition":"fade"
+                                ,"cueFirstMedia" : "on"
+                                ,"autoplay" : "off"
+                                ,"autoplayNext" : "on"
+                                ,design_menu_position:"bottom"
+                                ,"settings_ap":settings_ap
+                                ,design_menu_state:"open"
+                                ,design_menu_show_player_state_button: "off"
+                                ,embedded: "off"
+                                ,enable_easing: "on"
+                            });
+
+
+                            $(".playbtn").click(function(){
+
+                                $(".footer").css("padding-bottom","50px");
+                                $(".body-content").css("margin-bottom","50px");
+                                $("#content").css("margin-bottom","50px");
+                            });
+
+                        });
+
+
+                    </script>
+
+
+                    <div id="track122" class="song-container">
+                        <div style="display:none">
+                            <img id="song-art-img-122" src="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=112&h=112" id="song-art122">
+                        </div>
+                        <div class="ap-wrapper center-ap"  style="width:100%; ">
+                            <div class="tagPostion">
+                                <div class="song-timeago">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=122&title=Test download song" rel="loadpage">
+										<span id="time122">
+											<div class="timeago" title="2015-11-18T15:35:06+01:00">2015-11-18T15:35:06+01:00</div>
+										</span>
+                                    </a>
+                                </div>
+                                <div class="song-titles" style="clear: both;"></div>
+                                <div class="song-tag">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=deep house" rel="loadpage">Deep House</a>
+                                </div>
+                            </div>
+                            <div id="playr122" class="audiogallery skin-wave" style="margin-top: -13px;">
+                                <div class="items">
+                                    <div id="122" class="audioplayer-tobe auto-init song-titles" style="width:100%; margin-top:10px; margin-bottom: 10px;"
+                                         data-thumb="http://192.168.0.127/customs/beatorious2/thumb.php?src=default.png&t=m&w=200&h=200" id="song-art122"
+                                         data-scrubbg="http://192.168.0.127/customs/beatorious2/player/waves/scrubbg.png"
+                                         data-scrubprog="http://192.168.0.127/customs/beatorious2/player/waves/scrubprog.png"
+                                         data-type="audio"
+                                         data-source="http://192.168.0.127/customs/beatorious2/uploads/tracks/1687711794_2080121238_349230641.mp3"
+                                         data-fakeplayer="#ap1"
+                                         data-options="{
+					                        disable_volume: 'off'
+					                        ,autoplay: 'on'
+					                        ,cue: 'off'
+					                        ,disable_scrub: 'default'
+					                        ,design_skin: 'skin-wave'
+					                        ,skinwave_dynamicwaves:'on'
+					                        ,skinwave_enableSpectrum: 'off'
+					                        ,settings_backup_type:'light'
+					                        ,settings_useflashplayer:'off'
+					                        ,skinwave_spectrummultiplier: '4'
+					                        ,skinwave_comments_enable:'off'
+					                        ,skinwave_mode: 'normal'
+					                        ,sample_time_total: 'on'
+					                        ,skinwave_comments_enable: 'on'
+					                        ,skinwave_comments_retrievefromajax: 'on'
+					                        ,skinwave_comments_avatar: 'http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112'
+					                        ,skinwave_comments_account: ''
+					                        ,user_session:'false'
+					                        ,action_audio_end: 'addView'
+					                        ,action_audio_end_id:'122'
+					                        ,transition:'fade'
+					                        ,disable_volume:'on'
+					                        }">
+                                        <div class="the-comments"></div>
+                                        <div class="meta-artist" >
+		            						<span class="the-artist">
+		            							<div class="song-author featured"><a onmouseover="profileCard(4, 122, 0, 0);" onmouseout="profileCard(0, 0, 0, 1);" onclick="profileCard(0, 0, 1, 1);" href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=testaccount" rel="loadpage">testaccount</a></div>
+		            								</span><br/>
+		            								<span class="the-name">
+		              								<a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=122&title=Test download song" id="song-url122" rel="loadpage">
+                                                        <div id="song-name122">Test download song</div></a>
+
+		            						</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track-actions-container">
+                            <div class="track-actions">
+                                <div class="track-actions-content" id="track-action122"><div class="track-buttons-container"><div class="like-button" onclick="connect_modal()" id="doLike122"><span class="action-text">Like</span></div><div class="playlist-button" onclick="connect_modal()"><span class="action-text">Add</span></div><div class="share-button" onclick="share(122, 1)"><span class="action-text">Share</span></div><a href="http://192.168.0.127/customs/beatorious2/download.php?file=1687711794_2080121238_349230641.mp3&name=testaccount-Test download song.mp3" target="_blank"  onclick="addDownload(122);"><div class="download-button" title="Download"></div></a><span id="privacy122"></span></div> <div class="track-stats"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=122" rel="loadpage"><div class="counter comments_counter" title="2 Comments">2</div></a><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=122" rel="loadpage"><div class="counter downloads_counter" title="Downloaded 11 times">11</div></a></div></div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="left-side">
+
+                            </div>
+                            <div class="right-side">
+
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        jQuery(document).ready(function ($) {
+
+
+
+                            var playerid = "playr122";
+                            var settings_ap = {
+                                disable_volume: "off"
+                                ,autoplay: "off"
+                                ,cue: "off"
+                                ,disable_volume: "on"
+                                ,disable_scrub: "default"
+                                ,design_skin: "skin-wave"
+                                ,skinwave_dynamicwaves:"on"
+                                ,skinwave_enableSpectrum: "off"
+                                ,settings_backup_type:"full"
+                                ,skinwave_comments_enable: "on"
+                                ,action_audio_end: "addView"
+                                ,action_audio_end_id:"122"
+                                ,skinwave_comments_avatar: "http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112"
+                                ,skinwave_comments_account: ""
+                                ,skinwave_comments_retrievefromajax: "on"
+                                ,user_session:"false"
+                            };
+
+                            dzsag_init("#"+playerid,{
+                                "transition":"fade"
+                                ,"cueFirstMedia" : "on"
+                                ,"autoplay" : "off"
+                                ,"autoplayNext" : "on"
+                                ,design_menu_position:"bottom"
+                                ,"settings_ap":settings_ap
+                                ,design_menu_state:"open"
+                                ,design_menu_show_player_state_button: "off"
+                                ,embedded: "off"
+                                ,enable_easing: "on"
+                            });
+
+
+                            $(".playbtn").click(function(){
+
+                                $(".footer").css("padding-bottom","50px");
+                                $(".body-content").css("margin-bottom","50px");
+                                $("#content").css("margin-bottom","50px");
+                            });
+
+                        });
+
+
+                    </script>
+
+
+                    <div id="track121" class="song-container">
+                        <div style="display:none">
+                            <img id="song-art-img-121" src="http://192.168.0.127/customs/beatorious2/thumb.php?src=977916457_713210631_1609539604.jpg&t=m&w=112&h=112" id="song-art121">
+                        </div>
+                        <div class="ap-wrapper center-ap"  style="width:100%; ">
+                            <div class="tagPostion">
+                                <div class="song-timeago">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=121&title=test" rel="loadpage">
+										<span id="time121">
+											<div class="timeago" title="2015-10-08T17:55:33+02:00">2015-10-08T17:55:33+02:00</div>
+										</span>
+                                    </a>
+                                </div>
+                                <div class="song-titles" style="clear: both;"></div>
+                                <div class="song-tag">
+                                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=Deep house" rel="loadpage">Deep House</a>
+                                </div>
+                            </div>
+                            <div id="playr121" class="audiogallery skin-wave" style="margin-top: -13px;">
+                                <div class="items">
+                                    <div id="121" class="audioplayer-tobe auto-init song-titles" style="width:100%; margin-top:10px; margin-bottom: 10px;"
+                                         data-thumb="http://192.168.0.127/customs/beatorious2/thumb.php?src=977916457_713210631_1609539604.jpg&t=m&w=200&h=200" id="song-art121"
+                                         data-scrubbg="http://192.168.0.127/customs/beatorious2/player/waves/scrubbg.png"
+                                         data-scrubprog="http://192.168.0.127/customs/beatorious2/player/waves/scrubprog.png"
+                                         data-type="audio"
+                                         data-source="http://192.168.0.127/customs/beatorious2/uploads/tracks/1438140951_112592677_1337565225.mp3"
+                                         data-fakeplayer="#ap1"
+                                         data-options="{
+					                        disable_volume: 'off'
+					                        ,autoplay: 'on'
+					                        ,cue: 'off'
+					                        ,disable_scrub: 'default'
+					                        ,design_skin: 'skin-wave'
+					                        ,skinwave_dynamicwaves:'on'
+					                        ,skinwave_enableSpectrum: 'off'
+					                        ,settings_backup_type:'light'
+					                        ,settings_useflashplayer:'off'
+					                        ,skinwave_spectrummultiplier: '4'
+					                        ,skinwave_comments_enable:'off'
+					                        ,skinwave_mode: 'normal'
+					                        ,sample_time_total: 'on'
+					                        ,skinwave_comments_enable: 'on'
+					                        ,skinwave_comments_retrievefromajax: 'on'
+					                        ,skinwave_comments_avatar: 'http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112'
+					                        ,skinwave_comments_account: ''
+					                        ,user_session:'false'
+					                        ,action_audio_end: 'addView'
+					                        ,action_audio_end_id:'121'
+					                        ,transition:'fade'
+					                        ,disable_volume:'on'
+					                        }">
+                                        <div class="the-comments"></div>
+                                        <div class="meta-artist" >
+		            						<span class="the-artist">
+		            							<div class="song-author featured"><a onmouseover="profileCard(4, 121, 0, 0);" onmouseout="profileCard(0, 0, 0, 1);" onclick="profileCard(0, 0, 1, 1);" href="http://192.168.0.127/customs/beatorious2/index.php?a=profile&u=testaccount" rel="loadpage">testaccount</a></div>
+		            								</span><br/>
+		            								<span class="the-name">
+		              								<a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=121&title=test" id="song-url121" rel="loadpage">
+                                                        <div id="song-name121">test</div></a>
+
+		            						</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track-actions-container">
+                            <div class="track-actions">
+                                <div class="track-actions-content" id="track-action121"><div class="track-buttons-container"><div class="like-button" onclick="connect_modal()" id="doLike121"><span class="action-text">Like</span></div><div class="playlist-button" onclick="connect_modal()"><span class="action-text">Add</span></div><div class="share-button" onclick="share(121, 1)"><span class="action-text">Share</span></div><span id="privacy121"></span></div> <div class="track-stats"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=track&id=121" rel="loadpage"><div class="counter comments_counter" title="4 Comments">4</div></a></div></div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="left-side">
+
+                            </div>
+                            <div class="right-side">
+
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        jQuery(document).ready(function ($) {
+
+
+
+                            var playerid = "playr121";
+                            var settings_ap = {
+                                disable_volume: "off"
+                                ,autoplay: "off"
+                                ,cue: "off"
+                                ,disable_volume: "on"
+                                ,disable_scrub: "default"
+                                ,design_skin: "skin-wave"
+                                ,skinwave_dynamicwaves:"on"
+                                ,skinwave_enableSpectrum: "off"
+                                ,settings_backup_type:"full"
+                                ,skinwave_comments_enable: "on"
+                                ,action_audio_end: "addView"
+                                ,action_audio_end_id:"121"
+                                ,skinwave_comments_avatar: "http://192.168.0.127/customs/beatorious2/thumb.php?src=&t=a&w=112&h=112"
+                                ,skinwave_comments_account: ""
+                                ,skinwave_comments_retrievefromajax: "on"
+                                ,user_session:"false"
+                            };
+
+                            dzsag_init("#"+playerid,{
+                                "transition":"fade"
+                                ,"cueFirstMedia" : "on"
+                                ,"autoplay" : "off"
+                                ,"autoplayNext" : "on"
+                                ,design_menu_position:"bottom"
+                                ,"settings_ap":settings_ap
+                                ,design_menu_state:"open"
+                                ,design_menu_show_player_state_button: "off"
+                                ,embedded: "off"
+                                ,enable_easing: "on"
+                            });
+
+
+                            $(".playbtn").click(function(){
+
+                                $(".footer").css("padding-bottom","50px");
+                                $(".body-content").css("margin-bottom","50px");
+                                $("#content").css("margin-bottom","50px");
+                            });
+
+                        });
+
+
+                    </script>
+
+
+                    <div id="load-more">
+                        <div class="load_more"><a onclick="exploreTracks(121, '')">Load More</a></div>
+                    </div>
+                </div>
+                <div class="three columns">
+
+
+                    <div class="sidebar-container widget-categories"><div class="sidebar-content"><div class="sidebar-header">Categories</div><strong><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore" rel="loadpage">Latest Music</a></div></strong><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=popular music" rel="loadpage">Popular Music</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=liked music" rel="loadpage">Liked Music</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=featured music" rel="loadpage">Featured Music</a></div><div class="sidebar-link-divider"><div class="divider"></div></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=acid house" rel="loadpage">Acid House</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=blues" rel="loadpage">Blues</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=business" rel="loadpage">Business</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=classical" rel="loadpage">Classical</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=comedy" rel="loadpage">Comedy</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=country" rel="loadpage">Country</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=deep house" rel="loadpage">Deep House</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=drum and bass" rel="loadpage">Drum And Bass</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=electronic" rel="loadpage">Electronic</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=entertainment" rel="loadpage">Entertainment</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=garage" rel="loadpage">Garage</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=hip-hop" rel="loadpage">Hip-hop</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=house" rel="loadpage">House</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=indie" rel="loadpage">Indie</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=jazz" rel="loadpage">Jazz</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=metal" rel="loadpage">Metal</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=new wave" rel="loadpage">New Wave</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=nu disco" rel="loadpage">Nu Disco</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=pop" rel="loadpage">Pop</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=progressive house" rel="loadpage">Progressive House</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=reggae" rel="loadpage">Reggae</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=rnb" rel="loadpage">Rnb</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=rock" rel="loadpage">Rock</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=ska" rel="loadpage">Ska</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=soul disco" rel="loadpage">Soul Disco</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=soulful house" rel="loadpage">Soulful House</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=synthwave" rel="loadpage">Synthwave</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=trance" rel="loadpage">Trance</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=trap" rel="loadpage">Trap</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=us garage" rel="loadpage">Us Garage</a></div><div class="sidebar-link"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=explore&filter=world" rel="loadpage">World</a></div></div></div>
+
+                </div>
+            </div>
+        </div>
+        <div id="share" style="display: none;">
+            <div class="modal-container">
+                <div class="modal-title" id="share-title">
+                    <div class="modal-menu-container">
+                        <div class="modal-menu-item modal-menu-item-active" id="tab-share">Share</div>
+                        <div class="modal-menu-item" id="tab-embed">Embed</div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="tab-share">
+                    <div class="modal-inner">
+                        <div class="modal-desc">Share on Social Networks</div>
+                        <div class="share-icon-container"><div class="social-icon-padding"><a id="fb-share" title="Share on Facebook"><div class="share-social-icon facebook-icon"></div></a></div></div>
+                        <div class="share-icon-container"><div class="social-icon-padding"><a id="tw-share" title="Share on Twitter"><div class="share-social-icon twitter-icon"></div></a></div></div>
+                        <div class="share-icon-container"><div class="social-icon-padding"><a id="gp-share" title="Share on Google+"><div class="share-social-icon gplus-icon"></div></a></div></div>
+                        <div class="share-icon-container"><div class="social-icon-padding"><a id="pn-share" title="Share on Pinterest"><div class="share-social-icon pinterest-icon"></div></a></div></div>
+                        <div class="share-icon-container"><div class="social-icon-padding"><a id="em-share" title="Share via email"><div class="share-social-icon email-icon"></div></a></div></div>
+                    </div>
+                    <div class="modal-inner">
+                        <div class="modal-desc">Share URL</div>
+                        <div class="modal-input"><input id="share-url" value="" readonly="readonly"></div>
+                    </div>
+                </div>
+                <div class="tab-embed">
+                    <div class="modal-inner">
+                        <div class="dummy-player">
+                            <div class="dummy-artwork"></div>
+                            <div class="dummy-play-btn"></div>
+                            <div class="dummy-author"></div>
+                            <div class="dummy-title"></div>
+                            <div class="dummy-seek"></div>
+                            <div class="dummy-avatars"></div>
+                            <div class="dummy-avatars"></div>
+                            <div class="dummy-avatars"></div>
+                            <div class="dummy-avatars"></div>
+                            <div class="dummy-avatars"></div>
+                        </div>
+                        <div class="modal-desc">Embed Code</div>
+                        <div class="modal-input"><input id="embed-url" value="" readonly="readonly"></div>
+                        <div class="modal-checkbox"><input type="checkbox" name="autoplay" id="autoplay"><label for="autoplay">Autoplay</label></div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="modal-menu">
+                    <div class="modal-btn"><a onclick="share(0, 0)">Close</a></div>
+                </div>
+            </div>
+        </div>
+        <div id="playlist" style="display: none;">
+            <div class="modal-container">
+                <div class="modal-title" id="share-title">
+                    <div class="modal-menu-container">
+                        <div class="modal-menu-item modal-menu-item-active" id="tab-playlist">Playlist</div>
+                        <div class="modal-loading"></div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="tab-playlist">
+                    <div class="modal-inner">
+                        <input type="text" id="playlist-name" class="playlist-input" placeholder="Create new playlist"><div onclick="playlist(0, 2)" class="button-normal playlist-save" id="playlist-save">Save</div>
+                    </div>
+                    <div class="modal-inner" id="playlists">
+
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="modal-menu">
+                    <div class="modal-btn"><a onclick="playlist(0, 0)">Close</a></div>
+                </div>
+            </div>
+        </div>
+        <div id="delete" style="display: none;">
+            <div class="modal-container">
+                <div class="modal-title" id="share-title">
+                    <div class="modal-menu-container">
+                        <div class="modal-menu-item modal-menu-item-active" id="tab-delete">Delete</div>
+                        <div class="modal-loading"></div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="tab-delete">
+                    <div class="modal-inner" id="delete-track" style="display: none;">
+                        Are you sure you want to delete this track?
+                    </div>
+                    <div class="modal-inner" id="delete-playlist" style="display: none;">
+                        Are you sure you want to delete this playlist?
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="modal-menu">
+                    <div class="modal-btn modal-btn-active"><a id="delete-button">Delete</a></div><div class="modal-btn"><a onclick="delete_modal(0, 'cancel')">Cancel</a></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(".playbtn").click(function(){
+                /*alert("here");*/
+                $('.body-content').css('margin-bottom','50px');
+                $('.footer').css('padding-bottom','50px');
+
+
+            });
+        </script>
+    </div>
+    <div id="connect" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-title" id="share-title">
+                <div class="modal-menu-container">
+                    <div class="modal-menu-item modal-menu-item-active" id="tab-login">Login</div>
+                    <div class="modal-menu-item" id="tab-register">Register</div>
+                    <div class="modal-menu-item" id="tab-term-condition" style="display:none;">Terms & Conditions</div>
+                    <div class="modal-loading"></div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="tab-login">
+                <div id="login-message"></div>
+                <div class="modal-inner">
+                    <form id="login-form" method="post">
+                        <div class="modal-input modal-connect">
+                            <input type="text" id="short" name="username" placeholder="Username or email">
+                            <input type="password" id="short" name="password" placeholder="Password">
+                            <input type="hidden" name="login_request" value="yes">
+                        </div>
+                        <div class="modal-checkbox"><input type="checkbox" name="remember" value="1" id="remember-me"><label for="remember-me">Remember me</label></div>
+                        <input type="submit" style="display: none;"><!-- submit button used to enable the enter key -->
+                    </form>
+                    <div class="forgot-password"><a href="http://192.168.0.127/customs/beatorious2/index.php?a=recover" rel="loadpage">Forgot your password?</a></div>
+                </div>
+                <div class="divider"></div>
+                <div class="modal-menu">
+                    <div class="modal-btn modal-btn-active"><a id="login-button" onclick="connect(1)">Login</a></div><div class="modal-btn modal-btn-facebook"><a href="https://www.facebook.com/dialog/oauth?client_id=712701692174806&redirect_uri=http://192.168.0.127/customs/beatorious2/requests/connect.php?facebook=true&state=987bb24b7814a085973296ba3c77006e&scope=public_profile,email" rel="https://www.facebook.com/dialog/oauth?client_id=712701692174806&redirect_uri=http://192.168.0.127/customs/beatorious2/requests/connect.php?facebook=true&state=987bb24b7814a085973296ba3c77006e&scope=public_profile,email" class="facebook-loginbutton fblogin-btn">Facebook</a></div>
+                </div>
+            </div>
+            <div class="tab-register">
+                <div id="register-message"></div>
+                <div class="modal-inner">
+                    <div class="modal-input modal-connect">
+                        <form id="register-form" method="post">
+                            <input type="text" id="short" name="username" placeholder="Username">
+                            <input type="password" id="short" name="password" placeholder="Password">
+                            <input type="text" id="short" name="email" placeholder="Email">
+                            <div class="modal-captcha"><input type="text" name="captcha" placeholder="Captcha"></div>
+                            <span class="register-captcha" id="captcha-register"><img src="http://192.168.0.127/customs/beatorious2/includes/captcha.php" /></span>
+                            <input type="submit" style="display: none;"><!-- submit button used to enable the enter key -->
+                        </form>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="modal-menu">
+                    <div class="modal-btn modal-btn-active"><a id="register-button" onclick="connect(0)">Register</a></div><div class="modal-btn modal-btn-facebook"><a href="javascript:void(0);" class="facebook-button">Facebook</a></div>
+                </div>
+            </div>
+            <div class="tab-term-condition" style="display:none;">
+                <div id="term-condition-message"></div>
+                <div class="modal-inner">
+                    <div class="modal-input modal-connect">
+                        <div class="row" style="color:gray;">
+                            <strong>Here comes your ToS info...</strong>
+                            <br /><br />
+                            <strong>1</strong>. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            <br /><br />
+                            <strong>2</strong>. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            <br /><br />
+                            <strong>3</strong>. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div id="signature-pad" class="m-signature-pad" style="margin-top: 15px;">
+                        <label style="color:gray;">Add sign here</label>
+                        <div class="" style="width: 250px;height: 60px; border: 1px solid;">
+                            <canvas></canvas>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="color:gray;">
+                            <input type="checkbox" id="terms" name="t&c" value="agree">I agree term & conditions<br>
+                            <button class="button clear" data-action="clear">Clear</button>
+                            <button class="button save" data-action="save" disabled="true">save and proceed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+    <div class="footer">
+        <div class="row-body">
+
+            <div class="footer-container">
+                <div class="footer-links">
+                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=page&b=tos" rel="loadpage">Terms and Conditions</a> -
+                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=page&b=privacy" rel="loadpage">Privacy Policy</a> -
+                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=page&b=disclaimer" rel="loadpage">Disclaimer</a> -
+                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=page&b=api" rel="loadpage">Developers</a> -
+                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=page&b=contact" rel="loadpage">Contact Beatorious</a> -
+                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=page&b=about" rel="loadpage">About Beatorious</a> -
+                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=admin" rel="loadpage">Admin</a> -
+                    <a href="http://192.168.0.127/customs/beatorious2/index.php?a=page&v=blog" rel="loadpage">Beatorious Blog</a>
+                </div>
+                <div class="footer-languages">
+                    Language: <a href="http://192.168.0.127/customs/beatorious2/index.php?lang=deutsch">Deutsch</a> - <a href="http://192.168.0.127/customs/beatorious2/index.php?lang=english">English</a> - <a href="http://192.168.0.127/customs/beatorious2/index.php?lang=espanyol">Espanyol</a> - <a href="http://192.168.0.127/customs/beatorious2/index.php?lang=french">French</a> - <a href="http://192.168.0.127/customs/beatorious2/index.php?lang=italian">Italian</a> - <a href="http://192.168.0.127/customs/beatorious2/index.php?lang=japanese">Japanese</a> - <a href="http://192.168.0.127/customs/beatorious2/index.php?lang=polish">Polish</a> - <a href="http://192.168.0.127/customs/beatorious2/index.php?lang=portuguese">Portuguese</a> - <a href="http://192.168.0.127/customs/beatorious2/index.php?lang=russian">Russian</a> - <a href="http://192.168.0.127/customs/beatorious2/index.php?lang=swedish">Swedish</a>
+                </div>
+                <div class="footer-languages">
+                    Copyright &copy; 2016 Beatorious. All rights reserved. Powered by <a href="http://beatorious.com" target="_blank">Beatorious</a>.
+                </div>
+            </div>
+        </div>
+        <section class="dzsap-sticktobottom dzsap-sticktobottom-for-skin-silver">
+            <div id="ap1" class="audioplayer-tobe" style="width:100%; margin-top:10px; margin-bottom: 10px;" data-thumb="img/thumb2.jpg" data-thumb_link="img/thumb.jpg" data-bgimage="img/bg.jpg" data-scrubbg="waves/scrubbg.png" data-scrubprog="waves/scrubprog.png" data-type="fake" data-source="fake" data-sourceogg="">
+                <!--  data-sourceogg="sounds/adg3.ogg"  -->
+
+                <div class="meta-artist" >
+                    <span class="the-artist" ></span>
+                    <span class="the-name" ></span>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="seek-bar-song" style="display: none;">
+        <div id="sound-container" class="jp-audio">
+            <div class="jp-type-single">
+                <div class="jp-gui jp-interface">
+                    <a href="javascript:;" class="jp-play">&nbsp;</a><a href="javascript:;" class="jp-pause">&nbsp;</a>
+                    <div class="jp-progress">
+                        <div class="jp-seek-bar">
+                            <div class="jp-play-bar"></div>
+                        </div>
+                    </div>
+                    <div class="jp-time-holder">
+                        <div class="jp-current-time"></div>
+                        <div class="jp-duration"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sound_ghost_player" style="display: none;"><div class="jp-audio"><div class="jp-type-single"><div class="jp-gui jp-interface"><div class="jp-progress"><div class="jp-seek-bar"><div class="jp-play-bar"></div></div></div></div></div></div></div>
+</div>
+
+
+
+
+
+
+<script>
+
+
+    jQuery(document).ready(function ($) {
+
+        /*$('.comments-writer').css('min-height','59px');*/
+
+        $(".playbtn").click(function(){
+            /*alert("here");*/
+            $('.footer').css('padding-bottom','50px');
+            $('.body-content').css('margin-bottom','50px');
+            $('#content').css('margin-bottom','50px');
+        });
+        $("#terms").change(function(){
+            if ($(this).prop('checked')) {
+                $('.save').prop('disabled', false);
+            }else{
+                $('.save').prop('disabled', true);
+            }
+        });
+
+        var settings_ap1 = {
+            disable_volume: "off"
+            ,autoplay: "off"
+            ,cue: "off"
+            ,disable_scrub: "default"
+            ,design_skin: "skin-silver"
+            ,skinwave_dynamicwaves:"on"
+            ,skinwave_enableSpectrum: "off"
+            ,settings_backup_type:"full"
+            ,settings_useflashplayer:"auto"
+            ,skinwave_spectrummultiplier: "4"
+            ,skinwave_comments_enable:"off"
+            ,skinwave_mode: "small"
+        };
+
+        dzsap_init("#ap1",settings_ap1);
+
+
+    });
+</script>
+
+
+<script>
+    $(document).ready(function(){
+        $(".fblogin-btn").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "requests/connect.php",
+                data: "login_fb=1",
+                cache: false,
+                success: function(html) {
+                    if(html == 1)
+                    {
+                        return true;
+                    }
+                }
+            });
+        });
+        var fb_login = "";
+        ""
+        if(fb_login)
+        {
+            $('.tab-register').append('<input id="fbregister" class="form-control" type="hidden" value="yes" name="data[register][fb]">');
+            $('#fbregister').remove();
+            $('#tab-register').css("display","block");
+            $('#tab-login').css("display","block");
+            $('.tab-login').css("display","block");
+            $('.tab-term-condition').css("display","none");
+            $('#tab-term-condition').css("display","none");
+            $('.modal-inner').css("height", "");
+            $('.modal-inner').css("min-height", "");
+            $('#connect').css("left", "50%");
+            $('.modal-container').css("width", "300px");
+
+            $('#connect').fadeIn();
+            $('.modal-background').fadeIn();
+            $('.tab-login').show();
+
+            // Add active class on tab
+            $('#tab-login').addClass('modal-menu-item-active').siblings().removeClass('modal-menu-item-active');
+
+            $('.modal-loading').hide();
+            $('#tab-register').css("display","none");
+            $('#tab-login').css("display","none");
+            $('.tab-register').css("display","none");
+            $('.tab-login').css("display","none");
+            $('.tab-term-condition').css("display","block");
+            $('#tab-term-condition').css("display","block");
+            $('.modal-inner').css("height", "100%");
+            $('.modal-container').css("width", "750px");
+            $('#connect').css("left", "33%");
+            $('.modal-inner').css("min-height", "350px");
+            if($( window ).width() <= 893 && $( window ).width() >= 450){
+                $('#connect').css("left", "25%");
+                $('.modal-container').css("width", "225%");
+            }else if($( window ).width() <= 449  && $( window ).width() >= 370){
+                $('#connect').css("left", "39%");
+                $('.modal-container').css("width", "127%");
+
+                $('.modal-inner').css("height", "225px");
+            }else if($( window ).width() <= 369){
+                $('#connect').css("left", "48%");
+                $('.modal-container').css("width", "110%");
+                $('.modal-inner').css("height", "225px");
+            }else{
+                $('#connect').css("left", "33%");
+                $('.modal-container').css("width", "250%");
+            }
+            $('#register-button').attr('onclick', 'connect(0)');
+            //alert(fb_login);
+        }
+    });
+
+</script>
+
+<script type="text/javascript" src="http://192.168.0.127/customs/beatorious2/themes/sound/js/signature_pad.js"></script>
+<script type="text/javascript" src="http://192.168.0.127/customs/beatorious2/themes/sound/js/app.js"></script>
+</body>
+</html>

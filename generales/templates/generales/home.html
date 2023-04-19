@@ -6,6 +6,7 @@
 
 {% load humanize %}
 
+
 <div id="page-content">
     <!-- Start Hero -->
     <section class="hero centered" data-scroll-index="0">
@@ -296,6 +297,65 @@
         <div class="line-between"></div>
     </div>
 
+    <!-- Emisoras -->
+    <section id="news" class="news parallax-scrl" data-scroll-index="5">
+        <div class="news-text-bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 order-lg-2 centered">
+                    <div class="title text-left">
+                        <h3>Nuestras</h3>
+                        <h2>Emisoras</h2>
+                    </div>
+                </div>
+                <div class="col-lg-9 order-lg-1 mt-10">
+                    <div class="news-slider">
+                        <div class="row ">
+                            <img class="radio_streaming" src="/static/base/img/hj2k-neiva.jpg" alt="img">
+                            <div class="sobreposition1">
+                                <div id="audio-player-radio" class="jp-radioPlayer" data-radio-url="https://inrai1.radioca.st/HJKKneiva" data-title="">
+                                    <div class="row justify-content-center">
+                                        <div id="player-instance-radio" class="jp-jplayer"></div>
+                                        <div class="controls jp-controls-holder">
+                                            <div class="play-pause jp-play pc-play"></div>
+                                            <div class="play-pause jp-pause fa pc-pause" style=" display:none"></div>
+                                        </div>
+                                        <div class="music_pseudo_bars">
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                            <div class="music_pseudo_bar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="between">
+        <div class="line-between"></div>
+    </div>
+
     <!-- Start Team -->
     <section id="team" class="team parallax-scrl" data-scroll-index="4">
         <div class="team-text-bg"></div>
@@ -366,96 +426,6 @@
         </div>
     </section>
     <!-- End Team -->
-
-    <div class="between">
-        <div class="line-between"></div>
-    </div>
-
-    <!-- Emisoras -->
-    <section id="news" class="news parallax-scrl" data-scroll-index="5">
-        <div class="news-text-bg"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 order-lg-2 centered">
-                    <div class="title text-left">
-                        <h3>Nuestras</h3>
-                        <h2>Emisoras</h2>
-                    </div>
-                </div>
-                <div class="col-lg-9 order-lg-1 mt-10">
-                    <div class="news-slider">
-                        <div class="owl-carousel owl-theme">
-                            <div class="news-item text-center">
-                                <div class="news-img">
-                                    <img class="img-fluid" src="/static/base/images/cristalina.jpg" alt="a">
-                                </div>
-                                <div class="news-text">
-                                    <h3>Cristalina Est&eacute;reo 102.3 FM</h3>
-                                    <p>Cundinamarca</p>
-                                </div>
-                            </div>
-                            <div class="news-item text-center">
-                                <div class="news-img">
-                                    <img class="img-fluid" src="/static/base/images/hj2k.jpg" alt="a">
-                                </div>
-                                <div class="news-text">
-                                    <h3>HJDOBLEK 840 AM</h3>
-                                    <p>Huila</p>
-                                </div>
-                            </div>
-                            <div class="news-item text-center">
-                                <div class="news-img">
-                                    <img class="img-fluid" src="/static/base/images/caquetena.jpg" alt="a">
-                                </div>
-                                <div class="news-text">
-                                    <h3>La Caquete&ntilde;a 93.1 FM</h3>
-                                    <p>Caquet&aacute;</p>
-                                </div>
-                            </div>
-                            <div class="news-item text-center">
-                                <div class="news-img">
-                                    <img class="img-fluid" src="/static/base/images/hj2k.jpg" alt="a">
-                                </div>
-                                <div class="news-text">
-                                    <h3>HJDOBLEK 1280 AM</h3>
-                                    <p>Huila</p>
-                                </div>
-                            </div>
-                            <div class="news-item text-center">
-                                <div class="news-img">
-                                    <img class="img-fluid" src="/static/base/images/cristalina.jpg" alt="a">
-                                </div>
-                                <div class="news-text">
-                                    <h3>Cristalina Est&eacute;reo 101.3 FM</h3>
-                                    <p>Huila</p>
-                                </div>
-                            </div>
-                            <div class="news-item text-center">
-                                <div class="news-img">
-                                    <img class="img-fluid" src="/static/base/images/plus.jpg" alt="a">
-                                </div>
-                                <div class="news-text">
-                                    <h3>Cristalina Plus</h3>
-                                    <p>Virtual</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-40 text-center">
-                        <ul class="arrows">
-                            <li class="arrow-left -news"><img src="/static/base/akar/assets/img/arrow-light.png" alt=""></li>
-                            <li class="arrow-right -news"><img src="/static/base/akar/assets/img/arrow-light-R.png" alt=""></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="between">
-        <div class="line-between"></div>
-    </div>
-
     <!-- Start News -->
     <section id="project" class="project-section parallax-scrl" data-scroll-index="6">
         <div class="left-bg"></div>
