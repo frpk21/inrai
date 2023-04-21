@@ -36,6 +36,15 @@
 	<link rel="stylesheet" type="text/css" href="/static/base/cristalinas/assets/css/jquery.datetimepicker.css">
 	<link rel="stylesheet" type="text/css" href="/static/base/cristalinas/assets/css/jquery.bxslider.css">
 	<link rel="stylesheet" href="/static/base/cristalinas/assets/css/main.css">
+
+
+    <link rel="stylesheet" href="/static/base/circle_player/lib/circle-player/skin/circle.player.css">
+<script type="text/javascript" src="/static/base/circle_player/lib/jquery.min.js"></script>
+<script type="text/javascript" src="/static/base/circle_player/dist/jplayer/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="/static/base/circle_player/lib/circle-player/js/jquery.transform2d.js"></script>
+<script type="text/javascript" src="/static/base/circle_player/lib/circle-player/js/jquery.grab.js"></script>
+<script type="text/javascript" src="/static/base/circle_player/lib/circle-player/js/mod.csstransforms.min.js"></script>
+<script type="text/javascript" src="/static/base/circle_player/lib/circle-player/js/circle.player.js"></script>
     </head>
 
     <body><!--
@@ -139,5 +148,50 @@
 <script src="/static/base/cristalinas/assets/js/owl.carousel.min.js"></script>
 <script src="/static/base/cristalinas/assets/js/jquery.bxslider.min.js"></script>
 <script src="/static/base/cristalinas/assets/js/main1.js"></script>   
+
+
+<script type="text/javascript">
+    //<![CDATA[
+    
+    $(document).ready(function(){
+    
+        /*
+         * Instance CirclePlayer inside jQuery doc ready
+         *
+         * CirclePlayer(jPlayerSelector, media, options)
+         *   jPlayerSelector: String - The css selector of the jPlayer div.
+         *   media: Object - The media object used in jPlayer("setMedia",media).
+         *   options: Object - The jPlayer options.
+         *
+         * Multiple instances must set the cssSelectorAncestor in the jPlayer options. Defaults to "#cp_container_1" in CirclePlayer.
+         *
+         * The CirclePlayer uses the default supplied:"m4a, oga" if not given, which is different from the jPlayer default of supplied:"mp3"
+         * Note that the {wmode:"window"} option is set to ensure playback in Firefox 3.6 with the Flash solution.
+         * However, the OGA format would be used in this case with the HTML solution.
+         */
+    
+        var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
+        {
+            m4a: "https://inrai1.radioca.st/HJKKneiva",
+            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+        }, {
+            cssSelectorAncestor: "#cp_container_1",
+            swfPath: "../../dist/jplayer",
+            wmode: "window",
+            keyEnabled: true
+        });
+        var myCirclePlayer = new CirclePlayer("#jquery_jplayer_2",
+        {
+            m4a: "https://inrai03.radioca.st/cristalinaflorencia",
+            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+        }, {
+            cssSelectorAncestor: "#cp_container_2",
+            swfPath: "../../dist/jplayer",
+            wmode: "window",
+            keyEnabled: true
+        });
+    });
+    //]]>
+    </script>
     </body>
 </html>
