@@ -42,7 +42,7 @@
 
 .cp-buffer-1,
 .cp-buffer-2 {
-	background:url("/static/base/akar/assets/audiocircle/lib/circle-player/skin/buffer.png") 0 0 no-repeat;
+	background:url("/static/base/circle_player/lib/circle-player/skin/buffer.png") 0 0 no-repeat;
 }
 
 
@@ -52,13 +52,13 @@
  */
 
 .cp-container .cp-fallback {
-	background:url("/static/base/akar/assets/audiocircle/lib/circle-player/skin/progress_sprite.jpg") no-repeat;
+	background:url("/static/base/circle_player/lib/circle-player/skin/progress_sprite.jpg") no-repeat;
 	background-position:0 104px; 
 }
 
 .cp-progress-1,
 .cp-progress-2 {
-	background:url("/static/base/akar/assets/audiocircle/lib/circle-player/skin/progress.png") 0 0 no-repeat;
+	background:url("/static/base/circle_player/lib/circle-player/skin/progress.png") 0 0 no-repeat;
 }
 
 .cp-buffer-holder,
@@ -128,19 +128,19 @@
 }
 */
 .cp-controls .cp-play {
-	background:url("/static/base/akar/assets/audiocircle/lib/circle-player/skin/play.gif") no-repeat;
+	background:url("/static/base/circle_player/lib/circle-player/skin/play.gif") no-repeat;
 }
 
 .cp-controls .cp-play:hover {
-	background:url("/static/base/akar/assets/audiocircle/lib/circle-player/skin/play.gif") no-repeat;
+	background:url("/static/base/circle_player/lib/circle-player/skin/play.gif") no-repeat;
 }
 
 .cp-controls .cp-pause {
-	background:url("/static/base/akar/assets/audiocircle/lib/circle-player/skin/pause.gif") no-repeat;
+	background:url("/static/base/circle_player/lib/circle-player/skin/pause.gif") no-repeat;
 }
 
 .cp-controls .cp-pause:hover {
-	background:url("/static/base/akar/assets/audiocircle/lib/circle-player/skin/pause.gif") no-repeat;
+	background:url("/static/base/circle_player/lib/circle-player/skin/pause.gif") no-repeat;
 }
 .cp-jplayer {
 	width:0;

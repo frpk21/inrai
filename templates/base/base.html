@@ -27,13 +27,8 @@
         <link rel="icon" href="/static/base/images/inrai/favicon.png" type="image/x-icon">
 
         <!-- audio streaming -->
-        <link rel="stylesheet" href="/static/base/akar/assets/audiocircle/lib/circle-player/skin/circle.player.css">
-        <script type="text/javascript" src="/static/base/akar/assets/audiocircle/lib/jquery.min.js"></script>
-        <script type="text/javascript" src="/static/base/akar/assets/audiocircle/dist/jplayer/jquery.jplayer.min.js"></script>
-        <script type="text/javascript" src="/static/base/akar/assets/audiocircle/lib/circle-player/js/jquery.transform2d.js"></script>
-        <script type="text/javascript" src="/static/base/akar/assets/audiocircle/lib/circle-player/js/jquery.grab.js"></script>
-        <script type="text/javascript" src="/static/base/akar/assets/audiocircle/lib/circle-player/js/mod.csstransforms.min.js"></script>
-        <script type="text/javascript" src="/static/base/akar/assets/audiocircle/lib/circle-player/js/circle.player.js"></script>
+        <link rel="stylesheet" href="/static/base/circle_player/lib/circle-player/skin/circle.player.css">
+
     </head>
 
     <body><!--
@@ -113,13 +108,23 @@
         <script src="/static/base/akar/assets/js/plugin.js"></script>
         <script src="/static/base/akar/assets/js/main.js"></script>
         <!-- Javascript-->
+        <script src="/static/base/audio/js/core.min.js"></script>
+        <script src="/static/base/audio/js/script.js"></script>
+
+
+        <!--AUDIO-->
+        <script type="text/javascript" src="/static/base/circle_player/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/base/circle_player/dist/jplayer/jquery.jplayer.min.js"></script>
+        <script type="text/javascript" src="/static/base/circle_player/lib/circle-player/js/jquery.transform2d.js"></script>
+        <script type="text/javascript" src="/static/base/circle_player/lib/circle-player/js/jquery.grab.js"></script>
+        <script type="text/javascript" src="/static/base/circle_player/lib/circle-player/js/mod.csstransforms.min.js"></script>
+        <script type="text/javascript" src="/static/base/circle_player/lib/circle-player/js/circle.player.js"></script>
 
 
 <script type="text/javascript">
     //<![CDATA[
     
     $(document).ready(function(){
-    
         /*
          * Instance CirclePlayer inside jQuery doc ready
          *
@@ -141,20 +146,23 @@
             oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
         }, {
             cssSelectorAncestor: "#cp_container_1",
-            swfPath: "http://inrai.net/static/base/akar/assets/audiocircle/dist/jplayer",
+            swfPath: "../../dist/jplayer",
             wmode: "window",
             keyEnabled: true
         });
-        var myCirclePlayer = new CirclePlayer("#jquery_jplayer_2",
+        
+        var myCirclePlayer2 = new CirclePlayer("#jquery_jplayer_2",
         {
             m4a: "https://inrai03.radioca.st/cristalinaflorencia",
             oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
         }, {
             cssSelectorAncestor: "#cp_container_2",
-            swfPath: "http://inrai.net/static/base/akar/assets/audiocircle/dist/jplayer",
+            swfPath: "../../dist/jplayer",
             wmode: "window",
             keyEnabled: true
         });
+
+        
     });
     //]]>
     </script>
