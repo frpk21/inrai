@@ -254,7 +254,7 @@
                             <a href="project-detail-light.html">
                                 <div class="project-content">
                                     <div class="img-project">{{item.archivo_foto}}
-                                        <img src="{{item.archivo_foto}}" alt="">
+                                        <img src="{{item.archivo_foto.url}}" alt="">
                                     </div>
                                     <div class="detail-project">
                                         <p><span class="number">{{forloop.counter}}</span> <span class="strip"></span> {{item.categoria.nombre}}</p>
@@ -268,7 +268,7 @@
                             <a href="project-detail-light.html">
                                 <div class="project-content mt-60-lg ">
                                     <div class="img-project">
-                                        <img src="{{item.archivo_foto}}" alt="">
+                                        <img src="{{item.archivo_foto.url}}" alt="">
                                     </div>
                                     <div class="detail-project">
                                         <p><span class="number">{{forloop.counter}}</span> <span class="strip"></span>{{item.categoria.nombre}}</p>
