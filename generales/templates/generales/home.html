@@ -245,13 +245,22 @@
                 </div>
             </div>
             <div class="row mt-40">
+                <div class="col-lg-6 order-lg-2">
+
+                    <video width="640" height="480" controls>
+                        <source src="/static/base/images/inrai/Sliding Frames Intro_1080p.mp4" type="video/mp4" />
+
+                        Su navegador no soporta contenido multimedia.
+                      </video>
+                </div>
+                <div class="col-lg-6 order-lg-1">
                 {% for item in proyectos %}
                     <div style="display: none;">
                         {% cycle 'odd' 'even' %}
                     </div>   
                     {% if cycle == 'odd' %}
                         <div class="col-md-12 col-lg-6">
-                            <a href="project-detail-light.html">
+                            <a href="#">
                                 <div class="project-content">
                                     <div class="img-project">{{item.archivo_foto}}
                                         <img src="{{item.archivo_foto.url}}" alt="">
@@ -265,7 +274,7 @@
                         </div>
                     {% else %}
                         <div class="col-md-12 col-lg-6">
-                            <a href="project-detail-light.html">
+                            <a href="#">
                                 <div class="project-content mt-60-lg ">
                                     <div class="img-project">
                                         <img src="{{item.archivo_foto.url}}" alt="">
@@ -279,14 +288,12 @@
                         </div>
                     {% endif %}
                 {% endfor %}
-
-
                 <div class="col-lg-12 text-center">
                     <div class="mt-20">
-                        <a class="btn-main" href="single-portfolio-light.html">Ver Todos</a>
+                        <a class="btn-main" href="#">Ver Todos</a>
                     </div>
                 </div>
-
+                </div>
             </div>
         </div>
     </section>
