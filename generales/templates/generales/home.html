@@ -244,55 +244,66 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-40">
-                <div class="col-lg-6 order-lg-2">
-
-                    <video width="640" height="480" controls>
-                        <source src="/static/base/images/inrai/Sliding Frames Intro_1080p.mp4" type="video/mp4" />
-
-                        Su navegador no soporta contenido multimedia.
-                      </video>
-                </div>
-                <div class="col-lg-6 order-lg-1">
-                {% for item in proyectos %}
-                    <div style="display: none;">
-                        {% cycle 'odd' 'even' %}
-                    </div>   
-                    {% if cycle == 'odd' %}
-                        <div class="col-md-12 col-lg-6">
-                            <a href="#">
-                                <div class="project-content">
-                                    <div class="img-project">{{item.archivo_foto}}
-                                        <img src="{{item.archivo_foto.url}}" alt="">
-                                    </div>
-                                    <div class="detail-project">
-                                        <p><span class="number">{{forloop.counter}}</span> <span class="strip"></span> {{item.categoria.nombre}}</p>
-                                        <h3 class="reveal-text">{{item.titulo}}</h3>
-                                    </div>
-                                </div>
-                            </a>
+            <div class="row ">
+                <div class="col-md-7 ml-auto">
+                    <div class="project-content">
+                        <div class="img-project">
+                            <video width="100%" controls>
+                                <source src="/static/base/images/inrai/Sliding Frames Intro_720p.mp4" type="video/mp4" />
+                                Su navegador no soporta contenido multimedia.
+                            </video>
                         </div>
-                    {% else %}
-                        <div class="col-md-12 col-lg-6">
-                            <a href="#">
-                                <div class="project-content mt-60-lg ">
-                                    <div class="img-project">
-                                        <img src="{{item.archivo_foto.url}}" alt="">
-                                    </div>
-                                    <div class="detail-project">
-                                        <p><span class="number">{{forloop.counter}}</span> <span class="strip"></span>{{item.categoria.nombre}}</p>
-                                        <h3 class="reveal-text">{{item.titulo}}</h3>
-                                    </div>
-                                </div>
-                            </a>
+                        <div class="detail-project">
+                            <p><span class="number">1</span> <span class="strip"></span> BTL</p>
+                            <h3 class="reveal-text">PRODUCCION</h3>
                         </div>
-                    {% endif %}
-                {% endfor %}
-                <div class="col-lg-12 text-center">
-                    <div class="mt-20">
-                        <a class="btn-main" href="#">Ver Todos</a>
                     </div>
+                    <!--
+                    {% for item in proyectos %}
+                        <div style="display: none;">
+                            {% cycle 'odd' 'even' %}
+                        </div>   
+                        {% if cycle == 'odd' %}
+                            <div class="col-md-12 col-lg-6">
+                                <a href="#">
+                                    <div class="project-content">
+                                        <div class="img-project">{{item.archivo_foto}}
+                                            <img src="{{item.archivo_foto.url}}" alt="">
+                                        </div>
+                                        <div class="detail-project">
+                                            <p><span class="number">{{forloop.counter}}</span> <span class="strip"></span> {{item.categoria.nombre}}</p>
+                                            <h3 class="reveal-text">{{item.titulo}}</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% else %}
+                            <div class="col-md-12 col-lg-6">
+                                <a href="#">
+                                    <div class="project-content mt-60-lg ">
+                                        <div class="img-project">
+                                            <img src="{{item.archivo_foto.url}}" alt="">
+                                        </div>
+                                        <div class="detail-project">
+                                            <p><span class="number">{{forloop.counter}}</span> <span class="strip"></span>{{item.categoria.nombre}}</p>
+                                            <h3 class="reveal-text">{{item.titulo}}</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="col-lg-12 text-center">
+                        <div class="mt-20">
+                            <a class="btn-main" href="#">Ver Todos</a>
+                        </div>
+                    </div>-->
                 </div>
+                <div class="col-md-5 ml-auto">
+                    <video width="100%"  controls class="about-img line-img" preload="AUTO">
+                        <source src="/static/base/images/inrai/Sliding Frames Intro_1080p.mp4" type="video/mp4" />
+                        Su navegador no soporta contenido multimedia.
+                    </video>
                 </div>
             </div>
         </div>
@@ -304,7 +315,7 @@
     </div>
 
     <!-- Emisoras -->
-    <section id="team" class="team parallax-scrl" data-scroll-index="4">
+    <section id="team" class="team parallax-scrl" data-scroll-index="5">
         <div class="team-text-bg"></div>
         <div class="container">
             <div class="row">
@@ -628,7 +639,7 @@
                                     <img class="img-fluid" src="/static/base/images/monica.jpg" alt="a">
                                 </div>
                                 <div class="team-text">
-                                    <h3>M&oacute;nica Truijillo</h3>
+                                    <h3>M&oacute;nica Trujillo</h3>
                                     <p>Asistente de Medios</p>
                                 </div>
                             </div>
@@ -706,7 +717,7 @@
     </div>
 
     <!-- Start Testimonial -->
-    <section id="client" class="testimonial fades" data-scroll-index="6">
+    <section id="client" class="testimonial fades" data-scroll-index="">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 mid-title">
