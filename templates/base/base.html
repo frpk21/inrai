@@ -230,6 +230,18 @@
             $(document).ready(function(){
                 $('#pauta_modal').modal("show");
                 //$('#ventana_modal').modal('show');
+                var myModal = document.getElementById('pauta_modal');
+
+
+                // Deshabilitar el botón de cierre
+                myModal.querySelector('.btn-close').disabled = true;
+
+                // Deshabilitar el evento de cierre
+                myModal.addEventListener('click', function(event) {
+                if (event.target === myModal) {
+                    event.preventDefault();
+                }
+                });
             });
         </script>
     </body>
