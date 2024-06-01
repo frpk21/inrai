@@ -81,11 +81,7 @@
                 <div class="modal-content" style="width: 100%; background: #98989800;">
                     <figure>
                         <img class="img" src="/static/base/images/inrai/fondo.png"  width ="100%" alt="1" style=" position:absolute;">
-                        <div class="row justify-content-center">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:red; position:absolute;">
-                                <small>Cerrar</small> <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div><br><br>
+                        <br><br>
                     </figure>
                     <div class="modal-body" style="background-color: rgba(44, 44, 44, 0); border-radius: 5px;">
                         <div class="row justify-content-center">
@@ -229,16 +225,13 @@
         <script>
             $(document).ready(function(){
                 $('#pauta_modal').modal("show");
-                //$('#ventana_modal').modal('show');
-                var myModal = document.getElementById('pauta_modal');
-
 
                 // Deshabilitar el botón de cierre
-                myModal.querySelector('.btn-close').disabled = true;
+                pauta_modal.querySelector('.btn-close').disabled = true;
 
                 // Deshabilitar el evento de cierre
-                myModal.addEventListener('click', function(event) {
-                if (event.target === myModal) {
+                pauta_modal.addEventListener('click', function(event) {
+                if (event.target ===pauta_modal) {
                     event.preventDefault();
                 }
                 });
