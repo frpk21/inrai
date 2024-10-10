@@ -5,896 +5,786 @@
 {% block contenido %}
 
 {% load humanize %}
+<style>
 
-<div id="page-content">
-    <!-- Start Hero -->
-    <section class="hero centered" data-scroll-index="0">
-        <div class="hero-bg">
-            <div class="square"></div>
-            <div class="square-overlay"></div>
-        </div>
-        <div class="email-link title-anim">
-            <a href="mailto: servicioalcliente@sistemainrai.net">servicioalcliente@sistemainrai.net</a>
-        </div>
-        <div class="social title-anim">
-            <br><br><br><br><ul>
-                <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i> </a></li>
-                <li><a href="#"><i class="fab fa-behance" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fab fa-dribbble" aria-hidden="true"></i></a></li>
-            </ul>
-        </div>
-        <div class="container between">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div>
-                        <div class="hero-title text-left">
-                            <h3 class="title-anim">Somos</h3>
-                            <!--<h1 class="title-anim">Una Compa&ntilde;&iacute;a de</h1>-->
-                            <div class="mt-20"></div>
-                            <h2 class="title-anim">Comunicaciones</h2>
-                            <h2 class="title-anim">Marketing</h2>
-                            <h2 class="title-anim">Entretenimiento</h2>
-                            <div class="mt-40 title-anim">
-                                <a class="btn-main" href="{% url 'generales:nosotros' %}" >Nosotros</a>
-                            </div>
-                        </div>
-                    </div>
+
+
+        tr{
+            text-align: left;
+            vertical-align: middle;
+            background-color: transparent;
+        }
+        td{
+            padding: 40px;
+            border: 0px black;
+        }
+        table{
+            border: 0px solid rgba(255, 77, 0, 0.162);
+        }
+    .audio-player {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        display: flex;
+        text-align: center;
+    }
+
+    .audio-player audio {
+        display: inline-block;
+        width: 100%;
+        border: 0px solid #cccccc00;
+        border-radius: 0px;
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+    }
+
+    .audio-player audio::-webkit-media-controls-play-button {
+        background-color: #ff7300;
+        color: #fff;
+        border-radius: 30%;
+        width: 34px;
+        height: 34px;
+    }
+
+    .audio-player audio::-webkit-media-controls-timeline {
+        background-color: #f5f5f5;
+    }
+
+    .audio-player audio::-webkit-media-controls-current-time-display {
+        color: #278312;
+    }
+
+    .audio-player audio::-webkit-media-controls-time-remaining-display {
+        color: #f00000;
+    }
+
+    .audio-player audio::-webkit-media-controls-mute-button {
+        display: none;
+    }
+
+    .audio-player audio::-webkit-media-controls-volume-slider {
+        display: none;
+    }
+
+ </style>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalsignup">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary pattern-overlay-7">
+                <div class="modal-title p-3 text-white-force">
+                    <h5 class="mb-0">Solicitar una cotizaci&oacute;n</h5>
+                    <p class="mb-0">Nuestra &aacute;rea comercial te atender&aacute; en el menor tiempo pocible.</p>
                 </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-        </div>
-    </section>
-    <!-- End Hero -->
-
-    <!-- Start About -->
-    <section id="about" class="about parallax-scrl" data-scroll-index="1">
-        <div class="right-bg"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                </div>
-                <div class="col-lg-6 order-lg-2">
-                    <div class="about-text">
-                        <div class="title text-left">
-                            <h3>ATL </h3>
-                            <h2>Radio Regional</h2>
+            <div class="modal-body">
+                <div class="w-100 p-3">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label" for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
-                        <div class="about-inner mt-30">
-                            <h4>Como compañía de comunicaciones estamos en el medio hace m&aacute;s de 40 años.</h4>
-                            <p>Contamos con emisoras propias ubicadas en 4 departamentos las cuales siempre están posicionadas en los primeros lugares de sintonía y con una excelente aceptación de nuestra audicencia , nuestro principal objetivo es satisfacer a la comunidad con programas noticiosos, musicales y c&iacute;vicos.</p>
-                            <p>M&aacute;s de 1.000 emisoras, tanto comerciales, como comunitarias y de interés público; nos permiten ofrecer a nuestros anunciantes, la divulgación de sus campañas con un alto porcentaje de cubrimiento y credibilidad en todo el territorio nacional.</p>
+                        <div class="mb-3">
+                            <label class="form-label" for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*********">
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 order-lg-1">
-                    <div class="about-img line-img">
-                        <div class="about-overlay"></div>
-                        <img class="img-fluid" src="/static/base/images/c.jpg" alt="1">
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <div class="between">
-        <div class="line-between"></div>
-    </div>
-
-    <!-- Start Service -->
-    <section id="service" class="service parallax-scrl" data-scroll-index="2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="title text-left">
-                        <h3>&Aacute;reas de</h3>
-                        <h2>Servicios</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4 mt-30">
-                    <div class="service-item bg-main">
-                        <div class="service-icon text-center">
-                            <img src="/static/base/images/service/btl.png" alt="">
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label class="form-label" for="exampleInputPassword2">Confirm Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="*********">
                         </div>
-                        <div class="service-text">
-                            <h3>BTL</h3>
-                            <p>Contamos con novedosos canales de comunicación para
-                                impulsar y promocionar sus productos o servicios. Siempre
-                                buscamos el espacio ideal en el cual podamos acercarnos al
-                                consumidor de manera directa empleando en grande la
-                                creatividad, sorpresa y el sentido de la oportunidad.
-                                Ofrecemos un completo servicio de mobiliario, arquitectura
-                                efímera, protocolo y los recursos necesarios para la
-                                promoción de la marca.</p>
-                            <div class="service-line"></div>
-                            <ul class="service-list">
-                                <li>Activaciones</li>
-                                <li>Conciertos</li>
-                                <li>Log&iacute;stica</li>
-                            </ul>
+                        <!-- Checkbox -->
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                            <label class="form-check-label" for="exampleCheck2">By signing up, you agree to the <a href="#">terms of service</a></label>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-50">
-                    <div class="service-item bg-second">
-                        <div class="service-icon text-center">
-                            <img src="/static/base/images/service/volume12.png" alt="">
-                        </div>
-                        <div class="service-text">
-                            <h3>PERIFONEO</h3>
-                            <p> Es un medio directo de llegada al público; en las calles, mercados y zonas rurales. El perifoneo es móvil, emplea altavoces o cornetas instaladas sobre un vehículo para ir recorriendo los lugares mientras se emite el mensaje.</p>
-                            <div class="service-line"></div>
-                            <ul class="service-list">
-                                <li>Regional</li>
-                                <li>Rural</li>
-                                <li>Directo</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-30">
-                    <div class="service-item bg-main">
-                        <div class="service-icon text-center">
-                            <img src="/static/base/images/service/monitoreo.png" alt="">
-                        </div>
-                        <div class="service-text">
-                            <h3>MONITOREO RADIO</h3>
-                            <p>Verificamos la emisi&oacute;n de la pauta radial en tiempo real generando evidencias de su transmisi&oacute;n. </p>
-                            <div class="service-line"></div>
-                            <ul class="service-list">
-                                <li>Tecnolog&iacute;a WEB</li>
-                                <li>Streaming</li>
-                                <li>Evidencias</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-lg-4 mt-30">
-                    <div class="service-item bg-main">
-                        <div class="service-icon text-center">
-                            <img src="/static/base/images/service/digital.png" alt="">
-                        </div>
-                        <div class="service-text">
-                            <h3>DIGITAL & SOCIAL MEDIA</h3>
-                            <p>Planificamos y gestionamos estrategias inteligentes que están cargadas de datos de audiencia y que nos permiten llegar a las personas adecuadas, en el momento adecuado y con el mensaje adecuado. Todo lo que hacemos está basado en datos.
-
-                                Ya sea que su objetivo sea la notoriedad, el tráfico, las conversiones o algo intermedio, nuestro enfoque integral garantiza que su campaña alcance su máximo potencial, al mismo tiempo que aprovecha al máximo su presupuesto de medios, en todo momento.
-                                </p>
-                            <div class="service-line"></div>
-                            <ul class="service-list">
-                                <li>Social</li>
-                                <li>Influencer</li>
-                                <li>Administraci&oacute;n</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-50">
-                    <div class="service-item bg-second">
-                        <div class="service-icon text-center">
-                            <img src="/static/base/images/service/produccion.png"1 alt="">
-                        </div>
-                        <div class="service-text">
-                            <h3>PRODUCCI&Oacute;N</h3>
-                            <p> Nos especializamos en la realización de piezas audiovisuales
-                                corporativas, producimos podcast, comerciales para TV,
-                                videoclips musicales y fotografía profesional.
-                                Disponemos de soluciones innovadoras, llenas de
-                                creatividad, desarrolladas con la mejor tecnología. Hoy
-                                tenemos la capacidad de transmitir en vivo tanto audio como
-                                video en tiempo real, lo que permite apoyar cualquier servicio
-                                BTL.</p>
-                            <div class="service-line"></div>
-                            <ul class="service-list">
-                                <li>Podcast</li>
-                                <li>Video Streaming</li>
-                                <li>Audio Streaming</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-30">
-                    <div class="service-item bg-main">
-                        <div class="service-icon text-center">
-                            <img src="/static/base/images/service/qbos.png" alt="">
-                        </div>
-                        <div class="service-text">
-                            <h3>Qbos</h3>
-                            <p>Ponemos en práctica la visión por ordenador, carga web instantánea, streaming, retroalimentación de los usuarios, entrada de datos, y mucho más. En Qubos no consideramos la cabina de fotos como un jugete tradicional, sino como una utilidad de marca. </p>
-                            <div class="service-line"></div>
-                            <ul class="service-list">
-                                <li>Activaciones</li>
-                                <li>Experiencia de marca</li>
-                                <li>Alto impacto</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-    <!-- End Service -->
-
-    <div class="between">
-        <div class="line-between"></div>
-    </div>
-
-   
-    <section id="project" class="project-section parallax-scrl" data-scroll-index="3">
-        <div class="left-bg"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mt-30">
-                    <div class="title">
-                        <h3>Experiencia</h3>
-                        <h2>Soluciones 360</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row ">
-                <div class="col-md-7 ml-auto">
-                    <div class="project-content">
-                        <div class="img-project">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/7blq24d3CWU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                        <div class="detail-project">
-                            <p><span class="number">1</span> <span class="strip"></span> BTL</p>
-                            
-                        </div>
-                    </div>
-                    <!--
-                    {% for item in proyectos %}
-                        <div style="display: none;">
-                            {% cycle 'odd' 'even' %}
-                        </div>   
-                        {% if cycle == 'odd' %}
-                            <div class="col-md-12 col-lg-6">
-                                <a href="#">
-                                    <div class="project-content">
-                                        <div class="img-project">{{item.archivo_foto}}
-                                            <img src="{{item.archivo_foto.url}}" alt="">
-                                        </div>
-                                        <div class="detail-project">
-                                            <p><span class="number">{{forloop.counter}}</span> <span class="strip"></span> {{item.categoria.nombre}}</p>
-                                            <h3 class="reveal-text">{{item.titulo}}</h3>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        {% else %}
-                            <div class="col-md-12 col-lg-6">
-                                <a href="#">
-                                    <div class="project-content mt-60-lg ">
-                                        <div class="img-project">
-                                            <img src="{{item.archivo_foto.url}}" alt="">
-                                        </div>
-                                        <div class="detail-project">
-                                            <p><span class="number">{{forloop.counter}}</span> <span class="strip"></span>{{item.categoria.nombre}}</p>
-                                            <h3 class="reveal-text">{{item.titulo}}</h3>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                    <div class="col-lg-12 text-center">
-                        <div class="mt-20">
-                            <a class="btn-main" href="#">Ver Todos</a>
-                        </div>
-                    </div>-->
-                </div>
-                <div class="col-md-5 ml-auto">
-                    <video width="100%"  controls class="about-img line-img" preload="AUTO">
-                        <source src="/static/base/images/inrai/Sliding Frames Intro_1080p.mp4" type="video/mp4" />
-                        Su navegador no soporta contenido multimedia.
-                    </video>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Projects -->
-
-    <div class="between">
-        <div class="line-between"></div>
-    </div>
-
-    <!-- Emisoras -->
-    <section id="team" class="team parallax-scrl" data-scroll-index="5">
-        <div class="team-text-bg"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mt-30 centered">
-                    <div class="title text-left">
-                        <h3>Nuestras</h3>
-                        <h2>Emisoras</h2>
-                    </div>
-                </div>
-                <div class="container" style="background-color:rgba(150, 150, 150, 0)">
-                    <div class="card-group">
-                        <div class="card">
-                            <img src="/static/base/images/inrai/hj-kk.jpg" class="card-img-top" alt="img">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title">HJDOBLEK <span style="color:rgb(255, 77, 0)">HUILA</span></h5>
-                                        <p class="card-text">840 AM</p>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div id="jquery_jplayer_1" class="cp-jplayer"></div>
-                                        <div id="cp_container_1" class="cp-container">
-                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
-                                                <div class="cp-buffer-1"></div>
-                                                <div class="cp-buffer-2"></div>
-                                            </div>
-                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
-                                                <div class="cp-progress-1"></div>
-                                                <div class="cp-progress-2"></div>
-                                            </div>
-                                            <div class="cp-circle-control"></div>
-                                            <ul class="cp-controls">
-                                                <li><a class="cp-play" tabindex="1">play</a></li>
-                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
-                                            </ul>
-                                        </div>
-                                    </div>
+                            <!-- Button -->
+                        <div class="row align-items-center">
+                                <div class="col-sm-4">
+                                    <button type="submit" class="btn btn-dark btn-line">Sign me up</button>
+                                </div>
+                                <div class="col-sm-8 text-sm-end">
+                                    <span class="text-muted">Already have an account? <a href="sign-in.html">Sign in here</a></span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <img src="/static/base/images/inrai/cristalina_2.png" class="card-img-top" alt="img">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title">CRISTALINA EST&Eacute;REO <span style="color:rgb(255, 77, 0)">HUILA</span></h5>
-                                        <p class="card-text">101.3 FM</p>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div id="jquery_jplayer_2" class="cp-jplayer"></div>
-                                        <div id="cp_container_2" class="cp-container">
-                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
-                                                <div class="cp-buffer-1"></div>
-                                                <div class="cp-buffer-2"></div>
-                                            </div>
-                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
-                                                <div class="cp-progress-1"></div>
-                                                <div class="cp-progress-2"></div>
-                                            </div>
-                                            <div class="cp-circle-control"></div>
-                                            <ul class="cp-controls">
-                                                <li><a class="cp-play" tabindex="1">play</a></li>
-                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="/static/base/images/inrai/cristalina-100.jpg" class="card-img-top" alt="img">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title">CRISTALINA EST&Eacute;REO <span style="color:rgb(255, 77, 0)">CUNDINAMARCA</span></h5>
-                                        <p class="card-text">102.3 FM</p>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div id="jquery_jplayer_3" class="cp-jplayer"></div>
-                                        <div id="cp_container_3" class="cp-container">
-                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
-                                                <div class="cp-buffer-1"></div>
-                                                <div class="cp-buffer-2"></div>
-                                            </div>
-                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
-                                                <div class="cp-progress-1"></div>
-                                                <div class="cp-progress-2"></div>
-                                            </div>
-                                            <div class="cp-circle-control"></div>
-                                            <ul class="cp-controls">
-                                                <li><a class="cp-play" tabindex="1">play</a></li>
-                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-group">
-                        <div class="card">
-                            <img src="/static/base/images/inrai/hj-kk.jpg" class="card-img-top" alt="img">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title">HJDOBLEK <span style="color:rgb(255, 77, 0)">PITALITO</span></h5>
-                                        <p class="card-text">1280 AM</p>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div id="jquery_jplayer_4" class="cp-jplayer"></div>
-                                        <div id="cp_container_4" class="cp-container">
-                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
-                                                <div class="cp-buffer-1"></div>
-                                                <div class="cp-buffer-2"></div>
-                                            </div>
-                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
-                                                <div class="cp-progress-1"></div>
-                                                <div class="cp-progress-2"></div>
-                                            </div>
-                                            <div class="cp-circle-control"></div>
-                                            <ul class="cp-controls">
-                                                <li><a class="cp-play" tabindex="1">play</a></li>
-                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="/static/base/images/inrai/cristalina-100.jpg" class="card-img-top" alt="img">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title">CRISTALINA EST&Eacute;REO <span style="color:rgb(255, 77, 0)">CAQUET&Aacute;</span></h5>
-                                        <p class="card-text">101.1 FM</p>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div id="jquery_jplayer_5" class="cp-jplayer"></div>
-                                        <div id="cp_container_5" class="cp-container">
-                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
-                                                <div class="cp-buffer-1"></div>
-                                                <div class="cp-buffer-2"></div>
-                                            </div>
-                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
-                                                <div class="cp-progress-1"></div>
-                                                <div class="cp-progress-2"></div>
-                                            </div>
-                                            <div class="cp-circle-control"></div>
-                                            <ul class="cp-controls">
-                                                <li><a class="cp-play" tabindex="1">play</a></li>
-                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="/static/base/images/inrai/caquetena.jpg" class="card-img-top" alt="img">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title">LA CAQUETE&Ntilde;A <span style="color:rgb(255, 77, 0)">CAQUET&Aacute;</span></h5>
-                                        <p class="card-text">102.3 FM</p>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div id="jquery_jplayer_6" class="cp-jplayer"></div>
-                                        <div id="cp_container_6" class="cp-container">
-                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
-                                                <div class="cp-buffer-1"></div>
-                                                <div class="cp-buffer-2"></div>
-                                            </div>
-                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
-                                                <div class="cp-progress-1"></div>
-                                                <div class="cp-progress-2"></div>
-                                            </div>
-                                            <div class="cp-circle-control"></div>
-                                            <ul class="cp-controls">
-                                                <li><a class="cp-play" tabindex="1">play</a></li>
-                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-group">
-                        <div class="card">
-                            <img src="/static/base/images/inrai/cristalina-100.jpg" class="card-img-top"  width="220px" alt="img">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title">CRISTALINA <span style="color:rgb(255, 77, 0)">Plus</span></h5>
-                                        <p class="card-text">Virtual</p>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div id="jquery_jplayer_7" class="cp-jplayer" data-source="https://inraivirtuales.radioca.st/crisplus"></div>
-                                        <div id="cp_container_7" class="cp-container">
-                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
-                                                <div class="cp-buffer-1"></div>
-                                                <div class="cp-buffer-2"></div>
-                                            </div>
-                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
-                                                <div class="cp-progress-1"></div>
-                                                <div class="cp-progress-2"></div>
-                                            </div>
-                                            <div class="cp-circle-control"></div>
-                                            <ul class="cp-controls">
-                                                <li><a class="cp-play" tabindex="1">play</a></li>
-                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="/static/base/images/inrai/cristalina-100.jpg" class="card-img-top"  width="220px" alt="img">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title">CRISTALINA <span style="color:rgb(255, 77, 0)">Plus</span></h5>
-                                        <p class="card-text">Virtual</p>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div id="jquery_jplayer_7" class="cp-jplayer"></div>
-                                        <div id="cp_container_7" class="cp-container">
-                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
-                                                <div class="cp-buffer-1"></div>
-                                                <div class="cp-buffer-2"></div>
-                                            </div>
-                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
-                                                <div class="cp-progress-1"></div>
-                                                <div class="cp-progress-2"></div>
-                                            </div>
-                                            <div class="cp-circle-control"></div>
-                                            <ul class="cp-controls">
-                                                <li><a class="cp-play" tabindex="1">play</a></li>
-                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="/static/base/images/inrai/cristalina-100.jpg" class="card-img-top"  width="220px" alt="img">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title">CRISTALINA <span style="color:rgb(255, 77, 0)">Plus</span></h5>
-                                        <p class="card-text">Virtual</p>
-                                    </div>
-                                    <div class="col text-center">
-                                        <div id="jquery_jplayer_7" class="cp-jplayer"></div>
-                                        <div id="cp_container_7" class="cp-container">
-                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
-                                                <div class="cp-buffer-1"></div>
-                                                <div class="cp-buffer-2"></div>
-                                            </div>
-                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
-                                                <div class="cp-progress-1"></div>
-                                                <div class="cp-progress-2"></div>
-                                            </div>
-                                            <div class="cp-circle-control"></div>
-                                            <ul class="cp-controls">
-                                                <li><a class="cp-play" tabindex="1">play</a></li>
-                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="between">
-        <div class="line-between"></div>
-    </div>
-
-    <!-- Start Team -->
-    <section id="team" class="team parallax-scrl" data-scroll-index="4">
-        <div class="team-text-bg"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mt-30 centered">
-                    <div class="title text-left">
-                        <h3>Nuestro</h3>
-                        <h2>Equipo</h2>
-                    </div>
-                </div>
-                <div class="col-lg-12 order-lg-1 mt-10">
-                    <div class="team-slider">
-                        <div class="owl-carousel owl-theme">
-                            <div class="team-item text-center">
-                                <div class="team-img">
-                                    <img class="img-fluid" src="/static/base/images/FOTO ALEJA.jpeg" alt="a">
-                                </div>
-                                <div class="team-text">
-                                    <h3>Alejandra Cabrera</h3>
-                                    <p>Directora Sede</p>
-                                </div>
-                            </div>
-                            <div class="team-item text-center">
-                                <div class="team-img">
-                                    <img class="img-fluid" src="/static/base/images/dani.jpg" alt="a">
-                                </div>
-                                <div class="team-text">
-                                    <h3>Daniela Charry</h3>
-                                    <p>Directora de Medios</p>
-                                </div>
-                            </div>
-                            <div class="team-item text-center">
-                                <div class="team-img">
-                                    <img class="img-fluid" src="/static/base/images/monica.jpg" alt="a">
-                                </div>
-                                <div class="team-text">
-                                    <h3>M&oacute;nica Trujillo</h3>
-                                    <p>Asistente de Medios</p>
-                                </div>
-                            </div>
-                            <div class="team-item text-center">
-                                <div class="team-img">
-                                    <img class="img-fluid" src="/static/base/images/dahian.jpg" alt="a">
-                                </div>
-                                <div class="team-text">
-                                    <h3>Dahian G&oacute;mez</h3>
-                                    <p>Asistente Administrativa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-40 text-center">
-                        <ul class="arrows">
-                            <li class="arrow-left -team"><img src="/static/base/akar/assets/img/arrow-light.png" alt=""></li>
-                            <li class="arrow-right -team"><img src="/static/base/akar/assets/img/arrow-light-R.png" alt=""></li>
+                    </form>
+                    <div class="bg-dark-overlay-dotted py-2 my-4"></div>
+                    <div class="text-center">
+                        <p>Sign up with your social network for quick access</p>
+                        <ul class="list-unstyled d-lg-flex mt-3 justify-content-center">
+                            <li class="me-3"><a href="#" class="btn bg-facebook d-inline-block"><i class="fab fa-facebook-f me-2"></i> Sign up with Facebook</a></li>
+                            <li class="me-3"><a href="#" class="btn bg-google d-inline-block"><i class="fab fa-google me-2"></i> Sign up with google</a></li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Team -->
-
-    <div class="between">
-        <div class="line-between"></div>
-    </div>
-
-    <!-- Start News -->
-    <section id="project" class="project-section parallax-scrl" data-scroll-index="6">
-        <div class="left-bg"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 order-lg-2 centered">
-                    <div class="title ">
-                        <div class="Col">
-                            <h3>Portal</h3>
-                            <h2>Noticias</h2>
-                        </div>
-                        <div class="Col">
-                            <img src="/static/base/images/sonajero-logo.png" width="200px" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-40">
-                <div class="col-md-12 col-lg-6">
-                    <a href="https://elsonajero.com/" target="_blank">
-                        <div class="project-content">
-                            <div class="img-project">
-                                <img src="/static/base/images/elsonajero.png" alt="">
-                            </div>
-                            <div class="detail-project">
-                                <p><span class="number"></span> <span class="strip"></span> elsonajero.com</p>
-                                <h3 class="reveal-text">Noticias de Colombia y El Mundo</h3>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-12 text-center">
-                    <div class="mt-20">
-                        <a class="btn-main" href="https://elsonajero.com/" target="_blank">Ir al sitio</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- End News -->
-
-    <div class="between">
-        <div class="line-between"></div>
-    </div>
-
-    <!-- Start Testimonial -->
-    <section id="client" class="testimonial fades" data-scroll-index="">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mid-title">
-                    
-                    <div class="title text-center"><img src="/static/base/img/jorge.png" width="150px" alt="">
-                        <h2>Fundador</h2>
-                    </div>
-                </div>
-                <div class="col-lg-10 offset-lg-1 mt-20 fades">
-                    <div class="quot-left">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                    </div>
-                    <div class="quot-right">
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
-                    </div>
-                    <div class="testimonial">
-                        <div class="owl-carousel owl-theme">
-                            <div class="item-testi-slide">
-
-                                <div class="testimonial-item text-center">
-                                    <p>" Aprovechamos la creatividad, la flexibilidad y la responsabilidad de nuestro equipo de trabajo para lograr los objetivos de quienes depositan la confianza en nosotros.
-                                        Continuaremos adaptándonos a las transformaciones tecnológicas conservando nuestra relevancia y credibilidad, apostándole a un mejor mundo, construyendo ciudadanía.
-                                        "</p>
-                                    <div class="author">
-                                        <p class="author-text">Jorge Hel&iacute; Charry Avil&eacute;s</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="line-testi"></div>
-        </div>
-    </section>
-    <!-- End Testimonial -->
-
-    <!-- Start Client -->
-    <div class="client mid-title fades">
-        <div class="container">
-
-            <div class="partner">
-                <div class="owl-carousel owl-theme">
-                    <div class="item-partner">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <img src="assets/img/partner/1.png" alt="1">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-partner">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <img src="assets/img/partner/2.png" alt="1">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-partner">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <img src="assets/img/partner/3.png" alt="1">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-partner">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <img src="assets/img/partner/4.png" alt="1">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-partner">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <img src="assets/img/partner/5.png" alt="1">
-                            </div>
-                        </div>
-                    </div>
-
-
-
+                    </div>  
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Client -->
-
-    <div class="between">
-        <div class="line-between"></div>
-    </div>
-
-    <!-- Start Contact -->
-    <section class="contact" data-scroll-index="7">
-        <div class="left-bg"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="title">
-                        <h3>M&aacute;s informaci&oacute;n?</h3>
-                        <h2>Cont&aacute;ctanos</h2>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12  mt-40">
-                            <div class="contact-item text-left">
-                                <h3>INRAI <span>Comunicaciones-Marketing-Entretenimiento</span></h3>
-                                <a href="#">Carrera 21 # 56 - 33, Bogot&aacute;, D. C., Col</a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12  mt-40">
-                            <div class="contact-item text-left">
-                                <div>
-                                    <div>
-                                        <a class="mail" >comercial@sistemainrai.net</a>
-                                    </div>
-                                    <div class="mt-10">
-                                        <a class="phone" href="#">+57 311500 7873</a>
-                                    </div>
-                                    <form method="POST" class="post-form">{% csrf_token %}
-                                        <label class="form-label" for="contact-name"><strong>Nombre</strong></label>
-                                          {{ form.nombre }}
-                                        <label class="form-label" for="contact-name"><strong>eMail</strong></label>
-                                          {{ form.email }}
-                                        <label class="form-label" for="contact-name"><strong>Teléfono</strong></label>
-                                        {{ form.telefono }}
-                                        <label class="form-label" for="contact-name"><strong>Ciudad</strong></label>
-                                        {{ form.ciudad }}
-                                         <label class="form-label" for="contact-name"><strong>País</strong></label>
-                                        {{ form.pais }}
-                                        <label class="form-label" for="contact-name"><strong>Mensage</strong></label>
-                                          {{ form.textoMensage }}  
-                                        <button class="size-a-20 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-20" type="submit">
-                                            Enviar
-                                        </button>
-                                    </form>
-                                    <!--<div class="social mt-10">
-                                        <ul>
-                                            <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i> </a></li>
-                                            <li><a href="#"><i class="fab fa-behance" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-dribbble" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>-->
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mt-30">
-                    <div class="img-contact">
-                        <img class="img-fluid" src="assets/img/news/2.jpg" alt="">
-
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-    <!-- End Contact -->
-
-    <section class="copyrights">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center mt-40">
-                    <div class="copyright">
-                        <h3>© Copyright {{hoy.year}}. INRAI Todos los derechos reservados.</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
 </div>
+<main>
+    <section class="position-relative bg-dark p-0">
+        <div class="position-absolute bottom-0 start-0 m-6 z-index-9 d-none d-xxl-block">
+            <a href="mailto:servicioalcliente@sistemainrai.net" class="text-white lead">servicioalcliente@sistemainrai.net</a>
+        </div>
+        <div class="position-absolute bottom-0 end-0 m-6 z-index-9 d-none d-xxl-block">
+            <div class="d-flex">
+                <h6 class="text-white mt-2 me-4">S&iacute;guenos:</h6>
+                <div class="list-group-inline list-unstyled text-primary-hover">
+                    <a href="#" class="list-group-item text-white bg-transparent">Fb</a>
+                    <a href="#" class="list-group-item text-white bg-transparent">X</a>
+                    <a href="#" class="list-group-item text-white bg-transparent me-0">In</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="tiny-slider dots-white dots-bordered dots-end">
+            <div class="tiny-slider-inner h-500 h-sm-600 h-lg-800" data-autoplay="true" data-autoplaytime="7000" data-gutter="0" data-arrow="false" data-dots="true" data-items="1">
+                <div class="h-500 h-sm-600 h-lg-800 bg-dark-overlay-4 bg-dark" style="background-image:url(/static/base/images/microphone-2023-11-27-05-28-03-utc.JPG); background-position: center center; background-size: cover;">
+                    <div class="container h-100">
+                        <div class="row d-flex h-100">
+                            <div class="col-md-8 col-xl-7 justify-content-center align-self-center align-items-start">
+                                <div class="slider-content text-start">
+                                    <h2 class="animate__animated animate__fadeInUp text-white display-4 d-block"><span class="text-white-stroke">Comunicaciones</span><br> RADIO</h2>
+                                    <p class="animate__animated animate__fadeInUp animate__delay-1s lead text-white mt-0 mt-md-4">Planificamos y optimizamos tu presupuesto entendiendo la importancia de la creatividad para acertar en lo medios tradicionales y alternativos.</p>
+                                    <div class="animate__animated animate__fadeInUp mt-4 animate__delay-2s">
+                                        <button type="button" class="btn btn-primary btn-line" data-bs-toggle="modal" data-bs-target="#exampleModalsignup">
+                                            Consigue una cotizaci&oacute;n
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-500 h-sm-600 h-lg-800 bg-dark-overlay-4 bg-dark" style="background-image:url(/static/base/images/creative-yellow-background-with-geometric-podium-f-2023-11-27-05-05-02-utc.jpg); background-position: center center; background-size: cover;">
+                    <div class="container h-100">
+                        <div class="row d-flex h-100">
+                            <div class="col-md-8 col-xl-7 justify-content-center align-self-center align-items-start">
+                                <div class="slider-content text-start">
+                                    <h2 class="animate__animated animate__fadeInUp text-white display-3 d-block"><span class="text-white bg-primary px-2 pt-3">BTL</span> <span class="text-white-stroke">Experiencias de</span>&nbsp;Marca</h2>
+                                    <p class="animate__animated animate__fadeInUp animate__delay-1s lead text-white mt-0 mt-md-4">Comprendemos la importancia de la conexi&oacute;n directa con su audiencia.</p>
+                                    <div class="animate__animated animate__fadeInUp mt-4 animate__delay-2s">
+                                        <button type="button" class="btn btn-primary btn-line" data-bs-toggle="modal" data-bs-target="#exampleModalsignup">
+                                            Consigue una cotizaci&oacute;n
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-100 bg-dark-overlay-4 bg-dark" style="background-image:url(/static/base/images/concierto.jpg); background-position: center center; background-size: cover;">
+                    <div class="container h-100">
+                        <div class="row d-flex h-100">
+                            <div class="col-md-8 col-xl-7 justify-content-center align-self-center align-items-start">
+                                <div class="slider-content text-start">
+                                    <h2 class="animate__animated animate__fadeInUp text-white display-4 d-block"><span class="text-white-stroke">Entretenimiento</span><br>Creativo</h2>
+                                    <p class="animate__animated animate__fadeInUp animate__delay-1s lead text-white mt-0 mt-md-4">Desarrollamos experiencias de entretenimiento &uacute;nicas y emocionantes que cautivan a su audiencia.</p>
+                                    <div class="animate__animated animate__fadeInUp mt-4 animate__delay-2s">
+                                        <button type="button" class="btn btn-primary btn-line" data-bs-toggle="modal" data-bs-target="#exampleModalsignup">
+                                            Consigue una cotizaci&oacute;n
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-100 bg-dark-overlay-4 bg-dark" style="background-image:url(/static/base/images/flat-layout-of-digital-advertising-brochures-and-p-2023-11-27-05-05-33-utc.jpg); background-position: center center; background-size: cover;">
+                    <div class="container h-100">
+                        <div class="row d-flex h-100">
+                            <div class="col-md-8 col-xl-7 justify-content-center align-self-center align-items-start">
+                                <div class="slider-content text-start">
+                                    <h2 class="animate__animated animate__fadeInUp text-white display-4 d-block"><span class="text-white-stroke bg-success px-2 pt-3">Digital</span><span class="text-white-stroke display-6">SOCIAL</span><br><span class="text-white ">MEDIA</span></h2>
+                                    <p class="animate__animated animate__fadeInUp animate__delay-1s lead text-white mt-0 mt-md-4">Ofrecemos soluciones integrales de marketing digital y social media dise&ntilde;adas para impulsar la presencia en l&iacute;nea.</p>
+                                    <div class="animate__animated animate__fadeInUp mt-4 animate__delay-2s">
+                                        <button type="button" class="btn btn-primary btn-line" data-bs-toggle="modal" data-bs-target="#exampleModalsignup">
+                                            Consigue una cotizaci&oacute;n
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row d-flex justify-content-lg-between">
+                <div class="col-md-6 col-xl-5">
+                    <span class="font-alt fw-normal display-8 bg-light text-primary float-start d-inline-block mb-n5 ms-lg-n2 px-3 rotate-10 z-index-9 position-relative">Pasión, dedicación & mucho café. 🤘</span>
+                    <div class="reveal-item bg-light rounded" data-aos="reveal-item">
+                        <div class="reveal-animation reveal-end reveal-primary aos" data-aos="reveal-end"></div>
+                        <img class="rounded w-100" src="/static/base/images/clientes.png" alt="Portfolio image">
+                    </div>
+                    <div class="mt-n6 ms-3 position-relative z-index-9">
+                        <span class="bg-dark text-white p-2">Haciendo felices a los clientes desde</span>
+                        <h2 class="display-5 text-dark-stroke text-primary-shadow">1989</h2>
+                    </div>
+                    <div class="reveal-item bg-light rounded" data-aos="reveal-item">
+                        <div class="reveal-animation reveal-end reveal-primary aos" data-aos="reveal-end"></div>
+                        <video width="100%"  controls class="about-img line-img" preload="AUTO" autoplay="true">
+                            <source src="/static/base/folio/assets/images/portfolio/Marble Aesthetics Logo_1080p.mp4" type="video/mp4" />
+                            Su navegador no soporta contenido multimedia.
+                        </video>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <span class="font-alt fw-normal display-8 d-block mb-3 mt-4">Creamos camapa&ntilde;as inteligentes.</span>
+                    <h2 class="display-7">Empieza con el pie derecho.</h2>
+                    <div class="mt-5 mt-md-0">
+                        <ul class="nav nav-tabs nav-tabs-line">
+                            <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-7-1"><i class="fa fa-fw fa-music"></i>&nbsp;Radio</a> </li>
+                            <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-7-2"><i class="fa fa-fw fa-globe"></i>&nbsp;Digital</a> </li>
+                            <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-7-3"><i class="fa fa-fw fa-subway"></i>&nbsp;Btl</a> </li>
+                            <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-7-4"><i class="fa fa-fw fa-bullhorn"></i>&nbsp;Perifon&eacute;o</a> </li>
+                        </ul>
+                        <div class="tab-content mb-0">
+                            <div class="tab-pane show active" id="tab-7-1">
+                                <h5>M&aacute;s de 40 años de experiencia. </h5>
+                                <p>Lleva tu marca al siguiente nivel. ¡Contáctanos hoy y amplifica tu mensaje con nuestras soluciones publicitarias!</p>
+                                <p>Contamos con 6 emisoras propias ubicadas en Cundinamarca, Huila y Caquet&aacute;, y m&aacute;s de 900 emisoras alidas ubicadas en todo el territorio nacional.</p>
+                                <div class="audio-player">
+                                    <audio id="id_audio_play" src="" preload="auto" controls></audio>
+                                </div>
+                                <table class="table mt-5 mt-md-0" noborder width="80%">
+                                    <tr>
+                                        <td><i class="bi bi-circle-fill"></i></i></td>
+                                        <td style="color:#ff7300">Cristalina Est&eacute;reo Cundinamrca 102.3 FM</td>
+                                        <td>&nbsp;&nbsp;
+                                            <h5>
+                                                <a href="javascript: play_audio('https://inrai02.radioca.st/LaMesa')">
+                                                    <i class="bi bi-play-circle"></i>
+                                                </a>
+                                                <a href="javascript: stop_audio()">
+                                                    <i class="bi bi-stop-circle"></i>
+                                                </a>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="bi bi-circle-fill"></i></i></td>
+                                        <td style="color:#ff7300">HJDOBLEK Huila 840 Khz</td>
+                                        <td>
+                                            <h5>
+                                                <a href="javascript: play_audio('https://inrai02.radioca.st/LaMesa')">
+                                                    <i class="bi bi-play-circle"></i>
+                                                </a>
+                                                <a href="javascript: stop_audio()">
+                                                    <i class="bi bi-stop-circle"></i>
+                                                </a>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="bi bi-circle-fill"></i></i></td>
+                                        <td style="color:#ff7300">Cristalina Est&eacute;reo Huila 101.3 FM</td>
+                                        <td>
+                                            <h5>
+                                                <a href="javascript: play_audio('https://inrai02.radioca.st/LaMesa')">
+                                                    <i class="bi bi-play-circle"></i>
+                                                </a>
+                                                <a href="javascript: stop_audio()">
+                                                    <i class="bi bi-stop-circle"></i>
+                                                </a>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="bi bi-circle-fill"></i></i></td>
+                                        <td style="color:#ff7300">La Caquete&ntilde;a 93.3 FM/td>
+                                        <td>
+                                            <h5>
+                                                <a href="javascript: play_audio('https://inrai02.radioca.st/LaMesa')">
+                                                    <i class="bi bi-play-circle"></i>
+                                                </a>
+                                                <a href="javascript: stop_audio()">
+                                                    <i class="bi bi-stop-circle"></i>
+                                                </a>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="bi bi-circle-fill"></i></i></td>
+                                        <td style="color:#ff7300">HJDOBLEK Pitalito 12808 Khz</td>
+                                        <td>
+                                            <h5>
+                                                <a href="javascript: play_audio('https://inrai02.radioca.st/LaMesa')">
+                                                    <i class="bi bi-play-circle"></i>
+                                                </a>
+                                                <a href="javascript: stop_audio()">
+                                                    <i class="bi bi-stop-circle"></i>
+                                                </a>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="bi bi-circle-fill"></i></i></td>
+                                        <td style="color:#ff7300">Cristalina Est&eacute;reo Caquet&aacute; 103.1 FM</td>
+                                        <td>
+                                            <h5>
+                                                <a href="javascript: play_audio('https://inrai02.radioca.st/LaMesa')">
+                                                    <i class="bi bi-play-circle"></i>
+                                                </a>
+                                                <a href="javascript: stop_audio()">
+                                                    <i class="bi bi-stop-circle"></i>
+                                                </a>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="tab-7-2">
+                                <h5>Digital & Social Media</h5>
+                                <p> Nos sumergimos en el mundo de las estrategias, la creatividad y la innovaci&oacute;n para construir marcas s&oacute;lidas y conectarlas de manera significativa con sus audiencias.</p>
+                                <blockquote class="blockquote mt-4">
+                                  <p class="mb-0">Entendemos el marketing como una poderosa herramienta de transformaci&oacute;n que impulsa el &eacute;xito empresarial y da vida a las visiones de nuestros clientes.</p>
+                                  <footer class="blockquote-footer">INRAI @ <cite title="Source Title">Digital</cite></footer>
+                                </blockquote>
+                            </div>
+                            <div class="tab-pane" id="tab-7-3">
+                                <h5>Medios alternativos de alto impacto.</h5>
+                                <p>Contamos con novedosos canales de comunicación para impulsar y promocionar sus productos o servicios. Siempre buscamos el espacio ideal en el cual podamos acercarnos al consumidor de manera directa empleando en grande la creatividad, sorpresa y el sentido de la oportunidad.</p>
+                                <div class="d-flex">
+                                  <i class="display-5 text-primary bi bi-bullseye"></i>
+                                  <div class="mt-3 ms-4">
+                                    <p class="lead">"Ofrecemos un completo servicio de mobiliario, arquitectura efímera, protocolo y los recursos necesarios para generar una experiencia de marca."</p>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab-7-4">
+                                <h5>Servicio de Perifoneo - La mejor manera de comunicarte con tu comunidad.</h5>
+                                <p>Ya sea que necesites promocionar un producto, anunciar un evento, o difundir información importante, el perifoneo garantiza que tu mensaje llegue a cada rincón de la comunidad. Contamos con un equipo experimentado que se encarga de planificar las rutas y horarios más convenientes para asegurar la máxima efectividad.</p>
+                                <div class="d-flex">
+                                  <i class="display-5 text-primary bi bi-volume-off"></i>
+                                  <div class="mt-3 ms-4">
+                                    <p class="lead">Ideal para:<br><br>Promociones<br>Eventos comunitarios<br>Difusión de información institucional o de emergencia<br><br><strong></strong>¡Lleva tu mensaje a donde más importa con nuestro servicio de perifoneo rápido y confiable!</strong></p>
+                                  </div>
+                                </div>
+                                <p style="background-color: rgb(231, 231, 231) ;">Control total sobre tu campaña: integra tecnologia de trackeo de forma opcional.<br>Beneficios:<br>
+Cobertura garantizada: Con
+Monitoreo en tiempo real: 
+Informes personalizados: 
+Optimización de rutas<br>¡Asegura el éxito de tu campaña con perifoneo y tecnología de trackeo en tiempo real!
+                                  </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <i class="display-6 text-primary bi bi-sliders"></i>
+                    <h4 class="my-3">Gestión de activos digitales empresariales</h4>
+                    <p>Uso inteligente de datos y tecnología para su campa&ntilde;a digital. Disponemos de soluciones innovadoras llenas de creatividad desarrolladas con la mejor tecnología.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <i class="display-6 text-primary bi bi-droplet-half"></i>
+                    <h4 class="my-3">Producci&oacute;n de contenido.</h4>
+                    <p>Producimos piezas audiovisuales corporativas, podcast, comerciales para TV, videoclips musicales y fotografía profesional.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <i class="display-6 text-primary bi bi-graph-up"></i>
+                    <h4 class="my-3">Monitoreo Radio</h4>
+                    <p>Verificamos la emisión de su pauta radial en tiempo real generando evidencias de su emisi&oacute;n.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-dark pattern-overlay-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-8 mx-auto mb-7">
+                    <span class="font-alt fw-normal text-white display-8 d-block">Creamos experiencias de marca</span>
+                    <h2 class="display-7 text-white mb-5">Mira lo que hemos hecho.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mb-9 mt-n9 pt-0 position-relative z-index-9">
+        <div class="container">
+            <div class="row g-0 mb-n9">
+                <div class="col-sm-6 col-md-4">
+                    <div class="card">
+                        <div class="position-relative">
+                            <video width="100%"  controls class="about-img line-img" preload="AUTO" >
+                                <source src="/static/base/images/inrai/ACTIVACION MARCA.mp4" type="video/mp4" />
+                                Su navegador no soporta contenido multimedia.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="card">
+                        <div class="position-relative">
+                            <video width="100%"  controls class="about-img line-img" preload="AUTO">
+                                <source src="/static/base/images/inrai/VIDEO PARTICIPACION DE INRAI - FINAL.mp4" type="video/mp4" />
+                                Su navegador no soporta contenido multimedia.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="card">
+                        <div class="position-relative">
+                            <video width="100%"  controls class="about-img line-img" preload="AUTO">
+                                <source src="/static/base/images/inrai/PRESENTACION QUBOS.mp4" type="video/mp4" />
+                                Su navegador no soporta contenido multimedia.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12">
+                    <div class="card">
+                        <div class="position-relative">
+                            <img class="card-img-top rounded-0" src="/static/base/images/Imagen8.png" alt="card image">
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="col-sm-6 col-md-4">
+                    <div class="card">
+                        <div class="position-relative">
+                            <img class="card-img-top rounded-0" src="/static/base/images/cert_tequendama.jpg" alt="card image">
+                        </div>
+                        <div class="card-body position-absolute bottom-0 w-100 card-element-hover">
+                            <div class="p-4 bg-white">
+                                <p class="display-9 font-alt fw-normal">Producci&oacute;n</p>
+                                <h5 class="card-title"><a href="#">Renovemos Territorio.</a></h5>
+                                <a href="#" class="btn btn-line text-dark">Leer m&aacute;s</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="card">
+                        <div class="position-relative">
+                            <img class="card-img-top rounded-0" src="/static/base/images/btl1.png" alt="card image">
+                        </div>
+                        <div class="card-body position-absolute bottom-0 w-100 card-element-hover">
+                            <div class="p-4 bg-white">
+                                <p class="display-9 font-alt fw-normal">Graphics</p>
+                                <h5 class="card-title"><a href="#">A tale of dual addresses</a></h5>
+                                <a href="#" class="btn btn-line text-dark">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="card">
+                        <div class="position-relative">
+                            <img class="card-img-top rounded-0" src="/static/base/folio/assets/images/portfolio/02.jpg" alt="card image">
+                        </div>
+                        <div class="card-body position-absolute bottom-0 w-100 card-element-hover">
+                            <div class="p-4 bg-white">
+                                <p class="display-9 font-alt fw-normal">Restaurant</p>
+                                <h5 class="card-title"><a href="#">It’s gonna be extraordinary </a></h5>
+                                <a href="#" class="btn btn-line text-dark">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light pattern-overlay-7 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="tiny-slider dots-bordered mb-7">
+                    <div class="tiny-slider-inner" data-arrow="false" data-dots="false" data-gutter="80" data-items-xl="6" data-items-lg="5" data-items-md="5" data-items-sm="4" data-items-xs="2" data-autoplay="3800">
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/mintrabajo.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/bancolombia.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/bavaria.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/carnicos.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/cc_viva.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/cocacola.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/central_cervezera.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/diageo.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/ecopetrol.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/famisanar.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/fontur.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/go_caqueta.png" width="100px;" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/enel.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/essa.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/exito.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/larebaja.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/mediagency.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/go_huila.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/grupo_m.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/juanvaldes.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/mintrabajo.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/nutresa.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/tigo.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/motorysa.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes/phd.png" alt=""> </div>
+                        <div class="item" style="vertical-align: middle;"> <img class="opacity-5" src="/static/base/images/logos_ctes//suzuki.png" alt=""> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <span class="font-alt fw-normal display-8">Ideas, historias y pensamientos </span>
+                    <h2 class="display-7 mb-5">Noticias</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="tiny-slider dots-bordered mb-7">
+                        <div class="tiny-slider-inner" data-autoplay="true" data-arrow="false" data-dots="true" data-items-xl="3" data-items-md="2" data-items-sm="2" data-items-xs="1">
+                            <div class="item">
+                                <div class="card card-metro">
+                                    <!-- Card Image -->
+                                    <div class="card-image">
+                                        <img src="/static/base/folio/assets/images/blog/01.jpg" alt="card image">
+                                    </div>
+                                    <!-- Card Overlay -->
+                                    <div class="card-img-overlay d-flex flex-column">
+                                        <div class="mt-auto card-text">
+                                            <!-- Featured label-->
+                                            <span class="featured-label" title="Featured Blog"><i class="fas fa-star"></i></span>
+    
+                                            <div class="card-meta mb-3 d-flex flex-row align-items-center text-white">
+                                                <!-- Card Categories -->
+                                                <div class="text-primary-hover">
+                                                    <a href="#" class="text-white me-2">Business</a>
+                                                </div>
+                                                <!-- Divider -->
+                                                <i class="fas fa-circle smaller me-2 fw-bold"></i>
+                                                <!-- Min of read -->
+                                                <span>5 min read</span>
+                                            </div>
+    
+                                            <h4><a href="#" class="text-white text-primary-hover">Reliable sources to learn about folio</a></h4>
+                                            <p class="text-white text-truncate">He moonlights difficult engrossed it, sportsmen. Interested has all Devonshire difficulty gay assistance joy</p>
+                                            <a href="#" class="btn btn-line text-white mb-0">Read Article</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+    
+                            <!-- Card item START -->
+                            <div class="item">
+                                <div class="card card-metro">
+                                    <!-- Card Image -->
+                                    <div class="card-image">
+                                        <img src="/static/base/folio/assets/images/blog/02.jpg" alt="card image">
+                                    </div>
+                                    <!-- Card Overlay -->
+                                    <div class="card-img-overlay d-flex flex-column">
+                                        <div class="mt-auto card-text">
+                                            <div class="card-meta mb-3 d-flex flex-row align-items-center text-white">
+                                                <!-- Card Categories -->
+                                                <div class="text-primary-hover">
+                                                    <a href="#" class="text-white me-2">Start-up</a>
+                                                </div>
+                                                <!-- Divider -->
+                                                <i class="fas fa-circle smaller me-2 fw-bold"></i>
+                                                <!-- Min of read -->
+                                                <span>3 min read</span>
+                                            </div>
+                                            <h4><a href="#" class="text-white text-primary-hover">Never underestimate the influence of folio</a></h4>
+                                            <p class="text-white text-truncate">See resolved goodness felicity shy civility domestic had but. Drawings offended yet answered Jennings</p>
+                                            <a href="#" class="btn btn-line text-white mb-0">Read Article</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+    
+                            <!-- Card item START -->
+                            <div class="item">
+                                <div class="card card-metro">
+                                    <!-- Card Image -->
+                                    <div class="card-image">
+                                        <img src="/static/base/folio/assets/images/blog/03.jpg" alt="card image">
+                                    </div>
+                                    <!-- Card Overlay -->
+                                    <div class="card-img-overlay d-flex flex-column">
+                                        <div class="mt-auto card-text">
+                                            <div class="card-meta mb-3 d-flex flex-row align-items-center text-white">
+                                                <!-- Card Categories -->
+                                                <div class="text-primary-hover">
+                                                    <a href="#" class="text-white me-2">Story</a>
+                                                </div>
+                                                <!-- Divider -->
+                                                <i class="fas fa-circle smaller me-2 fw-bold"></i>
+                                                <!-- Min of read -->
+                                                <span>6 min read</span>
+                                            </div>
+                                            <h4><a href="#" class="text-white text-primary-hover">Skills that you can learn from business</a></h4>
+                                            <p class="text-white text-truncate">Rooms oh fully taken by worse do. Points afraid but may end law lasted. Was out laughter raptures</p>
+                                            <a href="#" class="btn btn-line text-white mb-0">Read Article</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+    
+                            <!-- Card item START -->
+                            <div class="item">
+                                <div class="card card-metro">
+                                    <!-- Card Image -->
+                                    <div class="card-image">
+                                        <img src="/static/base/folio/assets/images/blog/04.jpg" alt="card image">
+                                    </div>
+                                    <!-- Card Overlay -->
+                                    <div class="card-img-overlay d-flex flex-column">
+                                        <div class="mt-auto card-text">
+                                            <div class="card-meta mb-3 d-flex flex-row align-items-center text-white">
+                                                <!-- Card Categories -->
+                                                <div class="text-primary-hover">
+                                                    <a href="#" class="text-white me-2">Idea,</a>
+                                                    <a href="#" class="text-white me-2">Thought</a>
+                                                </div>
+                                                <!-- Divider -->
+                                                <i class="fas fa-circle smaller me-2 fw-bold"></i>
+                                                <!-- Min of read -->
+                                                <span>8 min read</span>
+                                            </div>
+                                            <h4><a href="#" class="text-white text-primary-hover">5 things you need to know about folio</a></h4>
+                                            <p class="text-white text-truncate">Returned outweigh. Luckily cheered colonel I do we attack highest enabled. Tried law yet style child</p>
+                                            <a href="#" class="btn btn-line text-white mb-0">Read Article</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+    
+                            <!-- Card item START -->
+                            <div class="item">
+                                <div class="card card-metro">
+                                    <!-- Card Image -->
+                                    <div class="card-image">
+                                        <img src="/static/base/folio/assets/images/blog/05.jpg" alt="card image">
+                                    </div>
+                                    <!-- Card Overlay -->
+                                    <div class="card-img-overlay d-flex flex-column">
+                                        <div class="mt-auto card-text">
+                                            <div class="card-meta mb-3 d-flex flex-row align-items-center text-white">
+                                                <!-- Card Categories -->
+                                                <div class="text-primary-hover">
+                                                    <a href="#" class="text-white me-2">Inside</a>
+                                                </div>
+                                                <!-- Divider -->
+                                                <i class="fas fa-circle smaller me-2 fw-bold"></i>
+                                                <!-- Min of read -->
+                                                <span>2 min read</span>
+                                            </div>
+                                            <h4><a href="#" class="text-white text-primary-hover">Never underestimate the influence of folio</a></h4>
+                                            <p class="text-white text-truncate">The bore of true of no be deal. Frequently sufficient to be unaffected. The furnished she conclude</p>
+                                            <a href="#" class="btn btn-line text-white mb-0">Read Article</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-0">
+        <div class="container">
+            <div class="row g-0">
+                <!-- Fact Item -->
+                <div class="col-lg-4">
+                    <div class="bg-light p-4 p-md-5 h-100">
+                        <h2 class="display-6 text-primary-stroke text-dark-shadow">26k</h2>
+                        <h4 class="mb-4">Organic Traffic</h4>
+                        <p>Demesne far hearted suppose venture excited see had has. Dependent on so extremely delivered by the jokes worse her why bed </p>
+                    </div>
+                </div>
+                <!-- Fact Item -->
+                <div class="col-lg-4">
+                    <div class="bg-dark p-4 p-md-5 h-100 bg-dark-overlay-4" style="background:url(assets/images/bg/06.jpg) no-repeat center center; background-size:cover;">
+                        <h2 class="display-6 text-primary-stroke text-light-shadow">64M+</h2>
+                        <h4 class="text-white mb-4">YouTube Views</h4>
+                        <p class="text-white">Satisfied conveying a dependent contented he gentleman agreeable do be <u>1M subscribers</u> arrant private blushes removed an in equally totally if. </p>
+                    </div>
+                </div>
+                <!-- Fact Item -->
+                <div class="col-lg-4">
+                    <div class="bg-dark p-4 p-md-5 h-100">
+                        <h2 class="display-6 text-light-stroke text-primary-shadow">300+</h2>
+                        <h4 class="text-white mb-4">Branding Strategy</h4>
+                        <p class="text-white">Whatever boy her exertion his extended. Ecstatic followed handsome drawings entirely Mrs one yet outweigh. Of acceptance insipidity remarkably</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</main>
+
+<script type="text/javascript">
+    
+    var audio = document.getElementById("id_audio_play");
+
+    function play_audio(file){
+        var file_audio = file;
+        audio.src = file;
+        audio.play();
+    }
+
+    function stop_audio(){
+        var audio = document.getElementById("id_audio_play");
+        audio.pause();
+    }
+    function changeRate(){
+        var rate = (event.clientY / window.innerHeight) * 4.75 + 0.25;
+        audio.playbackRate = rate;
+    }
+
+    function changeVol(){
+        var vol = event.clientY / window.innerHeight;
+        audio.volume = vol;
+    }
+
+    function changeTime(){
+        var time = (event.clientY / window.innerHeight) * audio.duration;
+        audio.currentTime = time;
+    }
+
+    function updateRate(){
+        document.getElementById('rateVal').innerHTML = audio.playbackRate;
+
+        var blueVal = parseInt(audio.playbackRate * 51);
+        document.getElementById('rateDiv').style.backgroundColor = "rgb(255, 0, " + blueVal + ")";
+    }
+
+    function updateVol(){
+        document.getElementById('volVal').innerHTML = audio.volume;
+
+        var redVal = parseInt(audio.volume * 255);
+        document.getElementById('volDiv').style.backgroundColor = "rgb(" + redVal + ", 255, 0)";
+    }
+    function updateTime(){
+        document.getElementById('timeVal').innerHTML =audio.currentTime;
+
+        var greenVal = parseInt(bg.currentTime / audio.duration * 255);
+        document.getElementById('timeDiv').style.backgroundColor = "rgb(0, " + greenVal + ", 255)";
+
+        var leftVal = (bg.currentTime /audio.duration) * window.innerWidth;
+
+        document.getElementById('pb-time').style.left = leftVal + "px";
+    }
+
+</script>
 
 {% endblock contenido %}

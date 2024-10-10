@@ -20,6 +20,11 @@ class ContactoForm(forms.ModelForm):
             self.fields[field].widget.attrs.update({
                 'class': 'form-control'
             })
+        self.fields['nombre'].widget.attrs.update({'placeholder': 'Nombre'})
+        self.fields['email'].widget.attrs.update({'placeholder': 'e-mail'})
+        self.fields['ciudad'].widget.attrs.update({'placeholder': 'Ciudad'})
+        self.fields['textoMensage'].widget.attrs.update({'placeholder': 'Mensage'})
+        self.fields['telefono'].widget.attrs.update({'placeholder': 'Teléfono'})
 
     def clean_nombre(self):
         nombre = self.cleaned_data["nombre"]

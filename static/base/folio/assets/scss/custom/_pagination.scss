@@ -1,0 +1,84 @@
+// 
+// pagination.scss
+// Extended from Bootstrap
+// 
+
+// 
+// Additional style for theme
+//
+
+// For better responsive
+.pagination {
+  .page-item{
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+}
+
+// pagination-line
+.pagination.pagination-line {
+  li.disabled{
+    a{
+      &:before {
+        background: $pagination-disabled-color !important;
+      }
+    }
+    // disabled Hover
+    &:hover
+      a{
+        &:before {
+          animation: none !important;
+        }
+      }
+  }
+  li{
+    &:first-child{
+      a{
+        padding-left: 36px;
+        &:before {
+          content: "";
+          width: 16px;
+          height: 2px;
+          display: block;
+          background: $pagination-color;
+          position: absolute;
+          left: 15px;
+          bottom: 15px;
+          transition: $transition-base;
+        }
+      }
+      // Hover
+      &:hover
+        a{
+          &:before {
+            background: $pagination-hover-color;
+            animation: blink-animation 1s steps(5, start) infinite;
+          }
+        }
+    }
+    &:last-child{
+      a{
+        padding-right: 36px;
+        &:after {
+          content: "";
+          width: 16px;
+          height: 2px;
+          display: block;
+          background: $pagination-color;
+          position: absolute;
+          right: 15px;
+          bottom: 15px;
+          transition: $transition-base;
+        }
+      }
+      // Hover
+      &:hover
+        a{
+          &:after {
+            background: $pagination-hover-color;
+            animation: blink-animation 1s steps(5, start) infinite;
+          }
+        }
+    }
+  }
+}

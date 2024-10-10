@@ -1,0 +1,265 @@
+// 
+// utilities.scss
+// Theme component for utility classes (helper classes)
+
+// Margin 30px to maintain spacing between boxes
+.mt-30 {
+  margin-top: $grid-gutter-width;
+}
+.mb-30 {
+  margin-bottom: $grid-gutter-width;
+}
+
+@include media-breakpoint-up(lg){
+  .position-lg-absolute{
+    position: absolute;
+  }
+}
+// text color on hover
+.text-primary-hover {
+  a {
+    color: var(--#{$prefix}gray-500);
+    &:hover {
+      color: var(--#{$prefix}primary) !important;
+    }
+  }
+}
+
+a.text-primary-hover, button.text-primary-hover {
+  color: var(--#{$prefix}gray-400);
+  &:hover {
+    color: var(--#{$prefix}primary) !important;
+  }
+}
+
+.text-primary-hover {
+  li {
+    color: var(--#{$prefix}gray-400);
+    &:hover {
+      color: var(--#{$prefix}primary) !important;
+    }
+  }
+}
+
+// background multiply color
+.bg-primary-multiply {
+  background-color: var(--#{$prefix}primary);
+  mix-blend-mode: multiply;
+  img{
+    mix-blend-mode: multiply;
+  }
+}
+.bg-primary-multiply-hover {
+  background-color: var(--#{$prefix}primary);
+  transition: $transition-base;
+  &:hover img{
+    mix-blend-mode: multiply;
+    transition: $transition-base;
+  }
+}
+
+// Bg color in force full width left or right
+.bg-primary-start:before {
+  content: '';
+  position: absolute;
+  width: 1000%;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  background: var(--#{$prefix}primary);
+  z-index: -1;
+}
+.bg-white-start:before {
+  content: '';
+  position: absolute;
+  width: 1000%;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  background: var(--#{$prefix}white);
+  z-index: -1;
+}
+.bg-dark-start:before {
+  content: '';
+  position: absolute;
+  width: 1000%;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  background: var(--#{$prefix}gray-800);
+  z-index: -1;
+}
+.bg-primary-end:before {
+  content: '';
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  background: var(--#{$prefix}primary);
+  z-index: -1;
+}
+.bg-white-end:before {
+  content: '';
+  position: absolute;
+  width: 1000%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  background: var(--#{$prefix}white);
+  z-index: -1;
+}
+.bg-dark-end:before {
+  content: '';
+  position: absolute;
+  width: 1000%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  background: var(--#{$prefix}gray-800);
+  z-index: -1;
+}
+
+// font family
+.font-base {
+  font-family: $font-family-base !important;
+}
+
+.font-heading {
+  font-family: $font-family-heading !important;
+}
+
+.font-alt {
+  font-family: $font-family-alt !important;
+}
+
+// Filter
+.grayscale {
+  filter: grayscale(100%);
+  transition: all .6s ease;
+  &:hover {
+    filter: none;
+    -webkit-filter: grayscale(0%);
+  }
+}
+
+// On hover
+.zoom-hover {
+  transform: scale(1);
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.up-hover {
+  transition: $transition-base;
+  &:hover {
+    transform: translateY(-10px);
+  }
+}
+
+// Scale (zoom)
+.zoom-1{
+  transform: scale(1.1);
+}
+.zoom-2{
+  transform: scale(1.3);
+}
+.zoom-3{
+  transform: scale(1.5);
+}
+.zoom-4{
+  transform: scale(2);
+}
+.zoom-n1{
+  transform: scale(0.9);
+}
+.zoom-n2{
+  transform: scale(0.6);
+}
+.zoom-n3{
+  transform: scale(0.4);
+}
+.zoom-n4{
+  transform: scale(0.2);
+}
+
+// blur
+.blur-1{
+  filter: blur(2px);
+}
+
+.blur-2{
+  filter: blur(5px);
+}
+
+.blur-3{
+  filter: blur(10px);
+}
+
+// blink animation (Used keyframes animation from line button)
+.blink-animation{
+  transition: $transition-base;
+  animation: blink-animation 1s steps(5, start) infinite;
+  visibility: visible;
+}
+
+// SVG colors
+.fill-none{
+  fill: none;
+}
+.fill-primary {
+  fill: var(--#{$prefix}primary);
+}
+.fill-primary-light {
+  fill: shift-color($primary, -20%);
+}
+.fill-primary-dark {
+  fill: shift-color($primary, 12%);
+}
+.fill-white {
+  fill: var(--#{$prefix}white);
+}
+.fill-light {
+  fill: var(--#{$prefix}gray-100);
+}
+.fill-dark {
+  fill: var(--#{$prefix}gray-800);
+}
+.stroke-primary {
+  stroke: var(--#{$prefix}primary);
+}
+.stroke-10{
+  stroke-miterlimit:10;
+}
+.svg-custom-border-dark{
+  fill:none;
+  stroke: $gray-800;
+  stroke-width:1.1786;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-miterlimit:10;
+}
+.svg-custom-border-white{
+  fill:none;
+  stroke: $white;
+  stroke-width:1.1786;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-miterlimit:10;
+}
+.svg-custom-border-primary{
+  fill:none;
+  stroke: $primary;
+  stroke-width:1.1786;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-miterlimit:10;
+}
+.svg-custom-border-2{
+  fill:none;
+  stroke: $gray-800;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-miterlimit:10;  
+}

@@ -1,0 +1,49 @@
+.page-header {
+    padding-top: 83px;
+    padding-bottom: 83px;
+}
+
+.padding_top_40 {
+    padding-top: 40px;
+}
+
+.padding_top_0 {
+    padding-top: 30px;
+}
+
+.padding_bottom_0 {
+    padding-bottom: 0px;
+}
+
+.padding_bottom_70 {
+    padding-bottom: 70px;
+}
+
+.gallery_img {
+    width: auto;
+    height: 700px;
+    border: 2px solid #80808029;
+}
+
+.img-fixed {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 750 / 520;
+    object-fit: cover;
+    object-position: center;
+}
+
+.logo-box a {
+    padding-right: 10px;
+}
+
+.container {
+    max-width: 1221px;
+}
+
+.donate-bnt {
+    background-color: #8AA22E;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 900;
+    color: white;
+}

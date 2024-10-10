@@ -1,0 +1,268 @@
+// 
+// buttons.scss
+// Extended from Bootstrap
+// 
+
+// 
+// Additional styles for theme
+// 
+
+.btn {
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 6px;
+  outline: 0;
+  white-space: nowrap;
+}
+
+.btn-xs{
+  padding: 0.4rem 0.6rem;
+  font-size: 0.6rem;
+  line-height: 1.2;
+  border-radius: $btn-border-radius;
+}
+
+// button white
+.btn-white {
+  background: var(--#{$prefix}white);
+  color: var(--#{$prefix}gray-800);
+  &.active, &:active, &:focus, &:hover {
+    background: var(--#{$prefix}gray-200);
+    color: var(--#{$prefix}gray-800);
+  }
+}
+.btn-outline-white {
+  background: transparent;
+  border-color: var(--#{$prefix}white);
+  color: var(--#{$prefix}white);
+  &.active, &:active, &:focus, &:hover {
+    color: var(--#{$prefix}gray-800);
+    background: var(--#{$prefix}white);
+  }
+}
+.btn-outline-light{
+  background: transparent;
+  border-color: var(--#{$prefix}gray-400);
+  color: var(--#{$prefix}gray-500);
+}
+.btn-outline-light:hover{
+  background: var(--#{$prefix}gray-400);
+  border-color: var(--#{$prefix}gray-400);
+  color: var(--#{$prefix}gray-800);
+}
+
+// button round
+.btn-round{
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  padding: 0;
+  text-align: center;
+  i{
+    margin:0; 
+  }
+  // Quick fix for play button centered
+  .fa-play{
+    padding-left: 3px;
+  }
+  &.btn-lg{
+    height: 55px;
+    width: 55px;
+    line-height: 55px;
+  }
+  &.btn-sm{
+    height: 32px;
+    width: 32px;
+    line-height: 30px;
+    i{
+      font-size: .6rem;
+    }
+  }
+}
+
+// Quick fix for play button centered in RTL
+/*rtl:raw:
+.btn-round .fa-play{
+  padding-left: 3px;
+  padding-right: 0;
+}
+*/
+
+// button line
+.btn-line{
+  padding: 0.5rem 1rem 0.5rem 2.2rem;
+  &:before {
+    content: "";
+    width: 16px;
+    height: 2px;
+    display: block;
+    background: var(--#{$prefix}body-color);
+    position: absolute;
+    left: 15px;
+    bottom: 15px; 
+    transition: $transition-base;
+  }
+  &:after {
+    content: "";
+    width: 16px;
+    height: 2px;
+    display: block;
+    background: var(--#{$prefix}body-color);
+    position: absolute;
+    right: -16px;
+    bottom: 15px;
+    transition: $transition-base;
+  }
+  &:hover{
+    padding: 0.5rem 2.2rem 0.5rem 1rem;
+    &:before {
+      right: auto;
+      left: -16px;
+    }
+    &:after {
+      right: 16px;
+      left: auto;
+      transition: $transition-base;
+      animation: blink-animation 1s steps(5, start) infinite;
+    }
+  }
+}
+
+// btn line color variant generator for .btn-#name
+@each $name, $color in $theme-colors {
+  .btn-line{
+    &.btn-#{$name}{
+      &:before {
+        background: color-contrast($color);
+      }
+      &:after {
+        background: color-contrast($color);
+      }
+    }
+  }
+}
+
+.btn-line.btn-white{
+  &:before, &:after {
+    background: var(--#{$prefix}gray-800);
+  }
+}
+.btn-line.text-white{
+  padding: 0.5rem 0rem 0.5rem 1.3rem;
+  &:before{
+    background: var(--#{$prefix}white);
+    left: 0;
+  }
+  &:after{
+    background: var(--#{$prefix}white);
+    right: -16px
+  }
+  &:hover{
+    padding: 0.5rem 1.3rem 0.5rem 0rem;
+    &:before{
+      left: -16px;
+    }
+    &:after{
+      right: 0;
+    }
+  }
+}
+
+// btn line color variant generator for .text-#name
+@each $color, $value in $theme-colors {
+  .btn-line{
+    &.text-#{$color}{
+      padding: 0.5rem 0rem 0.5rem 1.3rem;
+      &:before{
+        background: $value;
+        left: 0;
+      }
+      &:after{
+        background: $value;
+        right: -16px
+      }
+      &:hover{
+        padding: 0.5rem 1.3rem 0.5rem 0rem;
+        &:before{
+          left: -16px;
+        }
+        &:after{
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+.btn-line.btn-sm{
+  &:before {
+    bottom: 12px;
+  }
+  &:after {
+    bottom: 12px;
+  }
+}
+
+// btn line border animation
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+// btn ripple
+.btn-ripple {
+  position: relative;
+  overflow: visible;
+}
+
+.btn-ripple:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-color: inherit;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 1;
+  animation-name: rippleanim;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(.4, 0, .3, 1);
+  animation-delay: 1s;
+}
+
+@keyframes rippleanim {
+  0% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba($primary, 0.90);
+  }
+
+  100% {
+    opacity: 0;
+    box-shadow: 0 0 0 15px rgba($primary, 0.40);
+  }
+}
+
+@-webkit-keyframes rippleanim {
+  0% {
+    opacity: 1;
+    background: rgba($primary, 0.90);
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 0;
+    background: rgba($primary, 0.40);
+    transform: scale(1.5);
+  }
+}

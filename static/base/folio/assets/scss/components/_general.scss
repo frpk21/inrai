@@ -1,0 +1,696 @@
+// 
+// general.scss
+// Theme general elements and helper styling
+
+
+// animate.css root animate-delay change from 1s to 0.5s to make animation slower
+:root {
+  --animate-delay: 0.5s;
+}
+
+// GLightbox controls theme
+.plyr__control--overlaid, .plyr--video .plyr__control.plyr__tab-focus, .plyr--video .plyr__control:hover, .plyr--video .plyr__control[aria-expanded=true]{
+  background: var(--#{$prefix}primary);
+}
+.plyr--full-ui input[type=range]{
+  color: var(--#{$prefix}primary);
+}
+
+/* rtl:raw:
+.glightbox-clean .gclose, .glightbox-modern .gclose{
+  right: auto !important;
+  left: 20px;
+}
+*/
+
+// image trail effects
+.content__img {
+  position: absolute;
+  top: 0;
+  left: 0 #{"/* rtl:ignore */"};
+  opacity: 0;
+}
+
+// ityped cursor blink
+.ityped-cursor {
+  color: var(--#{$prefix}dark);
+  opacity: 1;
+  animation: cursorblink 0.3s infinite;
+  animation-direction: alternate;
+}
+
+@keyframes cursorblink {
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes cursorblink {
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes cursorblink {
+  100% {
+    opacity: 0;
+  }
+}
+
+// Custom cursor
+@include media-breakpoint-up(md){
+  .cursor-dot,
+  .cursor-dot-outline {
+    z-index: 1100;
+    pointer-events: none;
+    position: fixed;
+    top: 50%;
+    left: 50% #{"/* rtl:ignore */"};
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  }
+
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: shift-color($primary, 10%);
+  }
+
+  .cursor-dot-outline {
+    width: 30px;
+    height: 30px;
+    background-color: var(--#{$prefix}primary);
+    opacity: 0.4 !important;
+  }
+}
+
+// Search
+.search-full {
+  height: 0px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1080;
+}
+
+.search-full.show {
+  height: 100vh;
+}
+
+//  Scroll Down 
+.scroll-down {
+  width: 25px;
+  right: 0px;
+  position: absolute;
+  bottom: 0;
+  color: var(--#{$prefix}gray-800);
+  z-index: 2;
+
+  &.scroll-down-light {
+    color: $white;
+
+    .scroll-line {
+      &:after {
+        background: linear-gradient(180deg, $white 50%, rgba(21, 175, 90, 0) 0);
+        background-position: 0 -60px;
+        background-size: 100% 200%;
+      }
+
+    }
+
+  }
+
+  .scoll-text {
+    writing-mode: vertical-rl;
+    margin-top: 8px;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 auto;
+
+    &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: linear-gradient(180deg, $gray-800 50%, rgba(21, 175, 90, 0) 0);
+      background-position: 0 -60px;
+      background-size: 100% 200%;
+      -webkit-animation: scrolldown 5s cubic-bezier(0.76, 0, 0.3, 1) infinite forwards;
+      animation: scrolldown 5s cubic-bezier(0.76, 0, 0.3, 1) infinite forwards;
+    }
+
+  }
+
+}
+
+@-webkit-keyframes scrolldown {
+  0% {
+    background-position: 0 -60px
+  }
+
+  75% {
+    background-position: 0 0
+  }
+
+  to {
+    background-position: 0 60px
+  }
+
+}
+
+@keyframes scrolldown {
+  0% {
+    background-position: 0 -60px
+  }
+
+  75% {
+    background-position: 0 0
+  }
+
+  to {
+    background-position: 0 60px
+  }
+
+}
+
+// Back to top
+.back-top {
+  cursor: pointer;
+  position: fixed !important;
+  bottom: 0;
+  right: 0;
+  display: block;
+  z-index: 99;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: $transition-base;
+  background: var(--#{$prefix}primary);
+  color: var(--#{$prefix}white);
+  padding: 20px 0 15px 0;
+  width: 40px;
+  position: absolute;
+  color: var(--#{$prefix}white);
+
+  &.back-top-show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0%);
+    transition: all 1s ease-in-out;
+  }
+
+  .scoll-text {
+    writing-mode: vertical-rl;
+    padding-left: 8px;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    overflow: hidden;
+    margin: 0 0 10px 20px;
+
+    &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: linear-gradient(180deg, $white 50%, rgba(21, 175, 90, 0) 0);
+      background-position: 0 -60px;
+      background-size: 100% 200%;
+      -webkit-animation: backtop 5s cubic-bezier(0.76, 0, 0.3, 1) infinite forwards;
+      animation: backtop 5s cubic-bezier(0.76, 0, 0.3, 1) infinite forwards;
+    }
+
+  }
+
+}
+
+@-webkit-keyframes backtop {
+  from {
+    background-position: 0 -60px
+  }
+
+  75% {
+    background-position: 0 0
+  }
+
+  0% {
+    background-position: 0 60px
+  }
+
+}
+
+@keyframes backtop {
+  from {
+    background-position: 0 -60px
+  }
+
+  75% {
+    background-position: 0 0
+  }
+
+  0% {
+    background-position: 0 60px
+  }
+
+}
+
+// To flip element in RTL
+/* rtl:raw:
+  .rtl-flip {
+    transform: scaleX(-1);
+  }
+  .rtl-flip.bi:before{
+    transform: inherit;
+  }
+*/
+
+// parallax
+.bg-parallax{
+  -webkit-transform: translate3d(0, 0, 0);
+  &:before {
+    z-index: 0;
+  }
+}
+
+//
+// Animations
+// 
+
+// marquee animation
+.marquee-animation {
+  animation: marqueeAnimation 20s linear infinite;
+  position: absolute;
+  display: block;
+  z-index: 10;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.marquee-animation.hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeAnimation {
+  0% {
+    transform: translateX(-2%)
+  }
+
+  100% {
+    transform: translateX(-100%)
+  }
+
+}
+
+// tilt animation (Used with tilt.js)
+.tilt-animation {
+  transform-style: preserve-3d;
+}
+
+// rotate infinite animation
+.rotate-infinite {
+  -webkit-animation: rotating 10s linear infinite;
+  -moz-animation: rotating 10s linear infinite;
+  -ms-animation: rotating 10s linear infinite;
+  -o-animation: rotating 10s linear infinite;
+  animation: rotating 10s linear infinite;
+}
+
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+
+}
+
+// line draw animation
+.line-draw-animation {
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: var(--#{$prefix}primary);
+    right: 0;
+    top: 0;
+    transition-delay: 0.2s;
+  }
+
+  &::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: var(--#{$prefix}primary);
+    left: 0;
+    bottom: 0;
+    transition-delay: 0.6s;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+      transition-delay: 0.4s;
+    }
+
+    &::after {
+      width: 100%;
+      transition-delay: 0s;
+    }
+
+    .line-draw-inner {
+      &::before {
+        height: 100%;
+        transition-delay: 0.6s;
+      }
+
+      &::after {
+        height: 100%;
+        transition-delay: 0.2s;
+      }
+
+    }
+
+  }
+
+  .line-draw-inner {
+    &::after {
+      transition-delay: 0.4s;
+      right: 0;
+      bottom: 0;
+    }
+
+    &::before {
+      transition-delay: 0s;
+      left: 0;
+      top: 0;
+    }
+
+  }
+
+}
+
+.line-draw-inner {
+  &::before {
+    content: "";
+    width: 2px;
+    height: 0;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: var(--#{$prefix}primary);
+  }
+
+  &::after {
+    content: "";
+    width: 2px;
+    height: 0;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: var(--#{$prefix}primary);
+  }
+
+}
+
+// Check mark animation
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: $success;
+  fill: none;
+  animation: checkmarkstroke 1.2s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 3;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 5% auto;
+  box-shadow: inset 0px 0px 0px $success;
+  animation: checkmarkfill .6s ease-in-out .9s forwards, checkmarkscale .8s ease-in-out 2s both;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: checkmarkstroke 1.1s cubic-bezier(0.65, 0, 0.45, 1) 1.2s forwards;
+}
+
+@keyframes checkmarkstroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes checkmarkscale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.3, 1.3, 1);
+  }
+}
+@keyframes checkmarkfill {
+  100% {
+    box-shadow: inset 0px 0px 0px 60px $success;
+  }
+}
+
+
+// AOS Reveal animation
+.reveal-item {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+
+  .reveal-animation {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 101%;
+    background: var(--#{$prefix}gray-200);
+
+    &::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--#{$prefix}gray-400);
+      transition-property: transform;
+      transition-duration: 1s;
+    }
+
+  }
+
+}
+
+.reveal-animation.reveal-primary::before {
+  background: var(--#{$prefix}primary);
+}
+
+.reveal-animation.reveal-dark::before {
+  background: var(--#{$prefix}dark);
+}
+
+.reveal-animation.reveal-white::before {
+  background: var(--#{$prefix}white);
+}
+
+.reveal-animation.reveal-top.aos-animate::before,
+.reveal-animation.reveal-bottom.aos-animate::before {
+  transform: scaleY(1);
+}
+
+.reveal-animation.reveal-start.aos-animate::before,
+.reveal-animation.reveal-end.aos-animate::before {
+  transform: scaleX(1);
+}
+
+.reveal-animation.reveal-top::before {
+  transform: scaleY(0);
+  transform-origin: 0% 100%;
+}
+
+.reveal-animation.reveal-start::before {
+  transform: scaleX(0);
+  transform-origin: 100% 0%;
+}
+
+.reveal-animation.reveal-end::before {
+  transform: scaleX(0);
+  transform-origin: 0% 100%;
+}
+
+.reveal-animation.reveal-bottom::before {
+  transform: scaleY(0);
+  transform-origin: 100% 0%;
+}
+
+//  AOS animate for reveal animation
+[data-aos="reveal-top"],
+[data-aos="reveal-start"],
+[data-aos="reveal-end"],
+[data-aos="reveal-bottom"] {
+  transition-property: transform;
+  transition-delay: 1s;
+}
+
+[data-aos="reveal-top"] {
+  transform: scaleY(1);
+
+  &.aos-animate {
+    transform: scaleY(0);
+    transform-origin: 100% 0%;
+  }
+
+}
+
+[data-aos="reveal-start"] {
+  transform: scaleX(1);
+
+  &.aos-animate {
+    transform: scaleX(0);
+    transform-origin: 0% 100%;
+  }
+
+}
+
+[data-aos="reveal-end"] {
+  transform: scaleX(1);
+
+  &.aos-animate {
+    transform: scaleX(0);
+    transform-origin: 100% 0%;
+  }
+
+}
+
+[data-aos="reveal-bottom"] {
+  transform: scaleY(1);
+
+  &.aos-animate {
+    transform: scaleY(0);
+    transform-origin: 0% 100%;
+  }
+
+}
+
+[data-aos="reveal-item"] {
+  visibility: hidden;
+  transition-property: visibility;
+  transition-duration: 0s;
+
+  &.aos-animate {
+    visibility: visible;
+  }
+
+}
+
+// col md full right
+@include media-breakpoint-up(md) {
+  .col-md-full-right {
+    position: absolute;
+    width: 1000%;
+    max-width: 50%;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+//  Footer fixed 
+@media (min-width:768px) {
+  footer.footer-sticky {
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1 !important;
+  }
+}
+
+// featured label
+.featured-label {
+  position: absolute;
+  z-index: 99;
+  background: var(--#{$prefix}primary);
+  color: var(--#{$prefix}white);
+  transform: rotate(45deg);
+  text-align: center;
+  top: -8px;
+  right: -48px;
+  width: 120px;
+  padding: 16px 0 3px 0;
+}
+
+// pre loader
+.preloader {
+  background-color: var(--#{$prefix}white);
+  position: fixed;
+  z-index: 1190;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  .preloader-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+}

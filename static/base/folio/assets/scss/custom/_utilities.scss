@@ -1,0 +1,97 @@
+// 
+// utilities.scss
+// Extended from Bootstrap
+// 
+
+
+$utilities: ();
+
+$utilities: map-merge(
+  (
+    // border dotted utilities
+    "border-dotted": (
+      property: border,
+      class: border-dotted,
+      values: (
+        null: 2px dotted $border-color,
+        0: 0,
+      )
+    ),
+
+    // Sizing utilities
+    "width": (
+      property: width,
+      class: w,
+      values: (
+        40: 40%
+      )
+    ),
+
+    // height 
+    "height": (
+      property: height,
+      class: h,
+      responsive: true,
+      values: (
+        400: 400px,
+        500: 500px,
+        600: 600px,
+        700: 700px,
+        800: 800px,
+        900: 900px,
+      )
+    ),
+
+    // viewport height
+    "viewport-height": (
+      property: height,
+      responsive: true,
+      class: vh,
+      values: (100: 100vh)
+    ),
+
+    // z index
+    "z-index": (
+      property: z-index,
+      class: z-index,
+      values: (
+        0: 0,
+        9: 9,
+        99: 99,
+        n9: -9
+      )
+    ),
+
+     // Rotate
+     "rotate": (
+      property: transform,
+      class: rotate,
+      values: (
+        10: rotate(-10deg),
+        45: rotate(-45deg),
+        90: rotate(90deg),
+        270: rotate(270deg)
+      )
+    ),
+
+    // Opacity
+    "opacity": (
+      property: opacity,
+      class: opacity,
+      values: (
+        0: 0,
+        1: 0.1,
+        2: 0.2,
+        3: 0.3,
+        4: 0.4,
+        5: 0.5,
+        6: 0.6,
+        7: 0.7,
+        8: 0.8,
+        9: 0.9
+      )
+    ),
+
+  ),
+  $utilities
+);

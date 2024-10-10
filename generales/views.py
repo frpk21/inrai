@@ -45,6 +45,7 @@ class Home(generic.CreateView):
     context_object_name='obj1'
     form_class=ContactoForm
     success_url=reverse_lazy("generales:home")
+    
     def get(self, request, *args, **kwargs):
         self.object = None
         return self.render_to_response(
@@ -80,7 +81,18 @@ class NosotrosView(TemplateView):
         context['nosotros'] = nosotros
         return context
     
+class ContactoView(generic.CreateView):
+    model=Contacto
+    template_name="generales/contacto.html"
+    context_object_name='obj'
+    form_class=ContactoForm
+    success_url=reverse_lazy("generales:home")
 
+class RadioView(TemplateView):
+    model=Contacto
+    template_name="generales/radio.html"
+    context_object_name='obj'
+    success_url=reverse_lazy("generales:home")
 
 def send_mail(request, correo, nombre,tel,ciudad,pais,msg):
     from django.conf import settings

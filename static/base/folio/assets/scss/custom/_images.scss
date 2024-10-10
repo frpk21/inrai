@@ -1,0 +1,28 @@
+// 
+// images.scss
+// Extended from Bootstrap
+//
+
+// 
+// Additional styles for theme
+//
+
+.img-cover{
+  object-fit: cover;
+}
+
+// Grayscale for background image
+.img-grayscale:not(img){
+	background-blend-mode: luminosity;
+	background-color: var(--#{$prefix}gray-700) !important;
+}
+// Grayscale for background image with parallax
+.img-grayscale [id*='jarallax-container-'] > div{
+	background-blend-mode: luminosity;
+	background-color:#000;
+}
+// Grayscale for image
+img.img-grayscale{
+	filter: grayscale(100%);
+}
+

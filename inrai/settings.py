@@ -126,8 +126,8 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "medios.bogota@sistemainrai.net"
-EMAIL_HOST_PASSWORD = "Daniela20112020Charry!"
+EMAIL_HOST_USER = "alejandra.cabrera@sistemainrai.net"
+EMAIL_HOST_PASSWORD = "Comercial2023INRAI*"
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
@@ -147,6 +147,7 @@ LOGOUT_REDIRECT_URL = '/login/'
 
 ALLOWED_HOSTS = ['*']
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 try:
     exec(open(os.path.join(BASE_DIR, 'inrai/settings_local.py')).read())
 except IOError:

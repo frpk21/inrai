@@ -1,0 +1,900 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+{% load humanize %}
+
+<div id="page-content">
+    <!-- Start Hero -->
+    <section class="hero centered" data-scroll-index="0">
+        <div class="hero-bg">
+            <div class="square"></div>
+            <div class="square-overlay"></div>
+        </div>
+        <div class="email-link title-anim">
+            <a href="mailto: servicioalcliente@sistemainrai.net">servicioalcliente@sistemainrai.net</a>
+        </div>
+        <div class="social title-anim">
+            <br><br><br><br><ul>
+                <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i> </a></li>
+                <li><a href="#"><i class="fab fa-behance" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fab fa-dribbble" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        <div class="container between">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div>
+                        <div class="hero-title text-left">
+                            <h3 class="title-anim">Somos</h3>
+                            <!--<h1 class="title-anim">Una Compa&ntilde;&iacute;a de</h1>-->
+                            <div class="mt-20"></div>
+                            <h2 class="title-anim">Comunicaciones</h2>
+                            <h2 class="title-anim">Marketing</h2>
+                            <h2 class="title-anim">Entretenimiento</h2>
+                            <div class="mt-40 title-anim">
+                                <a class="btn-main" href="{% url 'generales:nosotros' %}" >Nosotros</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Hero -->
+
+    <!-- Start About -->
+    <section id="about" class="about parallax-scrl" data-scroll-index="1">
+        <div class="right-bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                </div>
+                <div class="col-lg-6 order-lg-2">
+                    <div class="about-text">
+                        <div class="title text-left">
+                            <h3>ATL </h3>
+                            <h2>Radio Regional</h2>
+                        </div>
+                        <div class="about-inner mt-30">
+                            <h4>Como compañía de comunicaciones estamos en el medio hace m&aacute;s de 40 años.</h4>
+                            <p>Contamos con emisoras propias ubicadas en 4 departamentos las cuales siempre están posicionadas en los primeros lugares de sintonía y con una excelente aceptación de nuestra audicencia , nuestro principal objetivo es satisfacer a la comunidad con programas noticiosos, musicales y c&iacute;vicos.</p>
+                            <p>M&aacute;s de 1.000 emisoras, tanto comerciales, como comunitarias y de interés público; nos permiten ofrecer a nuestros anunciantes, la divulgación de sus campañas con un alto porcentaje de cubrimiento y credibilidad en todo el territorio nacional.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="about-img line-img">
+                        <div class="about-overlay"></div>
+                        <img class="img-fluid" src="/static/base/images/c.jpg" alt="1">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="between">
+        <div class="line-between"></div>
+    </div>
+
+    <!-- Start Service -->
+    <section id="service" class="service parallax-scrl" data-scroll-index="2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="title text-left">
+                        <h3>&Aacute;reas de</h3>
+                        <h2>Servicios</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 mt-30">
+                    <div class="service-item bg-main">
+                        <div class="service-icon text-center">
+                            <img src="/static/base/images/service/btl.png" alt="">
+                        </div>
+                        <div class="service-text">
+                            <h3>BTL</h3>
+                            <p>Contamos con novedosos canales de comunicación para
+                                impulsar y promocionar sus productos o servicios. Siempre
+                                buscamos el espacio ideal en el cual podamos acercarnos al
+                                consumidor de manera directa empleando en grande la
+                                creatividad, sorpresa y el sentido de la oportunidad.
+                                Ofrecemos un completo servicio de mobiliario, arquitectura
+                                efímera, protocolo y los recursos necesarios para la
+                                promoción de la marca.</p>
+                            <div class="service-line"></div>
+                            <ul class="service-list">
+                                <li>Activaciones</li>
+                                <li>Conciertos</li>
+                                <li>Log&iacute;stica</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-50">
+                    <div class="service-item bg-second">
+                        <div class="service-icon text-center">
+                            <img src="/static/base/images/service/volume12.png" alt="">
+                        </div>
+                        <div class="service-text">
+                            <h3>PERIFONEO</h3>
+                            <p> Es un medio directo de llegada al público; en las calles, mercados y zonas rurales. El perifoneo es móvil, emplea altavoces o cornetas instaladas sobre un vehículo para ir recorriendo los lugares mientras se emite el mensaje.</p>
+                            <div class="service-line"></div>
+                            <ul class="service-list">
+                                <li>Regional</li>
+                                <li>Rural</li>
+                                <li>Directo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-30">
+                    <div class="service-item bg-main">
+                        <div class="service-icon text-center">
+                            <img src="/static/base/images/service/monitoreo.png" alt="">
+                        </div>
+                        <div class="service-text">
+                            <h3>MONITOREO RADIO</h3>
+                            <p>Verificamos la emisi&oacute;n de la pauta radial en tiempo real generando evidencias de su transmisi&oacute;n. </p>
+                            <div class="service-line"></div>
+                            <ul class="service-list">
+                                <li>Tecnolog&iacute;a WEB</li>
+                                <li>Streaming</li>
+                                <li>Evidencias</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mt-30">
+                    <div class="service-item bg-main">
+                        <div class="service-icon text-center">
+                            <img src="/static/base/images/service/digital.png" alt="">
+                        </div>
+                        <div class="service-text">
+                            <h3>DIGITAL & SOCIAL MEDIA</h3>
+                            <p>Planificamos y gestionamos estrategias inteligentes que están cargadas de datos de audiencia y que nos permiten llegar a las personas adecuadas, en el momento adecuado y con el mensaje adecuado. Todo lo que hacemos está basado en datos.
+
+                                Ya sea que su objetivo sea la notoriedad, el tráfico, las conversiones o algo intermedio, nuestro enfoque integral garantiza que su campaña alcance su máximo potencial, al mismo tiempo que aprovecha al máximo su presupuesto de medios, en todo momento.
+                                </p>
+                            <div class="service-line"></div>
+                            <ul class="service-list">
+                                <li>Social</li>
+                                <li>Influencer</li>
+                                <li>Administraci&oacute;n</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-50">
+                    <div class="service-item bg-second">
+                        <div class="service-icon text-center">
+                            <img src="/static/base/images/service/produccion.png"1 alt="">
+                        </div>
+                        <div class="service-text">
+                            <h3>PRODUCCI&Oacute;N</h3>
+                            <p> Nos especializamos en la realización de piezas audiovisuales
+                                corporativas, producimos podcast, comerciales para TV,
+                                videoclips musicales y fotografía profesional.
+                                Disponemos de soluciones innovadoras, llenas de
+                                creatividad, desarrolladas con la mejor tecnología. Hoy
+                                tenemos la capacidad de transmitir en vivo tanto audio como
+                                video en tiempo real, lo que permite apoyar cualquier servicio
+                                BTL.</p>
+                            <div class="service-line"></div>
+                            <ul class="service-list">
+                                <li>Podcast</li>
+                                <li>Video Streaming</li>
+                                <li>Audio Streaming</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-30">
+                    <div class="service-item bg-main">
+                        <div class="service-icon text-center">
+                            <img src="/static/base/images/service/qbos.png" alt="">
+                        </div>
+                        <div class="service-text">
+                            <h3>Qbos</h3>
+                            <p>Ponemos en práctica la visión por ordenador, carga web instantánea, streaming, retroalimentación de los usuarios, entrada de datos, y mucho más. En Qubos no consideramos la cabina de fotos como un jugete tradicional, sino como una utilidad de marca. </p>
+                            <div class="service-line"></div>
+                            <ul class="service-list">
+                                <li>Activaciones</li>
+                                <li>Experiencia de marca</li>
+                                <li>Alto impacto</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End Service -->
+
+    <div class="between">
+        <div class="line-between"></div>
+    </div>
+
+   
+    <section id="project" class="project-section parallax-scrl" data-scroll-index="3">
+        <div class="left-bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mt-30">
+                    <div class="title">
+                        <h3>Experiencia</h3>
+                        <h2>Soluciones 360</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-7 ml-auto">
+                    <div class="project-content">
+                        <div class="img-project">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/7blq24d3CWU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <div class="detail-project">
+                            <p><span class="number">1</span> <span class="strip"></span> BTL</p>
+                            
+                        </div>
+                    </div>
+                    <!--
+                    {% for item in proyectos %}
+                        <div style="display: none;">
+                            {% cycle 'odd' 'even' %}
+                        </div>   
+                        {% if cycle == 'odd' %}
+                            <div class="col-md-12 col-lg-6">
+                                <a href="#">
+                                    <div class="project-content">
+                                        <div class="img-project">{{item.archivo_foto}}
+                                            <img src="{{item.archivo_foto.url}}" alt="">
+                                        </div>
+                                        <div class="detail-project">
+                                            <p><span class="number">{{forloop.counter}}</span> <span class="strip"></span> {{item.categoria.nombre}}</p>
+                                            <h3 class="reveal-text">{{item.titulo}}</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% else %}
+                            <div class="col-md-12 col-lg-6">
+                                <a href="#">
+                                    <div class="project-content mt-60-lg ">
+                                        <div class="img-project">
+                                            <img src="{{item.archivo_foto.url}}" alt="">
+                                        </div>
+                                        <div class="detail-project">
+                                            <p><span class="number">{{forloop.counter}}</span> <span class="strip"></span>{{item.categoria.nombre}}</p>
+                                            <h3 class="reveal-text">{{item.titulo}}</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="col-lg-12 text-center">
+                        <div class="mt-20">
+                            <a class="btn-main" href="#">Ver Todos</a>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="col-md-5 ml-auto">
+                    <video width="100%"  controls class="about-img line-img" preload="AUTO">
+                        <source src="/static/base/images/inrai/Sliding Frames Intro_1080p.mp4" type="video/mp4" />
+                        Su navegador no soporta contenido multimedia.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Projects -->
+
+    <div class="between">
+        <div class="line-between"></div>
+    </div>
+
+    <!-- Emisoras -->
+    <section id="team" class="team parallax-scrl" data-scroll-index="5">
+        <div class="team-text-bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mt-30 centered">
+                    <div class="title text-left">
+                        <h3>Nuestras</h3>
+                        <h2>Emisoras</h2>
+                    </div>
+                </div>
+                <div class="container" style="background-color:rgba(150, 150, 150, 0)">
+                    <div class="card-group">
+                        <div class="card">
+                            <img src="/static/base/images/inrai/hj-kk.jpg" class="card-img-top" alt="img">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title">HJDOBLEK <span style="color:rgb(255, 77, 0)">HUILA</span></h5>
+                                        <p class="card-text">840 AM</p>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div id="jquery_jplayer_1" class="cp-jplayer"></div>
+                                        <div id="cp_container_1" class="cp-container">
+                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+                                                <div class="cp-buffer-1"></div>
+                                                <div class="cp-buffer-2"></div>
+                                            </div>
+                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+                                                <div class="cp-progress-1"></div>
+                                                <div class="cp-progress-2"></div>
+                                            </div>
+                                            <div class="cp-circle-control"></div>
+                                            <ul class="cp-controls">
+                                                <li><a class="cp-play" tabindex="1">play</a></li>
+                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="/static/base/images/inrai/cristalina_2.png" class="card-img-top" alt="img">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title">CRISTALINA EST&Eacute;REO <span style="color:rgb(255, 77, 0)">HUILA</span></h5>
+                                        <p class="card-text">101.3 FM</p>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div id="jquery_jplayer_2" class="cp-jplayer"></div>
+                                        <div id="cp_container_2" class="cp-container">
+                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+                                                <div class="cp-buffer-1"></div>
+                                                <div class="cp-buffer-2"></div>
+                                            </div>
+                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+                                                <div class="cp-progress-1"></div>
+                                                <div class="cp-progress-2"></div>
+                                            </div>
+                                            <div class="cp-circle-control"></div>
+                                            <ul class="cp-controls">
+                                                <li><a class="cp-play" tabindex="1">play</a></li>
+                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="/static/base/images/inrai/cristalina-100.jpg" class="card-img-top" alt="img">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title">CRISTALINA EST&Eacute;REO <span style="color:rgb(255, 77, 0)">CUNDINAMARCA</span></h5>
+                                        <p class="card-text">102.3 FM</p>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div id="jquery_jplayer_3" class="cp-jplayer"></div>
+                                        <div id="cp_container_3" class="cp-container">
+                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+                                                <div class="cp-buffer-1"></div>
+                                                <div class="cp-buffer-2"></div>
+                                            </div>
+                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+                                                <div class="cp-progress-1"></div>
+                                                <div class="cp-progress-2"></div>
+                                            </div>
+                                            <div class="cp-circle-control"></div>
+                                            <ul class="cp-controls">
+                                                <li><a class="cp-play" tabindex="1">play</a></li>
+                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group">
+                        <div class="card">
+                            <img src="/static/base/images/inrai/hj-kk.jpg" class="card-img-top" alt="img">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title">HJDOBLEK <span style="color:rgb(255, 77, 0)">PITALITO</span></h5>
+                                        <p class="card-text">1280 AM</p>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div id="jquery_jplayer_4" class="cp-jplayer"></div>
+                                        <div id="cp_container_4" class="cp-container">
+                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+                                                <div class="cp-buffer-1"></div>
+                                                <div class="cp-buffer-2"></div>
+                                            </div>
+                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+                                                <div class="cp-progress-1"></div>
+                                                <div class="cp-progress-2"></div>
+                                            </div>
+                                            <div class="cp-circle-control"></div>
+                                            <ul class="cp-controls">
+                                                <li><a class="cp-play" tabindex="1">play</a></li>
+                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="/static/base/images/inrai/cristalina-100.jpg" class="card-img-top" alt="img">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title">CRISTALINA EST&Eacute;REO <span style="color:rgb(255, 77, 0)">CAQUET&Aacute;</span></h5>
+                                        <p class="card-text">101.1 FM</p>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div id="jquery_jplayer_5" class="cp-jplayer"></div>
+                                        <div id="cp_container_5" class="cp-container">
+                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+                                                <div class="cp-buffer-1"></div>
+                                                <div class="cp-buffer-2"></div>
+                                            </div>
+                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+                                                <div class="cp-progress-1"></div>
+                                                <div class="cp-progress-2"></div>
+                                            </div>
+                                            <div class="cp-circle-control"></div>
+                                            <ul class="cp-controls">
+                                                <li><a class="cp-play" tabindex="1">play</a></li>
+                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="/static/base/images/inrai/caquetena.jpg" class="card-img-top" alt="img">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title">LA CAQUETE&Ntilde;A <span style="color:rgb(255, 77, 0)">CAQUET&Aacute;</span></h5>
+                                        <p class="card-text">102.3 FM</p>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div id="jquery_jplayer_6" class="cp-jplayer"></div>
+                                        <div id="cp_container_6" class="cp-container">
+                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+                                                <div class="cp-buffer-1"></div>
+                                                <div class="cp-buffer-2"></div>
+                                            </div>
+                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+                                                <div class="cp-progress-1"></div>
+                                                <div class="cp-progress-2"></div>
+                                            </div>
+                                            <div class="cp-circle-control"></div>
+                                            <ul class="cp-controls">
+                                                <li><a class="cp-play" tabindex="1">play</a></li>
+                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group">
+                        <div class="card">
+                            <img src="/static/base/images/inrai/cristalina-100.jpg" class="card-img-top"  width="220px" alt="img">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title">CRISTALINA <span style="color:rgb(255, 77, 0)">Plus</span></h5>
+                                        <p class="card-text">Virtual</p>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div id="jquery_jplayer_7" class="cp-jplayer" data-source="https://inraivirtuales.radioca.st/crisplus"></div>
+                                        <div id="cp_container_7" class="cp-container">
+                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+                                                <div class="cp-buffer-1"></div>
+                                                <div class="cp-buffer-2"></div>
+                                            </div>
+                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+                                                <div class="cp-progress-1"></div>
+                                                <div class="cp-progress-2"></div>
+                                            </div>
+                                            <div class="cp-circle-control"></div>
+                                            <ul class="cp-controls">
+                                                <li><a class="cp-play" tabindex="1">play</a></li>
+                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="/static/base/images/inrai/cristalina-100.jpg" class="card-img-top"  width="220px" alt="img">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title">CRISTALINA <span style="color:rgb(255, 77, 0)">Plus</span></h5>
+                                        <p class="card-text">Virtual</p>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div id="jquery_jplayer_7" class="cp-jplayer"></div>
+                                        <div id="cp_container_7" class="cp-container">
+                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+                                                <div class="cp-buffer-1"></div>
+                                                <div class="cp-buffer-2"></div>
+                                            </div>
+                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+                                                <div class="cp-progress-1"></div>
+                                                <div class="cp-progress-2"></div>
+                                            </div>
+                                            <div class="cp-circle-control"></div>
+                                            <ul class="cp-controls">
+                                                <li><a class="cp-play" tabindex="1">play</a></li>
+                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="/static/base/images/inrai/cristalina-100.jpg" class="card-img-top"  width="220px" alt="img">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title">CRISTALINA <span style="color:rgb(255, 77, 0)">Plus</span></h5>
+                                        <p class="card-text">Virtual</p>
+                                    </div>
+                                    <div class="col text-center">
+                                        <div id="jquery_jplayer_7" class="cp-jplayer"></div>
+                                        <div id="cp_container_7" class="cp-container">
+                                            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+                                                <div class="cp-buffer-1"></div>
+                                                <div class="cp-buffer-2"></div>
+                                            </div>
+                                            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+                                                <div class="cp-progress-1"></div>
+                                                <div class="cp-progress-2"></div>
+                                            </div>
+                                            <div class="cp-circle-control"></div>
+                                            <ul class="cp-controls">
+                                                <li><a class="cp-play" tabindex="1">play</a></li>
+                                                <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="between">
+        <div class="line-between"></div>
+    </div>
+
+    <!-- Start Team -->
+    <section id="team" class="team parallax-scrl" data-scroll-index="4">
+        <div class="team-text-bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mt-30 centered">
+                    <div class="title text-left">
+                        <h3>Nuestro</h3>
+                        <h2>Equipo</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12 order-lg-1 mt-10">
+                    <div class="team-slider">
+                        <div class="owl-carousel owl-theme">
+                            <div class="team-item text-center">
+                                <div class="team-img">
+                                    <img class="img-fluid" src="/static/base/images/FOTO ALEJA.jpeg" alt="a">
+                                </div>
+                                <div class="team-text">
+                                    <h3>Alejandra Cabrera</h3>
+                                    <p>Directora Sede</p>
+                                </div>
+                            </div>
+                            <div class="team-item text-center">
+                                <div class="team-img">
+                                    <img class="img-fluid" src="/static/base/images/dani.jpg" alt="a">
+                                </div>
+                                <div class="team-text">
+                                    <h3>Daniela Charry</h3>
+                                    <p>Directora de Medios</p>
+                                </div>
+                            </div>
+                            <div class="team-item text-center">
+                                <div class="team-img">
+                                    <img class="img-fluid" src="/static/base/images/monica.jpg" alt="a">
+                                </div>
+                                <div class="team-text">
+                                    <h3>M&oacute;nica Trujillo</h3>
+                                    <p>Asistente de Medios</p>
+                                </div>
+                            </div>
+                            <div class="team-item text-center">
+                                <div class="team-img">
+                                    <img class="img-fluid" src="/static/base/images/dahian.jpg" alt="a">
+                                </div>
+                                <div class="team-text">
+                                    <h3>Dahian G&oacute;mez</h3>
+                                    <p>Asistente Administrativa</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-40 text-center">
+                        <ul class="arrows">
+                            <li class="arrow-left -team"><img src="/static/base/akar/assets/img/arrow-light.png" alt=""></li>
+                            <li class="arrow-right -team"><img src="/static/base/akar/assets/img/arrow-light-R.png" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Team -->
+
+    <div class="between">
+        <div class="line-between"></div>
+    </div>
+
+    <!-- Start News -->
+    <section id="project" class="project-section parallax-scrl" data-scroll-index="6">
+        <div class="left-bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 order-lg-2 centered">
+                    <div class="title ">
+                        <div class="Col">
+                            <h3>Portal</h3>
+                            <h2>Noticias</h2>
+                        </div>
+                        <div class="Col">
+                            <img src="/static/base/images/sonajero-logo.png" width="200px" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-40">
+                <div class="col-md-12 col-lg-6">
+                    <a href="https://elsonajero.com/" target="_blank">
+                        <div class="project-content">
+                            <div class="img-project">
+                                <img src="/static/base/images/elsonajero.png" alt="">
+                            </div>
+                            <div class="detail-project">
+                                <p><span class="number"></span> <span class="strip"></span> elsonajero.com</p>
+                                <h3 class="reveal-text">Noticias de Colombia y El Mundo</h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <div class="mt-20">
+                        <a class="btn-main" href="https://elsonajero.com/" target="_blank">Ir al sitio</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- End News -->
+
+    <div class="between">
+        <div class="line-between"></div>
+    </div>
+
+    <!-- Start Testimonial -->
+    <section id="client" class="testimonial fades" data-scroll-index="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mid-title">
+                    
+                    <div class="title text-center"><img src="/static/base/img/jorge.png" width="150px" alt="">
+                        <h2>Fundador</h2>
+                    </div>
+                </div>
+                <div class="col-lg-10 offset-lg-1 mt-20 fades">
+                    <div class="quot-left">
+                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                    </div>
+                    <div class="quot-right">
+                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                    </div>
+                    <div class="testimonial">
+                        <div class="owl-carousel owl-theme">
+                            <div class="item-testi-slide">
+
+                                <div class="testimonial-item text-center">
+                                    <p>" Aprovechamos la creatividad, la flexibilidad y la responsabilidad de nuestro equipo de trabajo para lograr los objetivos de quienes depositan la confianza en nosotros.
+                                        Continuaremos adaptándonos a las transformaciones tecnológicas conservando nuestra relevancia y credibilidad, apostándole a un mejor mundo, construyendo ciudadanía.
+                                        "</p>
+                                    <div class="author">
+                                        <p class="author-text">Jorge Hel&iacute; Charry Avil&eacute;s</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="line-testi"></div>
+        </div>
+    </section>
+    <!-- End Testimonial -->
+
+    <!-- Start Client -->
+    <div class="client mid-title fades">
+        <div class="container">
+
+            <div class="partner">
+                <div class="owl-carousel owl-theme">
+                    <div class="item-partner">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img src="assets/img/partner/1.png" alt="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-partner">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img src="assets/img/partner/2.png" alt="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-partner">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img src="assets/img/partner/3.png" alt="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-partner">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img src="assets/img/partner/4.png" alt="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-partner">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img src="assets/img/partner/5.png" alt="1">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Client -->
+
+    <div class="between">
+        <div class="line-between"></div>
+    </div>
+
+    <!-- Start Contact -->
+    <section class="contact" data-scroll-index="7">
+        <div class="left-bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="title">
+                        <h3>M&aacute;s informaci&oacute;n?</h3>
+                        <h2>Cont&aacute;ctanos</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12  mt-40">
+                            <div class="contact-item text-left">
+                                <h3>INRAI <span>Comunicaciones-Marketing-Entretenimiento</span></h3>
+                                <a href="#">Carrera 21 # 56 - 33, Bogot&aacute;, D. C., Col</a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12  mt-40">
+                            <div class="contact-item text-left">
+                                <div>
+                                    <div>
+                                        <a class="mail" >comercial@sistemainrai.net</a>
+                                    </div>
+                                    <div class="mt-10">
+                                        <a class="phone" href="#">+57 311500 7873</a>
+                                    </div>
+                                    <form method="POST" class="post-form">{% csrf_token %}
+                                        <label class="form-label" for="contact-name"><strong>Nombre</strong></label>
+                                          {{ form.nombre }}
+                                        <label class="form-label" for="contact-name"><strong>eMail</strong></label>
+                                          {{ form.email }}
+                                        <label class="form-label" for="contact-name"><strong>Teléfono</strong></label>
+                                        {{ form.telefono }}
+                                        <label class="form-label" for="contact-name"><strong>Ciudad</strong></label>
+                                        {{ form.ciudad }}
+                                         <label class="form-label" for="contact-name"><strong>País</strong></label>
+                                        {{ form.pais }}
+                                        <label class="form-label" for="contact-name"><strong>Mensage</strong></label>
+                                          {{ form.textoMensage }}  
+                                        <button class="size-a-20 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-20" type="submit">
+                                            Enviar
+                                        </button>
+                                    </form>
+                                    <!--<div class="social mt-10">
+                                        <ul>
+                                            <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i> </a></li>
+                                            <li><a href="#"><i class="fab fa-behance" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-dribbble" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>-->
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mt-30">
+                    <div class="img-contact">
+                        <img class="img-fluid" src="assets/img/news/2.jpg" alt="">
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- End Contact -->
+
+    <section class="copyrights">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mt-40">
+                    <div class="copyright">
+                        <h3>© Copyright {{hoy.year}}. INRAI Todos los derechos reservados.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+{% endblock contenido %}

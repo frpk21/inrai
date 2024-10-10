@@ -1,0 +1,133 @@
+// 
+// forms.scss
+// Extended from Bootstrap
+//
+
+// 
+// Additional styles for theme
+//
+
+// Form border bottom style
+.form-line{
+  .form-control{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-left: 0;
+    border-radius: 0;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background: var(--#{$prefix}primary);
+        display: block;
+      }
+     &:focus {
+      background-color: transparent;
+      border-color: $input-border-color;
+     }
+  }
+  .input-group{
+    display: block;
+    position: relative;
+  }
+}
+
+// Input focus animation style (Work with form line style only)
+.form-line .form-control ~ .focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--#{$prefix}primary);
+  transition: all 0.6s cubic-bezier(0.42, 0, 0, 0.97);
+}
+
+.form-line input.form-control:focus ~ .focus-border,
+.form-line textarea.form-control:focus ~ .focus-border {
+  width: 100%;
+}
+
+// Form dark(work better with dark bg)
+.form-dark {
+  .form-control{
+    background: transparent;
+    border-color: var(--#{$prefix}gray-700);
+    color: var(--#{$prefix}gray-500);
+      &:focus {
+      color: var(--#{$prefix}white);
+      border-color: var(--#{$prefix}gray-600);
+      outline: 0;
+    }
+  }
+}
+.form-dark.form-line{
+  .form-control{
+    &:focus {
+      border-color: var(--#{$prefix}gray-800);
+    }
+  }
+}
+
+// Form primary(work better with primary bg)
+.form-primary {
+  .form-control{
+    background: transparent;
+    border-color: var(--#{$prefix}white);
+    color: var(--#{$prefix}white);
+      &:focus {
+      color: var(--#{$prefix}white);
+      background-color: transparent;
+      border-color: var(--#{$prefix}gray-800);
+      outline: 0;
+    }
+    &::placeholder {
+      color: rgba($white, 0.7);
+      opacity: 1;
+    }
+  }
+}
+.form-primary.form-line{
+  .form-control{
+    &:focus {
+      border-color: white;
+    }
+  }
+}
+
+.form-primary.form-line .form-control ~ .focus-border {
+  background-color: var(--#{$prefix}gray-800);
+}
+
+// Custom carte color
+.caret-primary{
+  caret-color: var(--#{$prefix}primary);
+}
+
+// Input text white outline
+.input-text-white-stroke{
+  input{
+    color: transparent !important;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--#{$prefix}white);
+    transition: $transition-base;
+    font-size: 1.5rem !important;
+    font-weight: bold;
+    &::-webkit-input-placeholder {
+      color: transparent;
+      opacity: 0.2;
+    }
+  }
+}
+@include media-breakpoint-up(md) {
+  .input-text-white-stroke{
+    input{
+      font-size: 3rem !important;
+    }
+  }
+}

@@ -1,211 +1,390 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="es">
     <head>
-        <!-- Required meta tags -->
+        <title>INRAI</title>
+        <!-- Meta Tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
-        <title>INRAI</title>
-        
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-            crossorigin="anonymous">
+        <meta name="author" content="Webestica.com">
+        <meta name="description" content="Bootstrap based Creative Agency Portfolio Theme">
 
-        <!-- Plugin CSS -->
-        <link rel="stylesheet" href="/static/base/akar/assets/css/plugin.css">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/static/base/images/inrai/favicon.png">
 
-        <!-- Main CSS -->
-        <link rel="stylesheet" href="/static/base/akar/assets/css/light.css">
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Rubik:wght@400;500;700&family=Spartan:wght@400;700;900&display=swap" rel="stylesheet">
 
-        <!-- Responsive CSS -->
-        <link rel="stylesheet" href="/static/base/akar/assets/css/responsive.css">
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" type="text/css" href="/static/base/folio/assets/vendor/font-awesome/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/base/folio/assets/vendor/bootstrap-icons/bootstrap-icons.css">
+        <link rel="stylesheet" type="text/css" href="/static/base/folio/assets/vendor/animate/animate.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/base/folio/assets/vendor/tiny-slider/tiny-slider.css">
+        <link rel="stylesheet" type="text/css" href="/static/base/folio/assets/vendor/aos/aos.css">
 
-        <!-- Sobreposition CSS -->
-        <link rel="stylesheet" href="/static/base/akar/assets/css/sobreposition.css">
+        <!-- Theme CSS -->
+        <link rel="stylesheet" type="text/css" href="/static/base/folio/assets/css/style.css">
+        <link rel="stylesheet" href="/static/base/folio/assets/css/custom_style.css">
 
-        <!-- Favicon (http://www.favicon-generator.org/) -->
-        <link rel="shortcut icon" href="/static/base/images/inrai/favicon.png" type="image/x-icon">
-        <link rel="icon" href="/static/base/images/inrai/favicon.png" type="image/x-icon">
-
-        <!-- audio streaming -->
-        <link rel="stylesheet" href="/static/base/circle_player/lib/circle-player/skin/circle.player.css">
-
-        <!-- modal 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-        -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     </head>
 
     <body>
-        <div class="modal" id="ventana_modal">
-            <div class="modal-dialog" >
-                <div class="modal-content" style="width: 100%;  margin-top:5px;background: #989898;background-image:url(/static/base/cristalinas/img/basic/fondo-header.png);">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <p><h3 style="text-align: center; color: rgb(255, 255, 255);">Generar Lista</h3></p>
-                        <button style="color:white;" type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div><hr color="white"/>
-                    <!-- Modal body -->
-
-                        <div class="modal-body">
-                            <div class="container">
-                                <div class="row">
-                                    <table class="table table-bordered" style="vertical-align: center; text-align: center;">
-                                        <tbody>
-                                            <tr>
-                                                <td style="font-weight: bold; background: rgb(170, 215, 202); font-size:14px; color:rgb(80, 80, 80)">Fecha lista</td>
-                                                <td style="background: rgb(254, 255, 255); font-size:14px; font-style: bold; color:rgb(80, 80, 80)">
-                                                    <input type="date" name="fecha_lista" id="id_fecha_lista" value="{{ctx.nombre.fecha}}">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="font-weight: bold; background: rgb(170, 215, 202); font-size:14px; color:rgb(80, 80, 80)">Hora inicio</td>
-                                                <td style="background: rgb(254, 255, 255); font-size:14px; font-style: bold; color:rgb(80, 80, 80)">
-                                                    <input type="time" name="hora_lista" id="id_hora_lista" value="{{ctx.nombre.tiempo}}">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+        <div class="preloader">
+            <div class="preloader-item">
+                <div class="spinner-border"></div>
+            </div>
+        </div>
+        <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasEnd" aria-labelledby="offcanvasEnd" style="background-image:url(/static/base/folio/assets/images/bg/pattern/03.png); background-position: center left; background-size: cover;">
+            <div class="offcanvas-header">
+                <a class="ms-auto btn btn-primary btn-round zoom-hover" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <i class="fas fa-times p-0"></i>
+                </a>
+            </div>
+            <div class="offcanvas-body vh-lg-100 d-flex align-items-start flex-column px-5 px-md-6">
+                <ul class="nav dropdown-toggle-start-icon d-block flex-column mb-5">
+                    <li class="nav-item display-8 h6 position-relative">
+                        <a href="#" class="nav-link text-white-stroke d-block">Comercial</a>
+                        <a class="dropdown-toggle collapsed" data-bs-toggle="collapse" href="#comercial-dropdown-collapse" role="button" aria-expanded="false" aria-controls="home-dropdown-collapse"></a>
+                        <li class="collapse" id="comercial-dropdown-collapse">
+                            <ul class="nav flex-column w-100 pb-4 pe-0 pe-lg-5">
+                                <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;ALEJANDRA CABRERA RAMOS<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Directora sede</li>
+                                <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 311 500 7873</li>
+                                <li class="nav-item"><a href="mailto:alejandra.cabrera@sistemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;alejandra.cabrera@sistemainrai.net</a></li>
+                                <li class="nav-item"><a href="{% url 'generales:contacto' %}" class="btn btn-line text-light">Ver m&aacute;s</a></li>
+                            </ul>
+                        </li>
+                    </li>
+                    <li class="nav-item display-8 h6 position-relative">
+                        <a href="#" class="nav-link text-white-stroke d-block">Medios</a>
+                        <a class="dropdown-toggle collapsed" data-bs-toggle="collapse" href="#medios-dropdown-collapse" role="button" aria-expanded="false" aria-controls="home-dropdown-collapse"></a>
+                        <li class="collapse" id="medios-dropdown-collapse">
+                            <ul class="nav flex-column w-100 pb-4 pe-0 pe-lg-5">
+                                <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;DANIELA CHARRY AROCA<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Directora de Medios</li>
+                                <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 313 422 5145</li>
+                                <li class="nav-item"><a href="mailto:medios.bogota@sistemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;medios.bogota@sistemainrai.net</a></li>
+                            </ul>
+                            <ul class="nav flex-column w-100 pb-4 pe-0 pe-lg-5">
+                                <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;MAR&Iacute;A EUGENIA PARRA<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Asistente de Medios</li>
+                                <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 313 422 5145</li>
+                                <li class="nav-item"><a href="mailto:asismedios@sistemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;asismedios@sistemainrai.net</a></li>
+                            </ul>
+                            <ul><li class="nav-item"><a href="{% url 'generales:contacto' %}" class="btn btn-line text-light">Ver m&aacute;s</a></li></ul>
+                        </li>
+                    </li>
+                    <li class="nav-item display-8 h6 position-relative">
+                        <a class="nav-link text-white-stroke d-block" href="#">Servicio al Cliente</a>
+                        <a class="dropdown-toggle collapsed" data-bs-toggle="collapse" href="#servicio-dropdown-collapse" role="button" aria-expanded="false" aria-controls="home-dropdown-collapse"></a>
+                        <li class="collapse" id="servicio-dropdown-collapse">
+                            <ul class="nav flex-column w-100 pb-4 pe-0 pe-lg-5">
+                                <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;LUISA FERNANDA SERRANO<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Servicio al Cliente</li>
+                                <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 316 473 4407</li>
+                                <li class="nav-item"><a href="mailto:servicioalcliente@sistemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;servicioalcliente@sistemainrai.net</a></li>
+                            </ul>
+                        </li>
+                    </li>
+                    <li class="nav-item display-8 h5 position-relative">
+                        <a class="nav-link text-white-stroke" href="#">Tesorer&iacute;a</a>
+                        <a class="dropdown-toggle collapsed" data-bs-toggle="collapse" href="#home-dropdown-collapse" role="button" aria-expanded="false" aria-controls="home-dropdown-collapse"></a>
+                        <li class="collapse" id="home-dropdown-collapse">
+                            <ul class="nav flex-column w-100 pb-4 pe-0 pe-lg-5">
+                                <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;BRYAN RODR&Iacute;GUEZ<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Asistente Financiero</li>
+                                <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 310 218 2719</li>
+                                <li class="nav-item"><a href="mailto:servicioalcliente@sistemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;tesoreria@sistemainrai.net</a></li>
+                            </ul>
+                        </li>
+                    </li>
+                    <li class="nav-item display-8 h5 position-relative">
+                        <a class="nav-link text-white-stroke" href="#">Emisoras</a>
+                        <a class="dropdown-toggle collapsed" data-bs-toggle="collapse" href="#emisoras-dropdown-collapse" role="button" aria-expanded="false" aria-controls="home-dropdown-collapse"></a>
+                        <li class="collapse" id="emisoras-dropdown-collapse">
+                            <ul class="nav flex-column w-100 pb-4 pe-0 pe-lg-5">
+                                <div class="accordion accordion-primary" id="accordionExample4">
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="flush-headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                La Mesa (Cundinamarca)
+                                            </button>
+                                        </h6>
+                                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;<small>JULIETH RODR&Iacute;GUEZ<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Directora Cristalina Est&eacute;reo 102.3FM</small></li>
+                                                <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 311 212 8834</li>
+                                                <li class="nav-item"><a href="mailto:julieth.rodriguez@sistemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;julieth.rodriguez@sistemainrai.net</a></li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="flush-heading2">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            Neiva (Huila)
+                                            </button>
+                                        </h6>
+                                        <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;<small>JAVIER LEYTON<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Director HJDOBLEK 840Khz</small></li>
+                                                <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 310 248 0717</li>
+                                                <li class="nav-item"><a href="mailto:javier.leyton@stemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;javier.leyton@stemainrai.net</a></li>
+                                            </div>
+                                            <div class="accordion-body">
+                                                <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;<small>DIEGO RESTREPO<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Director Cristalina Est&eacute;reo 101.3FM</small></li>
+                                                <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 315 445 1152</li>
+                                                <li class="nav-item"><a href="mailto:diego.restrepo@sistemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;diego.restrepo@sistemainrai.net</a></li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="flush-headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                Pitalito (Huila)
+                                            </button>
+                                        </h6>
+                                        <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;<small>LORENA<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Directora Cristalina Est&eacute;reo 102.3FM</small></li>
+                                                <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 311 212 8834</li>
+                                                <li class="nav-item"><a href="mailto:julieth.rodriguez@sistemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;julieth.rodriguez@sistemainrai.net</a></li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="flush-heading4">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            Florencia (Caquet&aacute;)
+                                            </button>
+                                        </h6>
+                                        <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;<small>HENRRY CABRERA MARIN<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Director CRISTALINA EST&Eacute;REO 101.1FM</small></li>
+                                                <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 310 304 3535</li>
+                                                <li class="nav-item"><a href="mailto:henrry.cabrera@stemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;henrry.cabrera@stemainrai.net</a></li>
+                                            </div>
+                                            <div class="accordion-body">
+                                                <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;<small>ALEXANDRE JIMENEZ<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Director La Caquete&ntilde;a 93.1FM</small></li>
+                                                <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 315 445 1152</li>
+                                                <li class="nav-item"><a href="mailto:alexander.jimenez@sistemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;<small>alexander.jimenez@sistemainrai.net</small></a></li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="flush-heading5">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            Virtuales
+                                            </button>
+                                        </h6>
+                                        <div id="flush-collapse5" class="accordion-collapse collapse" aria-labelledby="flush-heading5" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <li class="nav-item"><a href="#">CRISTALINA PLUS</a></li>
+                                                <li class="nav-item"><a href="#">ESPLENDIDA</a></li>
+                                                <li class="nav-item"><a href="#">LATINO PLUS</a></li>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer text-center">
-                            <button type="button" class="btn btn-success data-dismiss=kk-modal" id="btn_modal_hacer_lista" data-current-id="" onclick="genera_lista1('{{ctx.pk}}')">Generar</button>
-                        </div>
-
+                            </ul>
+                        </li>
+                    </li>
+                </ul>
+                <div class="mt-auto mb-5">
+                    <a href="#" class="font-heading text-white text-primary-hover d-block mb-3">servicioalcliente@sistemainrai.net</a>
+                    <a href="#" class="font-heading text-white text-primary-hover">(+57) 601-6563251</a>
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="pauta_modal" >
-            <div class="modal-dialog">
-                <div class="modal-content" style="width: 100%; background: #98989800;">
-                    <figure>
-                        <img class="img" src="/static/base/images/inrai/fondo.png"  width ="100%" alt="1" style=" position:absolute;">
-                        <div class="row justify-content-center">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:red; position:absolute;">
-                                <small>Cerrar</small> <span aria-hidden="true">&times;</span>
+
+        <div class="search-full collapse bg-dark p-3 pb-lg-0" id="search-open">
+            <div class="container position-relative">
+                <h2 class="position-absolute start-0 bottom-0 mb-n5 display-1 text-white-stroke opacity-1">
+                    <span class="d-block">Buscar</span>
+                </h2>
+                <div class="row vh-100">
+                    <div class="d-flex flex-column my-auto py-5 w-100">
+                        <form class="form-dark form-line position-relative w-100">
+                            <div class="mb-3 input-group-lg input-text-white-stroke mb-0">
+                                <input class="form-control font-heading caret-primary mb-0 pe-6" type="text" name="search" placeholder="Qué estás buscando?">
+                                <span class="focus-border"></span>
+                            </div>
+                            <button type="button" class="position-absolute end-0 top-0 btn pb-3 text-primary-hover h-100">
+                                <i class="bi bi-search display-8"></i>
                             </button>
-                        </div><br><br>
-                    </figure>
-                    <div class="modal-body" style="background-color: rgba(44, 44, 44, 0); border-radius: 5px;">
-                        <div class="row justify-content-center">
-                            <p style="color: rgb(255, 112, 2); font-family:Arial, Helvetica, sans-serif; font-size: 40px;  text-shadow: -1px 0 rgb(162, 162, 162), 0 1px rgb(162, 162, 162), 1px 0 rgb(98, 98, 98), 0 -1px black;
-                            ">Nuestra Radio</p>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="https://cristalinacundinamarca.com" target="_blank">
-                                    <img srcset="/static/base/images/inrai/Cristalina Cundinamarca -01.png 210w,
-                                    /static/base/images/inrai/Cristalina Cundinamarca -180.png 180w"
-                                    sizes="(max-width: 210px) 210px, (max-width: 180px) 180px, 210px" src="/static/base/images/inrai/Cristalina Cundinamarca -01.png" alt="img">
-                                </a>
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="https://hjdoblekhuila.com" target="_blank">
-                                    <img srcset="/static/base/images/inrai/Hjdoblek Neiva-180.png,
-                                    /static/base/images/inrai/Hjdoblek Neiva-01.png" 
-                                    sizes="(max-width: 210px) 210px, (max-width: 180px) 180px, 210px" 
-                                    src="/static/base/images/inrai/Hjdoblek Neiva-01.png" alt="img">
-                                </a>
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="https://cristalinahuila.com" target="_blank">
-                                    <img srcset="/static/base/images/inrai/Cristalina Huila-01.png,
-                                    /static/base/images/inrai/Cristalina Huila-180.png" 
-                                    sizes="(max-width: 210px) 210px, (max-width: 180px) 180px, 210px" 
-                                    src="/static/base/images/inrai/Cristalina Huila-01.png" alt="1">
-                                </a>
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="https://lacaquetena.net" target="_blank">
-                                    <img srcset="/static/base/images/inrai/Caqueteña-01.png,
-                                    /static/base/images/inrai/Caqueteña-180.png" 
-                                    sizes="(max-width: 210px) 210px, (max-width: 180px) 180px, 210px" 
-                                    src="/static/base/images/inrai/Caqueteña-01.png" alt="1">
-                                </a>
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="https://hjdoblekpitalito.com" target="_blank">
-                                    <img srcset="/static/base/images/inrai/Hjdoblek pitalito-01.png,
-                                    /static/base/images/inrai/Hjdoblek pitalito-180.png" 
-                                    sizes="(max-width: 210px) 210px, (max-width: 180px) 180px, 210px" 
-                                    src="/static/base/images/inrai/Hjdoblek pitalito-01.png" alt="1">
-                                </a>
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="https://cristalinacaqueta.com" target="_blank">
-                                    <img srcset="/static/base/images/inrai/Cristalina Caquetá-01.png,
-                                    /static/base/images/inrai/Cristalina Caquetá-180.png" 
-                                    sizes="(max-width: 210px) 210px, (max-width: 180px) 180px, 210px" 
-                                    src="/static/base/images/inrai/Cristalina Caquetá-01.png" alt="1">
-                                </a>
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-5">
-                                <a href="https://elsonajero.com" target="_blank">
-                                    <img src="/static/base/images/inrai/Sonajero-01.png" alt="1">
-                                </a>
-                            </div>
-                        </div>
+                        </form>
+                        <p class="small mt-2 mb-0">e.j. radio regional</p>
                     </div>
+                    <a class="position-fixed top-0 end-0 m-3 m-md-5 btn btn-white btn-round zoom-hover" data-bs-toggle="collapse" href="javascript:void(0)" data-bs-target="#search-open" aria-expanded="true">
+                        <i class="fas fa-times p-0"></i>
+                    </a>
                 </div>
             </div>
         </div>
-        <header>
-            <nav>
-                <div class="logo">
-                    <a href="{% url 'generales:home' %}"><img src="/static/base/images/logo_horizontal.png" width="200px" alt="logo"></a>
-                </div>
-                <div class="toggle-btn">
-                    <div class="burger-menu">
-                        <span class="one"></span>
-                        <span class="two"></span>
-                        <span class="tre"></span>
-                    </div>
-                </div>
 
-                <div class="bg-nav"></div>
-
-                <div class="manu-container">
-                    <div class="menu">
-                        <div class="data">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="links text-center text-lg-left">
-                                            <ul>
-                                                <li><a class="menu-link active" href="#" data-scroll-nav="0">Inicio</a></li>
-                                                <li><a class="menu-link" href="{% url 'generales:nosotros' %}" >Nosotros</a></li>
-                                                <li><a class="menu-link" href="#" data-scroll-nav="2">Servicios</a></li>
-                                                <li><a class="menu-link" href="#" data-scroll-nav="3">Portafolio</a></li>
-                                                <li><a class="menu-link" href="#" data-scroll-nav="4">Nuestro equipo</a></li>
-                                                <li><a class="menu-link" href="#" data-scroll-nav="5">Nuestras emisoras</a></li>
-                                                <li><a class="menu-link" href="#" data-scroll-nav="6">Portal de Noticias</a></li>
-                                                <li><a class="menu-link" href="#" data-scroll-nav="7">Contacto</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 offset-lg-2 centered text-right">
-                                        <div class="address-menu">
-                                            <h3>DIRECCI&Oacute;N</h3>
-                                            <h4>Carrera 21 # 56 - 33, Bogot&aacute;, D. C., Col</h4>
+        <header class="navbar-light navbar-sticky">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container align-items-stretch">
+                    <a class="navbar-brand" href="{% url 'generales:home' %}">
+                        <img class="navbar-brand-item" src="/static/base/images/logo_horizontal.png" width="3530px;" alt="Logo">
+                    </a>
+                    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"> </span>
+                    </button>
+                    <div class="collapse navbar-collapse w-auto me-auto" id="navbarCollapse">
+                        <ul class="navbar-nav navbar-nav-scroll me-auto ms-0 ms-xl-4">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="{% url 'generales:home' %}"   aria-haspopup="true" aria-expanded="false">Inicio</a>
+                            </li>
+                            <li class="nav-item dropdown dropdown-fullwidth">
+                                <a class="nav-link dropdown-toggle" href="#" id="elementsMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nosotros</a>
+                                <div class="dropdown-menu" aria-labelledby="elementsMenu">
+                                    <div class="container">
+                                        <div class="row g-0 flex-fill">
+                                            <div class="col-sm-6 col-lg-3">
+                                                <ul class="list-unstyled">
+                                                    <li><h6>Historia</h6></li>
+                                                    <li><p>Somos una compañía con m&aacute;s de 40 años en el mercado de las comunicaciones, el marketing y el entretenimiento.<br>En INRAI cada día nos preparamos para colmar las expectativas de nuestra audiencia. La variedad en nuestra programación, la calidad en lo que hacemos, el profesionalismo de nuestro talento humano y la aplicación de los máximos estándares en tecnología nos han convertido en líderes en la producción de soluciones publicitarias.</p></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-6 col-lg-3">
+                                                <ul class="list-unstyled">
+                                                    <li> <h6>Misi&oacute;n</h6></li>
+                                                    <li><p>Aprovechamos la creatividad, la flexibilidad y la responsabilidad de nuestro equipo de trabajo para lograr los objetivos de quienes depositan la confianza en nosotros.</p></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-6 col-lg-3">
+                                                <ul class="list-unstyled">
+                                                    <li> <h6>Visi&oacute;n</h6></li>
+                                                    <li><p>Continuaremos adaptándonos a las transformaciones tecnológicas conservando nuestra relevancia y credibilidad, apostándole a un mejor mundo, construyendo ciudadanía.</p></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-6 col-lg-3">
+                                                <ul class="list-unstyled">
+                                                    <li> <h6>Funci&oacute;n Social</h6></li>
+                                                    <li><p>INRAI contribuye a fortalecer los canales de comunicación a nivel regional y nacional. Facilita la gestión de emisoras y la difusión de información, ayuda a crear un flujo de noticias, entretenimiento y cultura que beneficia a las comunidades en las que opera.</p></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <ul class="list-unstyled">
+                                                    <li> <h6>Medio Ambiente</h6></li>
+                                                    <li><p>Optimización del consumo energético en sus operaciones: Al desarrollar soluciones tecnológicas de radio y publicidad, INRAI implementa prácticas que optimizan el consumo de energía en sus sistemas. El uso de tecnolog&iacute;a eficiente y la reducción del consumo energético en los procesos.
+                                                        <br>Fomenta la digitalización y reducción del uso de papel: Al apoyar la digitalización en emisor.
+                                                        <br>Responsabilidad medioambiental en la gestión de residuos electrónicos: Como empresa tecnológica, INRAI implementa prácticas responsables en la gestión de residuos electrónicos.
+                                                        <br>Promoción de campañas ambientales a través de sus soluciones de medios: INRAI trabaja con emisoras y medios de publicidad, utiliza estas plataformas para promover campañas de concientización ambiental.
+                                                        <br>Apoyo a iniciativas locales de sostenibilidad: INRAI contribuye a iniciativas medioambientales locales o nacionales, participando o patrocinando actividades como la reforestación, la protección de cuencas hidrográficas y protección ambiental.</p></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-12 mt-3">
+                                                <div class="bg-dark p-5 pb-4 w-100 pattern-overlay-1">
+                                                    <div class="row d-md-flex justify-content-center">
+                                                        <h5 class="col-md-4 text-white mb-4">Descubre INRAI - Es más fácil de lo que piensas.</h5>
+                                                        <p class="col-md-3 text-white">Comience de inmediato a crear la campa&ntilde;a de tus sueños sin problemas.</p>
+                                                        <div class="col-md-3 text-md-end">
+                                                            <a class="btn btn-line btn-primary" target="_blank" href="{% url 'generales:contacto' %}">Solicita una cotizaci&oacute;n!</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                            </li>
+                            <li class="nav-item dropdown dropdown-fullwidth">
+                                <a class="nav-link dropdown-toggle" href="#" id="portfolioMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Servicios</a>
+                                <div class="dropdown-menu" aria-labelledby="portfolioMenu">
+                                    <div class="container">
+                                        <div class="row g-0 flex-fill">
+                                            <h5 class="text-center" style="background-color: antiquewhite;">Lleva tu marca al siguiente nivel. ¡Contáctanos hoy y amplifica tu mensaje con nuestras soluciones publicitarias!</h5><br>
+                                            <div class="col-sm-6 col-lg-4">
+                                                <ul class="list-unstyled">
+                                                    <li> <h6>Comunicaciones</h6></li>
+                                                    <li> <a class="dropdown-item" href="{% url 'generales:radio' %}"><i class="far fa-plus-square fa-fw me-2"></i>Radio</a> </li>
+                                                    <li> <a class="dropdown-item" href="elements-action-box.html"><i class="fas fa-paperclip fa-fw me-2"></i>Perifon&eacute;o</a> </li>
+
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-6 col-lg-4">
+                                                <ul class="list-unstyled">
+                                                    <li> <h6>Marketing</h6></li>
+                                                    <li> <a class="dropdown-item" href="elements-clients.html"><i class="fas fa-user-tie fa-fw me-2"></i>Social Media</a> </li>
+                                                    <li> <a class="dropdown-item" href="elements-counter.html"><i class="fas fa-sort-numeric-up-alt fa-fw me-2"></i>Producci&oacute;n de contenido</a> </li>
+                                            </div>
+                                            <div class="col-sm-6 col-lg-4">
+                                                <ul class="list-unstyled">
+                                                    <li> <h6>Entretenimiento</h6></li>
+                                                    <li> <a class="dropdown-item" href="elements-modals.html"><i class="fas fa-search-plus fa-fw me-2"></i>Producci&oacute;n BTL</a> </li>
+                                                    <li> <a class="dropdown-item" href="elements-offcanvas.html"><i class="fas fa-bars fa-fw me-2"></i>Log&iacute;stica</a> </li>
+                                                </ul>
+                                            </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown dropdown-fullwidth">
+                                <a class="nav-link dropdown-toggle" href="#" id="elementsMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contacto</a>
+                                <div class="dropdown-menu" aria-labelledby="elementsMenu">
+                                    <div class="container">
+                                        <div class="row g-0 flex-fill">
+                                            <div class="col-sm-6 col-lg-3">
+                                                <ul class="list-unstyled">
+                                                    <li><h6>Comercial</h6></li>
+                                                    <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;ALEJANDRA CABRERA RAMOS</li>
+                                                    <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 311 500 7873</li>
+                                                    <li class="nav-item"><a href="mailto:alejandra.cabrera@sistemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;alejandra.cabrera@sistemainrai.net</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-6 col-lg-3">
+                                                <ul class="list-unstyled">
+                                                    <li><h6>Servicio al cliente</h6></li>
+                                                    <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;LUISA FERNANDA SERRANO</li>
+                                                    <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 313 422 5145</li>
+                                                    <li class="nav-item"><a href="mailto:servicioalcliente@sistemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;servicioalcliente@sistemainrai.net</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-6 col-lg-3">
+                                                <ul class="list-unstyled">
+                                                    <li><h6>Medios</h6></li>
+                                                    <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;DANIELA CHARRY AROCA</li>
+                                                    <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 313 422 5145</li>
+                                                    <li class="nav-item"><a href="mailto:medios.bogota@sistemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;medios.bogota@sistemainrai.net</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-6 col-lg-3">
+                                                <ul class="list-unstyled">
+                                                    <li><h6>Tesorer&iacute;a</h6></li>
+                                                    <li class="nav-item"><i class="fa fa-fw fa-user"></i>&nbsp;&nbsp;BRYAN RODR&Iacute;GUEZ</li>
+                                                    <li class="nav-item"><i class="fa fa-fw fa-phone"></i>&nbsp;&nbsp;(+57) 310 218 2719</li>
+                                                    <li class="nav-item"><a href="mailto:contabilidad.bogota@sistemainrai.net"><i class="fa fa-fw fa-envelope"></i>&nbsp;&nbsp;tesoreria@sistemainrai.net</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-12 mt-3">
+                                                <div class="bg-dark p-5 pb-4 w-100 pattern-overlay-1">
+                                                    <div class="row d-md-flex justify-content-center">
+                                                        <h5 class="col-md-4 text-white mb-4">Descubre INRAI - Es más fácil de lo que piensas.</h5>
+                                                        <p class="col-md-3 text-white">Comience de inmediato a crear la campa&ntilde;a de sus sueños sin problemas.</p>
+                                                        <div class="col-md-3 text-md-end">
+                                                            <a class="btn btn-line btn-primary" target="_blank" href="{% url 'generales:contacto' %}">Cont&aacute;ctanos</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nav flex-nowrap align-items-center bg-primary-end position-relative ps-4 ms-4">
+                        <div class="nav-item d-none d-lg-flex">
+                            <div class="flex-row mb-n1">
+                                <span class="me-2 text-white">Ll&aacute;manos:</span>
+                                <a href="#" class="text-white mb-0 h6">(+57) 601-6563251</a>
                             </div>
                         </div>
-
+                       <div class="nav-item">
+                             <!--<a class="nav-link text-white ms-2" data-bs-toggle="collapse" href="javascript:void(0)" data-bs-target="#search-open">
+                                <i class="bi bi-search display-9 "> </i>
+                            </a>-->
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link text-white pe-0" data-bs-toggle="offcanvas" href="#offcanvasEnd" role="button" aria-controls="offcanvasEnd">
+                                <i class="bi bi-text-right rtl-flip display-8" data-bs-target="#offcanvasEnd"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -213,24 +392,118 @@
 
         {% block contenido %}{% endblock contenido %}
 
-        <script src="/static/base/akar/assets/js/plugin.js"></script>
-        <script src="/static/base/akar/assets/js/main.js"></script>
-
-        <!--AUDIO-->
-        <script type="text/javascript" src="/static/base/circle_player/lib/jquery.min.js"></script>
-        <script type="text/javascript" src="/static/base/circle_player/dist/jplayer/jquery.jplayer.min.js"></script>
-        <script type="text/javascript" src="/static/base/circle_player/lib/circle-player/js/jquery.transform2d.js"></script>
-        <script type="text/javascript" src="/static/base/circle_player/lib/circle-player/js/jquery.grab.js"></script>
-        <script type="text/javascript" src="/static/base/circle_player/lib/circle-player/js/mod.csstransforms.min.js"></script>
-        <script type="text/javascript" src="/static/base/circle_player/lib/circle-player/js/circle.player.js"></script>
-        <script type="text/javascript" src="/static/base/circle_player/lib/circle-player/js/script.js"></script>
-        <!-- modal-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-        <script>
-            $(document).ready(function(){
-                $('#pauta_modal').modal("show");
-                //$('#ventana_modal').modal('show');
-            });
-        </script>
+        <footer class="bg-dark pt-7 pattern-overlay-6">
+            <div class="container">
+                <!-- NewsLetter -->
+                <div class="row pb-5 justify-content-center">
+                    <div class="col-md-7">
+                        <h3 class="text-white text-center">Suscr&iacute;base a nuestro newsletter </h3>
+                        <form class="p-0 px-xl-8 my-4">
+                            <div class="input-group">
+                                <input class="form-control border-0 h-auto" type="email" placeholder="Su dirección de correo electrónico">
+                                <button type="button" class="btn btn-white btn-lg mb-0">Suscríbete</button>
+                            </div>
+                            <div class="text-center mt-3"><span class="text-danger">*</span> No compartiremos su información personal con nadie.</div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Divider -->
+                <div class="divider-light opacity-1"></div>
+                <!-- Clients -->
+                <div class="row py-4 justify-content-center">
+                    <div class="col-12">
+                        <div class="tiny-slider">
+                            <div class="tiny-slider-inner" data-arrow="false" data-dots="false" data-gutter="80" data-items-xl="6" data-items-lg="5" data-items-md="5" data-items-sm="4" data-items-xs="2" data-autoplay="3800">
+                                <!-- Slide items START -->
+                                <div class="item"> <img class="opacity-5" src="/static/base/images/inrai/lamesa.png" alt=""> </div>
+                                <div class="item"> <img class="opacity-5" src="/static/base/images/inrai/logos a 250 x ... px-03.png" alt=""> </div>
+                                <div class="item"> <img class="opacity-5" src="/static/base/images/inrai/logos a 250 x ... px-05.png" alt=""> </div>
+                                <div class="item"> <img class="opacity-5" src="/static/base/images/inrai/logos a 250 x ... px-06.png" alt=""> </div>
+                                <div class="item"> <img class="opacity-5" src="/static/base/images/inrai/logos a 250 x ... px_Mesa de trabajo 1.png" alt=""> </div>
+                                <div class="item"> <img class="opacity-5" src="/static/base/images/inrai/logo_blanco.png" alt=""> </div>
+                                <div class="item"> <img class="opacity-5" src="/static/base/images/inrai/lamesa.png" alt=""> </div>
+                                <div class="item"> <img class="opacity-5" src="/static/base/images/inrai/logos a 250 x ... px-03.png" alt=""> </div>
+                                <!-- Slide items END -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Divider -->
+                <div class="divider-light opacity-1"></div>
+                <!-- Main Footer -->
+                <div class="row pb-4 pt-6">
+                    <!-- Footer widget item -->
+                    <div class="col-md-4 mb-4">
+                        <h5 class="mb-4 text-white">Nosotros<span class="text-primary">.</span></h5>
+                        <p>Comunicaciona - Marketing - Entretenimiento</p>
+                        <!-- Social icons -->
+                        <ul class="list-unstyled list-group-inline display-9">
+                            <li> <a class="text-facebook me-2" href="#"><i class="fab fa-facebook-square"></i></a> </li>
+                            <li> <a class="text-instagram mx-2" href="#"><i class="fab fa-instagram-square"></i></a> </li>
+                            <li> <a class="text-twitter mx-2" href="#"><i class="fab fa-twitter-square"></i></a> </li>
+                            <li> <a class="text-linkedin mx-2" href="#"><i class="fab fa-linkedin"></i></a> </li>
+                        </ul>
+                        <div class="my-4">©{{hoy.year}} <a href="https://www.webestica.com/" target="_blank">INRAI</a>. Todos los derechos reservados
+                        </div>
+                    </div>
+                    <!-- Footer widget item -->
+                    <div class="col-sm-6 col-md-2 offset-lg-1 mb-5">
+                        <h5 class="mb-4 text-white">Emisoras</h5>
+                        <ul class="nav flex-column text-primary-hover">
+                            <li class="nav-item"><a class="nav-link pt-0" href="#">Cristalina Est&eacute;reo 102.3 FM</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Cristalina Est&eacute;reo 101.3 FM</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Cristalina Est&eacute;reo 101.1 FM</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">HJDOBLEK 840 Khz</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">HJDOBLEK 1280 Khzt</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">La Caqueteña 93.1 FM</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer widget item -->
+                    <div class="col-sm-6 col-md-2 mb-5">
+                        <h5 class="mb-4 text-white">Descubrir</h5>
+                        <ul class="nav flex-column text-primary-hover">
+                            <li class="nav-item"><a class="nav-link pt-0" href="#">Nosotros</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Comercial <span class="badge bg-danger ms-2">2 Job</span></a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Medios <span class="badge bg-danger ms-2">2 Job</span></a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'generales:contacto' %}">Contacto</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Noticias</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Trabajo</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer widget item -->
+                    <div class="col-md-3">
+                        <h5 class="mb-4 text-white">D&oacute;nde estamos</h5>
+                        <address>Carrera 21 # 56 - 33, Bogot&aacute;, D. C. Colombia.</address>
+                        <p><a class="text-primary-hover" href="#">servicioalcliente@sistemainrai.net</a> </p>
+                        <p><a class="text-primary-hover" href="#">Conmutador: (+57) 601-6563251</a> </p>
+                        <p><a class="text-primary-hover" href="#">Directora Sede Bogot&aacute;:<br>Alejandra Cabrera Ramos  (+57) 3115007873</a> </p>
+                        <p><a class="text-primary-hover" href="#">Directora de Medios:<br>Daniela Charry Aroca  (+57) 3115007873</a> </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="cursor-dot-outline"></div>
+        <div class="cursor-dot"></div>
+        
+        <!-- Back to top -->
+        <div class="back-top">
+            <div class="scroll-line"></div>
+            <span class="scoll-text">Ir Arriva</span>
+        </div>
+        
+        <!-- =======================
+        JS libraries, plugins and custom scripts -->
+        
+        <!-- Bootstrap JS -->
+        <script src="/static/base/folio/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+         
+        <!-- vends -->
+        <script src="/static/base/folio/assets/vendor/jarallax/jarallax.min.js"></script>
+        <script src="/static/base/folio/assets/vendor/tiny-slider/tiny-slider.js"></script>
+        <script src="/static/base/folio/assets/vendor/aos/aos.js"></script>
+        
+        <!-- Template Functions -->
+        <script src="/static/base/folio/assets/js/functions.js"></script>
+        
     </body>
 </html>
