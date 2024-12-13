@@ -24,7 +24,20 @@ from .forms import ContactoForm
 
 from datetime import date
 
+from collections import namedtuple
 
+import psycopg2
+
+def namedtuplefetchall(cursor):
+    "Return all rows from a cursor as a namedtuple"
+    desc = cursor.description
+    nt_result = namedtuple('obj1', [col[0] for col in desc])
+    return [nt_result(*row) for row in cursor.fetchall()]
+
+def open_db():
+    conexion = psycopg2.connect(database="inrai", user="doadmin", host="magazin-do-user-1934793-0.db.ondigitalocean.com", port="25060", password="c56n9esmnqxbquvo")
+    return conexion
+    
 class SinPrivilegios(PermissionRequiredMixin):
     login_url='generales:sin_privilegios'
     raise_exception=False
@@ -64,9 +77,25 @@ class Home(generic.CreateView):
         self.object = form.save()
         return HttpResponseRedirect(self.success_url)
     """
+
 class HomeSinPrivilegios(generic.TemplateView):
     template_name="generales/msg_sin_privilegios.html"
 
+class ConsultasClientesView(LoginRequiredMixin, generic.ListView):
+    template_name = "generales/consultas_clientes.html"
+    context_object_name = "obj"
+    login_url='generales:login'
+
+    def get_queryset(self):
+        try:
+            cone=open_db()
+            cursor=cone.cursor()
+            cursor.execute("SELECT * FROM inspector_emisoras where ciudad__departamento=11 or ciudad__departamento=3")
+            resul = namedtuplefetchall(cursor)
+        except psycopg2.Error as e:
+            resul = ''
+
+        return resul
 
 class NosotrosView(TemplateView):
     login_url = 'generales:login'

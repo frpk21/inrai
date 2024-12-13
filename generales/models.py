@@ -104,3 +104,4 @@ class Nosotros(ClaseModelo):
 
     class Meta:
         verbose_name_plural = "Nosotros"
+

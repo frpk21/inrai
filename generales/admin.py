@@ -28,6 +28,8 @@ class NoticiasAdmin(admin.ModelAdmin):
         obj.autor = request.user
         obj.save()
 
+
+
 admin.site.register(Categoria)
 admin.site.register(Campanas, CampanasAdmin)
 admin.site.register(Contacto)
