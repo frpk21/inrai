@@ -148,7 +148,12 @@ LOGOUT_REDIRECT_URL = '/login/'
 ALLOWED_HOSTS = ['*']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 30 
+
 try:
     exec(open(os.path.join(BASE_DIR, 'inrai/settings_local.py')).read())
 except IOError:
     raise Exception('error reading local settings')
+

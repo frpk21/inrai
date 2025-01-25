@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django.http import HttpResponse, HttpResponseRedirect
 
@@ -28,6 +28,14 @@ from collections import namedtuple
 
 import psycopg2
 
+from django.db import connection
+
+from django.contrib.auth import authenticate, login
+
+from django.contrib.auth.decorators import login_required
+
+from django.contrib import messages
+
 def namedtuplefetchall(cursor):
     "Return all rows from a cursor as a namedtuple"
     desc = cursor.description
@@ -38,14 +46,30 @@ def open_db():
     conexion = psycopg2.connect(database="inrai", user="doadmin", host="magazin-do-user-1934793-0.db.ondigitalocean.com", port="25060", password="c56n9esmnqxbquvo")
     return conexion
     
-class SinPrivilegios(PermissionRequiredMixin):
-    login_url='generales:sin_privilegios'
-    raise_exception=False
-    redirect_field_name="redirecto_to"
+class SinPrivilegios(LoginRequiredMixin):
+    login_url = 'generales:sin_privilegios'
+    raise_exception = False
+    redirect_field_name = "redirect_to"
 
     def handle_no_permission(self):
+        """
+        Redirige al usuario a la página sin privilegios si no tiene permiso.
+        """
         return HttpResponseRedirect(reverse_lazy(self.login_url))
 
+    def pedir_credenciales(self, request):
+        if request.method == "POST":
+            username = request.POST.get('username')            
+            password = request.POST.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)  # Inicia sesión
+                return redirect('generales:customers-res') 
+            else:
+                return render(request, 'generales/login.html', {'messages': 'Credenciales incorrectas'})
+
+        # Mostrar formulario para credenciales
+        return render(request, "generales/login.html")
 
 class HomePage(generic.View):
     def get(self, request, *args, **kwargs):
@@ -81,22 +105,29 @@ class Home(generic.CreateView):
 class HomeSinPrivilegios(generic.TemplateView):
     template_name="generales/msg_sin_privilegios.html"
 
-class ConsultasClientesView(LoginRequiredMixin, generic.ListView):
-    template_name = "generales/consultas_clientes.html"
-    context_object_name = "obj"
-    login_url='generales:login'
+class ConsultasClientesView(SinPrivilegios, generic.TemplateView):
+    def dispatch(self, request, *args, **kwargs):
+        credenciales = self.pedir_credenciales(request)
+        if credenciales:
+            return credenciales  # Retorna la respuesta del formulario si las credenciales no son válidas
+        return super().dispatch(request, *args, **kwargs)
 
-    def get_queryset(self):
+class ConsultasClientesResView(generic.TemplateView):
+    template_name = "generales/consultas_clientes.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         try:
             cone=open_db()
             cursor=cone.cursor()
-            cursor.execute("SELECT * FROM inspector_emisoras where ciudad__departamento=11 or ciudad__departamento=3")
+            cursor.execute("SELECT inspector_emisoras.nombre as medio, inspector_ciudad.nombre_ciudad as municipio, inspector_categoria.nombre AS tipo_medio, inspector_departamento.nombre_departamento as departamento, latitud as lat, longitud as lon FROM inspector_emisoras LEFT JOIN inspector_ciudad on inspector_emisoras.ciudad_id=inspector_ciudad.id LEFT JOIN inspector_departamento on inspector_emisoras.departamento_id=inspector_departamento.id LEFT JOIN inspector_categoria on inspector_emisoras.categoria_id=inspector_categoria.id WHERE inspector_emisoras.departamento_id = 11")
             resul = namedtuplefetchall(cursor)
+            context['resul'] = resul
         except psycopg2.Error as e:
-            resul = ''
+            context['resul'] = ''
 
-        return resul
-
+        return context
+    
 class NosotrosView(TemplateView):
     login_url = 'generales:login'
     model = Nosotros
