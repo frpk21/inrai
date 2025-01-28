@@ -149,22 +149,22 @@
 							<h3>¡Inicia sesión en tu cuenta!</h3>
 							<p>¡Qué bueno verte! Por favor inicia sesión con tu cuenta.</p>
 							<form method="POST">
-                {% csrf_token %}
-							  <div class="mb-3">
-							    <label class="form-label" for="username">Usuario</label>
-							    <input type="text" class="form-control" placeholder="Username" name="username" id="username">
-							  </div>
-							  <div class="mb-3">
-							    <label class="form-label" for="id_password">Clave de acceso</label>
-							    <input class="form-control" placeholder="*********" name="password" type="password" id="id_password">
-							  </div>
-							  <div class="row align-items-center">
-									<div class="col-sm-4">
-										<button type="submit" class="btn btn-dark btn-line">Login</button>
-									</div>
+                				{% csrf_token %}
+								<div class="mb-3">
+									<label class="form-label" for="username">Usuario</label>
+									<input type="text" class="form-control" placeholder="Username" name="username" id="username">
 								</div>
+								<div class="mb-3">
+									<label class="form-label" for="id_password">Clave de acceso</label>
+									<input class="form-control" placeholder="*********" name="password" type="password" id="id_password">
+								</div>
+								<div class="row align-items-center">
+										<div class="col-sm-4">
+											<button type="submit" class="btn btn-dark btn-line">Login</button>
+										</div>
+									</div>
 							</form>
-              <p style="color: red;">{{ messages }}</p>
+             				 <p style="color: red;">{{ messages }}</p>
 						</div>
 					</div>
 				</div>

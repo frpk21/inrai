@@ -38,11 +38,14 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+    .hidden{
+        display: none;
+    }
 </style>
 <section>
     <div class="row justify-content-center">
         <div class="col-10 mb-6" style="padding-left: 50px;">
-            <h5 class="mb-4" style="background-color: antiquewhite;">CUNDINAMARCA</h5>
+            <h6 class="mb-4" style="background-color: antiquewhite;">CUNDINAMARCA</h6>
             <table class="table table-striped display" id="example">
                 <thead>
                     <tr>
@@ -85,11 +88,11 @@
             </table>
         </div>
         <div class="col-2 mb-1">
-            <h5 class="mb-4" style="background-color: antiquewhite;">TIPOS DE MEDIOS</h5>
+            <h6 class="mb-4" style="background-color: antiquewhite;">TIPOS DE MEDIOS</h6>
             <div class="filters">
                 {% for item in categorias %}
                     <label>
-                        <input type="checkbox" class="filter" value = "{{item.tipo_medio}}">
+                        <input type="checkbox" class="filter" value = "{{item.tipo_medio}}" onclick="update_list()" checked>
                         <span class="custom-checkbox"></span> {{item.tipo_medio}} {{item.id}}
                     </label><br />
                 {% endfor %}
@@ -100,8 +103,8 @@
 
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Obtener los filtros y la tabla
+    function update_list(){
+        
         const filters = document.querySelectorAll(".filter");
         const rows = document.querySelectorAll("#example tbody tr");
         // Función para aplicar el filtro
@@ -110,16 +113,22 @@
             const selectedTypes = Array.from(filters)
                 .filter(filter => filter.checked)
                 .map(filter => filter.value);
+            console.log("SELECT = ", selectedTypes);
 
             // Mostrar u ocultar filas según los filtros
             rows.forEach(row => {
                 const tipo = row.getAttribute("data-tipo");
+                console.log("****** = ", row, tipo);
                 if (selectedTypes.includes(tipo)) {
                     row.classList.remove("hidden");
+                    console.log("****************************** SELECCIONADO");
                 } else {
                     row.classList.add("hidden");
+                    console.log("****************************** NOOOOOOOOOOOOOOOOOO");
                 }
+                
             });
+
         }
 
         // Agregar eventos a los checkboxes
@@ -129,6 +138,10 @@
 
         // Aplicar filtro inicial
         applyFilter();
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+        update_list();
     });
 </script>
 <!-- jQuery -->
