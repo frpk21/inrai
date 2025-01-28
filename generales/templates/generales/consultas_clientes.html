@@ -118,13 +118,10 @@
             // Mostrar u ocultar filas según los filtros
             rows.forEach(row => {
                 const tipo = row.getAttribute("data-tipo");
-                console.log("****** = ", row, tipo);
                 if (selectedTypes.includes(tipo)) {
                     row.classList.remove("hidden");
-                    console.log("****************************** SELECCIONADO");
                 } else {
                     row.classList.add("hidden");
-                    console.log("****************************** NOOOOOOOOOOOOOOOOOO");
                 }
                 
             });
@@ -152,9 +149,10 @@
 <script>
     $(document).ready(function() {
         $('#example').DataTable({
+            pageLength: 20, 
             lengthMenu: [
-                [10, 25, 50, -1], // Valores para seleccionar
-                [10, 25, 50, "Todo"] // Etiquetas visibles
+                [-1, 10, 25, 50], // Valores para seleccionar
+                ["Todo", 10, 25, 50] // Etiquetas visibles
             ],
             order: [
                 [0, 'asc'], // Primera columna (ID), orden ascendente
