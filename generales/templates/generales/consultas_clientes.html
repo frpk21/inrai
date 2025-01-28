@@ -5,56 +5,132 @@
 {% block contenido %}
 
 {% load humanize %}
+<style>
+    /* Ocultar el checkbox original */
+    input[type="checkbox"] {
+        display: none;
+    }
 
+    /* Estilo para el contenedor del checkbox */
+    .custom-checkbox {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border: 2px solid #23c24b;
+        border-radius: 4px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    /* Estado marcado */
+    input[type="checkbox"]:checked + .custom-checkbox {
+        background-color: #23c24b;
+        border-color: #23c24b;
+    }
+
+    /* Icono de "check" */
+    input[type="checkbox"]:checked + .custom-checkbox::after {
+        content: "✔";
+        color: rgb(24, 23, 23);
+        font-size: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
 <section>
-    <div class="col-12 mb-6">
-        <div class="row justify-content-center">
-            <table class="table table-striped table-no-bordered table-hover display" id="example" cellspacing="0" style="width: 100%;">
+    <div class="row justify-content-center">
+        <div class="col-10 mb-6" style="padding-left: 50px;">
+            <h5 class="mb-4" style="background-color: antiquewhite;">CUNDINAMARCA</h5>
+            <table class="table table-striped display" id="example">
                 <thead>
-                <tr>
-                    <th><strong>Medio</strong></th>
-                    <th><strong>Municipio</strong></th>
-                    <th><strong>Departamento</strong></th>
-                    <th><strong>Latitud</strong></th>                    
-                    <th><strong>Longitud</strong></th>
-                    <th data-orderable="false" class="text-center"><strong>Ver evidencias</strong></th>
-                </tr>
+                    <tr>
+                        <th><strong>Medio</strong></th>
+                        <th><strong>Tipo</strong></th>
+                        <th><strong>Municipio</strong></th>
+                        <th><strong>Latitud</strong></th>                    
+                        <th><strong>Longitud</strong></th>
+                        <th data-orderable="false" class="text-center"><strong>Acciones</strong></th>
+                    </tr>
                 </thead>
                 <tfoot>
-                <tr>
-                    <th><strong>Medio</strong></th>
-                    <th><strong>Municipio</strong></th>
-                    <th><strong>Departamento</strong></th>
-                    <th><strong>Latitud</strong></th>
-                    <th><strong>Longitud</strong></th>
-                    <th data-orderable="false" class="text-center"><strong>Ver evidencias</strong></th>
-                </tr>
+                    <tr>
+                        <th><strong>Medio</strong></th>
+                        <th><strong>Tipo</strong></th>
+                        <th><strong>Municipio</strong></th>
+                        <th><strong>Latitud</strong></th>
+                        <th><strong>Longitud</strong></th>
+                        <th data-orderable="false" class="text-center"><strong>Acciones</strong></th>
+                    </tr>
                 </tfoot>
                 <tbody>
-                {% for item in resul %}
-                    <div style="display: none">
-                    {{ forloop.counter1 }}
-                    </div>
-                    <tr>
-                        <td>{{item.medio}}</td>
-                        <td>{{item.municipio}}</td>
-                        <td><strong>{{item.departamento}}</strong></td>
-                        <td><strong>{{item.latitud}}</strong></td>
-                        <td>{{item.longitud}}</td>
-                        <td class="td-actions text-center">
-                        <a href="">
-                            <button type="button" rel="tooltip" class="btn btn-warning btn-round">
-                            <i class="material-icons">add</i>
-                            </button>
-                        </a>
-                        </td>
-                    </tr>
-                {% endfor %}
+                    {% for item in resul %}
+                        <tr data-tipo = "{{item.tipo_medio}}">
+                            <td>{{item.medio}}</td>
+                            <td>{{item.tipo_medio}}</td>
+                            <td>{{item.municipio}}</td>
+                            <td>{{item.latitud}}</td>
+                            <td>{{item.longitud}}</td>
+                            <td class="td-actions text-center">
+                                <a href="">
+                                    <button type="button" rel="tooltip" class="btn btn-warning btn-round">
+                                    <i class="material-icons">add</i>
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
+        <div class="col-2 mb-1">
+            <h5 class="mb-4" style="background-color: antiquewhite;">TIPOS DE MEDIOS</h5>
+            <div class="filters">
+                {% for item in categorias %}
+                    <label>
+                        <input type="checkbox" class="filter" value = "{{item.tipo_medio}}">
+                        <span class="custom-checkbox"></span> {{item.tipo_medio}} {{item.id}}
+                    </label><br />
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </section>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Obtener los filtros y la tabla
+        const filters = document.querySelectorAll(".filter");
+        const rows = document.querySelectorAll("#example tbody tr");
+        // Función para aplicar el filtro
+        function applyFilter() {
+            // Obtener los valores seleccionados
+            const selectedTypes = Array.from(filters)
+                .filter(filter => filter.checked)
+                .map(filter => filter.value);
+
+            // Mostrar u ocultar filas según los filtros
+            rows.forEach(row => {
+                const tipo = row.getAttribute("data-tipo");
+                if (selectedTypes.includes(tipo)) {
+                    row.classList.remove("hidden");
+                } else {
+                    row.classList.add("hidden");
+                }
+            });
+        }
+
+        // Agregar eventos a los checkboxes
+        filters.forEach(filter => {
+            filter.addEventListener("change", applyFilter);
+        });
+
+        // Aplicar filtro inicial
+        applyFilter();
+    });
+</script>
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- JS de DataTables -->
