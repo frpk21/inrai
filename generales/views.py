@@ -192,7 +192,7 @@ def enviar_correo(request):
                 "* SOLICITUD DE COTIZACIÓN *   **** PRUEBA APP WEB INRAI",  # Asunto del correo
                 mensaje,  # Cuerpo del correo
                 "administrador@sistemainrai.net",  # Cambia por tu correo
-                ["alejandra.cabrera@sistemainrai.net"],  # Cambia por el destinatario
+                ["alejandra.cabrera@sistemainrai.net","administrador@sistemainrai.net","heigel.charry@sistemainrai.net"],  # Cambia por el destinatario
              
             )
 
