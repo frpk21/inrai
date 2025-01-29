@@ -15,6 +15,7 @@
         <div class="modal-body">
             <p><strong>Medio</strong> <span id="modalTipoMedio"></span></p>
             <p><strong>Descripción:</strong> <span id="modalDescripcion"></span></p>
+            <p><strong>Ubicación:</strong> <span id="modalUbicacion"></span></p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -109,7 +110,10 @@
                                     data-bs-toggle="modal"
                                     data-bs-target="#dataModal"
                                     data-tipo-medio="{{ item.medio }}"
-                                    data-descripcion="{{ item.obs }}">
+                                    data-descripcion="{{ item.obs }}"
+                                    data-ubicacion1= "{{ item.latitud }}"
+                                    data-ubicacion2= "{{ item.longitud }}"
+                                    data-ubicacion3= "{{ item.municipio }}">
                                     +
                                 </button>
                             </td>
@@ -144,9 +148,13 @@
         var button = event.relatedTarget; // Botón que disparó el modal
         var userId = button.getAttribute('data-tipo-medio');
         var userName = button.getAttribute('data-descripcion');
+        var u1 = button.getAttribute('data-ubicacion1');
+        var u2 = button.getAttribute('data-ubicacion2');
+        var u3 = button.getAttribute('data-ubicacion3');
         // Insertar datos en el modal
         document.getElementById('modalTipoMedio').textContent = userId;
         document.getElementById('modalDescripcion').textContent = userName;
+        document.getElementById('modalUbicacion').textContent = u1 + u2 + u3;
     });
 
     function update_list(){
