@@ -16,7 +16,7 @@
         display: inline-block;
         width: 15px;
         height: 15px;
-        border: 2px solid #23c24b;
+        border: 2px solid #fd65004d;
         border-radius: 4px;
         position: relative;
         cursor: pointer;
@@ -24,8 +24,8 @@
 
     /* Estado marcado */
     input[type="checkbox"]:checked + .custom-checkbox {
-        background-color: #23c24b;
-        border-color: #23c24b;
+        background-color: #fd65004d;
+        border-color: #fd6500;
     }
 
     /* Icono de "check" */
@@ -46,7 +46,7 @@
     <div class="row justify-content-center">
         <div class="col-10 mb-6" style="padding-left: 50px;">
             <h6 class="mb-4" style="background-color: rgb(89, 89, 89); color: rgb(4, 4, 4); height: 24px; text-align: center; line-height: 100px;"> CUNDINAMARCA</h6>
-            <table class="table table-striped display" id="example">
+            <table class="table" id="example">
                 <thead>
                     <tr>
                         <th><strong>Medio</strong></th>
@@ -69,17 +69,19 @@
                 </tfoot>
                 <tbody>
                     {% for item in resul %}
-                        <tr data-tipo = "{{item.tipo_medio}}">
-                            <td>{{item.medio}}</td>
+                        <tr data-tipo = "{{item.tipo_medio}}" style="color:black;">
+                            {% if item.tipo_medio == 'PERIFONEO' %}
+                                <td>PERIFONISTA</td>
+                            {% else %}
+                                <td>{{item.medio}}</td>
+                            {% endif %}
                             <td>{{item.tipo_medio}}</td>
                             <td>{{item.municipio}}</td>
                             <td>{{item.latitud}}</td>
                             <td>{{item.longitud}}</td>
                             <td class="td-actions text-center">
                                 <a href="">
-                                    <button type="button" rel="tooltip" class="btn btn-warning btn-round">
-                                    <i class="material-icons">add</i>
-                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-info btn-round">+</button>
                                 </a>
                             </td>
                         </tr>
@@ -87,13 +89,17 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-2 mb-1">
-            <h6 class="mb-4" style="background-color: rgb(89, 89, 89); color: rgb(251, 255, 251); height: 24px; text-align: center;"> TIPOS DE MEDIOS</h6>
+        <div class="col-2 mb-1"><br /><br />
+            <h8 class="mb-4" style="color: rgb(82, 82, 82); height: 24px; text-align: center; align-items: center;"> <strong>TIPOS DE MEDIOS</strong></h8><br /><br />
             <div class="filters">
                 {% for item in categorias %}
-                    <label>
-                        <input type="checkbox" class="filter" value = "{{item.tipo_medio}}" onclick="update_list()" checked>
-                        <span class="custom-checkbox"></span> {{item.tipo_medio}} {{item.id}}
+                    <label style="color:rgb(24, 23, 23); font-size: 12px; line-height: 2; vertical-align: top;">
+                        {% if item.id == 1 %}
+                            <input type="checkbox" class="filter" value = "{{item.tipo_medio}}" onclick="update_list()" checked>
+                        {% else %}
+                            <input type="checkbox" class="filter" value = "{{item.tipo_medio}}" onclick="update_list()">
+                        {% endif %}
+                        <span class="custom-checkbox"></span> {{item.tipo_medio}}
                     </label><br />
                 {% endfor %}
             </div>
@@ -154,8 +160,8 @@
                 ["Todo", 10, 25, 50] // Etiquetas visibles
             ],
             order: [
-                [0, 'asc'], // Primera columna (ID), orden ascendente
-                [1, 'asc']  // Segunda columna (Nombre), orden ascendente
+                [2, 'asc'], // Primera columna (ID), orden ascendente
+                [0, 'asc']  // Segunda columna (Nombre), orden ascendente
             ],
             language: {
                 url: "https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json"
