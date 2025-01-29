@@ -36,6 +36,11 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib import messages
 
+from django.core.mail import send_mail as django_send_mail
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+
 def namedtuplefetchall(cursor):
     "Return all rows from a cursor as a namedtuple"
     desc = cursor.description
@@ -120,7 +125,7 @@ class ConsultasClientesResView(generic.TemplateView):
         try:
             cone=open_db()
             cursor=cone.cursor()
-            cursor.execute("SELECT inspector_emisoras.nombre as medio, inspector_emisoras.descripcion as descripcion, inspector_ciudad.nombre_ciudad as municipio, inspector_categoria.nombre AS tipo_medio, inspector_departamento.nombre_departamento as departamento, latitud as lat, longitud as lon FROM inspector_emisoras LEFT JOIN inspector_ciudad on inspector_emisoras.ciudad_id=inspector_ciudad.id LEFT JOIN inspector_departamento on inspector_emisoras.departamento_id=inspector_departamento.id LEFT JOIN inspector_categoria on inspector_emisoras.categoria_id=inspector_categoria.id WHERE inspector_emisoras.departamento_id = 11")
+            cursor.execute("SELECT inspector_emisoras.nombre as medio, inspector_emisoras.id as id, inspector_emisoras.descripcion as descripcion, inspector_ciudad.nombre_ciudad as municipio, inspector_categoria.nombre AS tipo_medio, inspector_departamento.nombre_departamento as departamento, latitud as lat, longitud as lon FROM inspector_emisoras LEFT JOIN inspector_ciudad on inspector_emisoras.ciudad_id=inspector_ciudad.id LEFT JOIN inspector_departamento on inspector_emisoras.departamento_id=inspector_departamento.id LEFT JOIN inspector_categoria on inspector_emisoras.categoria_id=inspector_categoria.id WHERE inspector_emisoras.departamento_id = 11")
             resul = namedtuplefetchall(cursor)
             cursor.execute("SELECT nombre AS tipo_medio, id FROM inspector_categoria WHERE id<>7 order by nombre ")
             categorias = namedtuplefetchall(cursor)
@@ -171,3 +176,29 @@ def send_mail(request, correo, nombre,tel,ciudad,pais,msg):
     except Exception as e:
         return(str(e))
  
+@csrf_exempt
+def enviar_correo(request):
+    if request.method == "POST":
+        
+        try:
+            data = json.loads(request.body)  # Leer el JSON correctamente
+            producto_ids = data.get("productos", [])
+            if not producto_ids:
+                return JsonResponse({"error": "No se seleccionaron productos"}, status=400)
+
+           # productos = Producto.objects.filter(id__in=producto_ids)
+            mensaje = "\n".join([f"Productos: {p}" for p in producto_ids])
+            django_send_mail(
+                "Productos Seleccionados   **** PRUEBA APP WEB INRAI",  # Asunto del correo
+                mensaje,  # Cuerpo del correo
+                "tuemail@ejemplo.com",  # Cambia por tu correo
+                ["destinatario@ejemplo.com"],  # Cambia por el destinatario
+             
+            )
+
+            return JsonResponse({"mensaje": "Correo enviado con éxito"})
+
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=500)
+
+    return JsonResponse({"error": "Método no permitido"}, status=405)

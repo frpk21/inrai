@@ -24,8 +24,10 @@
     </div>
 </div>
 <style>
-    /* Ocultar el checkbox original */
-    input[type="checkbox"] {
+    /* Ocultar el checkbox original  input[type="checkbox"] {
+        display: none;
+    }*/
+    .checkbox-b {
         display: none;
     }
 
@@ -67,27 +69,26 @@
             <table class="table" id="example">
                 <thead>
                     <tr>
+                        <th><strong>Sel</strong></th>
                         <th><strong>Medio</strong></th>
                         <th><strong>Tipo</strong></th>
                         <th><strong>Municipio</strong></th>
-                        <th><strong>Latitud</strong></th>                    
-                        <th><strong>Longitud</strong></th>
                         <th data-orderable="false" class="text-center"><strong>Acciones</strong></th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
+                        <th><strong>Sel</strong></th>
                         <th><strong>Medio</strong></th>
                         <th><strong>Tipo</strong></th>
                         <th><strong>Municipio</strong></th>
-                        <th><strong>Latitud</strong></th>
-                        <th><strong>Longitud</strong></th>
                         <th data-orderable="false" class="text-center"><strong>Acciones</strong></th>
                     </tr>
                 </tfoot>
                 <tbody>
                     {% for item in resul %}
                         <tr data-tipo = "{{item.tipo_medio}}" style="color:black;">
+                            <td><input type="checkbox" class="producto-checkbox" value="{{item.medio}}"></td>
                             {% if item.tipo_medio == 'PERIFONEO' %}
                                 <td>PERIFONISTA</td>
                             {% else %}
@@ -103,45 +104,74 @@
                             {% endif %}
                             <td>{{item.tipo_medio}}</td>
                             <td>{{item.municipio}}</td>
-                            <td>{{item.latitud}}</td>
-                            <td>{{item.longitud}}</td>
                             <td class="td-actions text-center">
                                 <button type="button" rel="tooltip" class="btn btn-info btn-round" data-bs-target="#dataModal"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#dataModal"
-                                    data-tipo-medio="{{ item.medio }}"
-                                    data-descripcion="{{ item.obs }}"
-                                    data-ubicacion1= "{{ item.latitud }}"
-                                    data-ubicacion2= "{{ item.longitud }}"
-                                    data-ubicacion3= "{{ item.municipio }}">
+                                    data-bs-toggle   =  "modal"
+                                    data-bs-target   =  "#dataModal"
+                                    data-tipo-medio  =  "{{ item.medio }}"
+                                    data-descripcion =  "{{ item.obs }}"
+                                    data-ubicacion1  =  "{{ item.latitud }}"
+                                    data-ubicacion2  =  "{{ item.longitud }}"
+                                    data-ubicacion3  =  "{{ item.municipio }}">
                                     +
                                 </button>
                             </td>
-                        </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
         <div class="col-2 mb-1"><br /><br />
-            <h8 class="mb-4" style="color: rgb(82, 82, 82); height: 24px; text-align: center; align-items: center;"> <strong>TIPOS DE MEDIOS</strong></h8><br /><br />
-            <div class="filters">
-                {% for item in categorias %}
-                    <label style="color:rgb(24, 23, 23); font-size: 12px; line-height: 2; vertical-align: top;">
-                        {% if item.id == 1 %}
-                            <input type="checkbox" class="filter" value = "{{item.tipo_medio}}" onclick="update_list()" checked>
-                        {% else %}
-                            <input type="checkbox" class="filter" value = "{{item.tipo_medio}}" onclick="update_list()">
-                        {% endif %}
-                        <span class="custom-checkbox"></span> {{item.tipo_medio}}
-                    </label><br />
-                {% endfor %}
+            <div class="row">
+                <h8 class="mb-4" style="color: rgb(82, 82, 82); height: 24px; text-align: center; align-items: center;"> <strong>TIPOS DE MEDIOS</strong></h8><br /><br />
+                <div class="filters">
+                    {% for item in categorias %}
+                        <label style="color:rgb(24, 23, 23); font-size: 12px; line-height: 2; vertical-align: top;">
+                            {% if item.id == 1 %}
+                                <input type="checkbox" class="filter checkbox-b" value = "{{item.tipo_medio}}" onclick="update_list()" checked>
+                            {% else %}
+                                <input type="checkbox" class="filter checkbox-b" value = "{{item.tipo_medio}}" onclick="update_list()">
+                            {% endif %}
+                            <span class="custom-checkbox"></span> {{item.tipo_medio}}
+                        </label><br />
+                    {% endfor %}
+                </div>
+            </div><br /><br />
+            <div class="row">
+                <button id="enviarCorreo" class="btn btn-info" onclick="enviar_correo()">Solicitar cotización</button>
             </div>
         </div>
     </div>
 </section>
 
-
 <script>
+    function enviar_correo() {
+        let seleccionados = [];
+        // Obtener los IDs de los productos seleccionados
+        $(".producto-checkbox:checked").each(function () {
+            seleccionados.push($(this).val());
+        });
+        if (seleccionados.length === 0) {
+            alert("Seleccione al menos un producto.");
+            return;
+        }
+        // Enviar los datos seleccionados al servidor con AJAX
+        $.ajax({
+            url: "{% url 'generales:enviar_correo' %}",  // URL de la vista Django
+            type: "POST",
+            data: JSON.stringify({ productos: seleccionados }),
+            contentType: "application/json",
+            csrfmiddlewaretoken: "{{ csrf_token }}",
+            success: function (response) {
+                alert("Correo enviado con éxito.");
+            },
+            error: function () {
+                alert("Hubo un error al enviar el correo.");
+            }
+        });
+    };
+</script>
+<script>
+    
     // Detectar cuando se abre el modal
     var dataModal = document.getElementById('dataModal');
     dataModal.addEventListener('show.bs.modal', function (event) {

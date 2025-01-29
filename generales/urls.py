@@ -15,6 +15,7 @@ urlpatterns = [
     path('nosotros/', views.NosotrosView.as_view(), name='nosotros'),
     path('contacto/', views.ContactoView.as_view(), name='contacto'),
     path('radio/', views.RadioView.as_view(), name='radio'),
+    path("enviar-correo/", views.enviar_correo, name="enviar_correo"),
     #url((r'^politica/$'), PoliticaView, name="politica"),
 
 ]
