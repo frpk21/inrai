@@ -120,7 +120,7 @@ class ConsultasClientesResView(generic.TemplateView):
         try:
             cone=open_db()
             cursor=cone.cursor()
-            cursor.execute("SELECT inspector_emisoras.nombre as medio, inspector_ciudad.nombre_ciudad as municipio, inspector_categoria.nombre AS tipo_medio, inspector_departamento.nombre_departamento as departamento, latitud as lat, longitud as lon FROM inspector_emisoras LEFT JOIN inspector_ciudad on inspector_emisoras.ciudad_id=inspector_ciudad.id LEFT JOIN inspector_departamento on inspector_emisoras.departamento_id=inspector_departamento.id LEFT JOIN inspector_categoria on inspector_emisoras.categoria_id=inspector_categoria.id WHERE inspector_emisoras.departamento_id = 11")
+            cursor.execute("SELECT inspector_emisoras.nombre as medio, inspector_emisoras.descripcion as descripcion, inspector_ciudad.nombre_ciudad as municipio, inspector_categoria.nombre AS tipo_medio, inspector_departamento.nombre_departamento as departamento, latitud as lat, longitud as lon FROM inspector_emisoras LEFT JOIN inspector_ciudad on inspector_emisoras.ciudad_id=inspector_ciudad.id LEFT JOIN inspector_departamento on inspector_emisoras.departamento_id=inspector_departamento.id LEFT JOIN inspector_categoria on inspector_emisoras.categoria_id=inspector_categoria.id WHERE inspector_emisoras.departamento_id = 11")
             resul = namedtuplefetchall(cursor)
             cursor.execute("SELECT nombre AS tipo_medio, id FROM inspector_categoria WHERE id<>7 order by nombre ")
             categorias = namedtuplefetchall(cursor)

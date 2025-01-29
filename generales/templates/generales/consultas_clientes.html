@@ -5,6 +5,23 @@
 {% block contenido %}
 
 {% load humanize %}
+<div class="modal fade" id="dataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">DATOS DEL CANAL</h5>
+            <!-- Botón para cerrar con "X" -->
+        </div>
+        <div class="modal-body">
+            <p><strong>Medio</strong> <span id="modalTipoMedio"></span></p>
+            <p><strong>Descripción:</strong> <span id="modalDescripcion"></span></p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
 <style>
     /* Ocultar el checkbox original */
     input[type="checkbox"] {
@@ -88,9 +105,13 @@
                             <td>{{item.latitud}}</td>
                             <td>{{item.longitud}}</td>
                             <td class="td-actions text-center">
-                                <a href="">
-                                    <button type="button" rel="tooltip" class="btn btn-info btn-round">+</button>
-                                </a>
+                                <button type="button" rel="tooltip" class="btn btn-info btn-round" data-bs-target="#dataModal"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#dataModal"
+                                    data-tipo-medio="{{ item.medio }}"
+                                    data-descripcion="{{ item.obs }}">
+                                    +
+                                </button>
                             </td>
                         </tr>
                     {% endfor %}
@@ -117,6 +138,17 @@
 
 
 <script>
+    // Detectar cuando se abre el modal
+    var dataModal = document.getElementById('dataModal');
+    dataModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; // Botón que disparó el modal
+        var userId = button.getAttribute('data-tipo-medio');
+        var userName = button.getAttribute('data-descripcion');
+        // Insertar datos en el modal
+        document.getElementById('modalTipoMedio').textContent = userId;
+        document.getElementById('modalDescripcion').textContent = userName;
+    });
+
     function update_list(){
         
         const filters = document.querySelectorAll(".filter");
@@ -127,7 +159,6 @@
             const selectedTypes = Array.from(filters)
                 .filter(filter => filter.checked)
                 .map(filter => filter.value);
-            console.log("SELECT = ", selectedTypes);
 
             // Mostrar u ocultar filas según los filtros
             rows.forEach(row => {
