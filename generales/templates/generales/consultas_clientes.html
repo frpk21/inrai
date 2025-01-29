@@ -23,6 +23,33 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="dataModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Sus datos por favor..</h5>
+            <!-- Botón para cerrar con "X" -->
+        </div>
+        <div class="modal-body">
+            <label for="email">Correo Destinatario:</label>
+            <input type="email" id="email_cliente" placeholder="Ingrese el correo" required>
+            
+            <br><br>
+
+            <label for="mensaje">Mensaje Adicional:</label>
+            <textarea id="mensaje_cliente" placeholder="Escriba su mensaje aquí"></textarea>
+
+            <br><br>
+
+            <!-- Botones de acción -->
+            <button id="enviarCorreo">Enviar Correo</button>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="enviar_correo()">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
 <style>
     /* Ocultar el checkbox original  input[type="checkbox"] {
         display: none;
@@ -137,7 +164,7 @@
                 </div>
             </div><br /><br />
             <div class="row">
-                <button id="enviarCorreo" class="btn btn-info" onclick="enviar_correo()">Solicitar cotización</button>
+                <button id="enviarCorreo" class="btn btn-info" data-bs-target="#dataModal1">Solicitar cotización</button>
             </div>
         </div>
     </div>

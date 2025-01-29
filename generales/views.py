@@ -183,11 +183,14 @@ def enviar_correo(request):
         try:
             data = json.loads(request.body)  # Leer el JSON correctamente
             producto_ids = data.get("productos", [])
+            destinatario = data.get("email_cliente", "").strip()
+            mensaje_adicional = data.get("mensaje_cliente", "").strip()
             if not producto_ids:
                 return JsonResponse({"error": "No se seleccionaron productos"}, status=400)
 
            # productos = Producto.objects.filter(id__in=producto_ids)
             mensaje = "\n".join([f"Productos: {p}" for p in producto_ids])
+            mensaje = mensaje + '\n' + destinatario + '\n' + mensaje_adicional
             django_send_mail(
                 "* SOLICITUD DE COTIZACIÓN *   **** PRUEBA APP WEB INRAI",  # Asunto del correo
                 mensaje,  # Cuerpo del correo
