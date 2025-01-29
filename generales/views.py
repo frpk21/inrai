@@ -189,10 +189,10 @@ def enviar_correo(request):
            # productos = Producto.objects.filter(id__in=producto_ids)
             mensaje = "\n".join([f"Productos: {p}" for p in producto_ids])
             django_send_mail(
-                "Productos Seleccionados   **** PRUEBA APP WEB INRAI",  # Asunto del correo
+                "* SOLICITUD DE COTIZACIÓN *   **** PRUEBA APP WEB INRAI",  # Asunto del correo
                 mensaje,  # Cuerpo del correo
                 "administrador@sistemainrai.net",  # Cambia por tu correo
-                ["administrador@sistemainrai.net"],  # Cambia por el destinatario
+                ["alejandra.cabrera@sistemainrai.net"],  # Cambia por el destinatario
              
             )
 
