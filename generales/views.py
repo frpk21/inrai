@@ -191,8 +191,8 @@ def enviar_correo(request):
             django_send_mail(
                 "Productos Seleccionados   **** PRUEBA APP WEB INRAI",  # Asunto del correo
                 mensaje,  # Cuerpo del correo
-                "tuemail@ejemplo.com",  # Cambia por tu correo
-                ["destinatario@ejemplo.com"],  # Cambia por el destinatario
+                "administrador@sistemainrai.net",  # Cambia por tu correo
+                ["alejandra.cabrera@sistemainrai.net, administrador@sistemainrai.net"],  # Cambia por el destinatario
              
             )
 
