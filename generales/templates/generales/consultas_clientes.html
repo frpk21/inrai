@@ -73,7 +73,15 @@
                             {% if item.tipo_medio == 'PERIFONEO' %}
                                 <td>PERIFONISTA</td>
                             {% else %}
-                                <td>{{item.medio}}</td>
+                                {% if item.tipo_medio == 'BTL' %}
+                                    <td>BTL LINE</td>
+                                {% else %}
+                                    {% if item.tipo_medio == 'OPERACION LOGISTICA' %}
+                                        <td>OP LINE</td>
+                                    {% else %}
+                                        <td>{{item.medio}}</td>
+                                    {% endif %}
+                                {% endif %}
                             {% endif %}
                             <td>{{item.tipo_medio}}</td>
                             <td>{{item.municipio}}</td>
@@ -99,7 +107,7 @@
                         {% else %}
                             <input type="checkbox" class="filter" value = "{{item.tipo_medio}}" onclick="update_list()">
                         {% endif %}
-                        <span class="custom-checkbox"></span> {{item.tipo_medio}}
+                        <span class="custom-checkbox"></span> {{item.tipo_medio}}   {{item.id}}
                     </label><br />
                 {% endfor %}
             </div>
