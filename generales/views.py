@@ -126,6 +126,7 @@ class ConsultasClientesResView(generic.TemplateView):
             categorias = namedtuplefetchall(cursor)
             context['resul'] = resul
             context['categorias'] = categorias
+            context['messages'] = ''
         except psycopg2.Error as e:
             context['resul'] = ''
 

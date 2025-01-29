@@ -9,7 +9,7 @@
 <section class="p-0 d-flex align-items-center">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12 col-lg-4 col-xl-3 d-md-flex align-items-center bg-primary vh-lg-100">
+			<div class="col-md-12 col-lg-4 col-xl-3 d-md-flex align-items-center vh-lg-100" style="background-color: rgb(12, 48, 12);">
 				<div class="w-100 p-3 p-lg-5 py-5 text-white-force">
 					<div class="justify-content-center align-self-center">
 						<a class="navbar-brand" href="index.html">
@@ -164,7 +164,7 @@
 										</div>
 									</div>
 							</form>
-             				 <p style="color: red;">{{ messages }}</p>
+             				 <p style="color: red;">{% if messages == 'Credenciales incorrectas' %}{{ messages }}{% endif %}</p>
 						</div>
 					</div>
 				</div>
