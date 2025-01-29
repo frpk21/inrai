@@ -23,7 +23,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="dataModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+<div class="modal fade" id="dataModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -45,7 +45,7 @@
             <button id="enviarCorreo">Enviar Correo</button>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="enviar_correo()">Enviar</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -164,7 +164,7 @@
                 </div>
             </div><br /><br />
             <div class="row">
-                <button id="enviarCorreo" class="btn btn-info" data-bs-target="#dataModal1">Solicitar cotización</button>
+                <button id="enviarCorreo" class="btn btn-info" onclick="enviar_correo()">Solicitar cotización</button>
             </div>
         </div>
     </div>
