@@ -5,6 +5,10 @@
 {% block contenido %}
 
 {% load humanize %}
+
+<link rel="stylesheet" type="text/css"  href="/static/base/audio/content/global.css"/>
+<script type="text/javascript" src="/static/base/audio/java/FWDRAP.js"></script>
+
 <style>
 
 
@@ -246,95 +250,84 @@
                                 <h5>M&aacute;s de 40 años de experiencia. </h5>
                                 <p>Lleva tu marca al siguiente nivel. ¡Contáctanos hoy y amplifica tu mensaje con nuestras soluciones publicitarias!</p>
                                 <p>Contamos con 6 emisoras propias ubicadas en Cundinamarca, Huila y Caquet&aacute;, y m&aacute;s de 900 emisoras aliadas ubicadas en todo el territorio nacional.</p>
-                                <div class="audio-player">
-                                    <audio id="id_audio_play" src="" preload="auto" controls></audio>
-                                </div>
-                                <table class="table mt-5 mt-md-0" noborder width="80%">
-                                    <tr>
-                                        <td><i class="bi bi-circle-fill"></i></i></td>
-                                        <td style="color:#ff7300">Cristalina Est&eacute;reo Cundinamrca 102.3 FM</td>
-                                        <td>&nbsp;&nbsp;
-                                            <h5>
-                                                <a href="javascript: play_audio('https://inrai02.radioca.st/LaMesa')">
-                                                    <i class="bi bi-play-circle"></i>
-                                                </a>
-                                                <a href="javascript: stop_audio()">
-                                                    <i class="bi bi-stop-circle"></i>
-                                                </a>
-                                            </h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="bi bi-circle-fill"></i></i></td>
-                                        <td style="color:#ff7300">HJDOBLEK Huila 840 Khz</td>
-                                        <td>
-                                            <h5>
-                                                <a href="javascript: play_audio('https://inrai1.radioca.st/HJKKneiva')">
-                                                    <i class="bi bi-play-circle"></i>
-                                                </a>
-                                                <a href="javascript: stop_audio()">
-                                                    <i class="bi bi-stop-circle"></i>
-                                                </a>
-                                            </h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="bi bi-circle-fill"></i></i></td>
-                                        <td style="color:#ff7300">Cristalina Est&eacute;reo Huila 101.3 FM</td>
-                                        <td>
-                                            <h5>
-                                                <a href="javascript: play_audio('https://inrai05.radioca.st/cNeiva')">
-                                                    <i class="bi bi-play-circle"></i>
-                                                </a>
-                                                <a href="javascript: stop_audio()">
-                                                    <i class="bi bi-stop-circle"></i>
-                                                </a>
-                                            </h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="bi bi-circle-fill"></i></i></td>
-                                        <td style="color:#ff7300">La Caquete&ntilde;a 93.3 FM</td>
-                                        <td>
-                                            <h5>
-                                                <a href="javascript: play_audio('https://inrai04.radioca.st/lacaquetena')">
-                                                    <i class="bi bi-play-circle"></i>
-                                                </a>
-                                                <a href="javascript: stop_audio()">
-                                                    <i class="bi bi-stop-circle"></i>
-                                                </a>
-                                            </h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="bi bi-circle-fill"></i></i></td>
-                                        <td style="color:#ff7300">HJDOBLEK Pitalito</td>
-                                        <td>
-                                            <h5>
-                                                <a href="javascript: play_audio('https://hjpitalito1.radioca.st/hjpitalito')">
-                                                    <i class="bi bi-play-circle"></i>
-                                                </a>
-                                                <a href="javascript: stop_audio()">
-                                                    <i class="bi bi-stop-circle"></i>
-                                                </a>
-                                            </h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="bi bi-circle-fill"></i></i></td>
-                                        <td style="color:#ff7300">Cristalina Est&eacute;reo Caquet&aacute; 103.1 FM</td>
-                                        <td>
-                                            <h5>
-                                                <a href="javascript: play_audio('https://inrai03.radioca.st/cristalinaflorencia')">
-                                                    <i class="bi bi-play-circle"></i>
-                                                </a>
-                                                <a href="javascript: stop_audio()">
-                                                    <i class="bi bi-stop-circle"></i>
-                                                </a>
-                                            </h5>
-                                        </td>
-                                    </tr>
-                                </table>
+                                <br>
+                                <div id="myDiv"></div>
+                                <!--  Playlists -->
+                                <ul id="playlists" style="display:none;">
+                                    <li data-source="playlist1" data-playlist-name="INRAI DIGITAL"  data-thumbnail-path="content/thumbnails/large1.jpg">
+                                        <p class="fwdrap-categories-title"><span class="fwdrap-header">Title: </span><span class="fwdrap-title">HJDOBLEK Pitalito</span></p>
+                                        <p class="fwdrap-categories-type"><span class="fwdrap-header">Type: </span>HTML</p>
+                                        <p class="fwdrap-categories-description"><span class="fwdrap-header">Description: </span>Samples <strong>HTML FRP</strong>, INRAI</p>
+                                    </li>
+                                    <!--
+                                    <li data-source="https://www.webdesign-flash.ro/p/rap/podcast/podcast.xml" data-playlist-name="MY PODCAST PLAYLIST 1"  data-thumbnail-path="content/thumbnails/large1.jpg">
+                                        <p class="fwdrap-categories-title"><span class="fwdrap-header">Title: </span><span class="fwdrap-title">My Podcast Playlist 1</span></p>
+                                        <p class="fwdrap-categories-type"><span class="fwdrap-header">Type: </span>PODCAST</p>
+                                        <p class="fwdrap-categories-description"><span class="fwdrap-header">Description: </span>This playlist is created using a podcast URL.</p>
+                                    </li>
+                                    
+                                    <li data-source="https://soundcloud.com/playlist/sets/chance-the-rapper-top-tracks" data-playlist-name="MY SOUNDCLOUD PLAYLIST 1"  data-thumbnail-path="content/thumbnails/large1.jpg">
+                                        <p class="fwdrap-categories-title"><span class="fwdrap-header">Title: </span><span class="fwdrap-title">My SoundCloud Playlist 1</span></p>
+                                        <p class="fwdrap-categories-type"><span class="fwdrap-header">Type: </span>SOUNDCLOUD</p>
+                                        <p class="fwdrap-categories-description"><span class="fwdrap-header">Description: </span>This playlist is created using a SoundCloud playlist URL.</p>
+                                    </li>
+
+                                    <li data-source="playlistMixed" data-playlist-name="MY MIXED PLAYLIST 1"  data-thumbnail-path="content/thumbnails/p-mixed.jpg">
+                                        <p class="fwdrap-categories-title"><span class="fwdrap-header">Title: </span><span class="fwdrap-title">My Mixed Playlist 1</span></p>
+                                        <p class="fwdrap-categories-type"><span class="fwdrap-header">Type: </span>MIXED</p>
+                                        <p class="fwdrap-categories-description"><span class="fwdrap-header">Description: </span>This playlist contains mixed media files like  .mp3, .mp4, Youtube,  SoundCloud.</p>
+                                    </li>
+
+                                    <li data-source="https://www.webdesign-flash.ro/p/rap/content/playlist1.xml" data-playlist-name="MY XML PLAYLIST 1"  data-thumbnail-path="content/thumbnails/p-xml.jpg">
+                                        <p class="fwdrap-categories-title"><span class="fwdrap-header">Title: </span><span class="fwdrap-title">My XML Playlist 1</span></p>
+                                        <p class="fwdrap-categories-type"><span class="fwdrap-header">Type: </span>XML</p>
+                                        <p class="fwdrap-categories-description"><span class="fwdrap-header">Description: </span>This playlist is created using a XML file.</p>
+                                    </li>
+
+                                    <li data-source="list=PLxKHVMqMZqUQFbRO0VWaHMaWuQagIgpJe" data-playlist-name="MY YOUTUBE PLAYLIST 1"  data-thumbnail-path="content/thumbnails/large1.jpg">
+                                        <p class="fwdrap-categories-title"><span class="fwdrap-header">Title: </span><span class="fwdrap-title">My Youtube Playlist 1</span></p>
+                                        <p class="fwdrap-categories-type"><span class="fwdrap-header">Type: </span>YOUTUBE</p>
+                                        <p class="fwdrap-categories-description"><span class="fwdrap-header">Description: </span>This playlist is created using a Youtube playlist URL.</p>
+                                    </li>
+
+                                    <li data-source="mp4Playlist" data-playlist-name="MY VIDEO MP4 PLAYLIST 1"  data-thumbnail-path="content/thumbnails/large1.jpg">
+                                        <p class="fwdrap-categories-title"><span class="fwdrap-header">Title: </span><span class="fwdrap-title">My Video .mp4 Playlist 1</span></p>
+                                        <p class="fwdrap-categories-type"><span class="fwdrap-header">Type: </span>VIDEO MP4</p>
+                                        <p class="fwdrap-categories-description"><span class="fwdrap-header">Description: </span>This playlist contains .mp4 videos and simple HTML markup.</p>
+                                    </li>
+
+                                    <li data-source="folder:mp3" data-playlist-name="MY FOLDER PLAYLIST 1"  data-thumbnail-path="content/thumbnails/large1.jpg">
+                                        <p class="fwdrap-categories-title"><span class="fwdrap-header">Title: </span><span class="fwdrap-title">My Folder Playlist 1</span></p>
+                                        <p class="fwdrap-categories-type"><span class="fwdrap-header">Type: </span>FOLDER</p>
+                                        <p class="fwdrap-categories-description"><span class="fwdrap-header">Description: </span>This playlist is created from a folder with mp3 files.</p>
+                                    </li>-->
+                                </ul>
+                                <ul id="playlist1" style="display:none;">
+                                    <li data-path="https://inrai02.radioca.st/LaMesa" data-thumbpath="/static/base/images/inrai/Cristalina Cundinamarca.jpg" data-use-a-to-b="no" >
+                                        <p><span style="font-weight:bold;">Cristalina Est&eacute;reo Cundinamarca </span> - 102.3 FM</p>
+                                    </li>
+                                    <li data-path="https://inrai1.radioca.st/HJKKneiva" data-thumbpath="/static/base/images/inrai/hjdoblekhuila.jpg" data-downloadable="no">
+                                        <p><span style="font-weight:bold;">HJDOBLEK Huila</span> -  840 Khz</p>
+                                    </li>
+                                    <li data-path="https://inrai05.radioca.st/cNeiva" data-thumbpath="/static/base/images/inrai/cristalinahuila.jpg" data-downloadable="no" data-duration="03:49">
+                                        <p><span style="font-weight:bold;">Cristalina Est&eacute;reo Huila</span> - 101.3 FM</p>
+                                    </li>
+                                    <li data-path="https://inrai04.radioca.st/lacaquetena" data-thumbpath="/static/base/images/inrai/lacaquetena.jpg">
+                                        <p><span style="font-weight:bold;">La Caquete&ntilde;a</span> - 93.3 FM</p>
+                                    </li>
+                                    <li data-path="https://hjpitalito1.radioca.st/hjpitalito" data-thumbpath="/static/base/images/inrai/hjdoblekpitalito.jpg" data-downloadable="no">
+                                        <p><span style="font-weight:bold;">HJDOBLEK Pitalito</span> - DIGITAL</p>
+                                    </li>
+                                    <li data-path="https://inrai03.radioca.st/cristalinaflorencia" data-thumbpath="/static/base/images/inrai/cristalinaflorencia.jpg" data-downloadable="no" data-duration="02:01">
+                                        <p><span style="font-weight:bold;">Cristalina Est&eacute;reo Caquet&aacute;</span> - 103.1 FM</p>
+                                    </li>
+                                    <li data-path="https://stream.ram.radio/audio/ram.stream_aac/playlist.m3u8" data-thumbpath="content/thumbnails/small21.jpg" data-downloadable="no" data-duration="00:00">
+                                        <p><span style="font-weight:bold; color:#dbc300;">HLS / LIVE STREAMING / m3u8</span> - https://stream.ram.radio/audio/ram.stream_aac/playlist.m3u8</p>
+                                    </li>
+                                    <li data-path="http://144.76.106.52:7000" data-type="shoutcast" data-thumbpath="content/thumbnails/small21.jpg" data-downloadable="no" data-duration="00:00">
+                                        <p><span style="font-weight:bold; color:#e78e09;">SHOUTCAST EXAMPLE</span></p>
+                                    </li>
+                                </ul>	
                             </div>
                             <div class="tab-pane" id="tab-7-2">
                                 <h5>Digital & Social Media</h5>
@@ -448,53 +441,9 @@ Optimización de rutas<br>¡Asegura el éxito de tu campaña con perifoneo y tec
                         </div>
                     </div>
                 </div>
-                <!--
-                <div class="col-sm-6 col-md-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <img class="card-img-top rounded-0" src="/static/base/images/cert_tequendama.jpg" alt="card image">
-                        </div>
-                        <div class="card-body position-absolute bottom-0 w-100 card-element-hover">
-                            <div class="p-4 bg-white">
-                                <p class="display-9 font-alt fw-normal">Producci&oacute;n</p>
-                                <h5 class="card-title"><a href="#">Renovemos Territorio.</a></h5>
-                                <a href="#" class="btn btn-line text-dark">Leer m&aacute;s</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <img class="card-img-top rounded-0" src="/static/base/images/btl1.png" alt="card image">
-                        </div>
-                        <div class="card-body position-absolute bottom-0 w-100 card-element-hover">
-                            <div class="p-4 bg-white">
-                                <p class="display-9 font-alt fw-normal">Graphics</p>
-                                <h5 class="card-title"><a href="#">A tale of dual addresses</a></h5>
-                                <a href="#" class="btn btn-line text-dark">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <img class="card-img-top rounded-0" src="/static/base/folio/assets/images/portfolio/02.jpg" alt="card image">
-                        </div>
-                        <div class="card-body position-absolute bottom-0 w-100 card-element-hover">
-                            <div class="p-4 bg-white">
-                                <p class="display-9 font-alt fw-normal">Restaurant</p>
-                                <h5 class="card-title"><a href="#">It’s gonna be extraordinary </a></h5>
-                                <a href="#" class="btn btn-line text-dark">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
             </div>
         </div>
     </section>
-
     <section class="bg-light pattern-overlay-7 pb-2">
         <div class="container">
             <div class="row">
@@ -531,7 +480,6 @@ Optimización de rutas<br>¡Asegura el éxito de tu campaña con perifoneo y tec
             </div>
         </div>
     </section>
-
     <section>
         <div class="container">
             <div class="row">
@@ -574,89 +522,11 @@ Optimización de rutas<br>¡Asegura el éxito de tu campaña con perifoneo y tec
             </div>
         </div>
     </section>
-<!--
-    <section class="pt-0">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-lg-4">
-                    <div class="bg-light p-4 p-md-5 h-100">
-                        <h2 class="display-6 text-primary-stroke text-dark-shadow">26k</h2>
-                        <h4 class="mb-4">Organic Traffic</h4>
-                        <p>Demesne far hearted suppose venture excited see had has. Dependent on so extremely delivered by the jokes worse her why bed </p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="bg-dark p-4 p-md-5 h-100 bg-dark-overlay-4" style="background:url(assets/images/bg/06.jpg) no-repeat center center; background-size:cover;">
-                        <h2 class="display-6 text-primary-stroke text-light-shadow">64M+</h2>
-                        <h4 class="text-white mb-4">YouTube Views</h4>
-                        <p class="text-white">Satisfied conveying a dependent contented he gentleman agreeable do be <u>1M subscribers</u> arrant private blushes removed an in equally totally if. </p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="bg-dark p-4 p-md-5 h-100">
-                        <h2 class="display-6 text-light-stroke text-primary-shadow">300+</h2>
-                        <h4 class="text-white mb-4">Branding Strategy</h4>
-                        <p class="text-white">Whatever boy her exertion his extended. Ecstatic followed handsome drawings entirely Mrs one yet outweigh. Of acceptance insipidity remarkably</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
--->
 </main>
 
 <script type="text/javascript">
     
-    var audio = document.getElementById("id_audio_play");
-
-    function play_audio(file){
-        var file_audio = file;
-        audio.src = file;
-        audio.play();
-    }
-
-    function stop_audio(){
-        var audio = document.getElementById("id_audio_play");
-        audio.pause();
-    }
-    function changeRate(){
-        var rate = (event.clientY / window.innerHeight) * 4.75 + 0.25;
-        audio.playbackRate = rate;
-    }
-
-    function changeVol(){
-        var vol = event.clientY / window.innerHeight;
-        audio.volume = vol;
-    }
-
-    function changeTime(){
-        var time = (event.clientY / window.innerHeight) * audio.duration;
-        audio.currentTime = time;
-    }
-
-    function updateRate(){
-        document.getElementById('rateVal').innerHTML = audio.playbackRate;
-
-        var blueVal = parseInt(audio.playbackRate * 51);
-        document.getElementById('rateDiv').style.backgroundColor = "rgb(255, 0, " + blueVal + ")";
-    }
-
-    function updateVol(){
-        document.getElementById('volVal').innerHTML = audio.volume;
-
-        var redVal = parseInt(audio.volume * 255);
-        document.getElementById('volDiv').style.backgroundColor = "rgb(" + redVal + ", 255, 0)";
-    }
-    function updateTime(){
-        document.getElementById('timeVal').innerHTML =audio.currentTime;
-
-        var greenVal = parseInt(bg.currentTime / audio.duration * 255);
-        document.getElementById('timeDiv').style.backgroundColor = "rgb(0, " + greenVal + ", 255)";
-
-        var leftVal = (bg.currentTime /audio.duration) * window.innerWidth;
-
-        document.getElementById('pb-time').style.left = leftVal + "px";
-    }
+    
 
     document.addEventListener("DOMContentLoaded", function() {
         let lazyBackgrounds = document.querySelectorAll(".lazy-bg");
@@ -675,6 +545,174 @@ Optimización de rutas<br>¡Asegura el éxito de tu campaña con perifoneo y tec
             observer.observe(div);
         });
     });
+</script>
+<script type="text/javascript">
+
+    FWDRAPUtils.onReady(function(){
+        new FWDRAP({
+            //main settings
+            instanceName:"player1",
+            parentId:"myDiv",
+            playlistsId:"playlists",
+            mainFolderPath:"/static/base/audio/content",
+            skinPath:"modern_skin_white",
+            showSoundCloudUserNameInTitle:"yes",
+            googleAnalyticsTrackingCode:"",
+            proxyCors:"",
+            useDeepLinking:"yes",
+            useYoutube:"yes",
+            youtubeAPIKey:"",
+            useVideo:"yes",
+            rightClickContextMenu:"default",
+            showButtonsToolTips:"no",
+            initializeOnlyWhenVisible:"no",
+            addKeyboardSupport:"yes",
+            useContinuousPlayback:'no',
+            autoPlay:"no",
+            loop:"no",
+            shuffle:"no",
+            useVectorIcons:"no",
+            useHEXColorsForSkin:"no",
+            privatePassword:"428c841430ea18a70f7b06525d4b748a",
+            soundCloudAPIKey:"",
+            normalHEXButtonsColor:"#FF0000",
+            normalHEXButtonsColor2:"#00FF00",
+            maxWidth:871,
+            volume:.9,
+            toolTipsButtonsHideDelay:1.5,
+            toolTipsButtonsBackgroundColor:"#6a6a6a",
+            toolTipsButtonFontColor:"#FFFFFF",
+            //controller settings
+            animateOnIntro:"yes",
+            showFullScreenButton:"yes",
+            showNextAndPrevButtons:"yes",
+            showThumbnail:"no",
+            showLoopButton:"no",
+            showShuffleButton:"no",
+            showDownloadMp3Button:"no",
+            showBuyButton:"no",
+            showShareButton:"yes",
+            showMainScrubberAndVolumeScrubberToolTipLabel:"yes",
+            disableAudioScrubbar:"no",
+            expandBackground:"no",
+            titleColor:"#000000",
+            timeColor:"#6a6a6a",
+            scrubbersToolTipLabelBackgroundColor:"#6a6a6a",
+            scrubbersToolTipLabelFontColor:"#FFFFFF",
+            //controller align and size settings (described in detail in the documentation!)
+            controllerHeight:85,
+            startSpaceBetweenButtons:10,
+            spaceBetweenButtons:12,
+            separatorOffsetOutSpace:4,
+            separatorOffsetInSpace:7,
+            lastButtonsOffsetTop:7,
+            allButtonsOffsetTopAndBottom:15,
+            titleBarOffsetTop:12,
+            mainScrubberOffsetTop:53,
+            spaceBetweenMainScrubberAndTime:6,
+            startTimeSpace:10,
+            scrubbersOffsetWidth:3,
+            scrubbersOffestTotalWidth:-6,
+            volumeButtonAndScrubberOffsetTop:46,
+            spaceBetweenVolumeButtonAndScrubber:5,
+            volumeScrubberOffestWidth:2,
+            scrubberOffsetBottom:6,
+            equlizerOffsetLeft:2,
+            //playlists window settings
+            showPlaylistsSearchInput:"no",
+            //abre lista con otro playlist
+            usePlaylistsSelectBox:"no",
+            showPlaylistsSelectBoxNumbers:"no",
+            showPlaylistsButtonAndPlaylists:"yes",
+            showPlaylistsByDefault:"no",
+            randomizePlaylist:"no",
+            playlistLoop:"yes",
+            useID3ForFolderPlaylist:"no",
+            thumbnailSelectedType:"opacity",
+            startAtPlaylist:0,
+            startAtTrack:0,
+            startAtRandomTrack:"no",
+            buttonsMargins:15,
+            thumbnailMaxWidth:350, 
+            thumbnailMaxHeight:350,
+            horizontalSpaceBetweenThumbnails:40,
+            verticalSpaceBetweenThumbnails:40,
+            playlistSelectorHeight: 38,
+            mainSelectorBackgroundSelectedColor:"#000000",
+            mainSelectorTextNormalColor:"#000000",
+            mainSelectorTextSelectedColor:"#FFFFFF",
+            mainButtonTextNormalColor:"#6a6a6a",
+            mainButtonTextSelectedColor:"#000000",
+            //playlist settings
+            playTrackAfterPlaylistLoad:"no",
+            showPlayListButtonAndPlaylist:"yes",
+            showPlayListOnMobile:"yes",
+            showPlayListByDefault:"yes",
+            showPlaylistItemPlayButton:"yes",
+            showPlaylistItemDownloadButton:"no",
+            showPlaylistItemBuyButton:"no",
+            forceDisableDownloadButtonForPodcast:"yes",
+            forceDisableDownloadButtonForOfficialFM:"yes",
+            forceDisableDownloadButtonForFolder:"yes",
+            addScrollBarMouseWheelSupport:"yes",
+            showTracksNumbers:"no",
+            inversePlaylist:"no",
+            playlistSort:"ascending",
+            playlistBackgroundColor:"#AAAAAA",
+            trackTitleNormalColor:"#6a6a6a",
+            trackTitleSelectedColor:"#000000",
+            trackDurationColor:"#6a6a6a",
+            playlistItemHeight: 33,
+            maxPlaylistItems:100,
+            nrOfVisiblePlaylistItems:10,
+            trackTitleOffsetLeft:0,
+            playPauseButtonOffsetLeftAndRight:11,
+            durationOffsetRight:9,
+            downloadButtonOffsetRight:11,
+            scrollbarOffestWidth:7,
+            //visualizer
+            useVisualizer:'yes',
+            useDumyVisualizeOnIOS:'yes',
+            visualizerRandomPreset:"no",
+            visualizerPreset:"wave1",
+            visualizerColor:["#AAAAAA", "#999999", "#888888", "#777777", "#666666"],
+            visualizerCapColor: "#FFFFFF",
+            //playback rate / speed
+            playbackRateButtonsMargins:15,
+            showPlaybackRateButton:"yes",
+            defaultPlaybackRate:1, //min - 0.5 / max - 3
+            playbackRateWindowTextColor:"#000000",
+            //password window
+            borderColor:"#CDCDCD",
+            secondaryLabelsColor:"#444444",
+            textColor:"#777777",
+            inputBackgroundColor:"#c0c0c0",
+            inputColor:"#333333",
+            //search bar settings
+            showSearchBar:"no",
+            searchBarPosition:"bottom",
+            showSortButtons:"no",
+            searchInputColor:"#000000",
+            searchBarHeight:42,
+            inputSearchTextOffsetTop:2,
+            inputSearchOffsetLeft:0,
+            //popup settings
+            showPopupButton:"yes",
+            openPopupOnPlay:"no",
+            popupWindowBackgroundColor:"#6a6a6a",
+            popupWindowWidth:800,
+            popupWindowHeight:498,
+            //a to b loop
+            atbTimeTextColorNormal:"#5a5a5a",
+            atbTimeTextColorSelected:"#000000",
+            atbButtonTextNormalColor:"#888888",
+            atbButtonTextSelectedColor:"#FFFFFF",
+            atbButtonBackgroundNormalColor:"#FFFFFF",
+            atbButtonBackgroundSelectedColor:"#000000",
+            
+        });
+    })
+    
 </script>
 
 {% endblock contenido %}

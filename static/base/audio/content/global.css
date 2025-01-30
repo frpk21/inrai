@@ -1,0 +1,499 @@
+/* Player font. */
+@import url('https://fonts.Googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+
+/* Vector font. */
+@font-face {
+  font-family: 'fwdrap-icon';
+  src:  url('fonts/fwdrap-icon.eot?edh9nz');
+  src:  url('fonts/fwdrap-icon.eot?edh9nz#iefix') format('embedded-opentype'),
+    url('fonts/fwdrap-icon.ttf?edh9nz') format('truetype'),
+    url('fonts/fwdrap-icon.woff?edh9nz') format('woff'),
+    url('fonts/fwdrap-icon.svg?edh9nz#fwdrap-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="fwdrap-icon-"], [class*=" fwdrap-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'fwdrap-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="fwdrap-icon-"], [class*=" fwdrap-icon-"]:before {
+  position: relative;
+}
+
+.fwdrap-icon-10:before {
+  content: "\e900";
+}
+.fwdrap-icon-AB:before {
+  content: "\e901";
+}
+.fwdrap-icon-basket:before {
+  content: "\e902";
+}
+.fwdrap-icon-buffer:before {
+  content: "\e903";
+}
+.fwdrap-icon-cart:before {
+  content: "\e904";
+}
+.fwdrap-icon-close:before {
+  content: "\e905";
+}
+.fwdrap-icon-digg:before {
+  content: "\e906";
+}
+.fwdrap-icon-download:before {
+  content: "\e907";
+}
+.fwdrap-icon-email:before {
+  content: "\e908";
+}
+.fwdrap-icon-facebook:before {
+  content: "\e909";
+}
+.fwdrap-icon-FF-left:before {
+  content: "\e90a";
+}
+.fwdrap-icon-FF-right:before {
+  content: "\e90b";
+}
+.fwdrap-icon-flikr:before {
+  content: "\e90c";
+}
+.fwdrap-icon-fullscreen:before {
+  content: "\e90d";
+}
+.fwdrap-icon-google-plus:before {
+  content: "\e90e";
+}
+.fwdrap-icon-instagram:before {
+  content: "\e90f";
+}
+.fwdrap-icon-link:before {
+  content: "\e910";
+}
+.fwdrap-icon-linkedin:before {
+  content: "\e911";
+}
+.fwdrap-icon-loop:before {
+  content: "\e912";
+}
+.fwdrap-icon-music:before {
+  content: "\e913";
+}
+.fwdrap-icon-normalscreen:before {
+  content: "\e914";
+}
+.fwdrap-icon-pause:before {
+  content: "\e915";
+}
+.fwdrap-icon-play:before {
+  content: "\e916";
+}
+.fwdrap-icon-playlist:before {
+  content: "\e917";
+}
+.fwdrap-icon-playlists:before {
+  content: "\e918";
+}
+.fwdrap-icon-popup:before {
+  content: "\e919";
+}
+.fwdrap-icon-reddit:before {
+  content: "\e91a";
+}
+.fwdrap-icon-screen-maximise:before {
+  content: "\e91b";
+}
+.fwdrap-icon-screen-minimise:before {
+  content: "\e91c";
+}
+.fwdrap-icon-scroll-down:before {
+  content: "\e91d";
+}
+.fwdrap-icon-scrool-up:before {
+  content: "\e91e";
+}
+.fwdrap-icon-share:before {
+  content: "\e91f";
+}
+.fwdrap-icon-shuffle:before {
+  content: "\e920";
+}
+.fwdrap-icon-sort-letters:before {
+  content: "\e921";
+}
+.fwdrap-icon-sort-numbers:before {
+  content: "\e922";
+}
+.fwdrap-icon-sound:before {
+  content: "\e923";
+}
+.fwdrap-icon-sound-off:before {
+  content: "\e924";
+}
+.fwdrap-icon-tumblr:before {
+  content: "\e925";
+}
+.fwdrap-icon-twitter:before {
+  content: "\e926";
+}
+.fwdrap-icon-vimeo:before {
+  content: "\e927";
+}
+.fwdrap-icon-volume:before {
+  content: "\e928";
+}
+.fwdrap-icon-watch-later:before {
+  content: "\e929";
+}
+
+/* Vector icons. */
+.table-fwdrap-button { 
+  display: table; width:100%; height:100%;
+}
+
+.table-cell-fwdrap-button {
+  display: table-cell; width:100%; height: 100%; vertical-align: middle; text-align:center;
+}
+
+.fwdrap-close-button-normal-state,
+.fwdrap-categories-next-and-prev-normal-state{
+  position:absolute;
+  font-size:16px;
+  width:40px;
+  height:39px;
+  cursor: pointer;
+  background-color:#000 !important;
+  color:#FFF;
+}
+
+.fwdrap-close-button-selected-state,
+.fwdrap-categories-next-and-prev-selected-state{
+  position:absolute;
+  font-size:16px;
+  width:40px;
+  height:39px;
+  cursor: pointer;
+  background-color:#000!important;
+  color:#F00;
+}
+
+.fwdrap-categories-next-and-prev-normal-state{
+  color:#BBBBBB;
+}
+
+.fwdrap-categories-next-and-prev-selected-state{
+  color:#FFFFFF;
+}
+
+
+.fwdrap-categories-background .fwdrap-icon-FF-right:before{
+  position: relative;
+  left: 2px;
+}
+
+.fwduvp-categories-background .fwdrap-icon-close:before{
+  position: relative;
+  top: 2px;
+}
+
+.fwdrap-social-media-buttons-normal-state{
+  font-size:18px !important;
+  color:#aaaaaa !important;
+  font-weight:100;
+}
+
+.fwdrap-social-media-buttons-selected-state{
+  font-size:18px !important;
+  color:#FFFFFF !important;
+}
+
+.fwdrap-icon-scroll-down,
+.fwdrap-icon-scrool-up,
+.fwdrap-icon-sort-numbers,
+.fwdrap-icon-sort-letters{
+  font-size:18px !important;
+}
+
+.fwdrap-icon-small.fwdrap-icon-download:before,
+.fwdrap-icon-small.fwdrap-icon-cart:before{
+  font-size:14px !important;
+  top: -4px !important;
+}
+
+
+.fwdrap-main-button-normal-state{
+  font-family: "fwdicon";
+  overflow: visible!important;
+  font-size: 19px !important;
+  color:#999999 !important;
+}
+
+.fwdrap-main-button-selected-state{
+  font-family: "fwdicon";
+  overflow: visible !important;
+  font-size: 19px !important;
+  color:#FFFFFF !important;
+}
+
+.fwdrap-main-button-normal-state .fwdrap-icon-play:before,
+.fwdrap-main-button-selected-state .fwdrap-icon-play:before{
+  font-size: 30px;
+}
+
+.fwdrap-main-button-normal-state .fwdrap-icon-pause:before,
+.fwdrap-main-button-selected-state .fwdrap-icon-pause:before{
+  font-size: 26px;
+  left: -1px;
+}
+
+.fwdrap-icon-shuffle:before{
+  font-size: 24px !important;
+  top: -1px;
+}
+
+.fwdrap-icon-loop:before{
+  
+}
+
+.fwdrap-icon-AB:before{
+  font-size: 23px !important;
+  top: -1px;
+}
+
+.fwdrap-icon-cart:before,
+.fwdrap-icon-download:before{
+  font-size: 19px !important;
+  top: -1px;
+}
+
+.fwdrap-large-play-button-normal-state{
+  position:absolute;
+  font-size: 30px !important;
+  width: 86px !important;
+  height:59px !important;
+  cursor: pointer;
+  background-color:rgba(0,0,0,.7) ;
+  color:#6a6a6a !important;
+}
+
+
+.fwdrap-large-play-button-selected-state{
+  position: absolute;
+  font-size: 30px !important;
+  width: 86px !important;
+  height:59px !important;
+  cursor: pointer;
+  background-color:rgba(0,0,0,.7) ;
+  color:#FFF !important;
+}
+
+.fwdrap-large-play-button-normal-state .fwdicon-play:before,
+.fwdrap-large-play-button-selected-state .fwdicon-play:before{
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
+/* ############################### */
+/* Dark skin. */
+/* ###############################  */
+
+/* Categories. */
+.fwdrap-categories-dark-text{
+  font: 400 14px Roboto, Arial !important;
+}
+
+.fwdrap-categories-dark-text .fwdrap-header{
+  color: #FFFFFF !important;
+}
+
+.fwdrap-categories-dark-text.active .fwdrap-title{
+  color: #FFFFFF !important;
+}
+
+.fwdrap-categories-dark-text .fwdrap-categories-title{
+  margin: 10px 15px 0 !important;
+  line-height: 1.8 !important;
+}
+
+.fwdrap-categories-dark-text .fwdrap-title{
+  font-weight: bold;
+  line-height: 18px !important;
+  color:#999 !important;
+  transition: all .3s ease-out !important;
+}
+
+.fwdrap-categories-dark-text .fwdrap-categories-type{
+  color:#999 !important;
+  line-height: 18px !important;
+  margin: 2px 15px 0 !important;
+}
+
+.fwdrap-categories-dark-text .fwdrap-categories-description{
+  color:#999 !important;
+  line-height: 18px !important;
+  margin: 5px 15px 13px !important;
+}
+
+.fwdrap-link a:link    {color:#0099FF !important;}
+.fwdrap-link a:visited {color:#0099FF !important;}
+.fwdrap-link a:hover   {color:#DDDDDD !important;}
+.fwdrap-link a:active  {color:#0099FF !important;}
+
+.fwdrap-search-input{
+  font-family: Roboto, Arial !important;
+}
+
+/* Playlist. */
+.fwdrap-playlist-background{}
+
+.fwdrap-selector-text{
+  font: 700 14px Roboto, Arial !important;
+}
+
+.fwdrap-playlist-selector-item-text{
+  font: 500 14px Roboto, Arial !important;
+}
+
+.fwdrap-playlist-item-dark-text{
+  font: 400 12px Roboto, Arial !important;
+}
+
+.fwdrap-playlist-item-dark-text .fwdrap-artist{
+  font-weight: 700;
+}
+
+.fwdrap-playlist-item-dark-text .fwdrap-title{
+  font-weight: 400;
+}
+
+.fwdrap-playlist-item-right-gradient{}
+
+/* Controler. */
+.fwdrap-controler{}
+
+.fwdrap-controler-title{
+  font: 400 12px Roboto, Arial !important;
+  line-height: 1 !important;
+}
+
+.fwdrap-controler-tooltip-text{
+  font: 400 12px Roboto, Arial !important;
+}
+
+.fwdrap-controler-tooltip-background{}
+
+.fwdrap-controler-tooltip-pointer{}
+
+.fwdrap-controller-time{
+  font: 400 12px Roboto, Arial !important;
+}
+
+/* Playback rate window. */
+.fwdrap-playbackrate-text{
+  font: 400 12px Roboto, Arial !important;
+}
+
+/* Logged in window. */
+.fwdrap-loggedin-message-dark{
+  font: 400 14px Roboto, Arial !important;
+  color: #999999 !important;
+}
+
+.fwdrap-loggedin-message-dark a{
+  background-image: linear-gradient(#FFF calc(100% - 1px), #FFF 1px);
+  background-size: 0% 2px;
+  color: #CCC;
+}
+
+.fwdrap-loggedin-message-dark a:hover{
+  color: #FFF;
+}
+
+.fwdrap-label{
+  font: 400 12px Roboto, Arial !important;
+}
+
+/* A to b window. */
+.fwdrap-a-to-b-text{
+  font: 400 12px Roboto, Arial !important;
+}
+
+
+/* ############################### */
+/* White skin. */
+/* ###############################  */
+.fwdrap-playlist-item-white-text{
+  font: 400 12px Roboto, Arial !important;
+}
+
+.fwdrap-playlist-item-white-text .fwdrap-artist{
+  font-weight: 700;
+}
+
+.fwdrap-playlist-item-white-text .fwdrap-title{
+  font-weight: 400;
+}
+
+/* Categories. */
+.fwdrap-categories-white-text{
+  font: 400 14px Roboto, Arial !important;
+}
+
+.fwdrap-categories-white-text .fwdrap-header{
+  font-weight: 500;
+  color: #000000 !important;
+}
+
+.fwdrap-categories-white-text.active .fwdrap-title{
+  color: #000000 !important;
+}
+
+.fwdrap-categories-white-text .fwdrap-categories-title{
+  font-weight: 500;
+  margin: 10px 15px 0 !important;
+  line-height: 1.8 !important;
+}
+
+.fwdrap-categories-white-text .fwdrap-title{
+  font-weight: bold;
+  line-height: 18px !important;
+  color:#666 !important;
+  transition: all .3s ease-out !important;
+}
+
+.fwdrap-categories-white-text .fwdrap-categories-type{
+  color:#666 !important;
+  line-height: 18px !important;
+  margin: 2px 15px 0 !important;
+}
+
+.fwdrap-categories-white-text .fwdrap-categories-description{
+  color:#666 !important;
+  line-height: 18px !important;
+  margin: 5px 15px 13px !important;
+}
+
+/* Logged in window. */
+.fwdrap-loggedin-message-white{
+  font: 400 14px Roboto, Arial !important;
+  color: #6a6a6a !important;
+}
+
+.fwdrap-loggedin-message-white a{
+  color: #0099FF;
+}
